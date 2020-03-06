@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\hecto\AppData\Local\Temp\scjs.o
+$C:\Users\hecto\AppData\Local\Temp\s2io.o
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 2 2
 $dist/default/production\Project_Master.X.production.o
@@ -63,11 +63,11 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Project_Master.X.production.o
-7FC cinit CODE >1102:C:\Users\hecto\AppData\Local\Temp\scjs.s
-7FC cinit CODE >1105:C:\Users\hecto\AppData\Local\Temp\scjs.s
-7FC cinit CODE >1111:C:\Users\hecto\AppData\Local\Temp\scjs.s
-7FC cinit CODE >1113:C:\Users\hecto\AppData\Local\Temp\scjs.s
-7FD cinit CODE >1114:C:\Users\hecto\AppData\Local\Temp\scjs.s
+7FC cinit CODE >1102:C:\Users\hecto\AppData\Local\Temp\s2io.s
+7FC cinit CODE >1105:C:\Users\hecto\AppData\Local\Temp\s2io.s
+7FC cinit CODE >1111:C:\Users\hecto\AppData\Local\Temp\s2io.s
+7FC cinit CODE >1113:C:\Users\hecto\AppData\Local\Temp\s2io.s
+7FD cinit CODE >1114:C:\Users\hecto\AppData\Local\Temp\s2io.s
 7F9 maintext CODE >39:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 7F9 maintext CODE >40:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 7F9 maintext CODE >41:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
@@ -92,26 +92,26 @@ __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\Project_Master.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\scjs.o
+___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s2io.o
 _main FF2 0 CODE 0 maintext dist/default/production\Project_Master.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Project_Master.X.production.o
-start 0 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\scjs.o
+start 0 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\s2io.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\scjs.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\scjs.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\scjs.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\scjs.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\scjs.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\scjs.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s2io.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s2io.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s2io.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s2io.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s2io.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s2io.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\scjs.o
-___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\scjs.o
+___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s2io.o
+___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s2io.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\Project_Master.X.production.o
@@ -121,7 +121,7 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Project_Master.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\scjs.o
+___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s2io.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -167,7 +167,7 @@ __S3 0 0 ABS 0 - -
 __CFG_BOR4V$BOR40V 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\scjs.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\s2io.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __pmaintext FF2 0 CODE 0 maintext dist/default/production\Project_Master.X.production.o
 __Lcommon 0 0 ABS 0 common -

@@ -133,7 +133,7 @@ config 400E 4011 CONFIG 400E 0
 maintext FF2 FF7 CODE FF2 0
 %locals
 dist/default/production\Project_Master.X.production.o
-C:\Users\hecto\AppData\Local\Temp\scjs.s
+C:\Users\hecto\AppData\Local\Temp\s2io.s
 1102 7FC 0 CODE 0
 1105 7FC 0 CODE 0
 1111 7FC 0 CODE 0
