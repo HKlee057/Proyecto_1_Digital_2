@@ -1,4 +1,4 @@
-# 1 "LCD.c"
+# 1 "Sensor_Interferencia.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,150 +6,29 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LCD.c" 2
+# 1 "Sensor_Interferencia.c" 2
+# 12 "Sensor_Interferencia.c"
+#pragma config FOSC = INTRC_NOCLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
 
 
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
 
 
 
 
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
 
 
 
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 7 "LCD.c" 2
-
-# 1 "./LCD.h" 1
-# 34 "./LCD.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2634,94 +2513,269 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 34 "./LCD.h" 2
+# 32 "Sensor_Interferencia.c" 2
 
-
-void lcd_cmd(unsigned char x);
-void lcd_dwr(unsigned char x);
-void lcd_msg(unsigned char *c);
-void lcd_ready(void);
-void lcd_lat(void);
-void lcd_init(void);
-void LCD_POINT (uint8_t lin, uint8_t col);
-# 8 "LCD.c" 2
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
 
 
 
 
 
 
+typedef signed int int16_t;
 
-void lcd_cmd(unsigned char x){
-    lcd_ready();
-    PORTB = x;
-    RD7 = 0;
-    RD2 = 0;
-    lcd_lat();
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 33 "Sensor_Interferencia.c" 2
+
+# 1 "./I2C.h" 1
+# 25 "./I2C.h"
+void I2C_Master_Init(const unsigned long c);
+
+
+
+
+
+
+
+void I2C_Master_Wait(void);
+
+
+
+void I2C_Master_Start(void);
+
+
+
+void I2C_Master_RepeatedStart(void);
+
+
+
+void I2C_Master_Stop(void);
+
+
+
+
+
+void I2C_Master_Write(unsigned d);
+
+
+
+
+unsigned short I2C_Master_Read(unsigned short a);
+
+
+
+void I2C_Slave_Init(uint8_t address);
+# 34 "Sensor_Interferencia.c" 2
+
+# 1 "./Oscilador.h" 1
+# 11 "./Oscilador.h"
+#pragma config FOSC = INTRC_NOCLKOUT
+
+
+
+
+
+
+
+void initOsc(uint8_t frec);
+# 35 "Sensor_Interferencia.c" 2
+
+
+
+
+
+
+uint8_t z;
+uint8_t estado;
+uint8_t sensor_signal;
+uint16_t move_servo;
+
+
+
+void init(void);
+
+
+
+
+void __attribute__((picinterrupt(("")))) isr(void){
+
+    if(PIR1bits.SSPIF == 1){
+
+            SSPCONbits.CKP = 0;
+
+            if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+                z = SSPBUF;
+                SSPCONbits.SSPOV = 0;
+                SSPCONbits.WCOL = 0;
+                SSPCONbits.CKP = 1;
+            }
+
+            if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+                z = SSPBUF;
+                PIR1bits.SSPIF = 0;
+                SSPCONbits.CKP = 1;
+                while(!SSPSTATbits.BF);
+                sensor_signal = SSPBUF;
+                _delay((unsigned long)((250)*(8000000/4000000.0)));
+
+            }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+                z = SSPBUF;
+                BF = 0;
+                SSPBUF = sensor_signal;
+                SSPCONbits.CKP = 1;
+                _delay((unsigned long)((250)*(8000000/4000000.0)));
+                while(SSPSTATbits.BF);
+            }
+
+            PIR1bits.SSPIF = 0;
+        }
 }
 
-void lcd_lat(){
-    RD3 = 1;
-   _delay((unsigned long)((30)*(8000000/4000.0)));
-   RD3 = 0;
-}
-void lcd_ready(void) {
-    PORTB = 0xFF;
-    PORTB &= 0x80;
-    RD7 = 0;
-    RD2 = 1;
-    RD3 = 0;
-    _delay((unsigned long)((30)*(8000000/4000.0)));
-    RD3 = 1;
-    if (PORTB == 0x80){
-    RD3 = 0;
-    _delay((unsigned long)((30)*(8000000/4000.0)));
-    RD3 = 1;
-    }
-    else{
-
-    }
 
 
-}
+void main(void) {
+    initOsc(7);
+    init();
 
-void lcd_dwr(unsigned char x){
-    lcd_ready();
-    PORTB = x;
-    RD7 = 1;
-    RD2 = 0;
-    lcd_lat();
-
-
-}
-
-void lcd_msg(unsigned char *c){
-
-    while(*c != 0)
-        lcd_dwr(*c++);
-}
-
-void lcd_init(void){
-
-    lcd_cmd(0x38);
-    lcd_cmd(0x0C);
-    lcd_cmd(0x01);
-    lcd_cmd(0x06);
-    lcd_cmd(0x80);
-
+    PORTA = 0x00;
+    PORTB = 0x00;
+    PORTC = 0x00;
+    PORTD = 0x00;
+    return;
 }
 
 
 
+void init(void){
+    TRISA = 0;
+    TRISB = 0;
+    TRISC = 0;
+    TRISD = 0b00000001;
+    ANSEL = 0;
+    ANSELH = 0;
+    I2C_Slave_Init(0x60);
 
-
-
-void LCD_POINT (uint8_t lin, uint8_t col){
-
-    if((lin > 2)||(col> 15)){
-        return;
-    }else{
-        lcd_cmd((lin == 1) ? (0x80|col): (0xC0|col));
-        _delay((unsigned long)((5)*(8000000/4000.0)));
-    }
 }

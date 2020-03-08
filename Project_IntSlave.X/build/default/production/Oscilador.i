@@ -1,4 +1,4 @@
-# 1 "LCD.c"
+# 1 "Oscilador.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,13 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LCD.c" 2
-
-
-
-
-
-
+# 1 "Oscilador.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -146,10 +140,14 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 7 "LCD.c" 2
+# 1 "Oscilador.c" 2
 
-# 1 "./LCD.h" 1
-# 34 "./LCD.h"
+
+# 1 "./Oscilador.h" 1
+# 11 "./Oscilador.h"
+#pragma config FOSC = INTRC_NOCLKOUT
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2634,94 +2632,68 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 34 "./LCD.h" 2
-
-
-void lcd_cmd(unsigned char x);
-void lcd_dwr(unsigned char x);
-void lcd_msg(unsigned char *c);
-void lcd_ready(void);
-void lcd_lat(void);
-void lcd_init(void);
-void LCD_POINT (uint8_t lin, uint8_t col);
-# 8 "LCD.c" 2
+# 13 "./Oscilador.h" 2
 
 
 
 
 
 
+void initOsc(uint8_t frec);
+# 3 "Oscilador.c" 2
 
-void lcd_cmd(unsigned char x){
-    lcd_ready();
-    PORTB = x;
-    RD7 = 0;
-    RD2 = 0;
-    lcd_lat();
-}
 
-void lcd_lat(){
-    RD3 = 1;
-   _delay((unsigned long)((30)*(8000000/4000.0)));
-   RD3 = 0;
-}
-void lcd_ready(void) {
-    PORTB = 0xFF;
-    PORTB &= 0x80;
-    RD7 = 0;
-    RD2 = 1;
-    RD3 = 0;
-    _delay((unsigned long)((30)*(8000000/4000.0)));
-    RD3 = 1;
-    if (PORTB == 0x80){
-    RD3 = 0;
-    _delay((unsigned long)((30)*(8000000/4000.0)));
-    RD3 = 1;
+
+
+
+void initOsc(uint8_t frec){
+    switch(frec){
+        case 0:
+            OSCCONbits.IRCF0 = 0;
+            OSCCONbits.IRCF1 = 0;
+            OSCCONbits.IRCF2 = 0;
+            break;
+        case 1:
+            OSCCONbits.IRCF0 = 1;
+            OSCCONbits.IRCF1 = 0;
+            OSCCONbits.IRCF2 = 0;
+            break;
+        case 2:
+            OSCCONbits.IRCF0 = 0;
+            OSCCONbits.IRCF1 = 1;
+            OSCCONbits.IRCF2 = 0;
+            break;
+        case 3:
+            OSCCONbits.IRCF0 = 1;
+            OSCCONbits.IRCF1 = 1;
+            OSCCONbits.IRCF2 = 0;
+            break;
+        case 4:
+            OSCCONbits.IRCF0 = 0;
+            OSCCONbits.IRCF1 = 0;
+            OSCCONbits.IRCF2 = 1;
+            break;
+        case 5:
+            OSCCONbits.IRCF0 = 1;
+            OSCCONbits.IRCF1 = 0;
+            OSCCONbits.IRCF2 = 1;
+            break;
+        case 6:
+            OSCCONbits.IRCF0 = 0;
+            OSCCONbits.IRCF1 = 1;
+            OSCCONbits.IRCF2 = 1;
+            break;
+        case 7:
+            OSCCONbits.IRCF0 = 1;
+            OSCCONbits.IRCF1 = 1;
+            OSCCONbits.IRCF2 = 1;
+            break;
+        default:
+            OSCCONbits.IRCF0 = 0;
+            OSCCONbits.IRCF1 = 1;
+            OSCCONbits.IRCF2 = 1;
+            break;
     }
-    else{
 
-    }
-
-
-}
-
-void lcd_dwr(unsigned char x){
-    lcd_ready();
-    PORTB = x;
-    RD7 = 1;
-    RD2 = 0;
-    lcd_lat();
-
-
-}
-
-void lcd_msg(unsigned char *c){
-
-    while(*c != 0)
-        lcd_dwr(*c++);
-}
-
-void lcd_init(void){
-
-    lcd_cmd(0x38);
-    lcd_cmd(0x0C);
-    lcd_cmd(0x01);
-    lcd_cmd(0x06);
-    lcd_cmd(0x80);
-
-}
-
-
-
-
-
-
-void LCD_POINT (uint8_t lin, uint8_t col){
-
-    if((lin > 2)||(col> 15)){
-        return;
-    }else{
-        lcd_cmd((lin == 1) ? (0x80|col): (0xC0|col));
-        _delay((unsigned long)((5)*(8000000/4000.0)));
-    }
+    OSCCONbits.SCS = 1;
 }

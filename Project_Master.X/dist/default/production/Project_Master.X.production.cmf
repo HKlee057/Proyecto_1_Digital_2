@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\hecto\AppData\Local\Temp\sbqg.o
+$C:\Users\hecto\AppData\Local\Temp\s1o0.o
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 2 2
 $dist/default/production\Project_Master.X.production.o
@@ -93,16 +93,16 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Project_Master.X.production.o
-7F3 cinit CODE >1216:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7F3 cinit CODE >1219:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7F3 cinit CODE >1305:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7F4 cinit CODE >1306:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7F5 cinit CODE >1307:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7F6 cinit CODE >1308:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7F7 cinit CODE >1309:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7FC cinit CODE >1315:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7FC cinit CODE >1317:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-7FD cinit CODE >1318:C:\Users\hecto\AppData\Local\Temp\sbqg.s
+7F3 cinit CODE >1216:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7F3 cinit CODE >1219:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7F3 cinit CODE >1305:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7F4 cinit CODE >1306:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7F5 cinit CODE >1307:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7F6 cinit CODE >1308:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7F7 cinit CODE >1309:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7FC cinit CODE >1315:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7FC cinit CODE >1317:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+7FD cinit CODE >1318:C:\Users\hecto\AppData\Local\Temp\s1o0.s
 929 text26 CODE >23:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\I2C.c
 929 text26 CODE >25:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\I2C.c
 935 text26 CODE >26:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\I2C.c
@@ -669,16 +669,16 @@ BD1 text4 CODE >58:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_
 7CD maintext CODE >261:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 7DA maintext CODE >263:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 7E9 maintext CODE >265:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
-905 clrtext CODE >1292:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-905 clrtext CODE >1293:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-906 clrtext CODE >1294:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-906 clrtext CODE >1295:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-907 clrtext CODE >1296:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-908 clrtext CODE >1297:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-909 clrtext CODE >1298:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-90A clrtext CODE >1299:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-90B clrtext CODE >1300:C:\Users\hecto\AppData\Local\Temp\sbqg.s
-90C clrtext CODE >1301:C:\Users\hecto\AppData\Local\Temp\sbqg.s
+905 clrtext CODE >1292:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+905 clrtext CODE >1293:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+906 clrtext CODE >1294:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+906 clrtext CODE >1295:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+907 clrtext CODE >1296:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+908 clrtext CODE >1297:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+909 clrtext CODE >1298:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+90A clrtext CODE >1299:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+90B clrtext CODE >1300:C:\Users\hecto\AppData\Local\Temp\s1o0.s
+90C clrtext CODE >1301:C:\Users\hecto\AppData\Local\Temp\s1o0.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -707,11 +707,11 @@ I2C_Master_Init@c 45 0 BANK0 1 cstackBANK0 dist/default/production\Project_Maste
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\Project_Master.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\sbqg.o
+___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s1o0.o
 _init 12D2 0 CODE 0 text5 dist/default/production\Project_Master.X.production.o
 _main 6B0 0 CODE 0 maintext dist/default/production\Project_Master.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Project_Master.X.production.o
-start 0 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\sbqg.o
+start 0 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\s1o0.o
 ___flmul@aexp 52 0 BANK0 1 cstackBANK0 dist/default/production\Project_Master.X.production.o
 ___flmul@bexp 53 0 BANK0 1 cstackBANK0 dist/default/production\Project_Master.X.production.o
 ___flmul@prod 54 0 BANK0 1 cstackBANK0 dist/default/production\Project_Master.X.production.o
@@ -734,12 +734,12 @@ __Hpowerup 0 0 CODE 0 powerup -
 ___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\Project_Master.X.production.o
 I2C_Master_Read@a 70 0 COMMON 1 cstackCOMMON dist/default/production\Project_Master.X.production.o
 __end_of_lcd_ready 1422 0 CODE 0 text20 dist/default/production\Project_Master.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sbqg.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sbqg.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sbqg.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sbqg.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sbqg.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sbqg.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s1o0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s1o0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s1o0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s1o0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s1o0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s1o0.o
 __size_of_lcd_ready 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Project_Master.X.production.o
@@ -775,8 +775,8 @@ __end_of___lldiv 1870 0 CODE 0 text7 dist/default/production\Project_Master.X.pr
 __end_of___lwdiv 8E 0 CODE 0 text10 dist/default/production\Project_Master.X.production.o
 __end_of___lwmod 15BC 0 CODE 0 text9 dist/default/production\Project_Master.X.production.o
 __Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\Project_Master.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\sbqg.o
-___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\sbqg.o
+___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s1o0.o
+___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s1o0.o
 ___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/production\Project_Master.X.production.o
 ___fldiv@a 45 0 BANK0 1 cstackBANK0 dist/default/production\Project_Master.X.production.o
 ___fldiv@b 49 0 BANK0 1 cstackBANK0 dist/default/production\Project_Master.X.production.o
@@ -806,7 +806,7 @@ _TRISC4 43C 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 _RES_cien 20 0 BANK0 1 bssBANK0 dist/default/production\Project_Master.X.production.o
 __size_of_Val_STR 0 0 ABS 0 - dist/default/production\Project_Master.X.production.o
 __end_of_initOsc 17A4 0 CODE 0 text4 dist/default/production\Project_Master.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\sbqg.o
+___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s1o0.o
 __end_of_LCD_POINT 14D8 0 CODE 0 text18 dist/default/production\Project_Master.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -883,7 +883,7 @@ _lcd_cmd 128A 0 CODE 0 text19 dist/default/production\Project_Master.X.productio
 _lcd_dwr 12AE 0 CODE 0 text2 dist/default/production\Project_Master.X.production.o
 _lcd_lat 126C 0 CODE 0 text21 dist/default/production\Project_Master.X.production.o
 _lcd_msg 1344 0 CODE 0 text1 dist/default/production\Project_Master.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\sbqg.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\s1o0.o
 __end_of_Val_STR 163A 0 CODE 0 text17 dist/default/production\Project_Master.X.production.o
 __end_of___xxtofl 2F6 0 CODE 0 text8 dist/default/production\Project_Master.X.production.o
 initOsc@frec 72 0 COMMON 1 cstackCOMMON dist/default/production\Project_Master.X.production.o
