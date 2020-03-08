@@ -11,12 +11,12 @@ __Lintentry 4 0 CODE 0
 __pintentry 4 0 CODE 0
 _isr 18 0 CODE 0
 _PEIE 5E 0 ABS 0
-__end_of_init 126 0 CODE 0
+__end_of_init 123 0 CODE 0
 __CFG_BOR4V$BOR40V 0 0 ABS 0
 _main D9 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
-_init 114 0 CODE 0
+_init 111 0 CODE 0
 start C 0 CODE 0
 _TRISA 85 0 ABS 0
 _SSPIE 463 0 ABS 0
@@ -35,6 +35,7 @@ __size_of_init 0 0 ABS 0
 interrupt_function 4 0 CODE 0
 __Hconfig 2009 0 CONFIG 0
 __Lconfig 2007 0 CONFIG 0
+_pirValue 79 0 COMMON 1
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __size_of_isr 0 0 ABS 0
@@ -65,11 +66,10 @@ __Lsfr3 0 0 ABS 0
 ___stackhi 0 0 ABS 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
-_estado 79 0 COMMON 1
 saved_w 7E 0 ABS 0
 __Hinit C 0 CODE 0
 __Linit C 0 CODE 0
-__end_of_main FA 0 CODE 0
+__end_of_main F7 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __end_of_initOsc D9 0 CODE 0
@@ -96,11 +96,11 @@ ___latbits 2 0 ABS 0
 __Hpowerup 0 0 CODE 0
 _SSPSTAT 94 0 ABS 0
 __Lpowerup 0 0 CODE 0
-__end_of_I2C_Slave_Init 114 0 CODE 0
+__end_of_I2C_Slave_Init 111 0 CODE 0
 _SSPCON2bits 91 0 ABS 0
 __ptext1 7D 0 CODE 0
-__ptext2 114 0 CODE 0
-__ptext3 FA 0 CODE 0
+__ptext2 111 0 CODE 0
+__ptext3 F7 0 CODE 0
 __ptext4 18 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
@@ -140,7 +140,7 @@ __Lreset_vec 0 0 CODE 0
 intlevel0 0 0 ENTRY 0
 __CFG_WDTE$OFF 0 0 ABS 0
 intlevel1 0 0 ENTRY 0
-_I2C_Slave_Init FA 0 CODE 0
+_I2C_Slave_Init F7 0 CODE 0
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0
 intlevel2 0 0 ENTRY 0
 intlevel3 0 0 ENTRY 0
@@ -160,12 +160,12 @@ __CFG_CP$OFF 0 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
 reset_vec 0 5 CODE 0 0
-intentry 8 24B CODE 8 0
+intentry 8 245 CODE 8 0
 config 400E 4011 CONFIG 400E 0
 cstackCOMMON 70 7A COMMON 70 1
 %locals
 dist/default/production\Project_MovSlave.X.production.o
-C:\Users\hecto\AppData\Local\Temp\shug.s
+C:\Users\hecto\AppData\Local\Temp\sje4.s
 810 F 0 CODE 0
 813 F 0 CODE 0
 833 F 0 CODE 0
@@ -185,10 +185,7 @@ Sensor_Movimiento.c
 95 E8 0 CODE 0
 96 E9 0 CODE 0
 98 EA 0 CODE 0
-100 EE 0 CODE 0
-101 F3 0 CODE 0
-102 F4 0 CODE 0
-103 F5 0 CODE 0
+99 EE 0 CODE 0
 Oscilador.c
 8 7D 0 CODE 0
 9 7E 0 CODE 0
@@ -241,28 +238,28 @@ Oscilador.c
 57 D7 0 CODE 0
 58 D8 0 CODE 0
 Sensor_Movimiento.c
-111 114 0 CODE 0
-112 114 0 CODE 0
-113 117 0 CODE 0
-114 118 0 CODE 0
-115 119 0 CODE 0
-116 11B 0 CODE 0
-117 11E 0 CODE 0
-118 11F 0 CODE 0
-120 125 0 CODE 0
+107 111 0 CODE 0
+108 111 0 CODE 0
+109 114 0 CODE 0
+110 115 0 CODE 0
+111 116 0 CODE 0
+112 118 0 CODE 0
+113 11B 0 CODE 0
+114 11C 0 CODE 0
+116 122 0 CODE 0
 I2C.c
-85 FA 0 CODE 0
-87 FB 0 CODE 0
-88 FF 0 CODE 0
-89 103 0 CODE 0
-90 107 0 CODE 0
-91 109 0 CODE 0
-92 10A 0 CODE 0
-93 10B 0 CODE 0
-94 10C 0 CODE 0
-95 10D 0 CODE 0
-96 110 0 CODE 0
-97 113 0 CODE 0
+85 F7 0 CODE 0
+87 F8 0 CODE 0
+88 FC 0 CODE 0
+89 100 0 CODE 0
+90 104 0 CODE 0
+91 106 0 CODE 0
+92 107 0 CODE 0
+93 108 0 CODE 0
+94 109 0 CODE 0
+95 10A 0 CODE 0
+96 10D 0 CODE 0
+97 110 0 CODE 0
 Sensor_Movimiento.c
 53 18 0 CODE 0
 55 18 0 CODE 0

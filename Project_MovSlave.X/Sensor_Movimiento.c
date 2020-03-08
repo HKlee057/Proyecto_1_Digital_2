@@ -39,7 +39,7 @@
 #define SENSOR_SIGNAL PORTDbits.RD0     //Definición de bit en Puerto D con nombre coloquial
 #define SERVO_2 PORTAbits.RA0           //Definición de bit en Puerto D con nombre coloquial
 uint8_t z;
-uint8_t estado;
+uint8_t pirValue;
 uint8_t sensor_signal;
 uint16_t move_servo;
 //******************************************************************************
@@ -68,13 +68,13 @@ void __interrupt() isr(void){
                 PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
                 SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
                 while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
-                estado = SSPBUF;     // Guardar en el PORTD el valor del buffer de recepción
+                pirValue = SSPBUF;     // Guardar en el PORTD el valor del buffer de recepción
                 __delay_us(250);
 
             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
                 z = SSPBUF;
                 BF = 0;
-                SSPBUF = estado;
+                SSPBUF = pirValue;
                 SSPCONbits.CKP = 1;
                 __delay_us(250);
                 while(SSPSTATbits.BF);
@@ -95,13 +95,9 @@ void main(void) {
     PORTC = 0x00;
     PORTD = 0x00; 
     while (1){
-        estado = SENSOR_SIGNAL;
+        pirValue = SENSOR_SIGNAL;
+        SERVO_2 = pirValue;             //Encender o apagar el PWM dependiendo del valor del sensor
         
-        if (estado == 1) {              //No se detecta interferencia
-            SERVO_2 = 0;                //Mantener apagado el pin de PWM
-        } else {                        //Se detecta interferencia
-            SERVO_2 = 1;                //Encender el pin de PWM
-        }
     }
     return;
 }

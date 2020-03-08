@@ -2709,7 +2709,7 @@ void initOsc(uint8_t frec);
 
 
 uint8_t z;
-uint8_t estado;
+uint8_t pirValue;
 uint8_t sensor_signal;
 uint16_t move_servo;
 
@@ -2738,13 +2738,13 @@ void __attribute__((picinterrupt(("")))) isr(void){
                 PIR1bits.SSPIF = 0;
                 SSPCONbits.CKP = 1;
                 while(!SSPSTATbits.BF);
-                estado = SSPBUF;
+                pirValue = SSPBUF;
                 _delay((unsigned long)((250)*(8000000/4000000.0)));
 
             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
                 z = SSPBUF;
                 BF = 0;
-                SSPBUF = estado;
+                SSPBUF = pirValue;
                 SSPCONbits.CKP = 1;
                 _delay((unsigned long)((250)*(8000000/4000000.0)));
                 while(SSPSTATbits.BF);
@@ -2765,13 +2765,9 @@ void main(void) {
     PORTC = 0x00;
     PORTD = 0x00;
     while (1){
-        estado = PORTDbits.RD0;
+        pirValue = PORTDbits.RD0;
+        PORTAbits.RA0 = pirValue;
 
-        if (estado == 1) {
-            PORTAbits.RA0 = 0;
-        } else {
-            PORTAbits.RA0 = 1;
-        }
     }
     return;
 }
