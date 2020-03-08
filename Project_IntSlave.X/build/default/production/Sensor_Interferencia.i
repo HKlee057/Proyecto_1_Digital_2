@@ -2738,13 +2738,13 @@ void __attribute__((picinterrupt(("")))) isr(void){
                 PIR1bits.SSPIF = 0;
                 SSPCONbits.CKP = 1;
                 while(!SSPSTATbits.BF);
-                sensor_signal = SSPBUF;
+                estado = SSPBUF;
                 _delay((unsigned long)((250)*(8000000/4000000.0)));
 
             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
                 z = SSPBUF;
                 BF = 0;
-                SSPBUF = sensor_signal;
+                SSPBUF = estado;
                 SSPCONbits.CKP = 1;
                 _delay((unsigned long)((250)*(8000000/4000000.0)));
                 while(SSPSTATbits.BF);
@@ -2764,6 +2764,15 @@ void main(void) {
     PORTB = 0x00;
     PORTC = 0x00;
     PORTD = 0x00;
+    while (1){
+        estado = PORTDbits.RD0;
+
+        if (estado == 1) {
+            PORTAbits.RA0 = 0;
+        } else {
+            PORTAbits.RA0 = 1;
+        }
+    }
     return;
 }
 
@@ -2776,6 +2785,6 @@ void init(void){
     TRISD = 0b00000001;
     ANSEL = 0;
     ANSELH = 0;
-    I2C_Slave_Init(0x60);
+    I2C_Slave_Init(0x30);
 
 }

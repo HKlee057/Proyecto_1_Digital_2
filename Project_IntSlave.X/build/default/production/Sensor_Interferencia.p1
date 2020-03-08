@@ -90,6 +90,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "352
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"358
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 358:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"357
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 357: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"369
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 369: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
+[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
+"172
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 172:     struct {
+[s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S6 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"171
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 171: typedef union {
+[u S5 `S6 1 ]
+[n S5 . . ]
+"183
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 183: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
+[v _PORTAbits `VS5 ~T0 @X0 0 e@5 ]
 "1416
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
@@ -438,8 +460,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 143  ]
 [e :U 144 ]
 "71
-[; ;Sensor_Interferencia.c: 71:                 sensor_signal = SSPBUF;
-[e = _sensor_signal _SSPBUF ]
+[; ;Sensor_Interferencia.c: 71:                 estado = SSPBUF;
+[e = _estado _SSPBUF ]
 "72
 [; ;Sensor_Interferencia.c: 72:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
@@ -457,8 +479,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Sensor_Interferencia.c: 76:                 BF = 0;
 [e = _BF -> -> 0 `i `b ]
 "77
-[; ;Sensor_Interferencia.c: 77:                 SSPBUF = sensor_signal;
-[e = _SSPBUF _sensor_signal ]
+[; ;Sensor_Interferencia.c: 77:                 SSPBUF = estado;
+[e = _SSPBUF _estado ]
 "78
 [; ;Sensor_Interferencia.c: 78:                 SSPCONbits.CKP = 1;
 [e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
@@ -514,40 +536,73 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Sensor_Interferencia.c: 96:     PORTD = 0x00;
 [e = _PORTD -> -> 0 `i `uc ]
 "97
-[; ;Sensor_Interferencia.c: 97:     return;
-[e $UE 150  ]
+[; ;Sensor_Interferencia.c: 97:     while (1){
+[e :U 152 ]
+{
 "98
-[; ;Sensor_Interferencia.c: 98: }
+[; ;Sensor_Interferencia.c: 98:         estado = PORTDbits.RD0;
+[e = _estado . . _PORTDbits 0 0 ]
+"100
+[; ;Sensor_Interferencia.c: 100:         if (estado == 1) {
+[e $ ! == -> _estado `i -> 1 `i 154  ]
+{
+"101
+[; ;Sensor_Interferencia.c: 101:             PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"102
+[; ;Sensor_Interferencia.c: 102:         } else {
+}
+[e $U 155  ]
+[e :U 154 ]
+{
+"103
+[; ;Sensor_Interferencia.c: 103:             PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"104
+[; ;Sensor_Interferencia.c: 104:         }
+}
+[e :U 155 ]
+"105
+[; ;Sensor_Interferencia.c: 105:     }
+}
+[e :U 151 ]
+[e $U 152  ]
+[e :U 153 ]
+"106
+[; ;Sensor_Interferencia.c: 106:     return;
+[e $UE 150  ]
+"107
+[; ;Sensor_Interferencia.c: 107: }
 [e :UE 150 ]
 }
-"102
-[; ;Sensor_Interferencia.c: 102: void init(void){
+"111
+[; ;Sensor_Interferencia.c: 111: void init(void){
 [v _init `(v ~T0 @X0 1 ef ]
 {
 [e :U _init ]
 [f ]
-"103
-[; ;Sensor_Interferencia.c: 103:     TRISA = 0;
+"112
+[; ;Sensor_Interferencia.c: 112:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"104
-[; ;Sensor_Interferencia.c: 104:     TRISB = 0;
+"113
+[; ;Sensor_Interferencia.c: 113:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"105
-[; ;Sensor_Interferencia.c: 105:     TRISC = 0;
+"114
+[; ;Sensor_Interferencia.c: 114:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"106
-[; ;Sensor_Interferencia.c: 106:     TRISD = 0b00000001;
+"115
+[; ;Sensor_Interferencia.c: 115:     TRISD = 0b00000001;
 [e = _TRISD -> -> 1 `i `uc ]
-"107
-[; ;Sensor_Interferencia.c: 107:     ANSEL = 0;
+"116
+[; ;Sensor_Interferencia.c: 116:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"108
-[; ;Sensor_Interferencia.c: 108:     ANSELH = 0;
+"117
+[; ;Sensor_Interferencia.c: 117:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"109
-[; ;Sensor_Interferencia.c: 109:     I2C_Slave_Init(0x60);
-[e ( _I2C_Slave_Init (1 -> -> 96 `i `uc ]
-"111
-[; ;Sensor_Interferencia.c: 111: }
-[e :UE 151 ]
+"118
+[; ;Sensor_Interferencia.c: 118:     I2C_Slave_Init(0x30);
+[e ( _I2C_Slave_Init (1 -> -> 48 `i `uc ]
+"120
+[; ;Sensor_Interferencia.c: 120: }
+[e :UE 156 ]
 }

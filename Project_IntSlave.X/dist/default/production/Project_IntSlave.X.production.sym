@@ -11,12 +11,12 @@ __Lintentry 4 0 CODE 0
 __pintentry 4 0 CODE 0
 _isr 18 0 CODE 0
 _PEIE 5E 0 ABS 0
-__end_of_init 119 0 CODE 0
+__end_of_init 126 0 CODE 0
 __CFG_BOR4V$BOR40V 0 0 ABS 0
-_main F3 0 CODE 0
+_main D9 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
-_init 107 0 CODE 0
+_init 114 0 CODE 0
 start C 0 CODE 0
 _TRISA 85 0 ABS 0
 _SSPIE 463 0 ABS 0
@@ -40,7 +40,6 @@ __Lram 0 0 ABS 0
 __size_of_isr 0 0 ABS 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
-_sensor_signal 78 0 COMMON 1
 _TRISC3 43B 0 ABS 0
 _TRISC4 43C 0 ABS 0
 __Hcommon 0 0 ABS 0
@@ -66,10 +65,11 @@ __Lsfr3 0 0 ABS 0
 ___stackhi 0 0 ABS 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
+_estado 79 0 COMMON 1
 saved_w 7E 0 ABS 0
 __Hinit C 0 CODE 0
 __Linit C 0 CODE 0
-__end_of_main 107 0 CODE 0
+__end_of_main FA 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __end_of_initOsc D9 0 CODE 0
@@ -78,6 +78,8 @@ end_of_initialization 14 0 CODE 0
 ___stacklo 0 0 ABS 0
 _SSPCON2 91 0 ABS 0
 _TRISCbits 87 0 ABS 0
+_PORTAbits 5 0 ABS 0
+_PORTDbits 8 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
 __size_of_I2C_Slave_Init 0 0 ABS 0
@@ -94,11 +96,11 @@ ___latbits 2 0 ABS 0
 __Hpowerup 0 0 CODE 0
 _SSPSTAT 94 0 ABS 0
 __Lpowerup 0 0 CODE 0
-__end_of_I2C_Slave_Init F3 0 CODE 0
+__end_of_I2C_Slave_Init 114 0 CODE 0
 _SSPCON2bits 91 0 ABS 0
 __ptext1 7D 0 CODE 0
-__ptext2 107 0 CODE 0
-__ptext3 D9 0 CODE 0
+__ptext2 114 0 CODE 0
+__ptext3 FA 0 CODE 0
 __ptext4 18 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
@@ -138,7 +140,7 @@ __Lreset_vec 0 0 CODE 0
 intlevel0 0 0 ENTRY 0
 __CFG_WDTE$OFF 0 0 ABS 0
 intlevel1 0 0 ENTRY 0
-_I2C_Slave_Init D9 0 CODE 0
+_I2C_Slave_Init FA 0 CODE 0
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0
 intlevel2 0 0 ENTRY 0
 intlevel3 0 0 ENTRY 0
@@ -152,37 +154,41 @@ start_initialization F 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
 __CFG_IESO$OFF 0 0 ABS 0
-__pmaintext F3 0 CODE 0
+__pmaintext D9 0 CODE 0
 __initialization F 0 CODE 0
 __CFG_CP$OFF 0 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
 reset_vec 0 5 CODE 0 0
-intentry 8 231 CODE 8 0
+intentry 8 24B CODE 8 0
 config 400E 4011 CONFIG 400E 0
 cstackCOMMON 70 7A COMMON 70 1
 %locals
 dist/default/production\Project_IntSlave.X.production.o
-C:\Users\hecto\AppData\Local\Temp\sjik.s
-806 F 0 CODE 0
-809 F 0 CODE 0
-829 F 0 CODE 0
-830 10 0 CODE 0
-831 11 0 CODE 0
-832 12 0 CODE 0
-833 13 0 CODE 0
-839 14 0 CODE 0
-841 14 0 CODE 0
-842 15 0 CODE 0
+C:\Users\hecto\AppData\Local\Temp\sktc.s
+810 F 0 CODE 0
+813 F 0 CODE 0
+833 F 0 CODE 0
+834 10 0 CODE 0
+835 11 0 CODE 0
+836 12 0 CODE 0
+837 13 0 CODE 0
+843 14 0 CODE 0
+845 14 0 CODE 0
+846 15 0 CODE 0
 Sensor_Interferencia.c
-89 F3 0 CODE 0
-90 F3 0 CODE 0
-91 F9 0 CODE 0
-93 FE 0 CODE 0
-94 101 0 CODE 0
-95 102 0 CODE 0
-96 103 0 CODE 0
-98 104 0 CODE 0
+89 D9 0 CODE 0
+90 D9 0 CODE 0
+91 DF 0 CODE 0
+93 E4 0 CODE 0
+94 E7 0 CODE 0
+95 E8 0 CODE 0
+96 E9 0 CODE 0
+98 EA 0 CODE 0
+100 EE 0 CODE 0
+101 F3 0 CODE 0
+102 F4 0 CODE 0
+103 F5 0 CODE 0
 Oscilador.c
 8 7D 0 CODE 0
 9 7E 0 CODE 0
@@ -235,28 +241,28 @@ Oscilador.c
 57 D7 0 CODE 0
 58 D8 0 CODE 0
 Sensor_Interferencia.c
-102 107 0 CODE 0
-103 107 0 CODE 0
-104 10A 0 CODE 0
-105 10B 0 CODE 0
-106 10C 0 CODE 0
-107 10E 0 CODE 0
-108 111 0 CODE 0
-109 112 0 CODE 0
-111 118 0 CODE 0
+111 114 0 CODE 0
+112 114 0 CODE 0
+113 117 0 CODE 0
+114 118 0 CODE 0
+115 119 0 CODE 0
+116 11B 0 CODE 0
+117 11E 0 CODE 0
+118 11F 0 CODE 0
+120 125 0 CODE 0
 I2C.c
-85 D9 0 CODE 0
-87 DA 0 CODE 0
-88 DE 0 CODE 0
-89 E2 0 CODE 0
-90 E6 0 CODE 0
-91 E8 0 CODE 0
-92 E9 0 CODE 0
-93 EA 0 CODE 0
-94 EB 0 CODE 0
-95 EC 0 CODE 0
-96 EF 0 CODE 0
-97 F2 0 CODE 0
+85 FA 0 CODE 0
+87 FB 0 CODE 0
+88 FF 0 CODE 0
+89 103 0 CODE 0
+90 107 0 CODE 0
+91 109 0 CODE 0
+92 10A 0 CODE 0
+93 10B 0 CODE 0
+94 10C 0 CODE 0
+95 10D 0 CODE 0
+96 110 0 CODE 0
+97 113 0 CODE 0
 Sensor_Interferencia.c
 53 18 0 CODE 0
 55 18 0 CODE 0

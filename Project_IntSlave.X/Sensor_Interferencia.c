@@ -68,13 +68,13 @@ void __interrupt() isr(void){
                 PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
                 SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
                 while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
-                sensor_signal = SSPBUF;     // Guardar en el PORTD el valor del buffer de recepción
+                estado = SSPBUF;     // Guardar en el PORTD el valor del buffer de recepción
                 __delay_us(250);
 
             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
                 z = SSPBUF;
                 BF = 0;
-                SSPBUF = sensor_signal;
+                SSPBUF = estado;
                 SSPCONbits.CKP = 1;
                 __delay_us(250);
                 while(SSPSTATbits.BF);
@@ -94,6 +94,15 @@ void main(void) {
     PORTB = 0x00;
     PORTC = 0x00;
     PORTD = 0x00; 
+    while (1){
+        estado = SENSOR_SIGNAL;
+        
+        if (estado == 1) {              //No se detecta interferencia
+            SERVO_2 = 0;                //Mantener apagado el pin de PWM
+        } else {                        //Se detecta interferencia
+            SERVO_2 = 1;                //Encender el pin de PWM
+        }
+    }
     return;
 }
 //******************************************************************************
@@ -106,6 +115,6 @@ void init(void){
     TRISD = 0b00000001;              // PORTD configurado como entrada en los bits RD0
     ANSEL = 0;                       // Pines connfigurados como entradas digitales
     ANSELH = 0;                      //Pines connfigurados como entradas digitales  
-    I2C_Slave_Init(0x60);
+    I2C_Slave_Init(0x30);
     //INTCON = 0b11100000;                      //Habilita GIE, PIE y T0IE 
 }
