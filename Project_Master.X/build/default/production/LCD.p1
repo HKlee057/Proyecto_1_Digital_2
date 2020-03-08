@@ -439,8 +439,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _col `uc ~T0 @X0 1 r2 ]
 [f ]
 "81
-[; ;LCD.c: 81:     if((lin > 2)||(col> 15)){
-[e $ ! || > -> _lin `i -> 2 `i > -> _col `i -> 15 `i 150  ]
+[; ;LCD.c: 81:     if((lin > 2)||(col> 31)){
+[e $ ! || > -> _lin `i -> 2 `i > -> _col `i -> 31 `i 150  ]
 {
 "82
 [; ;LCD.c: 82:         return;

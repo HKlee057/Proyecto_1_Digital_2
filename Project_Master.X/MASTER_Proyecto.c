@@ -36,6 +36,283 @@
 #include "Oscilador.h"
 #include "UART.h"
 
+//******************************************************************************
+// Funciones prototipo
+//******************************************************************************
+void init(void);
+uint8_t Val_STR(uint8_t num);
+//******************************************************************************
+// Variables
+//******************************************************************************
+uint8_t Val_POT = 0;
+uint8_t Val_CONT = 0;
+uint8_t Val_RES = 0;
+
+float ADC_POT_V = 0;
+float ADC_RES_V;
+float POT_cien = 0;
+float RES_cien = 0;
+
+uint8_t POT_EN = 0;
+uint8_t RES_EN = 0;
+uint8_t POT_D1 = 0;
+uint8_t POT_D2 = 0;
+uint8_t RES_D1 = 0;
+uint8_t RES_D2 = 0;
+uint8_t CONT_U = 0;
+uint8_t CONT_D = 0;
+uint8_t CONT_C = 0;
+uint8_t i=0;
+
+uint16_t DECI_1_POT = 0;
+uint16_t DECI_2_POT = 0;
+uint16_t DECI_1_RES = 0;
+uint16_t DECI_2_RES = 0;
+//******************************************************************************
+//Void Principal
+//******************************************************************************
 void main(void) {
+    initOsc(7); // Se usa un reloj interno de 8 MHz
+    init(); //Se inicializan los puertos
+    lcd_init(); //Se inicializa la LCD
+    
+    PORTA = 0;
+    PORTB = 0;
+    PORTC = 0;
+    PORTD = 0; //Se inicializan todas los puertos en 0
+    
+/*    LCD_POINT(1,2);
+    lcd_msg("S1"); //Se envía el string S1 para indicar que los datos mostrados son del POT
+    LCD_POINT(1,7);
+    lcd_msg("S2"); //Se envía el string S2 para indicar que los datos mostrados son del CONTADO
+    LCD_POINT(1,12);
+    lcd_msg("S3"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
+    
+    LCD_POINT(2,1);
+    lcd_dwr('.'); //Se envía el caracter . a esa posición
+    LCD_POINT(2,4);
+    lcd_dwr('V'); //Se envía el caracter V a esa posición 
+    
+    LCD_POINT(2,11);
+    lcd_dwr('.'); //Se envía el caracter . a esa posición
+    LCD_POINT(2,14);
+    lcd_dwr('V'); //Se envía el caracter V a esa posición
+    
+    lcd_cmd(0x1C);
+    
+    LCD_POINT(1,19);
+    lcd_msg("S4"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
+    
+    LCD_POINT(2,18);
+    lcd_dwr('.'); //Se envía el caracter . a esa posición
+    LCD_POINT(2,21);
+    lcd_dwr('V'); //Se envía el caracter V a esa posición
+    
+    __delay_ms(2000);
+    
+    lcd_cmd(0x18);
+    
+    __delay_ms(2000);*/
+    
+    while (1){
+       
+        LCD_POINT(1,2);
+        lcd_msg("S1"); //Se envía el string S1 para indicar que los datos mostrados son del POT
+        LCD_POINT(1,7);
+        lcd_msg("S2"); //Se envía el string S2 para indicar que los datos mostrados son del CONTADO
+        LCD_POINT(1,12);
+        lcd_msg("S3"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
+
+        LCD_POINT(2,1);
+        lcd_dwr('.'); //Se envía el caracter . a esa posición
+        LCD_POINT(2,4);
+        lcd_dwr('V'); //Se envía el caracter V a esa posición 
+
+        LCD_POINT(2,11);
+        lcd_dwr('.'); //Se envía el caracter . a esa posición
+        LCD_POINT(2,14);
+        lcd_dwr('V'); //Se envía el caracter V a esa posición
+        
+        //**********************************************************************
+        //Lectura de Potenciometro
+        //**********************************************************************
+        I2C_Master_Start();
+        I2C_Master_Write(0x31);
+        Val_POT = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(200);
+        //**********************************************************************
+        //Lectura de Contador
+        //**********************************************************************
+        I2C_Master_Start();
+        I2C_Master_Write(0x61);
+        Val_CONT = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(200);
+        //**********************************************************************
+        //Lectura de Fotorresitencia
+        //**********************************************************************
+        I2C_Master_Start();
+        I2C_Master_Write(0x91);
+        Val_RES = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(200);
+        //**********************************************************************
+        //Conversión de Datos Analógicos
+        //**********************************************************************
+        ADC_POT_V = (float)((Val_POT)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
+        ADC_RES_V = (float)((Val_RES)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
+        //******************************************************************************************
+        // Proceso para obtener el entero, y dos decimales del dato del POT para mandarlos a la LCD 
+        //******************************************************************************************
+        POT_cien = (float)((ADC_POT_V)*((float)100));           //Se multiplica el valor de voltaje por cien -> 2.5456 => 254.6
+        DECI_1_POT = (uint16_t)(POT_cien);                      //El valor anterior se vuelve entero -> 254.6 => 254
+        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
+        
+        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
+        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el primer decimal -> 25 => 5
+        
+        POT_EN = (uint16_t)(ADC_POT_V);                         //Se convierte el valor float a entero -> 2.546 => 2
+        //**************************************************************************
+        // Se envían cada uno de los digitos a la columna correspondiente de la LCD 
+        //**************************************************************************
+        LCD_POINT(2,0);
+        lcd_dwr(Val_STR(POT_EN));                               //Se envía el caracter correspondiente al entero
+                
+        LCD_POINT(2,2);
+        lcd_dwr(Val_STR(POT_D1));                               //Se envía el caracter correspondiente al primer decimal
+        
+        LCD_POINT(2,3);
+        lcd_dwr(Val_STR(POT_D2));                               //Se envía el caracter correspondiente al segundo decimal
+        
+        //******************************************************************************************
+        // Proceso para obtener el número del dato del CONTADOR para mandarlos a la LCD 
+        //******************************************************************************************
+        CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
+        
+        CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
+        //************************************************************************
+        // Se envían los digitos a la columna correspondiente de la LCD (CONTADOR)
+        //************************************************************************  
+        LCD_POINT(2,7);
+        lcd_dwr(Val_STR(CONT_D));                               //Se envia el caracter correspondiente de las decenas del contador
+        
+        LCD_POINT(2,8);
+        lcd_dwr(Val_STR(CONT_U));                               //Se envia el caracter correspondiente de las unidades del contador
+        //********************************************************************************************************
+        // Proceso para obtener el entero, y dos decimales del dato de la FOTORRESISTENCIA para mandarlos a la LCD 
+        //********************************************************************************************************
+        RES_cien = (float)((ADC_RES_V)*((float)100));           //Se multiplica el valor de voltaje por cien -> 2.5456 => 254.6
+        DECI_1_RES = (uint16_t)(RES_cien);                      //El valor anterior se vuelve entero -> 254.6 => 254
+        RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
+        
+        DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
+        RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));         //Se realiza la división mod. obteniendo el primer decimal -> 25 => 5
+        
+        RES_EN = (uint16_t)(ADC_RES_V);                         //Se convierte el valor float a entero -> 2.546 => 2
+        //**************************************************************************
+        // Se envían cada uno de los digitos a la columna correspondiente de la LCD 
+        //**************************************************************************
+        LCD_POINT(2,10);
+        lcd_dwr(Val_STR(RES_EN));                               //Se envía el caracter correspondiente al entero
+                
+        LCD_POINT(2,12);
+        lcd_dwr(Val_STR(RES_D1));                               //Se envía el caracter correspondiente al primer decimal
+        
+        LCD_POINT(2,13);
+        lcd_dwr(Val_STR(RES_D2));                               //Se envía el caracter correspondiente al segundo decimal 
+        
+        __delay_ms(4000);
+        
+        //******************************************************************************************
+        // Despliegue de segundo set de datos
+        //******************************************************************************************      
+        lcd_cmd(0x01);
+    
+        LCD_POINT(1,2);
+        lcd_msg("S4"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
+        
+        LCD_POINT(2,1);
+        lcd_dwr('.'); //Se envía el caracter . a esa posición
+        LCD_POINT(2,4);
+        lcd_dwr('V'); //Se envía el caracter V a esa posición
+        
+        //******************************************************************************************
+        // Proceso para obtener el entero, y dos decimales del dato del POT para mandarlos a la LCD 
+        //******************************************************************************************
+        POT_cien = (float)((ADC_POT_V)*((float)100));           //Se multiplica el valor de voltaje por cien -> 2.5456 => 254.6
+        DECI_1_POT = (uint16_t)(POT_cien);                      //El valor anterior se vuelve entero -> 254.6 => 254
+        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
+        
+        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
+        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el primer decimal -> 25 => 5
+        
+        POT_EN = (uint16_t)(ADC_POT_V);                         //Se convierte el valor float a entero -> 2.546 => 2
+        //**************************************************************************
+        // Se envían cada uno de los digitos a la columna correspondiente de la LCD 
+        //**************************************************************************
+        LCD_POINT(2,0);
+        lcd_dwr(Val_STR(POT_EN));                               //Se envía el caracter correspondiente al entero
+                
+        LCD_POINT(2,2);
+        lcd_dwr(Val_STR(POT_D1));                               //Se envía el caracter correspondiente al primer decimal
+        
+        LCD_POINT(2,3);
+        lcd_dwr(Val_STR(POT_D2));                               //Se envía el caracter correspondiente al segundo decimal
+        
+        __delay_ms(4000);
+        
+        lcd_cmd(0x01);
+    }
     return;
+}
+//******************************************************************************
+//Función de Inicialización de Puertos
+//******************************************************************************
+void init(void){
+    TRISA = 0;                      // PORTA configurado como entrada en RA0
+    TRISB = 0;                      // PORTB configurado como salida
+    TRISC = 0;                      // PORTC configurado como salida
+    TRISD = 0;                      // PORTD configurado como salida
+    ANSEL = 0;                      // Pines connfigurados A0 y A3 como entradas analógicas
+    ANSELH = 0;                     //Pines configurados como digitales 
+    I2C_Master_Init(100000);        // Inicializar Comuncación I2C
+}
+
+//**************************************************************************************
+//Función de relación entre número y caractér correspondiente para ser enviado a la LCD
+//**************************************************************************************
+uint8_t Val_STR(uint8_t num){ 
+    switch(num){
+        case 0: //Si el valor es cero, devuelva '0' para psoteriormente enviarlo a la LCD
+            return '0';
+            
+        case 1: //Si el valor es uno, devuelva '1' para psoteriormente enviarlo a la LCD
+            return '1';
+            
+        case 2: //Si el valor es dos, devuelva '2' para psoteriormente enviarlo a la LCD
+            return '2';
+            
+        case 3: //Si el valor es tres, devuelva '3' para psoteriormente enviarlo a la LCD
+            return '3';
+            
+        case 4: //Si el valor es cuatro, devuelva '4' para psoteriormente enviarlo a la LCD
+            return '4';
+            
+        case 5: //Si el valor es cinco, devuelva '5' para psoteriormente enviarlo a la LCD
+            return '5';
+            
+        case 6: //Si el valor es seis, devuelva '6' para psoteriormente enviarlo a la LCD
+            return '6';
+            
+        case 7: //Si el valor es siete, devuelva '7' para psoteriormente enviarlo a la LCD
+            return '7';
+            
+        case 8: //Si el valor es ocho, devuelva '8' para psoteriormente enviarlo a la LCD
+            return '8';
+            
+        case 9: //Si el valor es nueve, devuelva '9' para psoteriormente enviarlo a la LCD
+            return '9';  
+            
+    }
 }

@@ -2724,6 +2724,250 @@ void UART_Write_Text(char *text);
 # 37 "MASTER_Proyecto.c" 2
 
 
+
+
+
+void init(void);
+uint8_t Val_STR(uint8_t num);
+
+
+
+uint8_t Val_POT = 0;
+uint8_t Val_CONT = 0;
+uint8_t Val_RES = 0;
+
+float ADC_POT_V = 0;
+float ADC_RES_V;
+float POT_cien = 0;
+float RES_cien = 0;
+
+uint8_t POT_EN = 0;
+uint8_t RES_EN = 0;
+uint8_t POT_D1 = 0;
+uint8_t POT_D2 = 0;
+uint8_t RES_D1 = 0;
+uint8_t RES_D2 = 0;
+uint8_t CONT_U = 0;
+uint8_t CONT_D = 0;
+uint8_t CONT_C = 0;
+uint8_t i=0;
+
+uint16_t DECI_1_POT = 0;
+uint16_t DECI_2_POT = 0;
+uint16_t DECI_1_RES = 0;
+uint16_t DECI_2_RES = 0;
+
+
+
 void main(void) {
+    initOsc(7);
+    init();
+    lcd_init();
+
+    PORTA = 0;
+    PORTB = 0;
+    PORTC = 0;
+    PORTD = 0;
+# 117 "MASTER_Proyecto.c"
+    while (1){
+
+        LCD_POINT(1,2);
+        lcd_msg("S1");
+        LCD_POINT(1,7);
+        lcd_msg("S2");
+        LCD_POINT(1,12);
+        lcd_msg("S3");
+
+        LCD_POINT(2,1);
+        lcd_dwr('.');
+        LCD_POINT(2,4);
+        lcd_dwr('V');
+
+        LCD_POINT(2,11);
+        lcd_dwr('.');
+        LCD_POINT(2,14);
+        lcd_dwr('V');
+
+
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0x31);
+        Val_POT = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0x61);
+        Val_CONT = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0x91);
+        Val_RES = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+
+
+        ADC_POT_V = (float)((Val_POT)/((float)51));
+        ADC_RES_V = (float)((Val_RES)/((float)51));
+
+
+
+        POT_cien = (float)((ADC_POT_V)*((float)100));
+        DECI_1_POT = (uint16_t)(POT_cien);
+        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+
+        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+
+        POT_EN = (uint16_t)(ADC_POT_V);
+
+
+
+        LCD_POINT(2,0);
+        lcd_dwr(Val_STR(POT_EN));
+
+        LCD_POINT(2,2);
+        lcd_dwr(Val_STR(POT_D1));
+
+        LCD_POINT(2,3);
+        lcd_dwr(Val_STR(POT_D2));
+
+
+
+
+        CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));
+
+        CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));
+
+
+
+        LCD_POINT(2,7);
+        lcd_dwr(Val_STR(CONT_D));
+
+        LCD_POINT(2,8);
+        lcd_dwr(Val_STR(CONT_U));
+
+
+
+        RES_cien = (float)((ADC_RES_V)*((float)100));
+        DECI_1_RES = (uint16_t)(RES_cien);
+        RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
+
+        DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
+        RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
+
+        RES_EN = (uint16_t)(ADC_RES_V);
+
+
+
+        LCD_POINT(2,10);
+        lcd_dwr(Val_STR(RES_EN));
+
+        LCD_POINT(2,12);
+        lcd_dwr(Val_STR(RES_D1));
+
+        LCD_POINT(2,13);
+        lcd_dwr(Val_STR(RES_D2));
+
+        _delay((unsigned long)((4000)*(8000000/4000.0)));
+
+
+
+
+        lcd_cmd(0x01);
+
+        LCD_POINT(1,2);
+        lcd_msg("S4");
+
+        LCD_POINT(2,1);
+        lcd_dwr('.');
+        LCD_POINT(2,4);
+        lcd_dwr('V');
+
+
+
+
+        POT_cien = (float)((ADC_POT_V)*((float)100));
+        DECI_1_POT = (uint16_t)(POT_cien);
+        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+
+        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+
+        POT_EN = (uint16_t)(ADC_POT_V);
+
+
+
+        LCD_POINT(2,0);
+        lcd_dwr(Val_STR(POT_EN));
+
+        LCD_POINT(2,2);
+        lcd_dwr(Val_STR(POT_D1));
+
+        LCD_POINT(2,3);
+        lcd_dwr(Val_STR(POT_D2));
+
+        _delay((unsigned long)((4000)*(8000000/4000.0)));
+
+        lcd_cmd(0x01);
+    }
     return;
+}
+
+
+
+void init(void){
+    TRISA = 0;
+    TRISB = 0;
+    TRISC = 0;
+    TRISD = 0;
+    ANSEL = 0;
+    ANSELH = 0;
+    I2C_Master_Init(100000);
+}
+
+
+
+
+uint8_t Val_STR(uint8_t num){
+    switch(num){
+        case 0:
+            return '0';
+
+        case 1:
+            return '1';
+
+        case 2:
+            return '2';
+
+        case 3:
+            return '3';
+
+        case 4:
+            return '4';
+
+        case 5:
+            return '5';
+
+        case 6:
+            return '6';
+
+        case 7:
+            return '7';
+
+        case 8:
+            return '8';
+
+        case 9:
+            return '9';
+
+    }
 }

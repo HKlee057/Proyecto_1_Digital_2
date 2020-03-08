@@ -78,7 +78,7 @@ void lcd_init(void){                        //Función de inicialización
 //******************************************************************************
 void LCD_POINT (uint8_t lin, uint8_t col){ //Basado en la función hecha por Bithawa Bindu
                                            // Extraído de https://www.studentcompanion.co.za/interfacing-lcd-display-with-pic-microcontroller-xc8/
-    if((lin > 2)||(col> 15)){ //Si el valor dado de columnas y filas es mayor al permitido, no haga algo
+    if((lin > 2)||(col> 31)){ //Si el valor dado de columnas y filas es mayor al permitido, no haga algo
         return; 
     }else{ //Sino realiza un or entre 0X80 y col. si la linea es 1, y entre C0 y columnas si la fila es 2
         lcd_cmd((lin == 1) ? (0x80|col): (0xC0|col));

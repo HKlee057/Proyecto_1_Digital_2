@@ -2718,7 +2718,7 @@ void lcd_init(void){
 
 void LCD_POINT (uint8_t lin, uint8_t col){
 
-    if((lin > 2)||(col> 15)){
+    if((lin > 2)||(col> 31)){
         return;
     }else{
         lcd_cmd((lin == 1) ? (0x80|col): (0xC0|col));
