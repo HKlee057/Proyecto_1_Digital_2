@@ -37,8 +37,9 @@
 //******************************************************************************
 //Variables
 //******************************************************************************
-#define SENSOR_SIGNAL PORTDbits.RD0     //Definición de bit en Puerto D con nombre coloquial
-#define SERVO_2 PORTAbits.RA0           //Definición de bit en Puerto D con nombre coloquial
+#define SENSOR_ANALOG_SIGNAL PORTAbits.RA0     //Definición de bit en Puerto D con nombre coloquial
+#define SENSOR_DIGITAL_SIGNAL PORTDbits.RD0     //Definición de bit en Puerto D con nombre coloquial
+#define SERVO_2 PORTDbits.RD1           //Definición de bit en Puerto D con nombre coloquial
 uint8_t z;
 uint8_t estado;
 uint8_t sensor_signal;
@@ -101,6 +102,17 @@ void main(void) {
     PORTC = 0x00;
     PORTD = 0x00; 
     while (1){
+        
+        digitalVal = SENSOR_DIGITAL_SIGNAL; 
+        if(digitalVal == 1) // if temperature threshold reached
+        {
+          SERVO_2 = 1; // turn ON Arduino's LED
+        }
+        else
+        {
+          SERVO_2 = 0; // turn OFF Arduino's LED
+        }
+        
         __delay_ms(1);
         ADCON0bits.CHS0 = 0;       //Selección de canal AN0
         ADCON0bits.CHS1 = 0;
@@ -120,12 +132,12 @@ void main(void) {
 //Función de Inicialización de Puertos
 //******************************************************************************
 void init(void){
-    TRISA = 0;                       // PORTA configurado como salida
-    TRISB = 0;                       // PORTB configurado como salida
-    TRISC = 0;                       // PORTC configurado como salida
-    TRISD = 0b00000001;              // PORTD configurado como entrada en los bits RD0
-    ANSEL = 0;                       // Pines connfigurados como entradas digitales
-    ANSELH = 0;                      //Pines connfigurados como entradas digitales  
+    TRISA = 0b00000001;                 // PORTA configurado como entrada en RA0
+    TRISB = 0;                          // PORTB configurado como salida
+    TRISC = 0;                          // PORTC configurado como salida
+    TRISD = 0b00000001;                 // PORTD configurado como entrada en RD0
+    ANSEL = 0b00000001;                 // Pin A0 configurado como entrada analógica
+    ANSELH = 0;                         //Pines configurados como digitales 
     I2C_Slave_Init(0x30);
     //INTCON = 0b11100000;                      //Habilita GIE, PIE y T0IE 
 }

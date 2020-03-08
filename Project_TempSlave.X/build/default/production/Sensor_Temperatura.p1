@@ -75,8 +75,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
 "19 ./Oscilador.h
 [v _initOsc `(v ~T0 @X0 0 ef1`uc ]
-"53 Sensor_Temperatura.c
-[; ;Sensor_Temperatura.c: 53: void init(void);
+"54 Sensor_Temperatura.c
+[; ;Sensor_Temperatura.c: 54: void init(void);
 [v _init `(v ~T0 @X0 0 ef ]
 "14 ./ADC.h
 [; ;./ADC.h: 14: void initADC(void);
@@ -93,6 +93,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "352
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"358
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 358:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"357
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 357: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"369
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 369: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
+[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
 "1251
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1251:     struct {
 [s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
@@ -400,232 +411,261 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" EECON2 equ 018Dh ;# ">
 "11 ./Oscilador.h
 [p x FOSC = INTRC_NOCLKOUT ]
-"42 Sensor_Temperatura.c
-[; ;Sensor_Temperatura.c: 42: uint8_t z;
+"43 Sensor_Temperatura.c
+[; ;Sensor_Temperatura.c: 43: uint8_t z;
 [v _z `uc ~T0 @X0 1 e ]
-"43
-[; ;Sensor_Temperatura.c: 43: uint8_t estado;
-[v _estado `uc ~T0 @X0 1 e ]
 "44
-[; ;Sensor_Temperatura.c: 44: uint8_t sensor_signal;
+[; ;Sensor_Temperatura.c: 44: uint8_t estado;
+[v _estado `uc ~T0 @X0 1 e ]
+"45
+[; ;Sensor_Temperatura.c: 45: uint8_t sensor_signal;
 [v _sensor_signal `uc ~T0 @X0 1 e ]
-"46
-[; ;Sensor_Temperatura.c: 46: uint8_t digitalVal;
-[v _digitalVal `uc ~T0 @X0 1 e ]
 "47
-[; ;Sensor_Temperatura.c: 47: uint8_t analogVal;
+[; ;Sensor_Temperatura.c: 47: uint8_t digitalVal;
+[v _digitalVal `uc ~T0 @X0 1 e ]
+"48
+[; ;Sensor_Temperatura.c: 48: uint8_t analogVal;
 [v _analogVal `uc ~T0 @X0 1 e ]
-"49
-[; ;Sensor_Temperatura.c: 49: uint16_t move_servo;
+"50
+[; ;Sensor_Temperatura.c: 50: uint16_t move_servo;
 [v _move_servo `ui ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"58
-[; ;Sensor_Temperatura.c: 58: void __attribute__((picinterrupt(("")))) isr(void){
+"59
+[; ;Sensor_Temperatura.c: 59: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"60
-[; ;Sensor_Temperatura.c: 60:     if(PIR1bits.SSPIF == 1){
+"61
+[; ;Sensor_Temperatura.c: 61:     if(PIR1bits.SSPIF == 1){
 [e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 139  ]
 {
-"62
-[; ;Sensor_Temperatura.c: 62:             SSPCONbits.CKP = 0;
+"63
+[; ;Sensor_Temperatura.c: 63:             SSPCONbits.CKP = 0;
 [e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
-"64
-[; ;Sensor_Temperatura.c: 64:             if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+"65
+[; ;Sensor_Temperatura.c: 65:             if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
 [e $ ! || != -> . . _SSPCONbits 0 3 `i -> 0 `i != -> . . _SSPCONbits 0 4 `i -> 0 `i 140  ]
 {
-"65
-[; ;Sensor_Temperatura.c: 65:                 z = SSPBUF;
-[e = _z _SSPBUF ]
 "66
-[; ;Sensor_Temperatura.c: 66:                 SSPCONbits.SSPOV = 0;
-[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 66:                 z = SSPBUF;
+[e = _z _SSPBUF ]
 "67
-[; ;Sensor_Temperatura.c: 67:                 SSPCONbits.WCOL = 0;
-[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 67:                 SSPCONbits.SSPOV = 0;
+[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
 "68
-[; ;Sensor_Temperatura.c: 68:                 SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;Sensor_Temperatura.c: 68:                 SSPCONbits.WCOL = 0;
+[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
 "69
-[; ;Sensor_Temperatura.c: 69:             }
+[; ;Sensor_Temperatura.c: 69:                 SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"70
+[; ;Sensor_Temperatura.c: 70:             }
 }
 [e :U 140 ]
-"71
-[; ;Sensor_Temperatura.c: 71:             if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+"72
+[; ;Sensor_Temperatura.c: 72:             if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i ! != -> . . _SSPSTATbits 0 2 `i -> 0 `i 141  ]
 {
-"72
-[; ;Sensor_Temperatura.c: 72:                 z = SSPBUF;
-[e = _z _SSPBUF ]
 "73
-[; ;Sensor_Temperatura.c: 73:                 PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 73:                 z = SSPBUF;
+[e = _z _SSPBUF ]
 "74
-[; ;Sensor_Temperatura.c: 74:                 SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;Sensor_Temperatura.c: 74:                 PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "75
-[; ;Sensor_Temperatura.c: 75:                 while(!SSPSTATbits.BF);
+[; ;Sensor_Temperatura.c: 75:                 SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"76
+[; ;Sensor_Temperatura.c: 76:                 while(!SSPSTATbits.BF);
 [e $U 142  ]
 [e :U 143 ]
 [e :U 142 ]
 [e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 143  ]
 [e :U 144 ]
-"76
-[; ;Sensor_Temperatura.c: 76:                 analogVal = SSPBUF;
-[e = _analogVal _SSPBUF ]
 "77
-[; ;Sensor_Temperatura.c: 77:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
+[; ;Sensor_Temperatura.c: 77:                 analogVal = SSPBUF;
+[e = _analogVal _SSPBUF ]
+"78
+[; ;Sensor_Temperatura.c: 78:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"79
-[; ;Sensor_Temperatura.c: 79:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+"80
+[; ;Sensor_Temperatura.c: 80:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
 }
 [e $U 145  ]
 [e :U 141 ]
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i != -> . . _SSPSTATbits 0 2 `i -> 0 `i 146  ]
 {
-"80
-[; ;Sensor_Temperatura.c: 80:                 z = SSPBUF;
-[e = _z _SSPBUF ]
 "81
-[; ;Sensor_Temperatura.c: 81:                 BF = 0;
-[e = _BF -> -> 0 `i `b ]
+[; ;Sensor_Temperatura.c: 81:                 z = SSPBUF;
+[e = _z _SSPBUF ]
 "82
-[; ;Sensor_Temperatura.c: 82:                 SSPBUF = analogVal;
-[e = _SSPBUF _analogVal ]
+[; ;Sensor_Temperatura.c: 82:                 BF = 0;
+[e = _BF -> -> 0 `i `b ]
 "83
-[; ;Sensor_Temperatura.c: 83:                 SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;Sensor_Temperatura.c: 83:                 SSPBUF = analogVal;
+[e = _SSPBUF _analogVal ]
 "84
-[; ;Sensor_Temperatura.c: 84:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Sensor_Temperatura.c: 84:                 SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
 "85
-[; ;Sensor_Temperatura.c: 85:                 while(SSPSTATbits.BF);
+[; ;Sensor_Temperatura.c: 85:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"86
+[; ;Sensor_Temperatura.c: 86:                 while(SSPSTATbits.BF);
 [e $U 147  ]
 [e :U 148 ]
 [e :U 147 ]
 [e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 148  ]
 [e :U 149 ]
-"86
-[; ;Sensor_Temperatura.c: 86:             }
+"87
+[; ;Sensor_Temperatura.c: 87:             }
 }
 [e :U 146 ]
 [e :U 145 ]
-"88
-[; ;Sensor_Temperatura.c: 88:             PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "89
-[; ;Sensor_Temperatura.c: 89:         }
+[; ;Sensor_Temperatura.c: 89:             PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"90
+[; ;Sensor_Temperatura.c: 90:         }
 }
 [e :U 139 ]
-"90
-[; ;Sensor_Temperatura.c: 90: }
+"91
+[; ;Sensor_Temperatura.c: 91: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"94
-[; ;Sensor_Temperatura.c: 94: void main(void) {
+"95
+[; ;Sensor_Temperatura.c: 95: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"95
-[; ;Sensor_Temperatura.c: 95:     initOsc(7);
-[e ( _initOsc (1 -> -> 7 `i `uc ]
 "96
-[; ;Sensor_Temperatura.c: 96:     init();
-[e ( _init ..  ]
+[; ;Sensor_Temperatura.c: 96:     initOsc(7);
+[e ( _initOsc (1 -> -> 7 `i `uc ]
 "97
-[; ;Sensor_Temperatura.c: 97:     initADC();
+[; ;Sensor_Temperatura.c: 97:     init();
+[e ( _init ..  ]
+"98
+[; ;Sensor_Temperatura.c: 98:     initADC();
 [e ( _initADC ..  ]
-"99
-[; ;Sensor_Temperatura.c: 99:     PORTA = 0x00;
-[e = _PORTA -> -> 0 `i `uc ]
 "100
-[; ;Sensor_Temperatura.c: 100:     PORTB = 0x00;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 100:     PORTA = 0x00;
+[e = _PORTA -> -> 0 `i `uc ]
 "101
-[; ;Sensor_Temperatura.c: 101:     PORTC = 0x00;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 101:     PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
 "102
-[; ;Sensor_Temperatura.c: 102:     PORTD = 0x00;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 102:     PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
 "103
-[; ;Sensor_Temperatura.c: 103:     while (1){
+[; ;Sensor_Temperatura.c: 103:     PORTD = 0x00;
+[e = _PORTD -> -> 0 `i `uc ]
+"104
+[; ;Sensor_Temperatura.c: 104:     while (1){
 [e :U 152 ]
 {
-"104
-[; ;Sensor_Temperatura.c: 104:         _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"105
-[; ;Sensor_Temperatura.c: 105:         ADCON0bits.CHS0 = 0;
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
 "106
-[; ;Sensor_Temperatura.c: 106:         ADCON0bits.CHS1 = 0;
-[e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 106:         digitalVal = PORTDbits.RD0;
+[e = _digitalVal . . _PORTDbits 0 0 ]
 "107
-[; ;Sensor_Temperatura.c: 107:         ADCON0bits.CHS2 = 0;
-[e = . . _ADCON0bits 1 4 -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 107:         if(digitalVal == 1)
+[e $ ! == -> _digitalVal `i -> 1 `i 154  ]
 "108
-[; ;Sensor_Temperatura.c: 108:         ADCON0bits.CHS3 = 0;
-[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 108:         {
+{
 "109
-[; ;Sensor_Temperatura.c: 109:         ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;Sensor_Temperatura.c: 109:           PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+"110
+[; ;Sensor_Temperatura.c: 110:         }
+}
+[e $U 155  ]
 "111
-[; ;Sensor_Temperatura.c: 111:         PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;Sensor_Temperatura.c: 111:         else
+[e :U 154 ]
 "112
-[; ;Sensor_Temperatura.c: 112:         ADCON0bits.GO = 1;
-[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;Sensor_Temperatura.c: 112:         {
+{
 "113
-[; ;Sensor_Temperatura.c: 113:         analogVal = ADRESH;
-[e = _analogVal _ADRESH ]
-"115
-[; ;Sensor_Temperatura.c: 115:         _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Sensor_Temperatura.c: 113:           PORTDbits.RD1 = 0;
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
+"114
+[; ;Sensor_Temperatura.c: 114:         }
+}
+[e :U 155 ]
 "116
-[; ;Sensor_Temperatura.c: 116:     }
+[; ;Sensor_Temperatura.c: 116:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"117
+[; ;Sensor_Temperatura.c: 117:         ADCON0bits.CHS0 = 0;
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+"118
+[; ;Sensor_Temperatura.c: 118:         ADCON0bits.CHS1 = 0;
+[e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
+"119
+[; ;Sensor_Temperatura.c: 119:         ADCON0bits.CHS2 = 0;
+[e = . . _ADCON0bits 1 4 -> -> 0 `i `uc ]
+"120
+[; ;Sensor_Temperatura.c: 120:         ADCON0bits.CHS3 = 0;
+[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
+"121
+[; ;Sensor_Temperatura.c: 121:         ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+"123
+[; ;Sensor_Temperatura.c: 123:         PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"124
+[; ;Sensor_Temperatura.c: 124:         ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+"125
+[; ;Sensor_Temperatura.c: 125:         analogVal = ADRESH;
+[e = _analogVal _ADRESH ]
+"127
+[; ;Sensor_Temperatura.c: 127:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"128
+[; ;Sensor_Temperatura.c: 128:     }
 }
 [e :U 151 ]
 [e $U 152  ]
 [e :U 153 ]
-"117
-[; ;Sensor_Temperatura.c: 117:     return;
+"129
+[; ;Sensor_Temperatura.c: 129:     return;
 [e $UE 150  ]
-"118
-[; ;Sensor_Temperatura.c: 118: }
+"130
+[; ;Sensor_Temperatura.c: 130: }
 [e :UE 150 ]
 }
-"122
-[; ;Sensor_Temperatura.c: 122: void init(void){
+"134
+[; ;Sensor_Temperatura.c: 134: void init(void){
 [v _init `(v ~T0 @X0 1 ef ]
 {
 [e :U _init ]
 [f ]
-"123
-[; ;Sensor_Temperatura.c: 123:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
-"124
-[; ;Sensor_Temperatura.c: 124:     TRISB = 0;
+"135
+[; ;Sensor_Temperatura.c: 135:     TRISA = 0b00000001;
+[e = _TRISA -> -> 1 `i `uc ]
+"136
+[; ;Sensor_Temperatura.c: 136:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"125
-[; ;Sensor_Temperatura.c: 125:     TRISC = 0;
+"137
+[; ;Sensor_Temperatura.c: 137:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"126
-[; ;Sensor_Temperatura.c: 126:     TRISD = 0b00000001;
+"138
+[; ;Sensor_Temperatura.c: 138:     TRISD = 0b00000001;
 [e = _TRISD -> -> 1 `i `uc ]
-"127
-[; ;Sensor_Temperatura.c: 127:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"128
-[; ;Sensor_Temperatura.c: 128:     ANSELH = 0;
+"139
+[; ;Sensor_Temperatura.c: 139:     ANSEL = 0b00000001;
+[e = _ANSEL -> -> 1 `i `uc ]
+"140
+[; ;Sensor_Temperatura.c: 140:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"129
-[; ;Sensor_Temperatura.c: 129:     I2C_Slave_Init(0x30);
+"141
+[; ;Sensor_Temperatura.c: 141:     I2C_Slave_Init(0x30);
 [e ( _I2C_Slave_Init (1 -> -> 48 `i `uc ]
-"131
-[; ;Sensor_Temperatura.c: 131: }
-[e :UE 154 ]
+"143
+[; ;Sensor_Temperatura.c: 143: }
+[e :UE 156 ]
 }

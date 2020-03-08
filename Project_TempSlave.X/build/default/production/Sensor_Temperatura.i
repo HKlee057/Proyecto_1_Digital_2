@@ -2713,6 +2713,7 @@ void initADC(void);
 
 
 
+
 uint8_t z;
 uint8_t estado;
 uint8_t sensor_signal;
@@ -2775,6 +2776,17 @@ void main(void) {
     PORTC = 0x00;
     PORTD = 0x00;
     while (1){
+
+        digitalVal = PORTDbits.RD0;
+        if(digitalVal == 1)
+        {
+          PORTDbits.RD1 = 1;
+        }
+        else
+        {
+          PORTDbits.RD1 = 0;
+        }
+
         _delay((unsigned long)((1)*(8000000/4000.0)));
         ADCON0bits.CHS0 = 0;
         ADCON0bits.CHS1 = 0;
@@ -2794,11 +2806,11 @@ void main(void) {
 
 
 void init(void){
-    TRISA = 0;
+    TRISA = 0b00000001;
     TRISB = 0;
     TRISC = 0;
     TRISD = 0b00000001;
-    ANSEL = 0;
+    ANSEL = 0b00000001;
     ANSELH = 0;
     I2C_Slave_Init(0x30);
 

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Sun Mar 08 17:12:49 2020
+                                                                                               Sun Mar 08 17:35:25 2020
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	16F887
@@ -454,1007 +454,1042 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    440  018D                     	;# 
    441  001E                     _ADRESH	set	30
    442  001F                     _ADCON0bits	set	31
-   443  0008                     _PORTD	set	8
-   444  0007                     _PORTC	set	7
-   445  0006                     _PORTB	set	6
-   446  0005                     _PORTA	set	5
-   447  0014                     _SSPCONbits	set	20
-   448  000C                     _PIR1bits	set	12
-   449  0013                     _SSPBUF	set	19
-   450  0014                     _SSPCON	set	20
-   451  0063                     _SSPIF	set	99
-   452  005E                     _PEIE	set	94
-   453  005F                     _GIE	set	95
-   454  009F                     _ADCON1bits	set	159
-   455  0088                     _TRISD	set	136
-   456  0087                     _TRISC	set	135
-   457  0086                     _TRISB	set	134
-   458  0085                     _TRISA	set	133
-   459  0094                     _SSPSTATbits	set	148
-   460  008F                     _OSCCONbits	set	143
-   461  0091                     _SSPCON2bits	set	145
-   462  0087                     _TRISCbits	set	135
-   463  0094                     _SSPSTAT	set	148
-   464  0093                     _SSPADD	set	147
-   465  0091                     _SSPCON2	set	145
-   466  04A0                     _BF	set	1184
-   467  0463                     _SSPIE	set	1123
-   468  043C                     _TRISC4	set	1084
-   469  043B                     _TRISC3	set	1083
-   470  0189                     _ANSELH	set	393
-   471  0188                     _ANSEL	set	392
-   472                           
-   473                           ; #config settings
-   474  0000                     
-   475                           	psect	cinit
-   476  000F                     start_initialization:	
-   477  000F                     __initialization:	
-   478                           
-   479                           ; Clear objects allocated to COMMON
-   480  000F  01F8               	clrf	__pbssCOMMON& (0+127)
-   481  0010  01F9               	clrf	(__pbssCOMMON+1)& (0+127)
-   482  0011  01FA               	clrf	(__pbssCOMMON+2)& (0+127)
-   483  0012  01FB               	clrf	(__pbssCOMMON+3)& (0+127)
-   484  0013  01FC               	clrf	(__pbssCOMMON+4)& (0+127)
-   485                           
-   486                           ; Clear objects allocated to BANK0
-   487  0014  1283               	bcf	3,5	;RP0=0, select bank0
-   488  0015  1303               	bcf	3,6	;RP1=0, select bank0
-   489  0016  01A0               	clrf	__pbssBANK0& (0+127)
-   490  0017  01A1               	clrf	(__pbssBANK0+1)& (0+127)
-   491  0018                     end_of_initialization:	
-   492                           ;End of C runtime variable initialization code
-   493                           
-   494  0018                     __end_of__initialization:	
-   495  0018  0183               	clrf	3
-   496  0019  120A  118A  28DD   	ljmp	_main	;jump to C main() function
-   497                           
-   498                           	psect	bssCOMMON
-   499  0078                     __pbssCOMMON:	
-   500  0078                     _analogVal:	
-   501  0078                     	ds	1
-   502  0079                     _digitalVal:	
-   503  0079                     	ds	1
-   504  007A                     _sensor_signal:	
-   505  007A                     	ds	1
-   506  007B                     _estado:	
-   507  007B                     	ds	1
-   508  007C                     _z:	
-   509  007C                     	ds	1
-   510                           
-   511                           	psect	bssBANK0
-   512  0020                     __pbssBANK0:	
-   513  0020                     _move_servo:	
-   514  0020                     	ds	2
-   515                           
-   516                           	psect	cstackCOMMON
-   517  0070                     __pcstackCOMMON:	
-   518  0070                     ?_init:	
-   519  0070                     ?_initADC:	
-   520                           ; 1 bytes @ 0x0
-   521                           
-   522  0070                     ?_I2C_Slave_Init:	
-   523                           ; 1 bytes @ 0x0
-   524                           
-   525  0070                     ?_initOsc:	
-   526                           ; 1 bytes @ 0x0
-   527                           
-   528  0070                     ?_isr:	
-   529                           ; 1 bytes @ 0x0
-   530                           
-   531  0070                     ??_isr:	
-   532                           ; 1 bytes @ 0x0
-   533                           
-   534  0070                     ?_main:	
-   535                           ; 1 bytes @ 0x0
-   536                           
+   443  0008                     _PORTDbits	set	8
+   444  0008                     _PORTD	set	8
+   445  0007                     _PORTC	set	7
+   446  0006                     _PORTB	set	6
+   447  0005                     _PORTA	set	5
+   448  0014                     _SSPCONbits	set	20
+   449  000C                     _PIR1bits	set	12
+   450  0013                     _SSPBUF	set	19
+   451  0014                     _SSPCON	set	20
+   452  0063                     _SSPIF	set	99
+   453  005E                     _PEIE	set	94
+   454  005F                     _GIE	set	95
+   455  009F                     _ADCON1bits	set	159
+   456  0088                     _TRISD	set	136
+   457  0087                     _TRISC	set	135
+   458  0086                     _TRISB	set	134
+   459  0085                     _TRISA	set	133
+   460  0094                     _SSPSTATbits	set	148
+   461  008F                     _OSCCONbits	set	143
+   462  0091                     _SSPCON2bits	set	145
+   463  0087                     _TRISCbits	set	135
+   464  0094                     _SSPSTAT	set	148
+   465  0093                     _SSPADD	set	147
+   466  0091                     _SSPCON2	set	145
+   467  04A0                     _BF	set	1184
+   468  0463                     _SSPIE	set	1123
+   469  043C                     _TRISC4	set	1084
+   470  043B                     _TRISC3	set	1083
+   471  0189                     _ANSELH	set	393
+   472  0188                     _ANSEL	set	392
+   473                           
+   474                           ; #config settings
+   475  0000                     
+   476                           	psect	cinit
+   477  000F                     start_initialization:	
+   478  000F                     __initialization:	
+   479                           
+   480                           ; Clear objects allocated to COMMON
+   481  000F  01F8               	clrf	__pbssCOMMON& (0+127)
+   482  0010  01F9               	clrf	(__pbssCOMMON+1)& (0+127)
+   483  0011  01FA               	clrf	(__pbssCOMMON+2)& (0+127)
+   484  0012  01FB               	clrf	(__pbssCOMMON+3)& (0+127)
+   485  0013  01FC               	clrf	(__pbssCOMMON+4)& (0+127)
+   486                           
+   487                           ; Clear objects allocated to BANK0
+   488  0014  1283               	bcf	3,5	;RP0=0, select bank0
+   489  0015  1303               	bcf	3,6	;RP1=0, select bank0
+   490  0016  01A0               	clrf	__pbssBANK0& (0+127)
+   491  0017  01A1               	clrf	(__pbssBANK0+1)& (0+127)
+   492  0018                     end_of_initialization:	
+   493                           ;End of C runtime variable initialization code
+   494                           
+   495  0018                     __end_of__initialization:	
+   496  0018  0183               	clrf	3
+   497  0019  120A  118A  28DD   	ljmp	_main	;jump to C main() function
+   498                           
+   499                           	psect	bssCOMMON
+   500  0078                     __pbssCOMMON:	
+   501  0078                     _analogVal:	
+   502  0078                     	ds	1
+   503  0079                     _digitalVal:	
+   504  0079                     	ds	1
+   505  007A                     _sensor_signal:	
+   506  007A                     	ds	1
+   507  007B                     _estado:	
+   508  007B                     	ds	1
+   509  007C                     _z:	
+   510  007C                     	ds	1
+   511                           
+   512                           	psect	bssBANK0
+   513  0020                     __pbssBANK0:	
+   514  0020                     _move_servo:	
+   515  0020                     	ds	2
+   516                           
+   517                           	psect	cstackCOMMON
+   518  0070                     __pcstackCOMMON:	
+   519  0070                     ?_init:	
+   520  0070                     ?_initADC:	
+   521                           ; 1 bytes @ 0x0
+   522                           
+   523  0070                     ?_I2C_Slave_Init:	
+   524                           ; 1 bytes @ 0x0
+   525                           
+   526  0070                     ?_initOsc:	
+   527                           ; 1 bytes @ 0x0
+   528                           
+   529  0070                     ?_isr:	
+   530                           ; 1 bytes @ 0x0
+   531                           
+   532  0070                     ??_isr:	
+   533                           ; 1 bytes @ 0x0
+   534                           
+   535  0070                     ?_main:	
+   536                           ; 1 bytes @ 0x0
    537                           
-   538                           ; 1 bytes @ 0x0
-   539  0070                     	ds	3
-   540  0073                     ??_initADC:	
-   541  0073                     ??_I2C_Slave_Init:	
-   542                           ; 1 bytes @ 0x3
-   543                           
-   544  0073                     ??_initOsc:	
-   545                           ; 1 bytes @ 0x3
-   546                           
-   547  0073                     I2C_Slave_Init@address:	
-   548                           ; 1 bytes @ 0x3
-   549                           
+   538                           
+   539                           ; 1 bytes @ 0x0
+   540  0070                     	ds	3
+   541  0073                     ??_initADC:	
+   542  0073                     ??_I2C_Slave_Init:	
+   543                           ; 1 bytes @ 0x3
+   544                           
+   545  0073                     ??_initOsc:	
+   546                           ; 1 bytes @ 0x3
+   547                           
+   548  0073                     I2C_Slave_Init@address:	
+   549                           ; 1 bytes @ 0x3
    550                           
-   551                           ; 1 bytes @ 0x3
-   552  0073                     	ds	1
-   553  0074                     ??_init:	
-   554                           
-   555                           ; 1 bytes @ 0x4
-   556  0074                     	ds	1
-   557  0075                     initOsc@frec:	
-   558                           
-   559                           ; 1 bytes @ 0x5
-   560  0075                     	ds	1
-   561  0076                     ??_main:	
-   562                           
-   563                           ; 1 bytes @ 0x6
-   564  0076                     	ds	2
-   565                           
-   566                           	psect	maintext
-   567  00DD                     __pmaintext:	
-   568 ;;
-   569 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
-   570 ;;
-   571 ;; *************** function _main *****************
-   572 ;; Defined at:
-   573 ;;		line 94 in file "Sensor_Temperatura.c"
-   574 ;; Parameters:    Size  Location     Type
-   575 ;;		None
-   576 ;; Auto vars:     Size  Location     Type
-   577 ;;		None
-   578 ;; Return value:  Size  Location     Type
-   579 ;;                  1    wreg      void 
-   580 ;; Registers used:
-   581 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   582 ;; Tracked objects:
-   583 ;;		On entry : B00/0
-   584 ;;		On exit  : 0/0
-   585 ;;		Unchanged: 0/0
-   586 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   587 ;;      Params:         0       0       0       0       0
-   588 ;;      Locals:         0       0       0       0       0
-   589 ;;      Temps:          2       0       0       0       0
-   590 ;;      Totals:         2       0       0       0       0
-   591 ;;Total ram usage:        2 bytes
-   592 ;; Hardware stack levels required when called:    3
-   593 ;; This function calls:
-   594 ;;		_init
-   595 ;;		_initADC
-   596 ;;		_initOsc
-   597 ;; This function is called by:
-   598 ;;		Startup code after reset
-   599 ;; This function uses a non-reentrant model
-   600 ;;
-   601                           
+   551                           
+   552                           ; 1 bytes @ 0x3
+   553  0073                     	ds	1
+   554  0074                     ??_init:	
+   555                           
+   556                           ; 1 bytes @ 0x4
+   557  0074                     	ds	1
+   558  0075                     initOsc@frec:	
+   559                           
+   560                           ; 1 bytes @ 0x5
+   561  0075                     	ds	1
+   562  0076                     ??_main:	
+   563                           
+   564                           ; 1 bytes @ 0x6
+   565  0076                     	ds	2
+   566                           
+   567                           	psect	maintext
+   568  00DD                     __pmaintext:	
+   569 ;;
+   570 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   571 ;;
+   572 ;; *************** function _main *****************
+   573 ;; Defined at:
+   574 ;;		line 95 in file "Sensor_Temperatura.c"
+   575 ;; Parameters:    Size  Location     Type
+   576 ;;		None
+   577 ;; Auto vars:     Size  Location     Type
+   578 ;;		None
+   579 ;; Return value:  Size  Location     Type
+   580 ;;                  1    wreg      void 
+   581 ;; Registers used:
+   582 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   583 ;; Tracked objects:
+   584 ;;		On entry : B00/0
+   585 ;;		On exit  : 0/0
+   586 ;;		Unchanged: 0/0
+   587 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   588 ;;      Params:         0       0       0       0       0
+   589 ;;      Locals:         0       0       0       0       0
+   590 ;;      Temps:          2       0       0       0       0
+   591 ;;      Totals:         2       0       0       0       0
+   592 ;;Total ram usage:        2 bytes
+   593 ;; Hardware stack levels required when called:    3
+   594 ;; This function calls:
+   595 ;;		_init
+   596 ;;		_initADC
+   597 ;;		_initOsc
+   598 ;; This function is called by:
+   599 ;;		Startup code after reset
+   600 ;; This function uses a non-reentrant model
+   601 ;;
    602                           
-   603                           ;psect for function _main
-   604  00DD                     _main:	
-   605  00DD                     l869:	
-   606                           ;incstack = 0
-   607                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   608                           
+   603                           
+   604                           ;psect for function _main
+   605  00DD                     _main:	
+   606  00DD                     l873:	
+   607                           ;incstack = 0
+   608                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    609                           
-   610                           ;Sensor_Temperatura.c: 95:     initOsc(7);
-   611  00DD  3007               	movlw	7
-   612  00DE  120A  118A  2081  120A  118A  	fcall	_initOsc
-   613  00E3                     l871:	
-   614                           
-   615                           ;Sensor_Temperatura.c: 96:     init();
-   616  00E3  120A  118A  2130  120A  118A  	fcall	_init
-   617  00E8                     l873:	
-   618                           
-   619                           ;Sensor_Temperatura.c: 97:     initADC();
-   620  00E8  120A  118A  2142  120A  118A  	fcall	_initADC
-   621  00ED                     l875:	
-   622                           
-   623                           ;Sensor_Temperatura.c: 99:     PORTA = 0x00;
-   624  00ED  1283               	bcf	3,5	;RP0=0, select bank0
-   625  00EE  1303               	bcf	3,6	;RP1=0, select bank0
-   626  00EF  0185               	clrf	5	;volatile
-   627  00F0                     l877:	
-   628                           
-   629                           ;Sensor_Temperatura.c: 100:     PORTB = 0x00;
-   630  00F0  0186               	clrf	6	;volatile
-   631  00F1                     l879:	
-   632                           
-   633                           ;Sensor_Temperatura.c: 101:     PORTC = 0x00;
-   634  00F1  0187               	clrf	7	;volatile
-   635  00F2                     l881:	
-   636                           
-   637                           ;Sensor_Temperatura.c: 102:     PORTD = 0x00;
-   638  00F2  0188               	clrf	8	;volatile
-   639  00F3                     l883:	
-   640                           
-   641                           ;Sensor_Temperatura.c: 104:         _delay((unsigned long)((1)*(8000000/4000.0)));
-   642  00F3  3003               	movlw	3
-   643  00F4  00F7               	movwf	??_main+1
-   644  00F5  3097               	movlw	151
-   645  00F6  00F6               	movwf	??_main
-   646  00F7                     u157:	
-   647  00F7  0BF6               	decfsz	??_main,f
-   648  00F8  28F7               	goto	u157
-   649  00F9  0BF7               	decfsz	??_main+1,f
-   650  00FA  28F7               	goto	u157
-   651  00FB  28FC               	nop2
-   652  00FC                     l885:	
-   653                           
-   654                           ;Sensor_Temperatura.c: 105:         ADCON0bits.CHS0 = 0;
-   655  00FC  1283               	bcf	3,5	;RP0=0, select bank0
-   656  00FD  1303               	bcf	3,6	;RP1=0, select bank0
-   657  00FE  111F               	bcf	31,2	;volatile
-   658  00FF                     l887:	
-   659                           
-   660                           ;Sensor_Temperatura.c: 106:         ADCON0bits.CHS1 = 0;
-   661  00FF  119F               	bcf	31,3	;volatile
-   662  0100                     l889:	
+   610                           
+   611                           ;Sensor_Temperatura.c: 96:     initOsc(7);
+   612  00DD  3007               	movlw	7
+   613  00DE  120A  118A  2081  120A  118A  	fcall	_initOsc
+   614  00E3                     l875:	
+   615                           
+   616                           ;Sensor_Temperatura.c: 97:     init();
+   617  00E3  120A  118A  213E  120A  118A  	fcall	_init
+   618  00E8                     l877:	
+   619                           
+   620                           ;Sensor_Temperatura.c: 98:     initADC();
+   621  00E8  120A  118A  2152  120A  118A  	fcall	_initADC
+   622  00ED                     l879:	
+   623                           
+   624                           ;Sensor_Temperatura.c: 100:     PORTA = 0x00;
+   625  00ED  1283               	bcf	3,5	;RP0=0, select bank0
+   626  00EE  1303               	bcf	3,6	;RP1=0, select bank0
+   627  00EF  0185               	clrf	5	;volatile
+   628  00F0                     l881:	
+   629                           
+   630                           ;Sensor_Temperatura.c: 101:     PORTB = 0x00;
+   631  00F0  0186               	clrf	6	;volatile
+   632  00F1                     l883:	
+   633                           
+   634                           ;Sensor_Temperatura.c: 102:     PORTC = 0x00;
+   635  00F1  0187               	clrf	7	;volatile
+   636  00F2                     l885:	
+   637                           
+   638                           ;Sensor_Temperatura.c: 103:     PORTD = 0x00;
+   639  00F2  0188               	clrf	8	;volatile
+   640  00F3                     l887:	
+   641                           
+   642                           ;Sensor_Temperatura.c: 106:         digitalVal = PORTDbits.RD0;
+   643  00F3  3000               	movlw	0
+   644  00F4  1283               	bcf	3,5	;RP0=0, select bank0
+   645  00F5  1303               	bcf	3,6	;RP1=0, select bank0
+   646  00F6  1808               	btfsc	8,0	;volatile
+   647  00F7  3001               	movlw	1
+   648  00F8  00F9               	movwf	_digitalVal
+   649  00F9                     l889:	
+   650                           
+   651                           ;Sensor_Temperatura.c: 107:         if(digitalVal == 1)
+   652  00F9  0379               	decf	_digitalVal,w
+   653  00FA  1D03               	btfss	3,2
+   654  00FB  28FD               	goto	u151
+   655  00FC  28FE               	goto	u150
+   656  00FD                     u151:	
+   657  00FD  2900               	goto	l151
+   658  00FE                     u150:	
+   659  00FE                     l891:	
+   660                           
+   661                           ;Sensor_Temperatura.c: 108:         {;Sensor_Temperatura.c: 109:           PORTDbits.RD1
+      +                           = 1;
+   662  00FE  1488               	bsf	8,1	;volatile
    663                           
-   664                           ;Sensor_Temperatura.c: 107:         ADCON0bits.CHS2 = 0;
-   665  0100  121F               	bcf	31,4	;volatile
-   666  0101                     l891:	
-   667                           
-   668                           ;Sensor_Temperatura.c: 108:         ADCON0bits.CHS3 = 0;
-   669  0101  129F               	bcf	31,5	;volatile
-   670  0102                     l893:	
-   671                           
-   672                           ;Sensor_Temperatura.c: 109:         ADCON0bits.ADON = 1;
-   673  0102  141F               	bsf	31,0	;volatile
-   674  0103                     l895:	
-   675                           
-   676                           ;Sensor_Temperatura.c: 111:         PIR1bits.ADIF = 0;
-   677  0103  130C               	bcf	12,6	;volatile
-   678  0104                     l897:	
-   679                           
-   680                           ;Sensor_Temperatura.c: 112:         ADCON0bits.GO = 1;
-   681  0104  149F               	bsf	31,1	;volatile
-   682  0105                     l899:	
-   683                           
-   684                           ;Sensor_Temperatura.c: 113:         analogVal = ADRESH;
-   685  0105  081E               	movf	30,w	;volatile
-   686  0106  00F6               	movwf	??_main
-   687  0107  0876               	movf	??_main,w
-   688  0108  00F8               	movwf	_analogVal
-   689  0109                     l901:	
-   690                           
-   691                           ;Sensor_Temperatura.c: 115:         _delay((unsigned long)((5)*(8000000/4000.0)));
-   692  0109  300D               	movlw	13
-   693  010A  00F7               	movwf	??_main+1
-   694  010B  30FB               	movlw	251
-   695  010C  00F6               	movwf	??_main
-   696  010D                     u167:	
-   697  010D  0BF6               	decfsz	??_main,f
-   698  010E  290D               	goto	u167
-   699  010F  0BF7               	decfsz	??_main+1,f
-   700  0110  290D               	goto	u167
-   701  0111  2912               	nop2
-   702  0112  28F3               	goto	l883
-   703  0113  120A  118A  280C   	ljmp	start
-   704  0116                     __end_of_main:	
-   705                           
-   706                           	psect	text1
-   707  0081                     __ptext1:	
-   708 ;; *************** function _initOsc *****************
-   709 ;; Defined at:
-   710 ;;		line 8 in file "Oscilador.c"
-   711 ;; Parameters:    Size  Location     Type
-   712 ;;  frec            1    wreg     unsigned char 
-   713 ;; Auto vars:     Size  Location     Type
-   714 ;;  frec            1    5[COMMON] unsigned char 
-   715 ;; Return value:  Size  Location     Type
-   716 ;;                  1    wreg      void 
-   717 ;; Registers used:
-   718 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-   719 ;; Tracked objects:
-   720 ;;		On entry : 0/0
-   721 ;;		On exit  : 0/0
-   722 ;;		Unchanged: 0/0
-   723 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   724 ;;      Params:         0       0       0       0       0
-   725 ;;      Locals:         1       0       0       0       0
-   726 ;;      Temps:          2       0       0       0       0
-   727 ;;      Totals:         3       0       0       0       0
-   728 ;;Total ram usage:        3 bytes
-   729 ;; Hardware stack levels used:    1
-   730 ;; Hardware stack levels required when called:    1
-   731 ;; This function calls:
-   732 ;;		Nothing
-   733 ;; This function is called by:
-   734 ;;		_main
-   735 ;; This function uses a non-reentrant model
-   736 ;;
-   737                           
-   738                           
-   739                           ;psect for function _initOsc
-   740  0081                     _initOsc:	
-   741                           
-   742                           ;incstack = 0
-   743                           ; Regs used in _initOsc: [wreg-fsr0h+status,2+status,0]
-   744                           ;initOsc@frec stored from wreg
-   745  0081  00F5               	movwf	initOsc@frec
-   746  0082                     l771:	
-   747                           
-   748                           ;Oscilador.c: 9:     switch(frec){
-   749  0082  28B9               	goto	l775
-   750  0083                     l59:	
-   751                           ;Oscilador.c: 10:         case 0:
-   752                           
-   753                           
-   754                           ;Oscilador.c: 11:             OSCCONbits.IRCF0 = 0;
-   755  0083  1683               	bsf	3,5	;RP0=1, select bank1
-   756  0084  1303               	bcf	3,6	;RP1=0, select bank1
-   757  0085  120F               	bcf	15,4	;volatile
-   758                           
-   759                           ;Oscilador.c: 12:             OSCCONbits.IRCF1 = 0;
-   760  0086  128F               	bcf	15,5	;volatile
-   761                           
-   762                           ;Oscilador.c: 13:             OSCCONbits.IRCF2 = 0;
-   763  0087  130F               	bcf	15,6	;volatile
-   764                           
-   765                           ;Oscilador.c: 14:             break;
-   766  0088  28DB               	goto	l60
-   767  0089                     l61:	
-   768                           ;Oscilador.c: 15:         case 1:
+   664                           ;Sensor_Temperatura.c: 110:         }
+   665  00FF  2901               	goto	l893
+   666  0100                     l151:	
+   667                           ;Sensor_Temperatura.c: 111:         else
+   668                           
+   669                           
+   670                           ;Sensor_Temperatura.c: 112:         {;Sensor_Temperatura.c: 113:           PORTDbits.RD1
+      +                           = 0;
+   671  0100  1088               	bcf	8,1	;volatile
+   672  0101                     l893:	
+   673                           
+   674                           ;Sensor_Temperatura.c: 116:         _delay((unsigned long)((1)*(8000000/4000.0)));
+   675  0101  3003               	movlw	3
+   676  0102  00F7               	movwf	??_main+1
+   677  0103  3097               	movlw	151
+   678  0104  00F6               	movwf	??_main
+   679  0105                     u167:	
+   680  0105  0BF6               	decfsz	??_main,f
+   681  0106  2905               	goto	u167
+   682  0107  0BF7               	decfsz	??_main+1,f
+   683  0108  2905               	goto	u167
+   684  0109  290A               	nop2
+   685  010A                     l895:	
+   686                           
+   687                           ;Sensor_Temperatura.c: 117:         ADCON0bits.CHS0 = 0;
+   688  010A  1283               	bcf	3,5	;RP0=0, select bank0
+   689  010B  1303               	bcf	3,6	;RP1=0, select bank0
+   690  010C  111F               	bcf	31,2	;volatile
+   691  010D                     l897:	
+   692                           
+   693                           ;Sensor_Temperatura.c: 118:         ADCON0bits.CHS1 = 0;
+   694  010D  119F               	bcf	31,3	;volatile
+   695  010E                     l899:	
+   696                           
+   697                           ;Sensor_Temperatura.c: 119:         ADCON0bits.CHS2 = 0;
+   698  010E  121F               	bcf	31,4	;volatile
+   699  010F                     l901:	
+   700                           
+   701                           ;Sensor_Temperatura.c: 120:         ADCON0bits.CHS3 = 0;
+   702  010F  129F               	bcf	31,5	;volatile
+   703  0110                     l903:	
+   704                           
+   705                           ;Sensor_Temperatura.c: 121:         ADCON0bits.ADON = 1;
+   706  0110  141F               	bsf	31,0	;volatile
+   707  0111                     l905:	
+   708                           
+   709                           ;Sensor_Temperatura.c: 123:         PIR1bits.ADIF = 0;
+   710  0111  130C               	bcf	12,6	;volatile
+   711  0112                     l907:	
+   712                           
+   713                           ;Sensor_Temperatura.c: 124:         ADCON0bits.GO = 1;
+   714  0112  149F               	bsf	31,1	;volatile
+   715                           
+   716                           ;Sensor_Temperatura.c: 125:         analogVal = ADRESH;
+   717  0113  081E               	movf	30,w	;volatile
+   718  0114  00F6               	movwf	??_main
+   719  0115  0876               	movf	??_main,w
+   720  0116  00F8               	movwf	_analogVal
+   721                           
+   722                           ;Sensor_Temperatura.c: 127:         _delay((unsigned long)((5)*(8000000/4000.0)));
+   723  0117  300D               	movlw	13
+   724  0118  00F7               	movwf	??_main+1
+   725  0119  30FB               	movlw	251
+   726  011A  00F6               	movwf	??_main
+   727  011B                     u177:	
+   728  011B  0BF6               	decfsz	??_main,f
+   729  011C  291B               	goto	u177
+   730  011D  0BF7               	decfsz	??_main+1,f
+   731  011E  291B               	goto	u177
+   732  011F  2920               	nop2
+   733  0120  28F3               	goto	l887
+   734  0121  120A  118A  280C   	ljmp	start
+   735  0124                     __end_of_main:	
+   736                           
+   737                           	psect	text1
+   738  0081                     __ptext1:	
+   739 ;; *************** function _initOsc *****************
+   740 ;; Defined at:
+   741 ;;		line 8 in file "Oscilador.c"
+   742 ;; Parameters:    Size  Location     Type
+   743 ;;  frec            1    wreg     unsigned char 
+   744 ;; Auto vars:     Size  Location     Type
+   745 ;;  frec            1    5[COMMON] unsigned char 
+   746 ;; Return value:  Size  Location     Type
+   747 ;;                  1    wreg      void 
+   748 ;; Registers used:
+   749 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   750 ;; Tracked objects:
+   751 ;;		On entry : 0/0
+   752 ;;		On exit  : 0/0
+   753 ;;		Unchanged: 0/0
+   754 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   755 ;;      Params:         0       0       0       0       0
+   756 ;;      Locals:         1       0       0       0       0
+   757 ;;      Temps:          2       0       0       0       0
+   758 ;;      Totals:         3       0       0       0       0
+   759 ;;Total ram usage:        3 bytes
+   760 ;; Hardware stack levels used:    1
+   761 ;; Hardware stack levels required when called:    1
+   762 ;; This function calls:
+   763 ;;		Nothing
+   764 ;; This function is called by:
+   765 ;;		_main
+   766 ;; This function uses a non-reentrant model
+   767 ;;
+   768                           
    769                           
-   770                           
-   771                           ;Oscilador.c: 16:             OSCCONbits.IRCF0 = 1;
-   772  0089  1683               	bsf	3,5	;RP0=1, select bank1
-   773  008A  1303               	bcf	3,6	;RP1=0, select bank1
-   774  008B  160F               	bsf	15,4	;volatile
-   775                           
-   776                           ;Oscilador.c: 17:             OSCCONbits.IRCF1 = 0;
-   777  008C  128F               	bcf	15,5	;volatile
+   770                           ;psect for function _initOsc
+   771  0081                     _initOsc:	
+   772                           
+   773                           ;incstack = 0
+   774                           ; Regs used in _initOsc: [wreg-fsr0h+status,2+status,0]
+   775                           ;initOsc@frec stored from wreg
+   776  0081  00F5               	movwf	initOsc@frec
+   777  0082                     l775:	
    778                           
-   779                           ;Oscilador.c: 18:             OSCCONbits.IRCF2 = 0;
-   780  008D  130F               	bcf	15,6	;volatile
-   781                           
-   782                           ;Oscilador.c: 19:             break;
-   783  008E  28DB               	goto	l60
-   784  008F                     l62:	
-   785                           ;Oscilador.c: 20:         case 2:
-   786                           
-   787                           
-   788                           ;Oscilador.c: 21:             OSCCONbits.IRCF0 = 0;
-   789  008F  1683               	bsf	3,5	;RP0=1, select bank1
-   790  0090  1303               	bcf	3,6	;RP1=0, select bank1
-   791  0091  120F               	bcf	15,4	;volatile
+   779                           ;Oscilador.c: 9:     switch(frec){
+   780  0082  28B9               	goto	l779
+   781  0083                     l59:	
+   782                           ;Oscilador.c: 10:         case 0:
+   783                           
+   784                           
+   785                           ;Oscilador.c: 11:             OSCCONbits.IRCF0 = 0;
+   786  0083  1683               	bsf	3,5	;RP0=1, select bank1
+   787  0084  1303               	bcf	3,6	;RP1=0, select bank1
+   788  0085  120F               	bcf	15,4	;volatile
+   789                           
+   790                           ;Oscilador.c: 12:             OSCCONbits.IRCF1 = 0;
+   791  0086  128F               	bcf	15,5	;volatile
    792                           
-   793                           ;Oscilador.c: 22:             OSCCONbits.IRCF1 = 1;
-   794  0092  168F               	bsf	15,5	;volatile
+   793                           ;Oscilador.c: 13:             OSCCONbits.IRCF2 = 0;
+   794  0087  130F               	bcf	15,6	;volatile
    795                           
-   796                           ;Oscilador.c: 23:             OSCCONbits.IRCF2 = 0;
-   797  0093  130F               	bcf	15,6	;volatile
-   798                           
-   799                           ;Oscilador.c: 24:             break;
-   800  0094  28DB               	goto	l60
-   801  0095                     l63:	
-   802                           ;Oscilador.c: 25:         case 3:
-   803                           
-   804                           
-   805                           ;Oscilador.c: 26:             OSCCONbits.IRCF0 = 1;
-   806  0095  1683               	bsf	3,5	;RP0=1, select bank1
-   807  0096  1303               	bcf	3,6	;RP1=0, select bank1
-   808  0097  160F               	bsf	15,4	;volatile
+   796                           ;Oscilador.c: 14:             break;
+   797  0088  28DB               	goto	l60
+   798  0089                     l61:	
+   799                           ;Oscilador.c: 15:         case 1:
+   800                           
+   801                           
+   802                           ;Oscilador.c: 16:             OSCCONbits.IRCF0 = 1;
+   803  0089  1683               	bsf	3,5	;RP0=1, select bank1
+   804  008A  1303               	bcf	3,6	;RP1=0, select bank1
+   805  008B  160F               	bsf	15,4	;volatile
+   806                           
+   807                           ;Oscilador.c: 17:             OSCCONbits.IRCF1 = 0;
+   808  008C  128F               	bcf	15,5	;volatile
    809                           
-   810                           ;Oscilador.c: 27:             OSCCONbits.IRCF1 = 1;
-   811  0098  168F               	bsf	15,5	;volatile
+   810                           ;Oscilador.c: 18:             OSCCONbits.IRCF2 = 0;
+   811  008D  130F               	bcf	15,6	;volatile
    812                           
-   813                           ;Oscilador.c: 28:             OSCCONbits.IRCF2 = 0;
-   814  0099  130F               	bcf	15,6	;volatile
-   815                           
-   816                           ;Oscilador.c: 29:             break;
-   817  009A  28DB               	goto	l60
-   818  009B                     l64:	
-   819                           ;Oscilador.c: 30:         case 4:
-   820                           
-   821                           
-   822                           ;Oscilador.c: 31:             OSCCONbits.IRCF0 = 0;
-   823  009B  1683               	bsf	3,5	;RP0=1, select bank1
-   824  009C  1303               	bcf	3,6	;RP1=0, select bank1
-   825  009D  120F               	bcf	15,4	;volatile
+   813                           ;Oscilador.c: 19:             break;
+   814  008E  28DB               	goto	l60
+   815  008F                     l62:	
+   816                           ;Oscilador.c: 20:         case 2:
+   817                           
+   818                           
+   819                           ;Oscilador.c: 21:             OSCCONbits.IRCF0 = 0;
+   820  008F  1683               	bsf	3,5	;RP0=1, select bank1
+   821  0090  1303               	bcf	3,6	;RP1=0, select bank1
+   822  0091  120F               	bcf	15,4	;volatile
+   823                           
+   824                           ;Oscilador.c: 22:             OSCCONbits.IRCF1 = 1;
+   825  0092  168F               	bsf	15,5	;volatile
    826                           
-   827                           ;Oscilador.c: 32:             OSCCONbits.IRCF1 = 0;
-   828  009E  128F               	bcf	15,5	;volatile
+   827                           ;Oscilador.c: 23:             OSCCONbits.IRCF2 = 0;
+   828  0093  130F               	bcf	15,6	;volatile
    829                           
-   830                           ;Oscilador.c: 33:             OSCCONbits.IRCF2 = 1;
-   831  009F  170F               	bsf	15,6	;volatile
-   832                           
-   833                           ;Oscilador.c: 34:             break;
-   834  00A0  28DB               	goto	l60
-   835  00A1                     l65:	
-   836                           ;Oscilador.c: 35:         case 5:
-   837                           
-   838                           
-   839                           ;Oscilador.c: 36:             OSCCONbits.IRCF0 = 1;
-   840  00A1  1683               	bsf	3,5	;RP0=1, select bank1
-   841  00A2  1303               	bcf	3,6	;RP1=0, select bank1
-   842  00A3  160F               	bsf	15,4	;volatile
+   830                           ;Oscilador.c: 24:             break;
+   831  0094  28DB               	goto	l60
+   832  0095                     l63:	
+   833                           ;Oscilador.c: 25:         case 3:
+   834                           
+   835                           
+   836                           ;Oscilador.c: 26:             OSCCONbits.IRCF0 = 1;
+   837  0095  1683               	bsf	3,5	;RP0=1, select bank1
+   838  0096  1303               	bcf	3,6	;RP1=0, select bank1
+   839  0097  160F               	bsf	15,4	;volatile
+   840                           
+   841                           ;Oscilador.c: 27:             OSCCONbits.IRCF1 = 1;
+   842  0098  168F               	bsf	15,5	;volatile
    843                           
-   844                           ;Oscilador.c: 37:             OSCCONbits.IRCF1 = 0;
-   845  00A4  128F               	bcf	15,5	;volatile
+   844                           ;Oscilador.c: 28:             OSCCONbits.IRCF2 = 0;
+   845  0099  130F               	bcf	15,6	;volatile
    846                           
-   847                           ;Oscilador.c: 38:             OSCCONbits.IRCF2 = 1;
-   848  00A5  170F               	bsf	15,6	;volatile
-   849                           
-   850                           ;Oscilador.c: 39:             break;
-   851  00A6  28DB               	goto	l60
-   852  00A7                     l66:	
-   853                           ;Oscilador.c: 40:         case 6:
-   854                           
-   855                           
-   856                           ;Oscilador.c: 41:             OSCCONbits.IRCF0 = 0;
-   857  00A7  1683               	bsf	3,5	;RP0=1, select bank1
-   858  00A8  1303               	bcf	3,6	;RP1=0, select bank1
-   859  00A9  120F               	bcf	15,4	;volatile
+   847                           ;Oscilador.c: 29:             break;
+   848  009A  28DB               	goto	l60
+   849  009B                     l64:	
+   850                           ;Oscilador.c: 30:         case 4:
+   851                           
+   852                           
+   853                           ;Oscilador.c: 31:             OSCCONbits.IRCF0 = 0;
+   854  009B  1683               	bsf	3,5	;RP0=1, select bank1
+   855  009C  1303               	bcf	3,6	;RP1=0, select bank1
+   856  009D  120F               	bcf	15,4	;volatile
+   857                           
+   858                           ;Oscilador.c: 32:             OSCCONbits.IRCF1 = 0;
+   859  009E  128F               	bcf	15,5	;volatile
    860                           
-   861                           ;Oscilador.c: 42:             OSCCONbits.IRCF1 = 1;
-   862  00AA  168F               	bsf	15,5	;volatile
+   861                           ;Oscilador.c: 33:             OSCCONbits.IRCF2 = 1;
+   862  009F  170F               	bsf	15,6	;volatile
    863                           
-   864                           ;Oscilador.c: 43:             OSCCONbits.IRCF2 = 1;
-   865  00AB  170F               	bsf	15,6	;volatile
-   866                           
-   867                           ;Oscilador.c: 44:             break;
-   868  00AC  28DB               	goto	l60
-   869  00AD                     l67:	
-   870                           ;Oscilador.c: 45:         case 7:
-   871                           
-   872                           
-   873                           ;Oscilador.c: 46:             OSCCONbits.IRCF0 = 1;
-   874  00AD  1683               	bsf	3,5	;RP0=1, select bank1
-   875  00AE  1303               	bcf	3,6	;RP1=0, select bank1
-   876  00AF  160F               	bsf	15,4	;volatile
+   864                           ;Oscilador.c: 34:             break;
+   865  00A0  28DB               	goto	l60
+   866  00A1                     l65:	
+   867                           ;Oscilador.c: 35:         case 5:
+   868                           
+   869                           
+   870                           ;Oscilador.c: 36:             OSCCONbits.IRCF0 = 1;
+   871  00A1  1683               	bsf	3,5	;RP0=1, select bank1
+   872  00A2  1303               	bcf	3,6	;RP1=0, select bank1
+   873  00A3  160F               	bsf	15,4	;volatile
+   874                           
+   875                           ;Oscilador.c: 37:             OSCCONbits.IRCF1 = 0;
+   876  00A4  128F               	bcf	15,5	;volatile
    877                           
-   878                           ;Oscilador.c: 47:             OSCCONbits.IRCF1 = 1;
-   879  00B0  168F               	bsf	15,5	;volatile
+   878                           ;Oscilador.c: 38:             OSCCONbits.IRCF2 = 1;
+   879  00A5  170F               	bsf	15,6	;volatile
    880                           
-   881                           ;Oscilador.c: 48:             OSCCONbits.IRCF2 = 1;
-   882  00B1  170F               	bsf	15,6	;volatile
-   883                           
-   884                           ;Oscilador.c: 49:             break;
-   885  00B2  28DB               	goto	l60
-   886  00B3                     l68:	
-   887                           ;Oscilador.c: 50:         default:
-   888                           
-   889                           
-   890                           ;Oscilador.c: 51:             OSCCONbits.IRCF0 = 0;
-   891  00B3  1683               	bsf	3,5	;RP0=1, select bank1
-   892  00B4  1303               	bcf	3,6	;RP1=0, select bank1
-   893  00B5  120F               	bcf	15,4	;volatile
+   881                           ;Oscilador.c: 39:             break;
+   882  00A6  28DB               	goto	l60
+   883  00A7                     l66:	
+   884                           ;Oscilador.c: 40:         case 6:
+   885                           
+   886                           
+   887                           ;Oscilador.c: 41:             OSCCONbits.IRCF0 = 0;
+   888  00A7  1683               	bsf	3,5	;RP0=1, select bank1
+   889  00A8  1303               	bcf	3,6	;RP1=0, select bank1
+   890  00A9  120F               	bcf	15,4	;volatile
+   891                           
+   892                           ;Oscilador.c: 42:             OSCCONbits.IRCF1 = 1;
+   893  00AA  168F               	bsf	15,5	;volatile
    894                           
-   895                           ;Oscilador.c: 52:             OSCCONbits.IRCF1 = 1;
-   896  00B6  168F               	bsf	15,5	;volatile
+   895                           ;Oscilador.c: 43:             OSCCONbits.IRCF2 = 1;
+   896  00AB  170F               	bsf	15,6	;volatile
    897                           
-   898                           ;Oscilador.c: 53:             OSCCONbits.IRCF2 = 1;
-   899  00B7  170F               	bsf	15,6	;volatile
-   900                           
-   901                           ;Oscilador.c: 54:             break;
-   902  00B8  28DB               	goto	l60
-   903  00B9                     l775:	
-   904  00B9  0875               	movf	initOsc@frec,w
-   905  00BA  00F3               	movwf	??_initOsc
-   906  00BB  01F4               	clrf	??_initOsc+1
-   907                           
-   908                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   898                           ;Oscilador.c: 44:             break;
+   899  00AC  28DB               	goto	l60
+   900  00AD                     l67:	
+   901                           ;Oscilador.c: 45:         case 7:
+   902                           
+   903                           
+   904                           ;Oscilador.c: 46:             OSCCONbits.IRCF0 = 1;
+   905  00AD  1683               	bsf	3,5	;RP0=1, select bank1
+   906  00AE  1303               	bcf	3,6	;RP1=0, select bank1
+   907  00AF  160F               	bsf	15,4	;volatile
+   908                           
+   909                           ;Oscilador.c: 47:             OSCCONbits.IRCF1 = 1;
+   910  00B0  168F               	bsf	15,5	;volatile
+   911                           
+   912                           ;Oscilador.c: 48:             OSCCONbits.IRCF2 = 1;
+   913  00B1  170F               	bsf	15,6	;volatile
+   914                           
+   915                           ;Oscilador.c: 49:             break;
+   916  00B2  28DB               	goto	l60
+   917  00B3                     l68:	
+   918                           ;Oscilador.c: 50:         default:
+   919                           
+   920                           
+   921                           ;Oscilador.c: 51:             OSCCONbits.IRCF0 = 0;
+   922  00B3  1683               	bsf	3,5	;RP0=1, select bank1
+   923  00B4  1303               	bcf	3,6	;RP1=0, select bank1
+   924  00B5  120F               	bcf	15,4	;volatile
+   925                           
+   926                           ;Oscilador.c: 52:             OSCCONbits.IRCF1 = 1;
+   927  00B6  168F               	bsf	15,5	;volatile
+   928                           
+   929                           ;Oscilador.c: 53:             OSCCONbits.IRCF2 = 1;
+   930  00B7  170F               	bsf	15,6	;volatile
+   931                           
+   932                           ;Oscilador.c: 54:             break;
+   933  00B8  28DB               	goto	l60
+   934  00B9                     l779:	
+   935  00B9  0875               	movf	initOsc@frec,w
+   936  00BA  00F3               	movwf	??_initOsc
+   937  00BB  01F4               	clrf	??_initOsc+1
+   938                           
+   939                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   909                           ; Switch size 1, requested type "simple"
-   910                           ; Number of cases is 1, Range of values is 0 to 0
-   911                           ; switch strategies available:
-   912                           ; Name         Instructions Cycles
-   913                           ; simple_byte            4     3 (average)
-   914                           ; direct_byte           11     8 (fixed)
-   915                           ; jumptable            260     6 (fixed)
-   916                           ;	Chosen strategy is simple_byte
-   917  00BC  0874               	movf	??_initOsc+1,w
-   918  00BD  3A00               	xorlw	0	; case 0
-   919  00BE  1903               	skipnz
-   920  00BF  28C1               	goto	l923
-   921  00C0  28B3               	goto	l68
-   922  00C1                     l923:	
-   923                           
-   924                           ; Switch size 1, requested type "simple"
-   925                           ; Number of cases is 8, Range of values is 0 to 7
-   926                           ; switch strategies available:
-   927                           ; Name         Instructions Cycles
-   928                           ; simple_byte           25    13 (average)
-   929                           ; direct_byte           32     8 (fixed)
-   930                           ; jumptable            260     6 (fixed)
-   931                           ;	Chosen strategy is simple_byte
-   932  00C1  0873               	movf	??_initOsc,w
-   933  00C2  3A00               	xorlw	0	; case 0
-   934  00C3  1903               	skipnz
-   935  00C4  2883               	goto	l59
-   936  00C5  3A01               	xorlw	1	; case 1
-   937  00C6  1903               	skipnz
-   938  00C7  2889               	goto	l61
-   939  00C8  3A03               	xorlw	3	; case 2
-   940  00C9  1903               	skipnz
-   941  00CA  288F               	goto	l62
-   942  00CB  3A01               	xorlw	1	; case 3
-   943  00CC  1903               	skipnz
-   944  00CD  2895               	goto	l63
-   945  00CE  3A07               	xorlw	7	; case 4
-   946  00CF  1903               	skipnz
-   947  00D0  289B               	goto	l64
-   948  00D1  3A01               	xorlw	1	; case 5
-   949  00D2  1903               	skipnz
-   950  00D3  28A1               	goto	l65
-   951  00D4  3A03               	xorlw	3	; case 6
-   952  00D5  1903               	skipnz
-   953  00D6  28A7               	goto	l66
-   954  00D7  3A01               	xorlw	1	; case 7
-   955  00D8  1903               	skipnz
-   956  00D9  28AD               	goto	l67
-   957  00DA  28B3               	goto	l68
-   958  00DB                     l60:	
-   959                           
-   960                           ;Oscilador.c: 57:     OSCCONbits.SCS = 1;
-   961  00DB  140F               	bsf	15,0	;volatile
-   962  00DC                     l69:	
-   963  00DC  0008               	return
-   964  00DD                     __end_of_initOsc:	
-   965                           
-   966                           	psect	text2
-   967  0142                     __ptext2:	
-   968 ;; *************** function _initADC *****************
-   969 ;; Defined at:
-   970 ;;		line 15 in file "ADC.c"
-   971 ;; Parameters:    Size  Location     Type
-   972 ;;		None
-   973 ;; Auto vars:     Size  Location     Type
-   974 ;;		None
-   975 ;; Return value:  Size  Location     Type
-   976 ;;                  1    wreg      void 
-   977 ;; Registers used:
-   978 ;;		None
-   979 ;; Tracked objects:
-   980 ;;		On entry : 0/0
-   981 ;;		On exit  : 0/0
-   982 ;;		Unchanged: 0/0
-   983 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   984 ;;      Params:         0       0       0       0       0
-   985 ;;      Locals:         0       0       0       0       0
-   986 ;;      Temps:          0       0       0       0       0
-   987 ;;      Totals:         0       0       0       0       0
-   988 ;;Total ram usage:        0 bytes
-   989 ;; Hardware stack levels used:    1
-   990 ;; Hardware stack levels required when called:    1
-   991 ;; This function calls:
-   992 ;;		Nothing
-   993 ;; This function is called by:
-   994 ;;		_main
-   995 ;; This function uses a non-reentrant model
-   996 ;;
-   997                           
-   998                           
-   999                           ;psect for function _initADC
-  1000  0142                     _initADC:	
-  1001  0142                     l791:	
-  1002                           ;incstack = 0
-  1003                           ; Regs used in _initADC: []
-  1004                           
-  1005                           
-  1006                           ;ADC.c: 17:     ADCON0bits.ADCS0 = 0;
-  1007  0142  1283               	bcf	3,5	;RP0=0, select bank0
-  1008  0143  1303               	bcf	3,6	;RP1=0, select bank0
-  1009  0144  131F               	bcf	31,6	;volatile
-  1010                           
-  1011                           ;ADC.c: 18:     ADCON0bits.ADCS1 = 1;
-  1012  0145  179F               	bsf	31,7	;volatile
-  1013                           
-  1014                           ;ADC.c: 20:     ADCON1bits.ADFM = 0;
-  1015  0146  1683               	bsf	3,5	;RP0=1, select bank1
-  1016  0147  1303               	bcf	3,6	;RP1=0, select bank1
-  1017  0148  139F               	bcf	31,7	;volatile
-  1018                           
-  1019                           ;ADC.c: 21:     ADCON1bits.VCFG0 = 0;
-  1020  0149  121F               	bcf	31,4	;volatile
-  1021                           
-  1022                           ;ADC.c: 22:     ADCON1bits.VCFG1 = 0;
-  1023  014A  129F               	bcf	31,5	;volatile
-  1024                           
-  1025                           ;ADC.c: 24:     ADCON0bits.ADON = 1;
-  1026  014B  1283               	bcf	3,5	;RP0=0, select bank0
-  1027  014C  1303               	bcf	3,6	;RP1=0, select bank0
-  1028  014D  141F               	bsf	31,0	;volatile
-  1029  014E                     l161:	
-  1030  014E  0008               	return
-  1031  014F                     __end_of_initADC:	
-  1032                           
-  1033                           	psect	text3
-  1034  0130                     __ptext3:	
-  1035 ;; *************** function _init *****************
-  1036 ;; Defined at:
-  1037 ;;		line 122 in file "Sensor_Temperatura.c"
-  1038 ;; Parameters:    Size  Location     Type
-  1039 ;;		None
-  1040 ;; Auto vars:     Size  Location     Type
-  1041 ;;		None
-  1042 ;; Return value:  Size  Location     Type
-  1043 ;;                  1    wreg      void 
-  1044 ;; Registers used:
-  1045 ;;		wreg, status,2, status,0, pclath, cstack
-  1046 ;; Tracked objects:
-  1047 ;;		On entry : 0/0
-  1048 ;;		On exit  : 0/0
-  1049 ;;		Unchanged: 0/0
-  1050 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1051 ;;      Params:         0       0       0       0       0
-  1052 ;;      Locals:         0       0       0       0       0
-  1053 ;;      Temps:          0       0       0       0       0
-  1054 ;;      Totals:         0       0       0       0       0
-  1055 ;;Total ram usage:        0 bytes
-  1056 ;; Hardware stack levels used:    1
-  1057 ;; Hardware stack levels required when called:    2
-  1058 ;; This function calls:
-  1059 ;;		_I2C_Slave_Init
-  1060 ;; This function is called by:
-  1061 ;;		_main
-  1062 ;; This function uses a non-reentrant model
-  1063 ;;
-  1064                           
-  1065                           
-  1066                           ;psect for function _init
-  1067  0130                     _init:	
-  1068  0130                     l781:	
-  1069                           ;incstack = 0
-  1070                           ; Regs used in _init: [wreg+status,2+status,0+pclath+cstack]
-  1071                           
-  1072                           
-  1073                           ;Sensor_Temperatura.c: 123:     TRISA = 0;
-  1074  0130  1683               	bsf	3,5	;RP0=1, select bank1
-  1075  0131  1303               	bcf	3,6	;RP1=0, select bank1
-  1076  0132  0185               	clrf	5	;volatile
-  1077                           
-  1078                           ;Sensor_Temperatura.c: 124:     TRISB = 0;
-  1079  0133  0186               	clrf	6	;volatile
-  1080                           
-  1081                           ;Sensor_Temperatura.c: 125:     TRISC = 0;
-  1082  0134  0187               	clrf	7	;volatile
-  1083  0135                     l783:	
-  1084                           
-  1085                           ;Sensor_Temperatura.c: 126:     TRISD = 0b00000001;
-  1086  0135  3001               	movlw	1
-  1087  0136  0088               	movwf	8	;volatile
-  1088  0137                     l785:	
-  1089                           
-  1090                           ;Sensor_Temperatura.c: 127:     ANSEL = 0;
-  1091  0137  1683               	bsf	3,5	;RP0=1, select bank3
-  1092  0138  1703               	bsf	3,6	;RP1=1, select bank3
-  1093  0139  0188               	clrf	8	;volatile
-  1094  013A                     l787:	
+   940                           ; Switch size 1, requested type "simple"
+   941                           ; Number of cases is 1, Range of values is 0 to 0
+   942                           ; switch strategies available:
+   943                           ; Name         Instructions Cycles
+   944                           ; simple_byte            4     3 (average)
+   945                           ; direct_byte           11     8 (fixed)
+   946                           ; jumptable            260     6 (fixed)
+   947                           ;	Chosen strategy is simple_byte
+   948  00BC  0874               	movf	??_initOsc+1,w
+   949  00BD  3A00               	xorlw	0	; case 0
+   950  00BE  1903               	skipnz
+   951  00BF  28C1               	goto	l929
+   952  00C0  28B3               	goto	l68
+   953  00C1                     l929:	
+   954                           
+   955                           ; Switch size 1, requested type "simple"
+   956                           ; Number of cases is 8, Range of values is 0 to 7
+   957                           ; switch strategies available:
+   958                           ; Name         Instructions Cycles
+   959                           ; simple_byte           25    13 (average)
+   960                           ; direct_byte           32     8 (fixed)
+   961                           ; jumptable            260     6 (fixed)
+   962                           ;	Chosen strategy is simple_byte
+   963  00C1  0873               	movf	??_initOsc,w
+   964  00C2  3A00               	xorlw	0	; case 0
+   965  00C3  1903               	skipnz
+   966  00C4  2883               	goto	l59
+   967  00C5  3A01               	xorlw	1	; case 1
+   968  00C6  1903               	skipnz
+   969  00C7  2889               	goto	l61
+   970  00C8  3A03               	xorlw	3	; case 2
+   971  00C9  1903               	skipnz
+   972  00CA  288F               	goto	l62
+   973  00CB  3A01               	xorlw	1	; case 3
+   974  00CC  1903               	skipnz
+   975  00CD  2895               	goto	l63
+   976  00CE  3A07               	xorlw	7	; case 4
+   977  00CF  1903               	skipnz
+   978  00D0  289B               	goto	l64
+   979  00D1  3A01               	xorlw	1	; case 5
+   980  00D2  1903               	skipnz
+   981  00D3  28A1               	goto	l65
+   982  00D4  3A03               	xorlw	3	; case 6
+   983  00D5  1903               	skipnz
+   984  00D6  28A7               	goto	l66
+   985  00D7  3A01               	xorlw	1	; case 7
+   986  00D8  1903               	skipnz
+   987  00D9  28AD               	goto	l67
+   988  00DA  28B3               	goto	l68
+   989  00DB                     l60:	
+   990                           
+   991                           ;Oscilador.c: 57:     OSCCONbits.SCS = 1;
+   992  00DB  140F               	bsf	15,0	;volatile
+   993  00DC                     l69:	
+   994  00DC  0008               	return
+   995  00DD                     __end_of_initOsc:	
+   996                           
+   997                           	psect	text2
+   998  0152                     __ptext2:	
+   999 ;; *************** function _initADC *****************
+  1000 ;; Defined at:
+  1001 ;;		line 15 in file "ADC.c"
+  1002 ;; Parameters:    Size  Location     Type
+  1003 ;;		None
+  1004 ;; Auto vars:     Size  Location     Type
+  1005 ;;		None
+  1006 ;; Return value:  Size  Location     Type
+  1007 ;;                  1    wreg      void 
+  1008 ;; Registers used:
+  1009 ;;		None
+  1010 ;; Tracked objects:
+  1011 ;;		On entry : 0/0
+  1012 ;;		On exit  : 0/0
+  1013 ;;		Unchanged: 0/0
+  1014 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1015 ;;      Params:         0       0       0       0       0
+  1016 ;;      Locals:         0       0       0       0       0
+  1017 ;;      Temps:          0       0       0       0       0
+  1018 ;;      Totals:         0       0       0       0       0
+  1019 ;;Total ram usage:        0 bytes
+  1020 ;; Hardware stack levels used:    1
+  1021 ;; Hardware stack levels required when called:    1
+  1022 ;; This function calls:
+  1023 ;;		Nothing
+  1024 ;; This function is called by:
+  1025 ;;		_main
+  1026 ;; This function uses a non-reentrant model
+  1027 ;;
+  1028                           
+  1029                           
+  1030                           ;psect for function _initADC
+  1031  0152                     _initADC:	
+  1032  0152                     l795:	
+  1033                           ;incstack = 0
+  1034                           ; Regs used in _initADC: []
+  1035                           
+  1036                           
+  1037                           ;ADC.c: 17:     ADCON0bits.ADCS0 = 0;
+  1038  0152  1283               	bcf	3,5	;RP0=0, select bank0
+  1039  0153  1303               	bcf	3,6	;RP1=0, select bank0
+  1040  0154  131F               	bcf	31,6	;volatile
+  1041                           
+  1042                           ;ADC.c: 18:     ADCON0bits.ADCS1 = 1;
+  1043  0155  179F               	bsf	31,7	;volatile
+  1044                           
+  1045                           ;ADC.c: 20:     ADCON1bits.ADFM = 0;
+  1046  0156  1683               	bsf	3,5	;RP0=1, select bank1
+  1047  0157  1303               	bcf	3,6	;RP1=0, select bank1
+  1048  0158  139F               	bcf	31,7	;volatile
+  1049                           
+  1050                           ;ADC.c: 21:     ADCON1bits.VCFG0 = 0;
+  1051  0159  121F               	bcf	31,4	;volatile
+  1052                           
+  1053                           ;ADC.c: 22:     ADCON1bits.VCFG1 = 0;
+  1054  015A  129F               	bcf	31,5	;volatile
+  1055                           
+  1056                           ;ADC.c: 24:     ADCON0bits.ADON = 1;
+  1057  015B  1283               	bcf	3,5	;RP0=0, select bank0
+  1058  015C  1303               	bcf	3,6	;RP1=0, select bank0
+  1059  015D  141F               	bsf	31,0	;volatile
+  1060  015E                     l165:	
+  1061  015E  0008               	return
+  1062  015F                     __end_of_initADC:	
+  1063                           
+  1064                           	psect	text3
+  1065  013E                     __ptext3:	
+  1066 ;; *************** function _init *****************
+  1067 ;; Defined at:
+  1068 ;;		line 134 in file "Sensor_Temperatura.c"
+  1069 ;; Parameters:    Size  Location     Type
+  1070 ;;		None
+  1071 ;; Auto vars:     Size  Location     Type
+  1072 ;;		None
+  1073 ;; Return value:  Size  Location     Type
+  1074 ;;                  1    wreg      void 
+  1075 ;; Registers used:
+  1076 ;;		wreg, status,2, status,0, pclath, cstack
+  1077 ;; Tracked objects:
+  1078 ;;		On entry : 0/0
+  1079 ;;		On exit  : 0/0
+  1080 ;;		Unchanged: 0/0
+  1081 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1082 ;;      Params:         0       0       0       0       0
+  1083 ;;      Locals:         0       0       0       0       0
+  1084 ;;      Temps:          0       0       0       0       0
+  1085 ;;      Totals:         0       0       0       0       0
+  1086 ;;Total ram usage:        0 bytes
+  1087 ;; Hardware stack levels used:    1
+  1088 ;; Hardware stack levels required when called:    2
+  1089 ;; This function calls:
+  1090 ;;		_I2C_Slave_Init
+  1091 ;; This function is called by:
+  1092 ;;		_main
+  1093 ;; This function uses a non-reentrant model
+  1094 ;;
   1095                           
-  1096                           ;Sensor_Temperatura.c: 128:     ANSELH = 0;
-  1097  013A  0189               	clrf	9	;volatile
-  1098  013B                     l789:	
-  1099                           
-  1100                           ;Sensor_Temperatura.c: 129:     I2C_Slave_Init(0x30);
-  1101  013B  3030               	movlw	48
-  1102  013C  120A  118A  2116  120A  118A  	fcall	_I2C_Slave_Init
-  1103  0141                     l154:	
-  1104  0141  0008               	return
-  1105  0142                     __end_of_init:	
-  1106                           
-  1107                           	psect	text4
-  1108  0116                     __ptext4:	
-  1109 ;; *************** function _I2C_Slave_Init *****************
-  1110 ;; Defined at:
-  1111 ;;		line 85 in file "I2C.c"
-  1112 ;; Parameters:    Size  Location     Type
-  1113 ;;  address         1    wreg     unsigned char 
-  1114 ;; Auto vars:     Size  Location     Type
-  1115 ;;  address         1    3[COMMON] unsigned char 
-  1116 ;; Return value:  Size  Location     Type
-  1117 ;;                  1    wreg      void 
-  1118 ;; Registers used:
-  1119 ;;		wreg
-  1120 ;; Tracked objects:
-  1121 ;;		On entry : 0/0
-  1122 ;;		On exit  : 0/0
-  1123 ;;		Unchanged: 0/0
-  1124 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1125 ;;      Params:         0       0       0       0       0
-  1126 ;;      Locals:         1       0       0       0       0
-  1127 ;;      Temps:          0       0       0       0       0
-  1128 ;;      Totals:         1       0       0       0       0
-  1129 ;;Total ram usage:        1 bytes
-  1130 ;; Hardware stack levels used:    1
-  1131 ;; Hardware stack levels required when called:    1
-  1132 ;; This function calls:
-  1133 ;;		Nothing
-  1134 ;; This function is called by:
-  1135 ;;		_init
-  1136 ;; This function uses a non-reentrant model
-  1137 ;;
-  1138                           
+  1096                           
+  1097                           ;psect for function _init
+  1098  013E                     _init:	
+  1099  013E                     l785:	
+  1100                           ;incstack = 0
+  1101                           ; Regs used in _init: [wreg+status,2+status,0+pclath+cstack]
+  1102                           
+  1103                           
+  1104                           ;Sensor_Temperatura.c: 135:     TRISA = 0b00000001;
+  1105  013E  3001               	movlw	1
+  1106  013F  1683               	bsf	3,5	;RP0=1, select bank1
+  1107  0140  1303               	bcf	3,6	;RP1=0, select bank1
+  1108  0141  0085               	movwf	5	;volatile
+  1109  0142                     l787:	
+  1110                           
+  1111                           ;Sensor_Temperatura.c: 136:     TRISB = 0;
+  1112  0142  0186               	clrf	6	;volatile
+  1113  0143                     l789:	
+  1114                           
+  1115                           ;Sensor_Temperatura.c: 137:     TRISC = 0;
+  1116  0143  0187               	clrf	7	;volatile
+  1117                           
+  1118                           ;Sensor_Temperatura.c: 138:     TRISD = 0b00000001;
+  1119  0144  3001               	movlw	1
+  1120  0145  0088               	movwf	8	;volatile
+  1121                           
+  1122                           ;Sensor_Temperatura.c: 139:     ANSEL = 0b00000001;
+  1123  0146  3001               	movlw	1
+  1124  0147  1683               	bsf	3,5	;RP0=1, select bank3
+  1125  0148  1703               	bsf	3,6	;RP1=1, select bank3
+  1126  0149  0088               	movwf	8	;volatile
+  1127  014A                     l791:	
+  1128                           
+  1129                           ;Sensor_Temperatura.c: 140:     ANSELH = 0;
+  1130  014A  0189               	clrf	9	;volatile
+  1131  014B                     l793:	
+  1132                           
+  1133                           ;Sensor_Temperatura.c: 141:     I2C_Slave_Init(0x30);
+  1134  014B  3030               	movlw	48
+  1135  014C  120A  118A  2124  120A  118A  	fcall	_I2C_Slave_Init
+  1136  0151                     l158:	
+  1137  0151  0008               	return
+  1138  0152                     __end_of_init:	
   1139                           
-  1140                           ;psect for function _I2C_Slave_Init
-  1141  0116                     _I2C_Slave_Init:	
-  1142                           
-  1143                           ;incstack = 0
-  1144                           ; Regs used in _I2C_Slave_Init: [wreg]
-  1145                           ;I2C_Slave_Init@address stored from wreg
-  1146  0116  00F3               	movwf	I2C_Slave_Init@address
-  1147  0117                     l753:	
-  1148                           
-  1149                           ;I2C.c: 85: void I2C_Slave_Init(uint8_t address);I2C.c: 86: {;I2C.c: 87:     SSPADD = ad
-      +                          dress;
-  1150  0117  0873               	movf	I2C_Slave_Init@address,w
-  1151  0118  1683               	bsf	3,5	;RP0=1, select bank1
-  1152  0119  1303               	bcf	3,6	;RP1=0, select bank1
-  1153  011A  0093               	movwf	19	;volatile
-  1154                           
-  1155                           ;I2C.c: 88:     SSPCON = 0x36;
-  1156  011B  3036               	movlw	54
-  1157  011C  1283               	bcf	3,5	;RP0=0, select bank0
-  1158  011D  1303               	bcf	3,6	;RP1=0, select bank0
-  1159  011E  0094               	movwf	20	;volatile
-  1160                           
-  1161                           ;I2C.c: 89:     SSPSTAT = 0x80;
-  1162  011F  3080               	movlw	128
-  1163  0120  1683               	bsf	3,5	;RP0=1, select bank1
-  1164  0121  1303               	bcf	3,6	;RP1=0, select bank1
-  1165  0122  0094               	movwf	20	;volatile
-  1166                           
-  1167                           ;I2C.c: 90:     SSPCON2 = 0x01;
-  1168  0123  3001               	movlw	1
-  1169  0124  0091               	movwf	17	;volatile
-  1170  0125                     l755:	
+  1140                           	psect	text4
+  1141  0124                     __ptext4:	
+  1142 ;; *************** function _I2C_Slave_Init *****************
+  1143 ;; Defined at:
+  1144 ;;		line 85 in file "I2C.c"
+  1145 ;; Parameters:    Size  Location     Type
+  1146 ;;  address         1    wreg     unsigned char 
+  1147 ;; Auto vars:     Size  Location     Type
+  1148 ;;  address         1    3[COMMON] unsigned char 
+  1149 ;; Return value:  Size  Location     Type
+  1150 ;;                  1    wreg      void 
+  1151 ;; Registers used:
+  1152 ;;		wreg
+  1153 ;; Tracked objects:
+  1154 ;;		On entry : 0/0
+  1155 ;;		On exit  : 0/0
+  1156 ;;		Unchanged: 0/0
+  1157 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1158 ;;      Params:         0       0       0       0       0
+  1159 ;;      Locals:         1       0       0       0       0
+  1160 ;;      Temps:          0       0       0       0       0
+  1161 ;;      Totals:         1       0       0       0       0
+  1162 ;;Total ram usage:        1 bytes
+  1163 ;; Hardware stack levels used:    1
+  1164 ;; Hardware stack levels required when called:    1
+  1165 ;; This function calls:
+  1166 ;;		Nothing
+  1167 ;; This function is called by:
+  1168 ;;		_init
+  1169 ;; This function uses a non-reentrant model
+  1170 ;;
   1171                           
-  1172                           ;I2C.c: 91:     TRISC3 = 1;
-  1173  0125  1587               	bsf	7,3	;volatile
-  1174  0126                     l757:	
+  1172                           
+  1173                           ;psect for function _I2C_Slave_Init
+  1174  0124                     _I2C_Slave_Init:	
   1175                           
-  1176                           ;I2C.c: 92:     TRISC4 = 1;
-  1177  0126  1607               	bsf	7,4	;volatile
-  1178  0127                     l759:	
-  1179                           
-  1180                           ;I2C.c: 93:     GIE = 1;
-  1181  0127  178B               	bsf	11,7	;volatile
-  1182  0128                     l761:	
-  1183                           
-  1184                           ;I2C.c: 94:     PEIE = 1;
-  1185  0128  170B               	bsf	11,6	;volatile
-  1186  0129                     l763:	
+  1176                           ;incstack = 0
+  1177                           ; Regs used in _I2C_Slave_Init: [wreg]
+  1178                           ;I2C_Slave_Init@address stored from wreg
+  1179  0124  00F3               	movwf	I2C_Slave_Init@address
+  1180  0125                     l757:	
+  1181                           
+  1182                           ;I2C.c: 85: void I2C_Slave_Init(uint8_t address);I2C.c: 86: {;I2C.c: 87:     SSPADD = ad
+      +                          dress;
+  1183  0125  0873               	movf	I2C_Slave_Init@address,w
+  1184  0126  1683               	bsf	3,5	;RP0=1, select bank1
+  1185  0127  1303               	bcf	3,6	;RP1=0, select bank1
+  1186  0128  0093               	movwf	19	;volatile
   1187                           
-  1188                           ;I2C.c: 95:     SSPIF = 0;
-  1189  0129  1283               	bcf	3,5	;RP0=0, select bank0
-  1190  012A  1303               	bcf	3,6	;RP1=0, select bank0
-  1191  012B  118C               	bcf	12,3	;volatile
-  1192  012C                     l765:	
+  1188                           ;I2C.c: 88:     SSPCON = 0x36;
+  1189  0129  3036               	movlw	54
+  1190  012A  1283               	bcf	3,5	;RP0=0, select bank0
+  1191  012B  1303               	bcf	3,6	;RP1=0, select bank0
+  1192  012C  0094               	movwf	20	;volatile
   1193                           
-  1194                           ;I2C.c: 96:     SSPIE = 1;
-  1195  012C  1683               	bsf	3,5	;RP0=1, select bank1
-  1196  012D  1303               	bcf	3,6	;RP1=0, select bank1
-  1197  012E  158C               	bsf	12,3	;volatile
-  1198  012F                     l53:	
-  1199  012F  0008               	return
-  1200  0130                     __end_of_I2C_Slave_Init:	
-  1201                           
-  1202                           	psect	text5
-  1203  001C                     __ptext5:	
-  1204 ;; *************** function _isr *****************
-  1205 ;; Defined at:
-  1206 ;;		line 58 in file "Sensor_Temperatura.c"
-  1207 ;; Parameters:    Size  Location     Type
-  1208 ;;		None
-  1209 ;; Auto vars:     Size  Location     Type
-  1210 ;;		None
-  1211 ;; Return value:  Size  Location     Type
-  1212 ;;                  1    wreg      void 
-  1213 ;; Registers used:
-  1214 ;;		wreg
-  1215 ;; Tracked objects:
-  1216 ;;		On entry : 0/0
-  1217 ;;		On exit  : 0/0
-  1218 ;;		Unchanged: 0/0
-  1219 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1220 ;;      Params:         0       0       0       0       0
-  1221 ;;      Locals:         0       0       0       0       0
-  1222 ;;      Temps:          3       0       0       0       0
-  1223 ;;      Totals:         3       0       0       0       0
-  1224 ;;Total ram usage:        3 bytes
-  1225 ;; Hardware stack levels used:    1
-  1226 ;; This function calls:
-  1227 ;;		Nothing
-  1228 ;; This function is called by:
-  1229 ;;		Interrupt level 1
-  1230 ;; This function uses a non-reentrant model
-  1231 ;;
-  1232                           
-  1233                           
-  1234                           ;psect for function _isr
-  1235  001C                     _isr:	
-  1236  001C                     i1l835:	
-  1237                           
-  1238                           ;Sensor_Temperatura.c: 60:     if(PIR1bits.SSPIF == 1){
-  1239  001C  1283               	bcf	3,5	;RP0=0, select bank0
-  1240  001D  1303               	bcf	3,6	;RP1=0, select bank0
-  1241  001E  1D8C               	btfss	12,3	;volatile
-  1242  001F  2821               	goto	u6_21
-  1243  0020  2822               	goto	u6_20
-  1244  0021                     u6_21:	
-  1245  0021  287A               	goto	i1l143
-  1246  0022                     u6_20:	
-  1247  0022                     i1l837:	
-  1248                           
-  1249                           ;Sensor_Temperatura.c: 62:             SSPCONbits.CKP = 0;
-  1250  0022  1214               	bcf	20,4	;volatile
-  1251                           
-  1252                           ;Sensor_Temperatura.c: 64:             if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
-  1253  0023  1B14               	btfsc	20,6	;volatile
-  1254  0024  2826               	goto	u7_21
-  1255  0025  2827               	goto	u7_20
-  1256  0026                     u7_21:	
-  1257  0026  282B               	goto	i1l841
-  1258  0027                     u7_20:	
-  1259  0027                     i1l839:	
-  1260  0027  1F94               	btfss	20,7	;volatile
-  1261  0028  282A               	goto	u8_21
-  1262  0029  282B               	goto	u8_20
-  1263  002A                     u8_21:	
-  1264  002A  2832               	goto	i1l849
-  1265  002B                     u8_20:	
-  1266  002B                     i1l841:	
-  1267                           
-  1268                           ;Sensor_Temperatura.c: 65:                 z = SSPBUF;
-  1269  002B  0813               	movf	19,w	;volatile
-  1270  002C  00F0               	movwf	??_isr
-  1271  002D  0870               	movf	??_isr,w
-  1272  002E  00FC               	movwf	_z
-  1273  002F                     i1l843:	
-  1274                           
-  1275                           ;Sensor_Temperatura.c: 66:                 SSPCONbits.SSPOV = 0;
-  1276  002F  1314               	bcf	20,6	;volatile
-  1277  0030                     i1l845:	
-  1278                           
-  1279                           ;Sensor_Temperatura.c: 67:                 SSPCONbits.WCOL = 0;
-  1280  0030  1394               	bcf	20,7	;volatile
-  1281  0031                     i1l847:	
-  1282                           
-  1283                           ;Sensor_Temperatura.c: 68:                 SSPCONbits.CKP = 1;
-  1284  0031  1614               	bsf	20,4	;volatile
-  1285  0032                     i1l849:	
-  1286                           
-  1287                           ;Sensor_Temperatura.c: 71:             if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
-  1288  0032  1683               	bsf	3,5	;RP0=1, select bank1
-  1289  0033  1303               	bcf	3,6	;RP1=0, select bank1
-  1290  0034  1A94               	btfsc	20,5	;volatile
-  1291  0035  2837               	goto	u9_21
-  1292  0036  2838               	goto	u9_20
-  1293  0037                     u9_21:	
-  1294  0037  2856               	goto	i1l134
-  1295  0038                     u9_20:	
-  1296  0038                     i1l851:	
-  1297  0038  1914               	btfsc	20,2	;volatile
-  1298  0039  283B               	goto	u10_21
-  1299  003A  283C               	goto	u10_20
-  1300  003B                     u10_21:	
-  1301  003B  2856               	goto	i1l134
-  1302  003C                     u10_20:	
-  1303  003C                     i1l853:	
-  1304                           
-  1305                           ;Sensor_Temperatura.c: 72:                 z = SSPBUF;
-  1306  003C  1283               	bcf	3,5	;RP0=0, select bank0
-  1307  003D  1303               	bcf	3,6	;RP1=0, select bank0
-  1308  003E  0813               	movf	19,w	;volatile
-  1309  003F  00F0               	movwf	??_isr
-  1310  0040  0870               	movf	??_isr,w
-  1311  0041  00FC               	movwf	_z
-  1312  0042                     i1l855:	
-  1313                           
-  1314                           ;Sensor_Temperatura.c: 73:                 PIR1bits.SSPIF = 0;
-  1315  0042  118C               	bcf	12,3	;volatile
-  1316  0043                     i1l857:	
-  1317                           
-  1318                           ;Sensor_Temperatura.c: 74:                 SSPCONbits.CKP = 1;
-  1319  0043  1614               	bsf	20,4	;volatile
-  1320  0044                     i1l135:	
-  1321                           ;Sensor_Temperatura.c: 75:                 while(!SSPSTATbits.BF);
-  1322                           
-  1323  0044  1683               	bsf	3,5	;RP0=1, select bank1
-  1324  0045  1303               	bcf	3,6	;RP1=0, select bank1
-  1325  0046  1C14               	btfss	20,0	;volatile
-  1326  0047  2849               	goto	u11_21
-  1327  0048  284A               	goto	u11_20
-  1328  0049                     u11_21:	
-  1329  0049  2844               	goto	i1l135
-  1330  004A                     u11_20:	
-  1331  004A                     i1l859:	
-  1332                           
-  1333                           ;Sensor_Temperatura.c: 76:                 analogVal = SSPBUF;
-  1334  004A  1283               	bcf	3,5	;RP0=0, select bank0
-  1335  004B  1303               	bcf	3,6	;RP1=0, select bank0
-  1336  004C  0813               	movf	19,w	;volatile
-  1337  004D  00F0               	movwf	??_isr
-  1338  004E  0870               	movf	??_isr,w
-  1339  004F  00F8               	movwf	_analogVal
-  1340                           
-  1341                           ;Sensor_Temperatura.c: 77:                 _delay((unsigned long)((250)*(8000000/4000000
+  1194                           ;I2C.c: 89:     SSPSTAT = 0x80;
+  1195  012D  3080               	movlw	128
+  1196  012E  1683               	bsf	3,5	;RP0=1, select bank1
+  1197  012F  1303               	bcf	3,6	;RP1=0, select bank1
+  1198  0130  0094               	movwf	20	;volatile
+  1199                           
+  1200                           ;I2C.c: 90:     SSPCON2 = 0x01;
+  1201  0131  3001               	movlw	1
+  1202  0132  0091               	movwf	17	;volatile
+  1203  0133                     l759:	
+  1204                           
+  1205                           ;I2C.c: 91:     TRISC3 = 1;
+  1206  0133  1587               	bsf	7,3	;volatile
+  1207  0134                     l761:	
+  1208                           
+  1209                           ;I2C.c: 92:     TRISC4 = 1;
+  1210  0134  1607               	bsf	7,4	;volatile
+  1211  0135                     l763:	
+  1212                           
+  1213                           ;I2C.c: 93:     GIE = 1;
+  1214  0135  178B               	bsf	11,7	;volatile
+  1215  0136                     l765:	
+  1216                           
+  1217                           ;I2C.c: 94:     PEIE = 1;
+  1218  0136  170B               	bsf	11,6	;volatile
+  1219  0137                     l767:	
+  1220                           
+  1221                           ;I2C.c: 95:     SSPIF = 0;
+  1222  0137  1283               	bcf	3,5	;RP0=0, select bank0
+  1223  0138  1303               	bcf	3,6	;RP1=0, select bank0
+  1224  0139  118C               	bcf	12,3	;volatile
+  1225  013A                     l769:	
+  1226                           
+  1227                           ;I2C.c: 96:     SSPIE = 1;
+  1228  013A  1683               	bsf	3,5	;RP0=1, select bank1
+  1229  013B  1303               	bcf	3,6	;RP1=0, select bank1
+  1230  013C  158C               	bsf	12,3	;volatile
+  1231  013D                     l53:	
+  1232  013D  0008               	return
+  1233  013E                     __end_of_I2C_Slave_Init:	
+  1234                           
+  1235                           	psect	text5
+  1236  001C                     __ptext5:	
+  1237 ;; *************** function _isr *****************
+  1238 ;; Defined at:
+  1239 ;;		line 59 in file "Sensor_Temperatura.c"
+  1240 ;; Parameters:    Size  Location     Type
+  1241 ;;		None
+  1242 ;; Auto vars:     Size  Location     Type
+  1243 ;;		None
+  1244 ;; Return value:  Size  Location     Type
+  1245 ;;                  1    wreg      void 
+  1246 ;; Registers used:
+  1247 ;;		wreg
+  1248 ;; Tracked objects:
+  1249 ;;		On entry : 0/0
+  1250 ;;		On exit  : 0/0
+  1251 ;;		Unchanged: 0/0
+  1252 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1253 ;;      Params:         0       0       0       0       0
+  1254 ;;      Locals:         0       0       0       0       0
+  1255 ;;      Temps:          3       0       0       0       0
+  1256 ;;      Totals:         3       0       0       0       0
+  1257 ;;Total ram usage:        3 bytes
+  1258 ;; Hardware stack levels used:    1
+  1259 ;; This function calls:
+  1260 ;;		Nothing
+  1261 ;; This function is called by:
+  1262 ;;		Interrupt level 1
+  1263 ;; This function uses a non-reentrant model
+  1264 ;;
+  1265                           
+  1266                           
+  1267                           ;psect for function _isr
+  1268  001C                     _isr:	
+  1269  001C                     i1l839:	
+  1270                           
+  1271                           ;Sensor_Temperatura.c: 61:     if(PIR1bits.SSPIF == 1){
+  1272  001C  1283               	bcf	3,5	;RP0=0, select bank0
+  1273  001D  1303               	bcf	3,6	;RP1=0, select bank0
+  1274  001E  1D8C               	btfss	12,3	;volatile
+  1275  001F  2821               	goto	u6_21
+  1276  0020  2822               	goto	u6_20
+  1277  0021                     u6_21:	
+  1278  0021  287A               	goto	i1l145
+  1279  0022                     u6_20:	
+  1280  0022                     i1l841:	
+  1281                           
+  1282                           ;Sensor_Temperatura.c: 63:             SSPCONbits.CKP = 0;
+  1283  0022  1214               	bcf	20,4	;volatile
+  1284                           
+  1285                           ;Sensor_Temperatura.c: 65:             if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+  1286  0023  1B14               	btfsc	20,6	;volatile
+  1287  0024  2826               	goto	u7_21
+  1288  0025  2827               	goto	u7_20
+  1289  0026                     u7_21:	
+  1290  0026  282B               	goto	i1l845
+  1291  0027                     u7_20:	
+  1292  0027                     i1l843:	
+  1293  0027  1F94               	btfss	20,7	;volatile
+  1294  0028  282A               	goto	u8_21
+  1295  0029  282B               	goto	u8_20
+  1296  002A                     u8_21:	
+  1297  002A  2832               	goto	i1l853
+  1298  002B                     u8_20:	
+  1299  002B                     i1l845:	
+  1300                           
+  1301                           ;Sensor_Temperatura.c: 66:                 z = SSPBUF;
+  1302  002B  0813               	movf	19,w	;volatile
+  1303  002C  00F0               	movwf	??_isr
+  1304  002D  0870               	movf	??_isr,w
+  1305  002E  00FC               	movwf	_z
+  1306  002F                     i1l847:	
+  1307                           
+  1308                           ;Sensor_Temperatura.c: 67:                 SSPCONbits.SSPOV = 0;
+  1309  002F  1314               	bcf	20,6	;volatile
+  1310  0030                     i1l849:	
+  1311                           
+  1312                           ;Sensor_Temperatura.c: 68:                 SSPCONbits.WCOL = 0;
+  1313  0030  1394               	bcf	20,7	;volatile
+  1314  0031                     i1l851:	
+  1315                           
+  1316                           ;Sensor_Temperatura.c: 69:                 SSPCONbits.CKP = 1;
+  1317  0031  1614               	bsf	20,4	;volatile
+  1318  0032                     i1l853:	
+  1319                           
+  1320                           ;Sensor_Temperatura.c: 72:             if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+  1321  0032  1683               	bsf	3,5	;RP0=1, select bank1
+  1322  0033  1303               	bcf	3,6	;RP1=0, select bank1
+  1323  0034  1A94               	btfsc	20,5	;volatile
+  1324  0035  2837               	goto	u9_21
+  1325  0036  2838               	goto	u9_20
+  1326  0037                     u9_21:	
+  1327  0037  2856               	goto	i1l136
+  1328  0038                     u9_20:	
+  1329  0038                     i1l855:	
+  1330  0038  1914               	btfsc	20,2	;volatile
+  1331  0039  283B               	goto	u10_21
+  1332  003A  283C               	goto	u10_20
+  1333  003B                     u10_21:	
+  1334  003B  2856               	goto	i1l136
+  1335  003C                     u10_20:	
+  1336  003C                     i1l857:	
+  1337                           
+  1338                           ;Sensor_Temperatura.c: 73:                 z = SSPBUF;
+  1339  003C  1283               	bcf	3,5	;RP0=0, select bank0
+  1340  003D  1303               	bcf	3,6	;RP1=0, select bank0
+  1341  003E  0813               	movf	19,w	;volatile
+  1342  003F  00F0               	movwf	??_isr
+  1343  0040  0870               	movf	??_isr,w
+  1344  0041  00FC               	movwf	_z
+  1345  0042                     i1l859:	
+  1346                           
+  1347                           ;Sensor_Temperatura.c: 74:                 PIR1bits.SSPIF = 0;
+  1348  0042  118C               	bcf	12,3	;volatile
+  1349  0043                     i1l861:	
+  1350                           
+  1351                           ;Sensor_Temperatura.c: 75:                 SSPCONbits.CKP = 1;
+  1352  0043  1614               	bsf	20,4	;volatile
+  1353  0044                     i1l137:	
+  1354                           ;Sensor_Temperatura.c: 76:                 while(!SSPSTATbits.BF);
+  1355                           
+  1356  0044  1683               	bsf	3,5	;RP0=1, select bank1
+  1357  0045  1303               	bcf	3,6	;RP1=0, select bank1
+  1358  0046  1C14               	btfss	20,0	;volatile
+  1359  0047  2849               	goto	u11_21
+  1360  0048  284A               	goto	u11_20
+  1361  0049                     u11_21:	
+  1362  0049  2844               	goto	i1l137
+  1363  004A                     u11_20:	
+  1364  004A                     i1l863:	
+  1365                           
+  1366                           ;Sensor_Temperatura.c: 77:                 analogVal = SSPBUF;
+  1367  004A  1283               	bcf	3,5	;RP0=0, select bank0
+  1368  004B  1303               	bcf	3,6	;RP1=0, select bank0
+  1369  004C  0813               	movf	19,w	;volatile
+  1370  004D  00F0               	movwf	??_isr
+  1371  004E  0870               	movf	??_isr,w
+  1372  004F  00F8               	movwf	_analogVal
+  1373                           
+  1374                           ;Sensor_Temperatura.c: 78:                 _delay((unsigned long)((250)*(8000000/4000000
       +                          .0)));
-  1342  0050  30A6               	movlw	166
-  1343  0051  00F0               	movwf	??_isr
-  1344  0052                     u17_27:	
-  1345  0052  0BF0               	decfsz	??_isr,f
-  1346  0053  2852               	goto	u17_27
-  1347  0054  0000               	nop
-  1348                           
-  1349                           ;Sensor_Temperatura.c: 79:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
-  1350  0055  2877               	goto	i1l138
-  1351  0056                     i1l134:	
-  1352  0056  1A94               	btfsc	20,5	;volatile
-  1353  0057  2859               	goto	u12_21
-  1354  0058  285A               	goto	u12_20
-  1355  0059                     u12_21:	
-  1356  0059  2877               	goto	i1l138
-  1357  005A                     u12_20:	
-  1358  005A                     i1l861:	
-  1359  005A  1D14               	btfss	20,2	;volatile
-  1360  005B  285D               	goto	u13_21
-  1361  005C  285E               	goto	u13_20
-  1362  005D                     u13_21:	
-  1363  005D  2877               	goto	i1l138
-  1364  005E                     u13_20:	
-  1365  005E                     i1l863:	
-  1366                           
-  1367                           ;Sensor_Temperatura.c: 80:                 z = SSPBUF;
-  1368  005E  1283               	bcf	3,5	;RP0=0, select bank0
-  1369  005F  1303               	bcf	3,6	;RP1=0, select bank0
-  1370  0060  0813               	movf	19,w	;volatile
-  1371  0061  00F0               	movwf	??_isr
-  1372  0062  0870               	movf	??_isr,w
-  1373  0063  00FC               	movwf	_z
-  1374  0064                     i1l865:	
-  1375                           
-  1376                           ;Sensor_Temperatura.c: 81:                 BF = 0;
-  1377  0064  1683               	bsf	3,5	;RP0=1, select bank1
-  1378  0065  1303               	bcf	3,6	;RP1=0, select bank1
-  1379  0066  1014               	bcf	20,0	;volatile
-  1380                           
-  1381                           ;Sensor_Temperatura.c: 82:                 SSPBUF = analogVal;
-  1382  0067  0878               	movf	_analogVal,w
-  1383  0068  1283               	bcf	3,5	;RP0=0, select bank0
-  1384  0069  1303               	bcf	3,6	;RP1=0, select bank0
-  1385  006A  0093               	movwf	19	;volatile
-  1386  006B                     i1l867:	
-  1387                           
-  1388                           ;Sensor_Temperatura.c: 83:                 SSPCONbits.CKP = 1;
-  1389  006B  1614               	bsf	20,4	;volatile
-  1390                           
-  1391                           ;Sensor_Temperatura.c: 84:                 _delay((unsigned long)((250)*(8000000/4000000
+  1375  0050  30A6               	movlw	166
+  1376  0051  00F0               	movwf	??_isr
+  1377  0052                     u18_27:	
+  1378  0052  0BF0               	decfsz	??_isr,f
+  1379  0053  2852               	goto	u18_27
+  1380  0054  0000               	nop
+  1381                           
+  1382                           ;Sensor_Temperatura.c: 80:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+  1383  0055  2877               	goto	i1l140
+  1384  0056                     i1l136:	
+  1385  0056  1A94               	btfsc	20,5	;volatile
+  1386  0057  2859               	goto	u12_21
+  1387  0058  285A               	goto	u12_20
+  1388  0059                     u12_21:	
+  1389  0059  2877               	goto	i1l140
+  1390  005A                     u12_20:	
+  1391  005A                     i1l865:	
+  1392  005A  1D14               	btfss	20,2	;volatile
+  1393  005B  285D               	goto	u13_21
+  1394  005C  285E               	goto	u13_20
+  1395  005D                     u13_21:	
+  1396  005D  2877               	goto	i1l140
+  1397  005E                     u13_20:	
+  1398  005E                     i1l867:	
+  1399                           
+  1400                           ;Sensor_Temperatura.c: 81:                 z = SSPBUF;
+  1401  005E  1283               	bcf	3,5	;RP0=0, select bank0
+  1402  005F  1303               	bcf	3,6	;RP1=0, select bank0
+  1403  0060  0813               	movf	19,w	;volatile
+  1404  0061  00F0               	movwf	??_isr
+  1405  0062  0870               	movf	??_isr,w
+  1406  0063  00FC               	movwf	_z
+  1407  0064                     i1l869:	
+  1408                           
+  1409                           ;Sensor_Temperatura.c: 82:                 BF = 0;
+  1410  0064  1683               	bsf	3,5	;RP0=1, select bank1
+  1411  0065  1303               	bcf	3,6	;RP1=0, select bank1
+  1412  0066  1014               	bcf	20,0	;volatile
+  1413                           
+  1414                           ;Sensor_Temperatura.c: 83:                 SSPBUF = analogVal;
+  1415  0067  0878               	movf	_analogVal,w
+  1416  0068  1283               	bcf	3,5	;RP0=0, select bank0
+  1417  0069  1303               	bcf	3,6	;RP1=0, select bank0
+  1418  006A  0093               	movwf	19	;volatile
+  1419  006B                     i1l871:	
+  1420                           
+  1421                           ;Sensor_Temperatura.c: 84:                 SSPCONbits.CKP = 1;
+  1422  006B  1614               	bsf	20,4	;volatile
+  1423                           
+  1424                           ;Sensor_Temperatura.c: 85:                 _delay((unsigned long)((250)*(8000000/4000000
       +                          .0)));
-  1392  006C  30A6               	movlw	166
-  1393  006D  00F0               	movwf	??_isr
-  1394  006E                     u18_27:	
-  1395  006E  0BF0               	decfsz	??_isr,f
-  1396  006F  286E               	goto	u18_27
-  1397  0070  0000               	nop
-  1398  0071                     i1l140:	
-  1399                           ;Sensor_Temperatura.c: 85:                 while(SSPSTATbits.BF);
-  1400                           
-  1401  0071  1683               	bsf	3,5	;RP0=1, select bank1
-  1402  0072  1303               	bcf	3,6	;RP1=0, select bank1
-  1403  0073  1814               	btfsc	20,0	;volatile
-  1404  0074  2876               	goto	u14_21
-  1405  0075  2877               	goto	u14_20
-  1406  0076                     u14_21:	
-  1407  0076  2871               	goto	i1l140
-  1408  0077                     u14_20:	
-  1409  0077                     i1l138:	
-  1410                           
-  1411                           ;Sensor_Temperatura.c: 88:             PIR1bits.SSPIF = 0;
-  1412  0077  1283               	bcf	3,5	;RP0=0, select bank0
-  1413  0078  1303               	bcf	3,6	;RP1=0, select bank0
-  1414  0079  118C               	bcf	12,3	;volatile
-  1415  007A                     i1l143:	
-  1416  007A  0872               	movf	??_isr+2,w
-  1417  007B  008A               	movwf	10
-  1418  007C  0E71               	swapf	(??_isr+1)^(0+4294967168),w
-  1419  007D  0083               	movwf	3
-  1420  007E  0EFE               	swapf	btemp,f
-  1421  007F  0E7E               	swapf	btemp,w
-  1422  0080  0009               	retfie
-  1423  0081                     __end_of_isr:	
-  1424  007E                     btemp	set	126	;btemp
-  1425  007E                     wtemp0	set	126
-  1426                           
-  1427                           	psect	intentry
-  1428  0004                     __pintentry:	
-  1429                           ;incstack = 0
-  1430                           ; Regs used in _isr: [wreg]
-  1431                           
-  1432  0004                     interrupt_function:	
-  1433  007E                     saved_w	set	btemp
-  1434  0004  00FE               	movwf	btemp
-  1435  0005  0E03               	swapf	3,w
-  1436  0006  00F1               	movwf	??_isr+1
-  1437  0007  080A               	movf	10,w
-  1438  0008  00F2               	movwf	??_isr+2
-  1439  0009  120A  118A  281C   	ljmp	_isr
+  1425  006C  30A6               	movlw	166
+  1426  006D  00F0               	movwf	??_isr
+  1427  006E                     u19_27:	
+  1428  006E  0BF0               	decfsz	??_isr,f
+  1429  006F  286E               	goto	u19_27
+  1430  0070  0000               	nop
+  1431  0071                     i1l142:	
+  1432                           ;Sensor_Temperatura.c: 86:                 while(SSPSTATbits.BF);
+  1433                           
+  1434  0071  1683               	bsf	3,5	;RP0=1, select bank1
+  1435  0072  1303               	bcf	3,6	;RP1=0, select bank1
+  1436  0073  1814               	btfsc	20,0	;volatile
+  1437  0074  2876               	goto	u14_21
+  1438  0075  2877               	goto	u14_20
+  1439  0076                     u14_21:	
+  1440  0076  2871               	goto	i1l142
+  1441  0077                     u14_20:	
+  1442  0077                     i1l140:	
+  1443                           
+  1444                           ;Sensor_Temperatura.c: 89:             PIR1bits.SSPIF = 0;
+  1445  0077  1283               	bcf	3,5	;RP0=0, select bank0
+  1446  0078  1303               	bcf	3,6	;RP1=0, select bank0
+  1447  0079  118C               	bcf	12,3	;volatile
+  1448  007A                     i1l145:	
+  1449  007A  0872               	movf	??_isr+2,w
+  1450  007B  008A               	movwf	10
+  1451  007C  0E71               	swapf	(??_isr+1)^(0+4294967168),w
+  1452  007D  0083               	movwf	3
+  1453  007E  0EFE               	swapf	btemp,f
+  1454  007F  0E7E               	swapf	btemp,w
+  1455  0080  0009               	retfie
+  1456  0081                     __end_of_isr:	
+  1457  007E                     btemp	set	126	;btemp
+  1458  007E                     wtemp0	set	126
+  1459                           
+  1460                           	psect	intentry
+  1461  0004                     __pintentry:	
+  1462                           ;incstack = 0
+  1463                           ; Regs used in _isr: [wreg]
+  1464                           
+  1465  0004                     interrupt_function:	
+  1466  007E                     saved_w	set	btemp
+  1467  0004  00FE               	movwf	btemp
+  1468  0005  0E03               	swapf	3,w
+  1469  0006  00F1               	movwf	??_isr+1
+  1470  0007  080A               	movf	10,w
+  1471  0008  00F2               	movwf	??_isr+2
+  1472  0009  120A  118A  281C   	ljmp	_isr
 
 
 Data Sizes:
@@ -1589,70 +1624,72 @@ DATA                 0      0       F      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Sun Mar 08 17:12:49 2020
+Symbol Table                                                                                   Sun Mar 08 17:35:25 2020
 
                        _z 007C               __CFG_CP$OFF 0000               _SSPSTATbits 0094  
-                      _BF 04A0                        l60 00DB                        l53 012F  
+                      _BF 04A0                        l60 00DB                        l53 013D  
                       l61 0089                        l62 008F                        l63 0095  
                       l64 009B                        l65 00A1                        l66 00A7  
                       l67 00AD                        l59 0083                        l68 00B3  
-                      l69 00DC                       l161 014E                       l154 0141  
-                     l901 0109                       l761 0128                       l753 0117  
-                     l763 0129                       l755 0125                       l923 00C1  
-                     l771 0082                       l765 012C                       l757 0126  
-                     l781 0130                       l759 0127                       l783 0135  
-                     l791 0142                       l775 00B9                       l871 00E3  
-                     l785 0137                       l881 00F2                       l873 00E8  
-                     l787 013A                       l891 0101                       l883 00F3  
-                     l875 00ED                       l789 013B                       l893 0102  
-                     l885 00FC                       l877 00F0                       l869 00DD  
-                     l895 0103                       l887 00FF                       l879 00F1  
-                     l897 0104                       l889 0100                       l899 0105  
-                     _GIE 005F                       u157 00F7                       u167 010D  
-            __CFG_CPD$OFF 0000                       _isr 001C              __CFG_LVP$OFF 0000  
-                    ?_isr 0070                      _PEIE 005E                      u6_20 0022  
-                    u6_21 0021                      u7_20 0027                      u7_21 0026  
-                    u8_20 002B                      u8_21 002A                      u9_20 0038  
-                    u9_21 0037              __CFG_WRT$OFF 0000                      _main 00DD  
-                    _init 0130                      btemp 007E                      start 000C  
-           __CFG_IESO$OFF 0000                     ??_isr 0070                     ?_main 0070  
-                   ?_init 0070             __CFG_WDTE$OFF 0000                     _ANSEL 0188  
-                   i1l140 0071                     i1l134 0056                     i1l135 0044  
-                   i1l143 007A                     i1l138 0077                     i1l841 002B  
-                   i1l851 0038                     i1l843 002F                     i1l835 001C  
-                   i1l861 005A                     i1l853 003C                     i1l845 0030  
-                   i1l837 0022                     i1l863 005E                     i1l855 0042  
-                   i1l847 0031                     i1l839 0027                     i1l865 0064  
-                   i1l857 0043                     i1l849 0032                     i1l867 006B  
-                   i1l859 004A                     u10_20 003C                     u10_21 003B  
-                   u11_20 004A                     u11_21 0049                     u12_20 005A  
-                   u12_21 0059                     u13_20 005E                     u13_21 005D  
-                   u14_20 0077                     u14_21 0076                     u17_27 0052  
-                   u18_27 006E                     _PORTA 0005                     _PORTB 0006  
-                   _PORTC 0007                     _PORTD 0008                     _TRISA 0085  
-                   _TRISB 0086                     _TRISC 0087                     _TRISD 0088  
-                   _SSPIE 0463                     _SSPIF 0063            __CFG_FCMEN$OFF 0000  
-         __end_of_initADC 014F           __end_of_initOsc 00DD            __CFG_BOREN$OFF 0000  
-                   pclath 000A                     status 0003                     wtemp0 007E  
-          __CFG_MCLRE$OFF 0000           __initialization 000F              __end_of_main 0116  
-            __end_of_init 0142                    ??_main 0076                    ??_init 0074  
-                  _ADRESH 001E                    _ANSELH 0189               initOsc@frec 0075  
-                  _SSPADD 0093                    _TRISC3 043B                    _TRISC4 043C  
-                  _SSPCON 0014                    _SSPBUF 0013            __CFG_PWRTE$OFF 0000  
-                  _estado 007B                 ??_initADC 0073                 ??_initOsc 0073  
-                  saved_w 007E   __end_of__initialization 0018            __pcstackCOMMON 0070  
- __size_of_I2C_Slave_Init 001A     I2C_Slave_Init@address 0073                __pbssBANK0 0020  
-              __pmaintext 00DD                _digitalVal 0079                __pintentry 0004  
-                 _SSPCON2 0091                   _SSPSTAT 0094                   __ptext1 0081  
-                 __ptext2 0142                   __ptext3 0130                   __ptext4 0116  
-                 __ptext5 001C                   _initADC 0142                   _initOsc 0081  
-            __size_of_isr 0065      end_of_initialization 0018                _move_servo 0020  
-          _I2C_Slave_Init 0116                 _TRISCbits 0087    __end_of_I2C_Slave_Init 0130  
-     start_initialization 000F               __end_of_isr 0081  __CFG_FOSC$INTRC_NOCLKOUT 0000  
-         ?_I2C_Slave_Init 0070               __pbssCOMMON 0078                 ___latbits 0002  
-               _analogVal 0078                  ?_initADC 0070                  ?_initOsc 0070  
-       interrupt_function 0004                  _PIR1bits 000C                _ADCON0bits 001F  
-              _ADCON1bits 009F          __size_of_initADC 000D          __size_of_initOsc 005C  
-           _sensor_signal 007A         __CFG_BOR4V$BOR40V 0000          ??_I2C_Slave_Init 0073  
-           __size_of_main 0039             __size_of_init 0012                  intlevel1 0000  
-              _OSCCONbits 008F               _SSPCON2bits 0091                _SSPCONbits 0014  
+                      l69 00DC                       l151 0100                       l165 015E  
+                     l158 0151                       l901 010F                       l903 0110  
+                     l761 0134                       l905 0111                       l763 0135  
+                     l907 0112                       l765 0136                       l757 0125  
+                     l767 0137                       l759 0133                       l791 014A  
+                     l775 0082                       l769 013A                       l793 014B  
+                     l785 013E                       l929 00C1                       l881 00F0  
+                     l873 00DD                       l787 0142                       l795 0152  
+                     l779 00B9                       l891 00FE                       l883 00F1  
+                     l875 00E3                       l789 0143                       l893 0101  
+                     l885 00F2                       l877 00E8                       l895 010A  
+                     l887 00F3                       l879 00ED                       l897 010D  
+                     l889 00F9                       l899 010E                       _GIE 005F  
+                     u150 00FE                       u151 00FD                       u167 0105  
+                     u177 011B              __CFG_CPD$OFF 0000                       _isr 001C  
+            __CFG_LVP$OFF 0000                      ?_isr 0070                      _PEIE 005E  
+                    u6_20 0022                      u6_21 0021                      u7_20 0027  
+                    u7_21 0026                      u8_20 002B                      u8_21 002A  
+                    u9_20 0038                      u9_21 0037              __CFG_WRT$OFF 0000  
+                    _main 00DD                      _init 013E                      btemp 007E  
+                    start 000C             __CFG_IESO$OFF 0000                     ??_isr 0070  
+                   ?_main 0070                     ?_init 0070             __CFG_WDTE$OFF 0000  
+                   _ANSEL 0188                     i1l140 0077                     i1l142 0071  
+                   i1l136 0056                     i1l137 0044                     i1l145 007A  
+                   i1l841 0022                     i1l851 0031                     i1l843 0027  
+                   i1l861 0043                     i1l853 0032                     i1l845 002B  
+                   i1l871 006B                     i1l863 004A                     i1l855 0038  
+                   i1l847 002F                     i1l839 001C                     i1l865 005A  
+                   i1l857 003C                     i1l849 0030                     i1l867 005E  
+                   i1l859 0042                     i1l869 0064                     u10_20 003C  
+                   u10_21 003B                     u11_20 004A                     u11_21 0049  
+                   u12_20 005A                     u12_21 0059                     u13_20 005E  
+                   u13_21 005D                     u14_20 0077                     u14_21 0076  
+                   u18_27 0052                     _PORTA 0005                     _PORTB 0006  
+                   _PORTC 0007                     _PORTD 0008                     u19_27 006E  
+                   _TRISA 0085                     _TRISB 0086                     _TRISC 0087  
+                   _TRISD 0088                     _SSPIE 0463                     _SSPIF 0063  
+          __CFG_FCMEN$OFF 0000           __end_of_initADC 015F           __end_of_initOsc 00DD  
+          __CFG_BOREN$OFF 0000                     pclath 000A                     status 0003  
+                   wtemp0 007E            __CFG_MCLRE$OFF 0000           __initialization 000F  
+            __end_of_main 0124              __end_of_init 0152                    ??_main 0076  
+                  ??_init 0074                    _ADRESH 001E                    _ANSELH 0189  
+             initOsc@frec 0075                    _SSPADD 0093                    _TRISC3 043B  
+                  _TRISC4 043C                    _SSPCON 0014                    _SSPBUF 0013  
+          __CFG_PWRTE$OFF 0000                    _estado 007B                 ??_initADC 0073  
+               ??_initOsc 0073                    saved_w 007E   __end_of__initialization 0018  
+          __pcstackCOMMON 0070   __size_of_I2C_Slave_Init 001A     I2C_Slave_Init@address 0073  
+              __pbssBANK0 0020                __pmaintext 00DD                _digitalVal 0079  
+              __pintentry 0004                   _SSPCON2 0091                   _SSPSTAT 0094  
+                 __ptext1 0081                   __ptext2 0152                   __ptext3 013E  
+                 __ptext4 0124                   __ptext5 001C                   _initADC 0152  
+                 _initOsc 0081              __size_of_isr 0065      end_of_initialization 0018  
+              _move_servo 0020            _I2C_Slave_Init 0124                 _PORTDbits 0008  
+               _TRISCbits 0087    __end_of_I2C_Slave_Init 013E       start_initialization 000F  
+             __end_of_isr 0081  __CFG_FOSC$INTRC_NOCLKOUT 0000           ?_I2C_Slave_Init 0070  
+             __pbssCOMMON 0078                 ___latbits 0002                 _analogVal 0078  
+                ?_initADC 0070                  ?_initOsc 0070         interrupt_function 0004  
+                _PIR1bits 000C                _ADCON0bits 001F                _ADCON1bits 009F  
+        __size_of_initADC 000D          __size_of_initOsc 005C             _sensor_signal 007A  
+       __CFG_BOR4V$BOR40V 0000          ??_I2C_Slave_Init 0073             __size_of_main 0047  
+           __size_of_init 0014                  intlevel1 0000                _OSCCONbits 008F  
+             _SSPCON2bits 0091                _SSPCONbits 0014  
