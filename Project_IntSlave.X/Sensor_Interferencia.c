@@ -46,6 +46,9 @@ uint16_t move_servo;
 // Prototipos de Funciones y Declaración de Variables
 //******************************************************************************
 void init(void);
+void PWM_setup(void);
+void zero_deg(void);
+void final_deg(void);
 //******************************************************************************
 // Interrupciones
 //******************************************************************************
@@ -87,8 +90,9 @@ void __interrupt() isr(void){
 //Void Principal
 //******************************************************************************
 void main(void) {
-    initOsc(7);                         // Se usa un reloj interno de 8 MHz
+    initOsc(3);                         // Se usa un reloj interno de 500 kHz
     init();                             //Se inicializan los puertos
+    PWM_setup();
         
     PORTA = 0x00;                       //Inicialización de puertos
     PORTB = 0x00;
@@ -98,9 +102,9 @@ void main(void) {
         estado = SENSOR_SIGNAL;
         
         if (estado == 1) {              //No se detecta interferencia
-            SERVO_2 = 0;                //Mantener apagado el pin de PWM
+            zero_deg();                //Mantener apagado el pin de PWM
         } else {                        //Se detecta interferencia
-            SERVO_2 = 1;                //Encender el pin de PWM
+            final_deg();                //Encender el pin de PWM
         }
     }
     return;
@@ -117,4 +121,40 @@ void init(void){
     ANSELH = 0;                      //Pines connfigurados como entradas digitales  
     I2C_Slave_Init(0x30);
     //INTCON = 0b11100000;                      //Habilita GIE, PIE y T0IE 
+}
+//******************************************************************************
+//Función de Inicialización de PWM
+//******************************************************************************
+void PWM_setup(void){           //CONFIGURACION_PWM1: 
+    TRISCbits.TRISC2 = 1;       //Coloca CCP1 como entrada
+    PR2 = 155;                  //Valor para periodo de 20 ms
+    CCP1CONbits.P1M = 0b00;        //Coloca un pin de salida unico
+    CCP1CONbits.CCP1M = 0b1100;      //Selecciona el pwm active-high
+    CCPR1L = 27;
+    CCP1CONbits.DC1B = 0b11;           //Los dos bits menos significativos- numero completo = 110 1111?
+    PIR1bits.TMR2IF = 0;                //Apaga bandera TMR2
+    T2CONbits.T2CKPS = 0b11;            //Prescaler de 1:16
+    T2CONbits.TMR2ON = 1;               //Enciende el TMR2
+    while(!TMR2IF){                      //Revisa un ciclo de interrupcion
+    }
+    PIR1bits.TMR2IF = 0;                //Apaga bandera del TMR2
+    TRISCbits.TRISC2 = 0;               //Coloca como salida el CCP1 
+
+    return;
+}
+//******************************************************************************
+//Función de Grado 0
+//******************************************************************************
+void zero_deg(void){
+    CCP1CONbits.DC1B = 0b00;        //2 LSB del valor completo 0001 1111
+    CCPR1L = 3;                     //Restantes bits significativos para el valor a 1ms de pulse width
+    return;
+}
+//******************************************************************************
+//Función de Grado 180
+//******************************************************************************
+void final_deg(void){
+    CCP1CONbits.DC1B = 0b11;        //2 LSB del valor completo 11 1110?
+    CCPR1L = 13;                    //Restantes bits significativos para el valor a 2ms de pulse width
+    return;    
 }

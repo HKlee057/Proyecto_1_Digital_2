@@ -2716,6 +2716,9 @@ uint16_t move_servo;
 
 
 void init(void);
+void PWM_setup(void);
+void zero_deg(void);
+void final_deg(void);
 
 
 
@@ -2757,8 +2760,9 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 
 void main(void) {
-    initOsc(7);
+    initOsc(3);
     init();
+    PWM_setup();
 
     PORTA = 0x00;
     PORTB = 0x00;
@@ -2768,9 +2772,9 @@ void main(void) {
         estado = PORTDbits.RD0;
 
         if (estado == 1) {
-            PORTAbits.RA0 = 0;
+            zero_deg();
         } else {
-            PORTAbits.RA0 = 1;
+            final_deg();
         }
     }
     return;
@@ -2787,4 +2791,40 @@ void init(void){
     ANSELH = 0;
     I2C_Slave_Init(0x30);
 
+}
+
+
+
+void PWM_setup(void){
+    TRISCbits.TRISC2 = 1;
+    PR2 = 155;
+    CCP1CONbits.P1M = 0b00;
+    CCP1CONbits.CCP1M = 0b1100;
+    CCPR1L = 27;
+    CCP1CONbits.DC1B = 0b11;
+    PIR1bits.TMR2IF = 0;
+    T2CONbits.T2CKPS = 0b11;
+    T2CONbits.TMR2ON = 1;
+    while(!TMR2IF){
+    }
+    PIR1bits.TMR2IF = 0;
+    TRISCbits.TRISC2 = 0;
+
+    return;
+}
+
+
+
+void zero_deg(void){
+    CCP1CONbits.DC1B = 0b00;
+    CCPR1L = 3;
+    return;
+}
+
+
+
+void final_deg(void){
+    CCP1CONbits.DC1B = 0b11;
+    CCPR1L = 13;
+    return;
 }
