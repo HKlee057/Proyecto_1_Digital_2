@@ -81,39 +81,6 @@ void main(void) {
     PORTC = 0;
     PORTD = 0; //Se inicializan todas los puertos en 0
     
-/*    LCD_POINT(1,2);
-    lcd_msg("S1"); //Se envía el string S1 para indicar que los datos mostrados son del POT
-    LCD_POINT(1,7);
-    lcd_msg("S2"); //Se envía el string S2 para indicar que los datos mostrados son del CONTADO
-    LCD_POINT(1,12);
-    lcd_msg("S3"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
-    
-    LCD_POINT(2,1);
-    lcd_dwr('.'); //Se envía el caracter . a esa posición
-    LCD_POINT(2,4);
-    lcd_dwr('V'); //Se envía el caracter V a esa posición 
-    
-    LCD_POINT(2,11);
-    lcd_dwr('.'); //Se envía el caracter . a esa posición
-    LCD_POINT(2,14);
-    lcd_dwr('V'); //Se envía el caracter V a esa posición
-    
-    lcd_cmd(0x1C);
-    
-    LCD_POINT(1,19);
-    lcd_msg("S4"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
-    
-    LCD_POINT(2,18);
-    lcd_dwr('.'); //Se envía el caracter . a esa posición
-    LCD_POINT(2,21);
-    lcd_dwr('V'); //Se envía el caracter V a esa posición
-    
-    __delay_ms(2000);
-    
-    lcd_cmd(0x18);
-    
-    __delay_ms(2000);*/
-    
     while (1){
        
         LCD_POINT(1,2);
@@ -161,6 +128,7 @@ void main(void) {
         //Conversión de Datos Analógicos
         //**********************************************************************
         ADC_POT_V = (float)((Val_POT)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
+        //ADC_POT_V = (((float)(Val_POT)-((float)(710.417))))/((float)(-5.683));
         ADC_RES_V = (float)((Val_RES)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
         //******************************************************************************************
         // Proceso para obtener el entero, y dos decimales del dato del POT para mandarlos a la LCD 

@@ -2768,7 +2768,7 @@ void main(void) {
     PORTB = 0;
     PORTC = 0;
     PORTD = 0;
-# 117 "MASTER_Proyecto.c"
+
     while (1){
 
         LCD_POINT(1,2);
@@ -2816,6 +2816,7 @@ void main(void) {
 
 
         ADC_POT_V = (float)((Val_POT)/((float)51));
+
         ADC_RES_V = (float)((Val_RES)/((float)51));
 
 

@@ -483,386 +483,386 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;MASTER_Proyecto.c: 82:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"117
-[; ;MASTER_Proyecto.c: 117:     while (1){
+"84
+[; ;MASTER_Proyecto.c: 84:     while (1){
 [e :U 140 ]
 {
-"119
-[; ;MASTER_Proyecto.c: 119:         LCD_POINT(1,2);
+"86
+[; ;MASTER_Proyecto.c: 86:         LCD_POINT(1,2);
 [e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
-"120
-[; ;MASTER_Proyecto.c: 120:         lcd_msg("S1");
+"87
+[; ;MASTER_Proyecto.c: 87:         lcd_msg("S1");
 [e ( _lcd_msg (1 :s 1C ]
-"121
-[; ;MASTER_Proyecto.c: 121:         LCD_POINT(1,7);
+"88
+[; ;MASTER_Proyecto.c: 88:         LCD_POINT(1,7);
 [e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 7 `i `uc ]
-"122
-[; ;MASTER_Proyecto.c: 122:         lcd_msg("S2");
+"89
+[; ;MASTER_Proyecto.c: 89:         lcd_msg("S2");
 [e ( _lcd_msg (1 :s 2C ]
-"123
-[; ;MASTER_Proyecto.c: 123:         LCD_POINT(1,12);
+"90
+[; ;MASTER_Proyecto.c: 90:         LCD_POINT(1,12);
 [e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 12 `i `uc ]
-"124
-[; ;MASTER_Proyecto.c: 124:         lcd_msg("S3");
+"91
+[; ;MASTER_Proyecto.c: 91:         lcd_msg("S3");
 [e ( _lcd_msg (1 :s 3C ]
-"126
-[; ;MASTER_Proyecto.c: 126:         LCD_POINT(2,1);
+"93
+[; ;MASTER_Proyecto.c: 93:         LCD_POINT(2,1);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"127
-[; ;MASTER_Proyecto.c: 127:         lcd_dwr('.');
+"94
+[; ;MASTER_Proyecto.c: 94:         lcd_dwr('.');
 [e ( _lcd_dwr (1 -> -> 46 `ui `uc ]
-"128
-[; ;MASTER_Proyecto.c: 128:         LCD_POINT(2,4);
+"95
+[; ;MASTER_Proyecto.c: 95:         LCD_POINT(2,4);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
-"129
-[; ;MASTER_Proyecto.c: 129:         lcd_dwr('V');
+"96
+[; ;MASTER_Proyecto.c: 96:         lcd_dwr('V');
 [e ( _lcd_dwr (1 -> -> 86 `ui `uc ]
-"131
-[; ;MASTER_Proyecto.c: 131:         LCD_POINT(2,11);
+"98
+[; ;MASTER_Proyecto.c: 98:         LCD_POINT(2,11);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 11 `i `uc ]
-"132
-[; ;MASTER_Proyecto.c: 132:         lcd_dwr('.');
+"99
+[; ;MASTER_Proyecto.c: 99:         lcd_dwr('.');
 [e ( _lcd_dwr (1 -> -> 46 `ui `uc ]
-"133
-[; ;MASTER_Proyecto.c: 133:         LCD_POINT(2,14);
+"100
+[; ;MASTER_Proyecto.c: 100:         LCD_POINT(2,14);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 14 `i `uc ]
-"134
-[; ;MASTER_Proyecto.c: 134:         lcd_dwr('V');
+"101
+[; ;MASTER_Proyecto.c: 101:         lcd_dwr('V');
 [e ( _lcd_dwr (1 -> -> 86 `ui `uc ]
-"139
-[; ;MASTER_Proyecto.c: 139:         I2C_Master_Start();
+"106
+[; ;MASTER_Proyecto.c: 106:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"140
-[; ;MASTER_Proyecto.c: 140:         I2C_Master_Write(0x31);
+"107
+[; ;MASTER_Proyecto.c: 107:         I2C_Master_Write(0x31);
 [e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
-"141
-[; ;MASTER_Proyecto.c: 141:         Val_POT = I2C_Master_Read(0);
+"108
+[; ;MASTER_Proyecto.c: 108:         Val_POT = I2C_Master_Read(0);
 [e = _Val_POT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"142
-[; ;MASTER_Proyecto.c: 142:         I2C_Master_Stop();
+"109
+[; ;MASTER_Proyecto.c: 109:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"143
-[; ;MASTER_Proyecto.c: 143:         _delay((unsigned long)((200)*(8000000/4000.0)));
+"110
+[; ;MASTER_Proyecto.c: 110:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"147
-[; ;MASTER_Proyecto.c: 147:         I2C_Master_Start();
+"114
+[; ;MASTER_Proyecto.c: 114:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"148
-[; ;MASTER_Proyecto.c: 148:         I2C_Master_Write(0x61);
+"115
+[; ;MASTER_Proyecto.c: 115:         I2C_Master_Write(0x61);
 [e ( _I2C_Master_Write (1 -> -> 97 `i `ui ]
-"149
-[; ;MASTER_Proyecto.c: 149:         Val_CONT = I2C_Master_Read(0);
+"116
+[; ;MASTER_Proyecto.c: 116:         Val_CONT = I2C_Master_Read(0);
 [e = _Val_CONT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"150
-[; ;MASTER_Proyecto.c: 150:         I2C_Master_Stop();
+"117
+[; ;MASTER_Proyecto.c: 117:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"151
-[; ;MASTER_Proyecto.c: 151:         _delay((unsigned long)((200)*(8000000/4000.0)));
+"118
+[; ;MASTER_Proyecto.c: 118:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"155
-[; ;MASTER_Proyecto.c: 155:         I2C_Master_Start();
+"122
+[; ;MASTER_Proyecto.c: 122:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"156
-[; ;MASTER_Proyecto.c: 156:         I2C_Master_Write(0x91);
+"123
+[; ;MASTER_Proyecto.c: 123:         I2C_Master_Write(0x91);
 [e ( _I2C_Master_Write (1 -> -> 145 `i `ui ]
-"157
-[; ;MASTER_Proyecto.c: 157:         Val_RES = I2C_Master_Read(0);
+"124
+[; ;MASTER_Proyecto.c: 124:         Val_RES = I2C_Master_Read(0);
 [e = _Val_RES -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"158
-[; ;MASTER_Proyecto.c: 158:         I2C_Master_Stop();
+"125
+[; ;MASTER_Proyecto.c: 125:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"159
-[; ;MASTER_Proyecto.c: 159:         _delay((unsigned long)((200)*(8000000/4000.0)));
+"126
+[; ;MASTER_Proyecto.c: 126:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"163
-[; ;MASTER_Proyecto.c: 163:         ADC_POT_V = (float)((Val_POT)/((float)51));
+"130
+[; ;MASTER_Proyecto.c: 130:         ADC_POT_V = (float)((Val_POT)/((float)51));
 [e = _ADC_POT_V / -> -> _Val_POT `i `f -> -> 51 `i `f ]
-"164
-[; ;MASTER_Proyecto.c: 164:         ADC_RES_V = (float)((Val_RES)/((float)51));
+"132
+[; ;MASTER_Proyecto.c: 132:         ADC_RES_V = (float)((Val_RES)/((float)51));
 [e = _ADC_RES_V / -> -> _Val_RES `i `f -> -> 51 `i `f ]
-"168
-[; ;MASTER_Proyecto.c: 168:         POT_cien = (float)((ADC_POT_V)*((float)100));
+"136
+[; ;MASTER_Proyecto.c: 136:         POT_cien = (float)((ADC_POT_V)*((float)100));
 [e = _POT_cien * _ADC_POT_V -> -> 100 `i `f ]
-"169
-[; ;MASTER_Proyecto.c: 169:         DECI_1_POT = (uint16_t)(POT_cien);
+"137
+[; ;MASTER_Proyecto.c: 137:         DECI_1_POT = (uint16_t)(POT_cien);
 [e = _DECI_1_POT -> _POT_cien `ui ]
-"170
-[; ;MASTER_Proyecto.c: 170:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+"138
+[; ;MASTER_Proyecto.c: 138:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
 [e = _POT_D2 -> % _DECI_1_POT -> -> -> 10 `i `uc `ui `uc ]
-"172
-[; ;MASTER_Proyecto.c: 172:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+"140
+[; ;MASTER_Proyecto.c: 140:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
 [e = _DECI_2_POT / _DECI_1_POT -> -> 10 `i `ui ]
-"173
-[; ;MASTER_Proyecto.c: 173:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+"141
+[; ;MASTER_Proyecto.c: 141:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
 [e = _POT_D1 -> % _DECI_2_POT -> -> -> 10 `i `uc `ui `uc ]
-"175
-[; ;MASTER_Proyecto.c: 175:         POT_EN = (uint16_t)(ADC_POT_V);
+"143
+[; ;MASTER_Proyecto.c: 143:         POT_EN = (uint16_t)(ADC_POT_V);
 [e = _POT_EN -> -> _ADC_POT_V `ui `uc ]
-"179
-[; ;MASTER_Proyecto.c: 179:         LCD_POINT(2,0);
+"147
+[; ;MASTER_Proyecto.c: 147:         LCD_POINT(2,0);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-"180
-[; ;MASTER_Proyecto.c: 180:         lcd_dwr(Val_STR(POT_EN));
+"148
+[; ;MASTER_Proyecto.c: 148:         lcd_dwr(Val_STR(POT_EN));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _POT_EN ]
-"182
-[; ;MASTER_Proyecto.c: 182:         LCD_POINT(2,2);
+"150
+[; ;MASTER_Proyecto.c: 150:         LCD_POINT(2,2);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"183
-[; ;MASTER_Proyecto.c: 183:         lcd_dwr(Val_STR(POT_D1));
+"151
+[; ;MASTER_Proyecto.c: 151:         lcd_dwr(Val_STR(POT_D1));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D1 ]
-"185
-[; ;MASTER_Proyecto.c: 185:         LCD_POINT(2,3);
+"153
+[; ;MASTER_Proyecto.c: 153:         LCD_POINT(2,3);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
-"186
-[; ;MASTER_Proyecto.c: 186:         lcd_dwr(Val_STR(POT_D2));
+"154
+[; ;MASTER_Proyecto.c: 154:         lcd_dwr(Val_STR(POT_D2));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D2 ]
-"191
-[; ;MASTER_Proyecto.c: 191:         CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));
+"159
+[; ;MASTER_Proyecto.c: 159:         CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));
 [e = _CONT_U -> % -> _Val_CONT `i -> -> -> 10 `i `uc `i `uc ]
-"193
-[; ;MASTER_Proyecto.c: 193:         CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));
+"161
+[; ;MASTER_Proyecto.c: 161:         CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));
 [e = _CONT_D -> / -> _Val_CONT `i -> -> -> 10 `i `uc `i `uc ]
-"197
-[; ;MASTER_Proyecto.c: 197:         LCD_POINT(2,7);
+"165
+[; ;MASTER_Proyecto.c: 165:         LCD_POINT(2,7);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
-"198
-[; ;MASTER_Proyecto.c: 198:         lcd_dwr(Val_STR(CONT_D));
+"166
+[; ;MASTER_Proyecto.c: 166:         lcd_dwr(Val_STR(CONT_D));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _CONT_D ]
-"200
-[; ;MASTER_Proyecto.c: 200:         LCD_POINT(2,8);
+"168
+[; ;MASTER_Proyecto.c: 168:         LCD_POINT(2,8);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 8 `i `uc ]
-"201
-[; ;MASTER_Proyecto.c: 201:         lcd_dwr(Val_STR(CONT_U));
+"169
+[; ;MASTER_Proyecto.c: 169:         lcd_dwr(Val_STR(CONT_U));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _CONT_U ]
-"205
-[; ;MASTER_Proyecto.c: 205:         RES_cien = (float)((ADC_RES_V)*((float)100));
+"173
+[; ;MASTER_Proyecto.c: 173:         RES_cien = (float)((ADC_RES_V)*((float)100));
 [e = _RES_cien * _ADC_RES_V -> -> 100 `i `f ]
-"206
-[; ;MASTER_Proyecto.c: 206:         DECI_1_RES = (uint16_t)(RES_cien);
+"174
+[; ;MASTER_Proyecto.c: 174:         DECI_1_RES = (uint16_t)(RES_cien);
 [e = _DECI_1_RES -> _RES_cien `ui ]
-"207
-[; ;MASTER_Proyecto.c: 207:         RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
+"175
+[; ;MASTER_Proyecto.c: 175:         RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
 [e = _RES_D2 -> % _DECI_1_RES -> -> -> 10 `i `uc `ui `uc ]
-"209
-[; ;MASTER_Proyecto.c: 209:         DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
+"177
+[; ;MASTER_Proyecto.c: 177:         DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
 [e = _DECI_2_RES / _DECI_1_RES -> -> 10 `i `ui ]
-"210
-[; ;MASTER_Proyecto.c: 210:         RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
+"178
+[; ;MASTER_Proyecto.c: 178:         RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
 [e = _RES_D1 -> % _DECI_2_RES -> -> -> 10 `i `uc `ui `uc ]
-"212
-[; ;MASTER_Proyecto.c: 212:         RES_EN = (uint16_t)(ADC_RES_V);
+"180
+[; ;MASTER_Proyecto.c: 180:         RES_EN = (uint16_t)(ADC_RES_V);
 [e = _RES_EN -> -> _ADC_RES_V `ui `uc ]
-"216
-[; ;MASTER_Proyecto.c: 216:         LCD_POINT(2,10);
+"184
+[; ;MASTER_Proyecto.c: 184:         LCD_POINT(2,10);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
-"217
-[; ;MASTER_Proyecto.c: 217:         lcd_dwr(Val_STR(RES_EN));
+"185
+[; ;MASTER_Proyecto.c: 185:         lcd_dwr(Val_STR(RES_EN));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _RES_EN ]
-"219
-[; ;MASTER_Proyecto.c: 219:         LCD_POINT(2,12);
+"187
+[; ;MASTER_Proyecto.c: 187:         LCD_POINT(2,12);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 12 `i `uc ]
-"220
-[; ;MASTER_Proyecto.c: 220:         lcd_dwr(Val_STR(RES_D1));
+"188
+[; ;MASTER_Proyecto.c: 188:         lcd_dwr(Val_STR(RES_D1));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D1 ]
-"222
-[; ;MASTER_Proyecto.c: 222:         LCD_POINT(2,13);
+"190
+[; ;MASTER_Proyecto.c: 190:         LCD_POINT(2,13);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
-"223
-[; ;MASTER_Proyecto.c: 223:         lcd_dwr(Val_STR(RES_D2));
+"191
+[; ;MASTER_Proyecto.c: 191:         lcd_dwr(Val_STR(RES_D2));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D2 ]
-"225
-[; ;MASTER_Proyecto.c: 225:         _delay((unsigned long)((4000)*(8000000/4000.0)));
+"193
+[; ;MASTER_Proyecto.c: 193:         _delay((unsigned long)((4000)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"230
-[; ;MASTER_Proyecto.c: 230:         lcd_cmd(0x01);
+"198
+[; ;MASTER_Proyecto.c: 198:         lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"232
-[; ;MASTER_Proyecto.c: 232:         LCD_POINT(1,2);
+"200
+[; ;MASTER_Proyecto.c: 200:         LCD_POINT(1,2);
 [e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
-"233
-[; ;MASTER_Proyecto.c: 233:         lcd_msg("S4");
+"201
+[; ;MASTER_Proyecto.c: 201:         lcd_msg("S4");
 [e ( _lcd_msg (1 :s 4C ]
-"235
-[; ;MASTER_Proyecto.c: 235:         LCD_POINT(2,1);
+"203
+[; ;MASTER_Proyecto.c: 203:         LCD_POINT(2,1);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"236
-[; ;MASTER_Proyecto.c: 236:         lcd_dwr('.');
+"204
+[; ;MASTER_Proyecto.c: 204:         lcd_dwr('.');
 [e ( _lcd_dwr (1 -> -> 46 `ui `uc ]
-"237
-[; ;MASTER_Proyecto.c: 237:         LCD_POINT(2,4);
+"205
+[; ;MASTER_Proyecto.c: 205:         LCD_POINT(2,4);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
-"238
-[; ;MASTER_Proyecto.c: 238:         lcd_dwr('V');
+"206
+[; ;MASTER_Proyecto.c: 206:         lcd_dwr('V');
 [e ( _lcd_dwr (1 -> -> 86 `ui `uc ]
-"243
-[; ;MASTER_Proyecto.c: 243:         POT_cien = (float)((ADC_POT_V)*((float)100));
+"211
+[; ;MASTER_Proyecto.c: 211:         POT_cien = (float)((ADC_POT_V)*((float)100));
 [e = _POT_cien * _ADC_POT_V -> -> 100 `i `f ]
-"244
-[; ;MASTER_Proyecto.c: 244:         DECI_1_POT = (uint16_t)(POT_cien);
+"212
+[; ;MASTER_Proyecto.c: 212:         DECI_1_POT = (uint16_t)(POT_cien);
 [e = _DECI_1_POT -> _POT_cien `ui ]
-"245
-[; ;MASTER_Proyecto.c: 245:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+"213
+[; ;MASTER_Proyecto.c: 213:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
 [e = _POT_D2 -> % _DECI_1_POT -> -> -> 10 `i `uc `ui `uc ]
-"247
-[; ;MASTER_Proyecto.c: 247:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+"215
+[; ;MASTER_Proyecto.c: 215:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
 [e = _DECI_2_POT / _DECI_1_POT -> -> 10 `i `ui ]
-"248
-[; ;MASTER_Proyecto.c: 248:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+"216
+[; ;MASTER_Proyecto.c: 216:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
 [e = _POT_D1 -> % _DECI_2_POT -> -> -> 10 `i `uc `ui `uc ]
-"250
-[; ;MASTER_Proyecto.c: 250:         POT_EN = (uint16_t)(ADC_POT_V);
+"218
+[; ;MASTER_Proyecto.c: 218:         POT_EN = (uint16_t)(ADC_POT_V);
 [e = _POT_EN -> -> _ADC_POT_V `ui `uc ]
-"254
-[; ;MASTER_Proyecto.c: 254:         LCD_POINT(2,0);
+"222
+[; ;MASTER_Proyecto.c: 222:         LCD_POINT(2,0);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-"255
-[; ;MASTER_Proyecto.c: 255:         lcd_dwr(Val_STR(POT_EN));
+"223
+[; ;MASTER_Proyecto.c: 223:         lcd_dwr(Val_STR(POT_EN));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _POT_EN ]
-"257
-[; ;MASTER_Proyecto.c: 257:         LCD_POINT(2,2);
+"225
+[; ;MASTER_Proyecto.c: 225:         LCD_POINT(2,2);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"258
-[; ;MASTER_Proyecto.c: 258:         lcd_dwr(Val_STR(POT_D1));
+"226
+[; ;MASTER_Proyecto.c: 226:         lcd_dwr(Val_STR(POT_D1));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D1 ]
-"260
-[; ;MASTER_Proyecto.c: 260:         LCD_POINT(2,3);
+"228
+[; ;MASTER_Proyecto.c: 228:         LCD_POINT(2,3);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
-"261
-[; ;MASTER_Proyecto.c: 261:         lcd_dwr(Val_STR(POT_D2));
+"229
+[; ;MASTER_Proyecto.c: 229:         lcd_dwr(Val_STR(POT_D2));
 [e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D2 ]
-"263
-[; ;MASTER_Proyecto.c: 263:         _delay((unsigned long)((4000)*(8000000/4000.0)));
+"231
+[; ;MASTER_Proyecto.c: 231:         _delay((unsigned long)((4000)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"265
-[; ;MASTER_Proyecto.c: 265:         lcd_cmd(0x01);
+"233
+[; ;MASTER_Proyecto.c: 233:         lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"266
-[; ;MASTER_Proyecto.c: 266:     }
+"234
+[; ;MASTER_Proyecto.c: 234:     }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"267
-[; ;MASTER_Proyecto.c: 267:     return;
+"235
+[; ;MASTER_Proyecto.c: 235:     return;
 [e $UE 138  ]
-"268
-[; ;MASTER_Proyecto.c: 268: }
+"236
+[; ;MASTER_Proyecto.c: 236: }
 [e :UE 138 ]
 }
-"272
-[; ;MASTER_Proyecto.c: 272: void init(void){
+"240
+[; ;MASTER_Proyecto.c: 240: void init(void){
 [v _init `(v ~T0 @X0 1 ef ]
 {
 [e :U _init ]
 [f ]
-"273
-[; ;MASTER_Proyecto.c: 273:     TRISA = 0;
+"241
+[; ;MASTER_Proyecto.c: 241:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"274
-[; ;MASTER_Proyecto.c: 274:     TRISB = 0;
+"242
+[; ;MASTER_Proyecto.c: 242:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"275
-[; ;MASTER_Proyecto.c: 275:     TRISC = 0;
+"243
+[; ;MASTER_Proyecto.c: 243:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"276
-[; ;MASTER_Proyecto.c: 276:     TRISD = 0;
+"244
+[; ;MASTER_Proyecto.c: 244:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"277
-[; ;MASTER_Proyecto.c: 277:     ANSEL = 0;
+"245
+[; ;MASTER_Proyecto.c: 245:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"278
-[; ;MASTER_Proyecto.c: 278:     ANSELH = 0;
+"246
+[; ;MASTER_Proyecto.c: 246:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"279
-[; ;MASTER_Proyecto.c: 279:     I2C_Master_Init(100000);
+"247
+[; ;MASTER_Proyecto.c: 247:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"280
-[; ;MASTER_Proyecto.c: 280: }
+"248
+[; ;MASTER_Proyecto.c: 248: }
 [e :UE 142 ]
 }
-"285
-[; ;MASTER_Proyecto.c: 285: uint8_t Val_STR(uint8_t num){
+"253
+[; ;MASTER_Proyecto.c: 253: uint8_t Val_STR(uint8_t num){
 [v _Val_STR `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Val_STR ]
 [v _num `uc ~T0 @X0 1 r1 ]
 [f ]
-"286
-[; ;MASTER_Proyecto.c: 286:     switch(num){
+"254
+[; ;MASTER_Proyecto.c: 254:     switch(num){
 [e $U 145  ]
 {
-"287
-[; ;MASTER_Proyecto.c: 287:         case 0:
+"255
+[; ;MASTER_Proyecto.c: 255:         case 0:
 [e :U 146 ]
-"288
-[; ;MASTER_Proyecto.c: 288:             return '0';
+"256
+[; ;MASTER_Proyecto.c: 256:             return '0';
 [e ) -> -> 48 `ui `uc ]
 [e $UE 143  ]
-"290
-[; ;MASTER_Proyecto.c: 290:         case 1:
+"258
+[; ;MASTER_Proyecto.c: 258:         case 1:
 [e :U 147 ]
-"291
-[; ;MASTER_Proyecto.c: 291:             return '1';
+"259
+[; ;MASTER_Proyecto.c: 259:             return '1';
 [e ) -> -> 49 `ui `uc ]
 [e $UE 143  ]
-"293
-[; ;MASTER_Proyecto.c: 293:         case 2:
+"261
+[; ;MASTER_Proyecto.c: 261:         case 2:
 [e :U 148 ]
-"294
-[; ;MASTER_Proyecto.c: 294:             return '2';
+"262
+[; ;MASTER_Proyecto.c: 262:             return '2';
 [e ) -> -> 50 `ui `uc ]
 [e $UE 143  ]
-"296
-[; ;MASTER_Proyecto.c: 296:         case 3:
+"264
+[; ;MASTER_Proyecto.c: 264:         case 3:
 [e :U 149 ]
-"297
-[; ;MASTER_Proyecto.c: 297:             return '3';
+"265
+[; ;MASTER_Proyecto.c: 265:             return '3';
 [e ) -> -> 51 `ui `uc ]
 [e $UE 143  ]
-"299
-[; ;MASTER_Proyecto.c: 299:         case 4:
+"267
+[; ;MASTER_Proyecto.c: 267:         case 4:
 [e :U 150 ]
-"300
-[; ;MASTER_Proyecto.c: 300:             return '4';
+"268
+[; ;MASTER_Proyecto.c: 268:             return '4';
 [e ) -> -> 52 `ui `uc ]
 [e $UE 143  ]
-"302
-[; ;MASTER_Proyecto.c: 302:         case 5:
+"270
+[; ;MASTER_Proyecto.c: 270:         case 5:
 [e :U 151 ]
-"303
-[; ;MASTER_Proyecto.c: 303:             return '5';
+"271
+[; ;MASTER_Proyecto.c: 271:             return '5';
 [e ) -> -> 53 `ui `uc ]
 [e $UE 143  ]
-"305
-[; ;MASTER_Proyecto.c: 305:         case 6:
+"273
+[; ;MASTER_Proyecto.c: 273:         case 6:
 [e :U 152 ]
-"306
-[; ;MASTER_Proyecto.c: 306:             return '6';
+"274
+[; ;MASTER_Proyecto.c: 274:             return '6';
 [e ) -> -> 54 `ui `uc ]
 [e $UE 143  ]
-"308
-[; ;MASTER_Proyecto.c: 308:         case 7:
+"276
+[; ;MASTER_Proyecto.c: 276:         case 7:
 [e :U 153 ]
-"309
-[; ;MASTER_Proyecto.c: 309:             return '7';
+"277
+[; ;MASTER_Proyecto.c: 277:             return '7';
 [e ) -> -> 55 `ui `uc ]
 [e $UE 143  ]
-"311
-[; ;MASTER_Proyecto.c: 311:         case 8:
+"279
+[; ;MASTER_Proyecto.c: 279:         case 8:
 [e :U 154 ]
-"312
-[; ;MASTER_Proyecto.c: 312:             return '8';
+"280
+[; ;MASTER_Proyecto.c: 280:             return '8';
 [e ) -> -> 56 `ui `uc ]
 [e $UE 143  ]
-"314
-[; ;MASTER_Proyecto.c: 314:         case 9:
+"282
+[; ;MASTER_Proyecto.c: 282:         case 9:
 [e :U 155 ]
-"315
-[; ;MASTER_Proyecto.c: 315:             return '9';
+"283
+[; ;MASTER_Proyecto.c: 283:             return '9';
 [e ) -> -> 57 `ui `uc ]
 [e $UE 143  ]
-"317
-[; ;MASTER_Proyecto.c: 317:     }
+"285
+[; ;MASTER_Proyecto.c: 285:     }
 }
 [e $U 144  ]
 [e :U 145 ]
@@ -878,8 +878,8 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 9 `i 155
  144 ]
 [e :U 144 ]
-"318
-[; ;MASTER_Proyecto.c: 318: }
+"286
+[; ;MASTER_Proyecto.c: 286: }
 [e :UE 143 ]
 }
 [a 4C 83 52 0 ]

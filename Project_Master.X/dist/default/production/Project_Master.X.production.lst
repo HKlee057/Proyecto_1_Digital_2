@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Sun Mar 08 13:55:24 2020
+                                                                                               Sun Mar 08 18:23:54 2020
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	16F887
@@ -1160,7 +1160,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1146  036D  0188               	clrf	8	;volatile
   1147  036E                     l2542:	
   1148                           
-  1149                           ;MASTER_Proyecto.c: 119:         LCD_POINT(1,2);
+  1149                           ;MASTER_Proyecto.c: 86:         LCD_POINT(1,2);
   1150  036E  3002               	movlw	2
   1151  036F  1283               	bcf	3,5	;RP0=0, select bank0
   1152  0370  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1171,11 +1171,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1157  0375  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1158  037A                     l2544:	
   1159                           
-  1160                           ;MASTER_Proyecto.c: 120:         lcd_msg("S1");
+  1160                           ;MASTER_Proyecto.c: 87:         lcd_msg("S1");
   1161  037A  3001               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
   1162  037B  120A  158A  21A2  120A  118A  	fcall	_lcd_msg
   1163                           
-  1164                           ;MASTER_Proyecto.c: 121:         LCD_POINT(1,7);
+  1164                           ;MASTER_Proyecto.c: 88:         LCD_POINT(1,7);
   1165  0380  3007               	movlw	7
   1166  0381  1283               	bcf	3,5	;RP0=0, select bank0
   1167  0382  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1186,12 +1186,12 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1172  0387  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1173  038C                     l2546:	
   1174                           
-  1175                           ;MASTER_Proyecto.c: 122:         lcd_msg("S2");
+  1175                           ;MASTER_Proyecto.c: 89:         lcd_msg("S2");
   1176  038C  3004               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
   1177  038D  120A  158A  21A2  120A  118A  	fcall	_lcd_msg
   1178  0392                     l2548:	
   1179                           
-  1180                           ;MASTER_Proyecto.c: 123:         LCD_POINT(1,12);
+  1180                           ;MASTER_Proyecto.c: 90:         LCD_POINT(1,12);
   1181  0392  300C               	movlw	12
   1182  0393  1283               	bcf	3,5	;RP0=0, select bank0
   1183  0394  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1201,24 +1201,24 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1187  0398  3001               	movlw	1
   1188  0399  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1189                           
-  1190                           ;MASTER_Proyecto.c: 124:         lcd_msg("S3");
+  1190                           ;MASTER_Proyecto.c: 91:         lcd_msg("S3");
   1191  039E  3007               	movlw	(low ((STR_3-__stringbase)| (0+32768)))& (0+255)
   1192  039F  120A  158A  21A2  120A  118A  	fcall	_lcd_msg
   1193  03A4                     l2550:	
   1194                           
-  1195                           ;MASTER_Proyecto.c: 126:         LCD_POINT(2,1);
+  1195                           ;MASTER_Proyecto.c: 93:         LCD_POINT(2,1);
   1196  03A4  01F3               	clrf	LCD_POINT@col
   1197  03A5  0AF3               	incf	LCD_POINT@col,f
   1198  03A6  3002               	movlw	2
   1199  03A7  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1200  03AC                     l2552:	
   1201                           
-  1202                           ;MASTER_Proyecto.c: 127:         lcd_dwr('.');
+  1202                           ;MASTER_Proyecto.c: 94:         lcd_dwr('.');
   1203  03AC  302E               	movlw	46
   1204  03AD  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1205  03B2                     l2554:	
   1206                           
-  1207                           ;MASTER_Proyecto.c: 128:         LCD_POINT(2,4);
+  1207                           ;MASTER_Proyecto.c: 95:         LCD_POINT(2,4);
   1208  03B2  3004               	movlw	4
   1209  03B3  1283               	bcf	3,5	;RP0=0, select bank0
   1210  03B4  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1229,12 +1229,12 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1215  03B9  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1216  03BE                     l2556:	
   1217                           
-  1218                           ;MASTER_Proyecto.c: 129:         lcd_dwr('V');
+  1218                           ;MASTER_Proyecto.c: 96:         lcd_dwr('V');
   1219  03BE  3056               	movlw	86
   1220  03BF  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1221  03C4                     l2558:	
   1222                           
-  1223                           ;MASTER_Proyecto.c: 131:         LCD_POINT(2,11);
+  1223                           ;MASTER_Proyecto.c: 98:         LCD_POINT(2,11);
   1224  03C4  300B               	movlw	11
   1225  03C5  1283               	bcf	3,5	;RP0=0, select bank0
   1226  03C6  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1245,12 +1245,12 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1231  03CB  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1232  03D0                     l2560:	
   1233                           
-  1234                           ;MASTER_Proyecto.c: 132:         lcd_dwr('.');
+  1234                           ;MASTER_Proyecto.c: 99:         lcd_dwr('.');
   1235  03D0  302E               	movlw	46
   1236  03D1  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1237  03D6                     l2562:	
   1238                           
-  1239                           ;MASTER_Proyecto.c: 133:         LCD_POINT(2,14);
+  1239                           ;MASTER_Proyecto.c: 100:         LCD_POINT(2,14);
   1240  03D6  300E               	movlw	14
   1241  03D7  1283               	bcf	3,5	;RP0=0, select bank0
   1242  03D8  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1261,16 +1261,16 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1247  03DD  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1248  03E2                     l2564:	
   1249                           
-  1250                           ;MASTER_Proyecto.c: 134:         lcd_dwr('V');
+  1250                           ;MASTER_Proyecto.c: 101:         lcd_dwr('V');
   1251  03E2  3056               	movlw	86
   1252  03E3  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1253  03E8                     l2566:	
   1254                           
-  1255                           ;MASTER_Proyecto.c: 139:         I2C_Master_Start();
+  1255                           ;MASTER_Proyecto.c: 106:         I2C_Master_Start();
   1256  03E8  120A  158A  210D  120A  118A  	fcall	_I2C_Master_Start
   1257  03ED                     l2568:	
   1258                           
-  1259                           ;MASTER_Proyecto.c: 140:         I2C_Master_Write(0x31);
+  1259                           ;MASTER_Proyecto.c: 107:         I2C_Master_Write(0x31);
   1260  03ED  3031               	movlw	49
   1261  03EE  00F0               	movwf	I2C_Master_Write@d
   1262  03EF  3000               	movlw	0
@@ -1278,7 +1278,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1264  03F1  120A  158A  211F  120A  118A  	fcall	_I2C_Master_Write
   1265  03F6                     l2570:	
   1266                           
-  1267                           ;MASTER_Proyecto.c: 141:         Val_POT = I2C_Master_Read(0);
+  1267                           ;MASTER_Proyecto.c: 108:         Val_POT = I2C_Master_Read(0);
   1268  03F6  3000               	movlw	0
   1269  03F7  00F0               	movwf	I2C_Master_Read@a
   1270  03F8  00F1               	movwf	I2C_Master_Read@a+1
@@ -1291,11 +1291,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1277  0403  00C4               	movwf	_Val_POT
   1278  0404                     l2572:	
   1279                           
-  1280                           ;MASTER_Proyecto.c: 142:         I2C_Master_Stop();
+  1280                           ;MASTER_Proyecto.c: 109:         I2C_Master_Stop();
   1281  0404  120A  158A  2116  120A  118A  	fcall	_I2C_Master_Stop
   1282  0409                     l2574:	
   1283                           
-  1284                           ;MASTER_Proyecto.c: 143:         _delay((unsigned long)((200)*(8000000/4000.0)));
+  1284                           ;MASTER_Proyecto.c: 110:         _delay((unsigned long)((200)*(8000000/4000.0)));
   1285  0409  3003               	movlw	3
   1286  040A  1283               	bcf	3,5	;RP0=0, select bank0
   1287  040B  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1314,11 +1314,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1300  0417  0000               	nop
   1301  0418                     l2576:	
   1302                           
-  1303                           ;MASTER_Proyecto.c: 147:         I2C_Master_Start();
+  1303                           ;MASTER_Proyecto.c: 114:         I2C_Master_Start();
   1304  0418  120A  158A  210D  120A  118A  	fcall	_I2C_Master_Start
   1305  041D                     l2578:	
   1306                           
-  1307                           ;MASTER_Proyecto.c: 148:         I2C_Master_Write(0x61);
+  1307                           ;MASTER_Proyecto.c: 115:         I2C_Master_Write(0x61);
   1308  041D  3061               	movlw	97
   1309  041E  00F0               	movwf	I2C_Master_Write@d
   1310  041F  3000               	movlw	0
@@ -1326,7 +1326,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1312  0421  120A  158A  211F  120A  118A  	fcall	_I2C_Master_Write
   1313  0426                     l2580:	
   1314                           
-  1315                           ;MASTER_Proyecto.c: 149:         Val_CONT = I2C_Master_Read(0);
+  1315                           ;MASTER_Proyecto.c: 116:         Val_CONT = I2C_Master_Read(0);
   1316  0426  3000               	movlw	0
   1317  0427  00F0               	movwf	I2C_Master_Read@a
   1318  0428  00F1               	movwf	I2C_Master_Read@a+1
@@ -1339,11 +1339,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1325  0433  00C3               	movwf	_Val_CONT
   1326  0434                     l2582:	
   1327                           
-  1328                           ;MASTER_Proyecto.c: 150:         I2C_Master_Stop();
+  1328                           ;MASTER_Proyecto.c: 117:         I2C_Master_Stop();
   1329  0434  120A  158A  2116  120A  118A  	fcall	_I2C_Master_Stop
   1330  0439                     l2584:	
   1331                           
-  1332                           ;MASTER_Proyecto.c: 151:         _delay((unsigned long)((200)*(8000000/4000.0)));
+  1332                           ;MASTER_Proyecto.c: 118:         _delay((unsigned long)((200)*(8000000/4000.0)));
   1333  0439  3003               	movlw	3
   1334  043A  1283               	bcf	3,5	;RP0=0, select bank0
   1335  043B  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1362,11 +1362,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1348  0447  0000               	nop
   1349  0448                     l2586:	
   1350                           
-  1351                           ;MASTER_Proyecto.c: 155:         I2C_Master_Start();
+  1351                           ;MASTER_Proyecto.c: 122:         I2C_Master_Start();
   1352  0448  120A  158A  210D  120A  118A  	fcall	_I2C_Master_Start
   1353  044D                     l2588:	
   1354                           
-  1355                           ;MASTER_Proyecto.c: 156:         I2C_Master_Write(0x91);
+  1355                           ;MASTER_Proyecto.c: 123:         I2C_Master_Write(0x91);
   1356  044D  3091               	movlw	145
   1357  044E  00F0               	movwf	I2C_Master_Write@d
   1358  044F  3000               	movlw	0
@@ -1374,7 +1374,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1360  0451  120A  158A  211F  120A  118A  	fcall	_I2C_Master_Write
   1361  0456                     l2590:	
   1362                           
-  1363                           ;MASTER_Proyecto.c: 157:         Val_RES = I2C_Master_Read(0);
+  1363                           ;MASTER_Proyecto.c: 124:         Val_RES = I2C_Master_Read(0);
   1364  0456  3000               	movlw	0
   1365  0457  00F0               	movwf	I2C_Master_Read@a
   1366  0458  00F1               	movwf	I2C_Master_Read@a+1
@@ -1387,11 +1387,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1373  0463  00C2               	movwf	_Val_RES
   1374  0464                     l2592:	
   1375                           
-  1376                           ;MASTER_Proyecto.c: 158:         I2C_Master_Stop();
+  1376                           ;MASTER_Proyecto.c: 125:         I2C_Master_Stop();
   1377  0464  120A  158A  2116  120A  118A  	fcall	_I2C_Master_Stop
   1378  0469                     l2594:	
   1379                           
-  1380                           ;MASTER_Proyecto.c: 159:         _delay((unsigned long)((200)*(8000000/4000.0)));
+  1380                           ;MASTER_Proyecto.c: 126:         _delay((unsigned long)((200)*(8000000/4000.0)));
   1381  0469  3003               	movlw	3
   1382  046A  1283               	bcf	3,5	;RP0=0, select bank0
   1383  046B  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1410,7 +1410,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1396  0477  0000               	nop
   1397  0478                     l2596:	
   1398                           
-  1399                           ;MASTER_Proyecto.c: 163:         ADC_POT_V = (float)((Val_POT)/((float)51));
+  1399                           ;MASTER_Proyecto.c: 130:         ADC_POT_V = (float)((Val_POT)/((float)51));
   1400  0478  3042               	movlw	66
   1401  0479  1283               	bcf	3,5	;RP0=0, select bank0
   1402  047A  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1459,7 +1459,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1445  04AD  00AC               	movwf	_ADC_POT_V
   1446  04AE                     l2598:	
   1447                           
-  1448                           ;MASTER_Proyecto.c: 164:         ADC_RES_V = (float)((Val_RES)/((float)51));
+  1448                           ;MASTER_Proyecto.c: 132:         ADC_RES_V = (float)((Val_RES)/((float)51));
   1449  04AE  3042               	movlw	66
   1450  04AF  00C8               	movwf	___fldiv@a+3
   1451  04B0  304C               	movlw	76
@@ -1506,7 +1506,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1492  04E1  00A8               	movwf	_ADC_RES_V
   1493  04E2                     l2600:	
   1494                           
-  1495                           ;MASTER_Proyecto.c: 168:         POT_cien = (float)((ADC_POT_V)*((float)100));
+  1495                           ;MASTER_Proyecto.c: 136:         POT_cien = (float)((ADC_POT_V)*((float)100));
   1496  04E2  3042               	movlw	66
   1497  04E3  00C8               	movwf	___flmul@b+3
   1498  04E4  30C8               	movlw	200
@@ -1536,7 +1536,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1522  0500  00A4               	movwf	_POT_cien
   1523  0501                     l2602:	
   1524                           
-  1525                           ;MASTER_Proyecto.c: 169:         DECI_1_POT = (uint16_t)(POT_cien);
+  1525                           ;MASTER_Proyecto.c: 137:         DECI_1_POT = (uint16_t)(POT_cien);
   1526  0501  0827               	movf	_POT_cien+3,w
   1527  0502  00F3               	movwf	___fltol@f1+3
   1528  0503  0826               	movf	_POT_cien+2,w
@@ -1554,7 +1554,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1540  0513  00B6               	movwf	_DECI_1_POT
   1541  0514                     l2604:	
   1542                           
-  1543                           ;MASTER_Proyecto.c: 170:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+  1543                           ;MASTER_Proyecto.c: 138:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
   1544  0514  300A               	movlw	10
   1545  0515  00F0               	movwf	___lwmod@divisor
   1546  0516  3000               	movlw	0
@@ -1572,7 +1572,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1558  0526  00BE               	movwf	_POT_D2
   1559  0527                     l2606:	
   1560                           
-  1561                           ;MASTER_Proyecto.c: 172:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+  1561                           ;MASTER_Proyecto.c: 140:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
   1562  0527  300A               	movlw	10
   1563  0528  00F0               	movwf	___lwdiv@divisor
   1564  0529  3000               	movlw	0
@@ -1590,7 +1590,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1576  0539  00B4               	movwf	_DECI_2_POT
   1577  053A                     l2608:	
   1578                           
-  1579                           ;MASTER_Proyecto.c: 173:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+  1579                           ;MASTER_Proyecto.c: 141:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
   1580  053A  300A               	movlw	10
   1581  053B  00F0               	movwf	___lwmod@divisor
   1582  053C  3000               	movlw	0
@@ -1608,7 +1608,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1594  054C  00BF               	movwf	_POT_D1
   1595  054D                     l2610:	
   1596                           
-  1597                           ;MASTER_Proyecto.c: 175:         POT_EN = (uint16_t)(ADC_POT_V);
+  1597                           ;MASTER_Proyecto.c: 143:         POT_EN = (uint16_t)(ADC_POT_V);
   1598  054D  082F               	movf	_ADC_POT_V+3,w
   1599  054E  00F3               	movwf	___fltol@f1+3
   1600  054F  082E               	movf	_ADC_POT_V+2,w
@@ -1626,13 +1626,13 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1612  055F  00C1               	movwf	_POT_EN
   1613  0560                     l2612:	
   1614                           
-  1615                           ;MASTER_Proyecto.c: 179:         LCD_POINT(2,0);
+  1615                           ;MASTER_Proyecto.c: 147:         LCD_POINT(2,0);
   1616  0560  01F3               	clrf	LCD_POINT@col
   1617  0561  3002               	movlw	2
   1618  0562  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1619  0567                     l2614:	
   1620                           
-  1621                           ;MASTER_Proyecto.c: 180:         lcd_dwr(Val_STR(POT_EN));
+  1621                           ;MASTER_Proyecto.c: 148:         lcd_dwr(Val_STR(POT_EN));
   1622  0567  1283               	bcf	3,5	;RP0=0, select bank0
   1623  0568  1303               	bcf	3,6	;RP1=0, select bank0
   1624  0569  0841               	movf	_POT_EN,w
@@ -1640,7 +1640,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1626  056F  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1627  0574                     l2616:	
   1628                           
-  1629                           ;MASTER_Proyecto.c: 182:         LCD_POINT(2,2);
+  1629                           ;MASTER_Proyecto.c: 150:         LCD_POINT(2,2);
   1630  0574  3002               	movlw	2
   1631  0575  1283               	bcf	3,5	;RP0=0, select bank0
   1632  0576  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1651,7 +1651,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1637  057B  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1638  0580                     l2618:	
   1639                           
-  1640                           ;MASTER_Proyecto.c: 183:         lcd_dwr(Val_STR(POT_D1));
+  1640                           ;MASTER_Proyecto.c: 151:         lcd_dwr(Val_STR(POT_D1));
   1641  0580  1283               	bcf	3,5	;RP0=0, select bank0
   1642  0581  1303               	bcf	3,6	;RP1=0, select bank0
   1643  0582  083F               	movf	_POT_D1,w
@@ -1659,7 +1659,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1645  0588  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1646  058D                     l2620:	
   1647                           
-  1648                           ;MASTER_Proyecto.c: 185:         LCD_POINT(2,3);
+  1648                           ;MASTER_Proyecto.c: 153:         LCD_POINT(2,3);
   1649  058D  3003               	movlw	3
   1650  058E  1283               	bcf	3,5	;RP0=0, select bank0
   1651  058F  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1670,7 +1670,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1656  0594  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1657  0599                     l2622:	
   1658                           
-  1659                           ;MASTER_Proyecto.c: 186:         lcd_dwr(Val_STR(POT_D2));
+  1659                           ;MASTER_Proyecto.c: 154:         lcd_dwr(Val_STR(POT_D2));
   1660  0599  1283               	bcf	3,5	;RP0=0, select bank0
   1661  059A  1303               	bcf	3,6	;RP1=0, select bank0
   1662  059B  083E               	movf	_POT_D2,w
@@ -1678,7 +1678,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1664  05A1  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1665  05A6                     l2624:	
   1666                           
-  1667                           ;MASTER_Proyecto.c: 191:         CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));
+  1667                           ;MASTER_Proyecto.c: 159:         CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));
   1668  05A6  300A               	movlw	10
   1669  05A7  00F0               	movwf	___awmod@divisor
   1670  05A8  3000               	movlw	0
@@ -1701,7 +1701,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1687  05BD  00BB               	movwf	_CONT_U
   1688  05BE                     l2626:	
   1689                           
-  1690                           ;MASTER_Proyecto.c: 193:         CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));
+  1690                           ;MASTER_Proyecto.c: 161:         CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));
   1691  05BE  300A               	movlw	10
   1692  05BF  00F0               	movwf	___awdiv@divisor
   1693  05C0  3000               	movlw	0
@@ -1722,7 +1722,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1708  05D3  00BA               	movwf	_CONT_D
   1709  05D4                     l2628:	
   1710                           
-  1711                           ;MASTER_Proyecto.c: 197:         LCD_POINT(2,7);
+  1711                           ;MASTER_Proyecto.c: 165:         LCD_POINT(2,7);
   1712  05D4  3007               	movlw	7
   1713  05D5  00DF               	movwf	??_main
   1714  05D6  085F               	movf	??_main,w
@@ -1731,7 +1731,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1717  05D9  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1718  05DE                     l2630:	
   1719                           
-  1720                           ;MASTER_Proyecto.c: 198:         lcd_dwr(Val_STR(CONT_D));
+  1720                           ;MASTER_Proyecto.c: 166:         lcd_dwr(Val_STR(CONT_D));
   1721  05DE  1283               	bcf	3,5	;RP0=0, select bank0
   1722  05DF  1303               	bcf	3,6	;RP1=0, select bank0
   1723  05E0  083A               	movf	_CONT_D,w
@@ -1739,7 +1739,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1725  05E6  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1726  05EB                     l2632:	
   1727                           
-  1728                           ;MASTER_Proyecto.c: 200:         LCD_POINT(2,8);
+  1728                           ;MASTER_Proyecto.c: 168:         LCD_POINT(2,8);
   1729  05EB  3008               	movlw	8
   1730  05EC  1283               	bcf	3,5	;RP0=0, select bank0
   1731  05ED  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1750,7 +1750,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1736  05F2  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1737  05F7                     l2634:	
   1738                           
-  1739                           ;MASTER_Proyecto.c: 201:         lcd_dwr(Val_STR(CONT_U));
+  1739                           ;MASTER_Proyecto.c: 169:         lcd_dwr(Val_STR(CONT_U));
   1740  05F7  1283               	bcf	3,5	;RP0=0, select bank0
   1741  05F8  1303               	bcf	3,6	;RP1=0, select bank0
   1742  05F9  083B               	movf	_CONT_U,w
@@ -1758,7 +1758,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1744  05FF  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1745  0604                     l2636:	
   1746                           
-  1747                           ;MASTER_Proyecto.c: 205:         RES_cien = (float)((ADC_RES_V)*((float)100));
+  1747                           ;MASTER_Proyecto.c: 173:         RES_cien = (float)((ADC_RES_V)*((float)100));
   1748  0604  3042               	movlw	66
   1749  0605  1283               	bcf	3,5	;RP0=0, select bank0
   1750  0606  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1790,7 +1790,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1776  0624  00A0               	movwf	_RES_cien
   1777  0625                     l2638:	
   1778                           
-  1779                           ;MASTER_Proyecto.c: 206:         DECI_1_RES = (uint16_t)(RES_cien);
+  1779                           ;MASTER_Proyecto.c: 174:         DECI_1_RES = (uint16_t)(RES_cien);
   1780  0625  0823               	movf	_RES_cien+3,w
   1781  0626  00F3               	movwf	___fltol@f1+3
   1782  0627  0822               	movf	_RES_cien+2,w
@@ -1808,7 +1808,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1794  0637  00B2               	movwf	_DECI_1_RES
   1795  0638                     l2640:	
   1796                           
-  1797                           ;MASTER_Proyecto.c: 207:         RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
+  1797                           ;MASTER_Proyecto.c: 175:         RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
   1798  0638  300A               	movlw	10
   1799  0639  00F0               	movwf	___lwmod@divisor
   1800  063A  3000               	movlw	0
@@ -1826,7 +1826,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1812  064A  00BC               	movwf	_RES_D2
   1813  064B                     l2642:	
   1814                           
-  1815                           ;MASTER_Proyecto.c: 209:         DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
+  1815                           ;MASTER_Proyecto.c: 177:         DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
   1816  064B  300A               	movlw	10
   1817  064C  00F0               	movwf	___lwdiv@divisor
   1818  064D  3000               	movlw	0
@@ -1844,7 +1844,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1830  065D  00B0               	movwf	_DECI_2_RES
   1831  065E                     l2644:	
   1832                           
-  1833                           ;MASTER_Proyecto.c: 210:         RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
+  1833                           ;MASTER_Proyecto.c: 178:         RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
   1834  065E  300A               	movlw	10
   1835  065F  00F0               	movwf	___lwmod@divisor
   1836  0660  3000               	movlw	0
@@ -1862,7 +1862,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1848  0670  00BD               	movwf	_RES_D1
   1849  0671                     l2646:	
   1850                           
-  1851                           ;MASTER_Proyecto.c: 212:         RES_EN = (uint16_t)(ADC_RES_V);
+  1851                           ;MASTER_Proyecto.c: 180:         RES_EN = (uint16_t)(ADC_RES_V);
   1852  0671  082B               	movf	_ADC_RES_V+3,w
   1853  0672  00F3               	movwf	___fltol@f1+3
   1854  0673  082A               	movf	_ADC_RES_V+2,w
@@ -1880,7 +1880,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1866  0683  00C0               	movwf	_RES_EN
   1867  0684                     l2648:	
   1868                           
-  1869                           ;MASTER_Proyecto.c: 216:         LCD_POINT(2,10);
+  1869                           ;MASTER_Proyecto.c: 184:         LCD_POINT(2,10);
   1870  0684  300A               	movlw	10
   1871  0685  00DF               	movwf	??_main
   1872  0686  085F               	movf	??_main,w
@@ -1889,7 +1889,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1875  0689  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1876  068E                     l2650:	
   1877                           
-  1878                           ;MASTER_Proyecto.c: 217:         lcd_dwr(Val_STR(RES_EN));
+  1878                           ;MASTER_Proyecto.c: 185:         lcd_dwr(Val_STR(RES_EN));
   1879  068E  1283               	bcf	3,5	;RP0=0, select bank0
   1880  068F  1303               	bcf	3,6	;RP1=0, select bank0
   1881  0690  0840               	movf	_RES_EN,w
@@ -1897,7 +1897,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1883  0696  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1884  069B                     l2652:	
   1885                           
-  1886                           ;MASTER_Proyecto.c: 219:         LCD_POINT(2,12);
+  1886                           ;MASTER_Proyecto.c: 187:         LCD_POINT(2,12);
   1887  069B  300C               	movlw	12
   1888  069C  1283               	bcf	3,5	;RP0=0, select bank0
   1889  069D  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1908,7 +1908,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1894  06A2  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1895  06A7                     l2654:	
   1896                           
-  1897                           ;MASTER_Proyecto.c: 220:         lcd_dwr(Val_STR(RES_D1));
+  1897                           ;MASTER_Proyecto.c: 188:         lcd_dwr(Val_STR(RES_D1));
   1898  06A7  1283               	bcf	3,5	;RP0=0, select bank0
   1899  06A8  1303               	bcf	3,6	;RP1=0, select bank0
   1900  06A9  083D               	movf	_RES_D1,w
@@ -1916,7 +1916,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1902  06AF  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1903  06B4                     l2656:	
   1904                           
-  1905                           ;MASTER_Proyecto.c: 222:         LCD_POINT(2,13);
+  1905                           ;MASTER_Proyecto.c: 190:         LCD_POINT(2,13);
   1906  06B4  300D               	movlw	13
   1907  06B5  1283               	bcf	3,5	;RP0=0, select bank0
   1908  06B6  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1927,7 +1927,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1913  06BB  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1914  06C0                     l2658:	
   1915                           
-  1916                           ;MASTER_Proyecto.c: 223:         lcd_dwr(Val_STR(RES_D2));
+  1916                           ;MASTER_Proyecto.c: 191:         lcd_dwr(Val_STR(RES_D2));
   1917  06C0  1283               	bcf	3,5	;RP0=0, select bank0
   1918  06C1  1303               	bcf	3,6	;RP1=0, select bank0
   1919  06C2  083C               	movf	_RES_D2,w
@@ -1935,7 +1935,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1921  06C8  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1922  06CD                     l2660:	
   1923                           
-  1924                           ;MASTER_Proyecto.c: 225:         _delay((unsigned long)((4000)*(8000000/4000.0)));
+  1924                           ;MASTER_Proyecto.c: 193:         _delay((unsigned long)((4000)*(8000000/4000.0)));
   1925  06CD  3029               	movlw	41
   1926  06CE  1283               	bcf	3,5	;RP0=0, select bank0
   1927  06CF  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1954,12 +1954,12 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1940  06DB  0000               	nop
   1941  06DC                     l2662:	
   1942                           
-  1943                           ;MASTER_Proyecto.c: 230:         lcd_cmd(0x01);
+  1943                           ;MASTER_Proyecto.c: 198:         lcd_cmd(0x01);
   1944  06DC  3001               	movlw	1
   1945  06DD  120A  158A  2145  120A  118A  	fcall	_lcd_cmd
   1946  06E2                     l2664:	
   1947                           
-  1948                           ;MASTER_Proyecto.c: 232:         LCD_POINT(1,2);
+  1948                           ;MASTER_Proyecto.c: 200:         LCD_POINT(1,2);
   1949  06E2  3002               	movlw	2
   1950  06E3  1283               	bcf	3,5	;RP0=0, select bank0
   1951  06E4  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1969,24 +1969,24 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1955  06E8  3001               	movlw	1
   1956  06E9  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1957                           
-  1958                           ;MASTER_Proyecto.c: 233:         lcd_msg("S4");
+  1958                           ;MASTER_Proyecto.c: 201:         lcd_msg("S4");
   1959  06EE  300A               	movlw	(low ((STR_4-__stringbase)| (0+32768)))& (0+255)
   1960  06EF  120A  158A  21A2  120A  118A  	fcall	_lcd_msg
   1961  06F4                     l2666:	
   1962                           
-  1963                           ;MASTER_Proyecto.c: 235:         LCD_POINT(2,1);
+  1963                           ;MASTER_Proyecto.c: 203:         LCD_POINT(2,1);
   1964  06F4  01F3               	clrf	LCD_POINT@col
   1965  06F5  0AF3               	incf	LCD_POINT@col,f
   1966  06F6  3002               	movlw	2
   1967  06F7  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1968  06FC                     l2668:	
   1969                           
-  1970                           ;MASTER_Proyecto.c: 236:         lcd_dwr('.');
+  1970                           ;MASTER_Proyecto.c: 204:         lcd_dwr('.');
   1971  06FC  302E               	movlw	46
   1972  06FD  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1973  0702                     l2670:	
   1974                           
-  1975                           ;MASTER_Proyecto.c: 237:         LCD_POINT(2,4);
+  1975                           ;MASTER_Proyecto.c: 205:         LCD_POINT(2,4);
   1976  0702  3004               	movlw	4
   1977  0703  1283               	bcf	3,5	;RP0=0, select bank0
   1978  0704  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1997,12 +1997,12 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1983  0709  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   1984  070E                     l2672:	
   1985                           
-  1986                           ;MASTER_Proyecto.c: 238:         lcd_dwr('V');
+  1986                           ;MASTER_Proyecto.c: 206:         lcd_dwr('V');
   1987  070E  3056               	movlw	86
   1988  070F  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   1989  0714                     l2674:	
   1990                           
-  1991                           ;MASTER_Proyecto.c: 243:         POT_cien = (float)((ADC_POT_V)*((float)100));
+  1991                           ;MASTER_Proyecto.c: 211:         POT_cien = (float)((ADC_POT_V)*((float)100));
   1992  0714  3042               	movlw	66
   1993  0715  1283               	bcf	3,5	;RP0=0, select bank0
   1994  0716  1303               	bcf	3,6	;RP1=0, select bank0
@@ -2034,7 +2034,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2020  0734  00A4               	movwf	_POT_cien
   2021  0735                     l2676:	
   2022                           
-  2023                           ;MASTER_Proyecto.c: 244:         DECI_1_POT = (uint16_t)(POT_cien);
+  2023                           ;MASTER_Proyecto.c: 212:         DECI_1_POT = (uint16_t)(POT_cien);
   2024  0735  0827               	movf	_POT_cien+3,w
   2025  0736  00F3               	movwf	___fltol@f1+3
   2026  0737  0826               	movf	_POT_cien+2,w
@@ -2052,7 +2052,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2038  0747  00B6               	movwf	_DECI_1_POT
   2039  0748                     l2678:	
   2040                           
-  2041                           ;MASTER_Proyecto.c: 245:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+  2041                           ;MASTER_Proyecto.c: 213:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
   2042  0748  300A               	movlw	10
   2043  0749  00F0               	movwf	___lwmod@divisor
   2044  074A  3000               	movlw	0
@@ -2070,7 +2070,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2056  075A  00BE               	movwf	_POT_D2
   2057  075B                     l2680:	
   2058                           
-  2059                           ;MASTER_Proyecto.c: 247:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+  2059                           ;MASTER_Proyecto.c: 215:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
   2060  075B  300A               	movlw	10
   2061  075C  00F0               	movwf	___lwdiv@divisor
   2062  075D  3000               	movlw	0
@@ -2088,7 +2088,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2074  076D  00B4               	movwf	_DECI_2_POT
   2075  076E                     l2682:	
   2076                           
-  2077                           ;MASTER_Proyecto.c: 248:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+  2077                           ;MASTER_Proyecto.c: 216:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
   2078  076E  300A               	movlw	10
   2079  076F  00F0               	movwf	___lwmod@divisor
   2080  0770  3000               	movlw	0
@@ -2106,7 +2106,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2092  0780  00BF               	movwf	_POT_D1
   2093  0781                     l2684:	
   2094                           
-  2095                           ;MASTER_Proyecto.c: 250:         POT_EN = (uint16_t)(ADC_POT_V);
+  2095                           ;MASTER_Proyecto.c: 218:         POT_EN = (uint16_t)(ADC_POT_V);
   2096  0781  082F               	movf	_ADC_POT_V+3,w
   2097  0782  00F3               	movwf	___fltol@f1+3
   2098  0783  082E               	movf	_ADC_POT_V+2,w
@@ -2124,13 +2124,13 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2110  0793  00C1               	movwf	_POT_EN
   2111  0794                     l2686:	
   2112                           
-  2113                           ;MASTER_Proyecto.c: 254:         LCD_POINT(2,0);
+  2113                           ;MASTER_Proyecto.c: 222:         LCD_POINT(2,0);
   2114  0794  01F3               	clrf	LCD_POINT@col
   2115  0795  3002               	movlw	2
   2116  0796  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   2117  079B                     l2688:	
   2118                           
-  2119                           ;MASTER_Proyecto.c: 255:         lcd_dwr(Val_STR(POT_EN));
+  2119                           ;MASTER_Proyecto.c: 223:         lcd_dwr(Val_STR(POT_EN));
   2120  079B  1283               	bcf	3,5	;RP0=0, select bank0
   2121  079C  1303               	bcf	3,6	;RP1=0, select bank0
   2122  079D  0841               	movf	_POT_EN,w
@@ -2138,7 +2138,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2124  07A3  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   2125  07A8                     l2690:	
   2126                           
-  2127                           ;MASTER_Proyecto.c: 257:         LCD_POINT(2,2);
+  2127                           ;MASTER_Proyecto.c: 225:         LCD_POINT(2,2);
   2128  07A8  3002               	movlw	2
   2129  07A9  1283               	bcf	3,5	;RP0=0, select bank0
   2130  07AA  1303               	bcf	3,6	;RP1=0, select bank0
@@ -2149,7 +2149,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2135  07AF  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   2136  07B4                     l2692:	
   2137                           
-  2138                           ;MASTER_Proyecto.c: 258:         lcd_dwr(Val_STR(POT_D1));
+  2138                           ;MASTER_Proyecto.c: 226:         lcd_dwr(Val_STR(POT_D1));
   2139  07B4  1283               	bcf	3,5	;RP0=0, select bank0
   2140  07B5  1303               	bcf	3,6	;RP1=0, select bank0
   2141  07B6  083F               	movf	_POT_D1,w
@@ -2157,7 +2157,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2143  07BC  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   2144  07C1                     l2694:	
   2145                           
-  2146                           ;MASTER_Proyecto.c: 260:         LCD_POINT(2,3);
+  2146                           ;MASTER_Proyecto.c: 228:         LCD_POINT(2,3);
   2147  07C1  3003               	movlw	3
   2148  07C2  1283               	bcf	3,5	;RP0=0, select bank0
   2149  07C3  1303               	bcf	3,6	;RP1=0, select bank0
@@ -2168,7 +2168,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2154  07C8  120A  158A  223E  120A  118A  	fcall	_LCD_POINT
   2155  07CD                     l2696:	
   2156                           
-  2157                           ;MASTER_Proyecto.c: 261:         lcd_dwr(Val_STR(POT_D2));
+  2157                           ;MASTER_Proyecto.c: 229:         lcd_dwr(Val_STR(POT_D2));
   2158  07CD  1283               	bcf	3,5	;RP0=0, select bank0
   2159  07CE  1303               	bcf	3,6	;RP1=0, select bank0
   2160  07CF  083E               	movf	_POT_D2,w
@@ -2176,7 +2176,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2162  07D5  120A  158A  2157  120A  118A  	fcall	_lcd_dwr
   2163  07DA                     l2698:	
   2164                           
-  2165                           ;MASTER_Proyecto.c: 263:         _delay((unsigned long)((4000)*(8000000/4000.0)));
+  2165                           ;MASTER_Proyecto.c: 231:         _delay((unsigned long)((4000)*(8000000/4000.0)));
   2166  07DA  3029               	movlw	41
   2167  07DB  1283               	bcf	3,5	;RP0=0, select bank0
   2168  07DC  1303               	bcf	3,6	;RP1=0, select bank0
@@ -2195,7 +2195,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2181  07E8  0000               	nop
   2182  07E9                     l2700:	
   2183                           
-  2184                           ;MASTER_Proyecto.c: 265:         lcd_cmd(0x01);
+  2184                           ;MASTER_Proyecto.c: 233:         lcd_cmd(0x01);
   2185  07E9  3001               	movlw	1
   2186  07EA  120A  158A  2145  120A  118A  	fcall	_lcd_cmd
   2187  07EF  2B6E               	goto	l2542
@@ -2673,7 +2673,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2658  0969                     __ptext5:	
   2659 ;; *************** function _init *****************
   2660 ;; Defined at:
-  2661 ;;		line 272 in file "MASTER_Proyecto.c"
+  2661 ;;		line 240 in file "MASTER_Proyecto.c"
   2662 ;; Parameters:    Size  Location     Type
   2663 ;;		None
   2664 ;; Auto vars:     Size  Location     Type
@@ -2709,30 +2709,30 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   2694                           ; Regs used in _init: [wreg+status,2+status,0+pclath+cstack]
   2695                           
   2696                           
-  2697                           ;MASTER_Proyecto.c: 273:     TRISA = 0;
+  2697                           ;MASTER_Proyecto.c: 241:     TRISA = 0;
   2698  0969  1683               	bsf	3,5	;RP0=1, select bank1
   2699  096A  1303               	bcf	3,6	;RP1=0, select bank1
   2700  096B  0185               	clrf	5	;volatile
   2701                           
-  2702                           ;MASTER_Proyecto.c: 274:     TRISB = 0;
+  2702                           ;MASTER_Proyecto.c: 242:     TRISB = 0;
   2703  096C  0186               	clrf	6	;volatile
   2704                           
-  2705                           ;MASTER_Proyecto.c: 275:     TRISC = 0;
+  2705                           ;MASTER_Proyecto.c: 243:     TRISC = 0;
   2706  096D  0187               	clrf	7	;volatile
   2707                           
-  2708                           ;MASTER_Proyecto.c: 276:     TRISD = 0;
+  2708                           ;MASTER_Proyecto.c: 244:     TRISD = 0;
   2709  096E  0188               	clrf	8	;volatile
   2710                           
-  2711                           ;MASTER_Proyecto.c: 277:     ANSEL = 0;
+  2711                           ;MASTER_Proyecto.c: 245:     ANSEL = 0;
   2712  096F  1683               	bsf	3,5	;RP0=1, select bank3
   2713  0970  1703               	bsf	3,6	;RP1=1, select bank3
   2714  0971  0188               	clrf	8	;volatile
   2715                           
-  2716                           ;MASTER_Proyecto.c: 278:     ANSELH = 0;
+  2716                           ;MASTER_Proyecto.c: 246:     ANSELH = 0;
   2717  0972  0189               	clrf	9	;volatile
   2718  0973                     l1930:	
   2719                           
-  2720                           ;MASTER_Proyecto.c: 279:     I2C_Master_Init(100000);
+  2720                           ;MASTER_Proyecto.c: 247:     I2C_Master_Init(100000);
   2721  0973  3000               	movlw	0
   2722  0974  1283               	bcf	3,5	;RP0=0, select bank0
   2723  0975  1303               	bcf	3,6	;RP1=0, select bank0
@@ -5884,7 +5884,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   5868  0ADE                     __ptext17:	
   5869 ;; *************** function _Val_STR *****************
   5870 ;; Defined at:
-  5871 ;;		line 285 in file "MASTER_Proyecto.c"
+  5871 ;;		line 253 in file "MASTER_Proyecto.c"
   5872 ;; Parameters:    Size  Location     Type
   5873 ;;  num             1    wreg     unsigned char 
   5874 ;; Auto vars:     Size  Location     Type
@@ -5921,56 +5921,56 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   5905  0ADE  00F2               	movwf	Val_STR@num
   5906  0ADF                     l1986:	
   5907                           
-  5908                           ;MASTER_Proyecto.c: 286:     switch(num){
+  5908                           ;MASTER_Proyecto.c: 254:     switch(num){
   5909  0ADF  2AF4               	goto	l2030
   5910  0AE0                     l1988:	
   5911                           
-  5912                           ;MASTER_Proyecto.c: 288:             return '0';
+  5912                           ;MASTER_Proyecto.c: 256:             return '0';
   5913  0AE0  3030               	movlw	48
   5914  0AE1  2B1C               	goto	l106
   5915  0AE2                     l1992:	
   5916                           
-  5917                           ;MASTER_Proyecto.c: 291:             return '1';
+  5917                           ;MASTER_Proyecto.c: 259:             return '1';
   5918  0AE2  3031               	movlw	49
   5919  0AE3  2B1C               	goto	l106
   5920  0AE4                     l1996:	
   5921                           
-  5922                           ;MASTER_Proyecto.c: 294:             return '2';
+  5922                           ;MASTER_Proyecto.c: 262:             return '2';
   5923  0AE4  3032               	movlw	50
   5924  0AE5  2B1C               	goto	l106
   5925  0AE6                     l2000:	
   5926                           
-  5927                           ;MASTER_Proyecto.c: 297:             return '3';
+  5927                           ;MASTER_Proyecto.c: 265:             return '3';
   5928  0AE6  3033               	movlw	51
   5929  0AE7  2B1C               	goto	l106
   5930  0AE8                     l2004:	
   5931                           
-  5932                           ;MASTER_Proyecto.c: 300:             return '4';
+  5932                           ;MASTER_Proyecto.c: 268:             return '4';
   5933  0AE8  3034               	movlw	52
   5934  0AE9  2B1C               	goto	l106
   5935  0AEA                     l2008:	
   5936                           
-  5937                           ;MASTER_Proyecto.c: 303:             return '5';
+  5937                           ;MASTER_Proyecto.c: 271:             return '5';
   5938  0AEA  3035               	movlw	53
   5939  0AEB  2B1C               	goto	l106
   5940  0AEC                     l2012:	
   5941                           
-  5942                           ;MASTER_Proyecto.c: 306:             return '6';
+  5942                           ;MASTER_Proyecto.c: 274:             return '6';
   5943  0AEC  3036               	movlw	54
   5944  0AED  2B1C               	goto	l106
   5945  0AEE                     l2016:	
   5946                           
-  5947                           ;MASTER_Proyecto.c: 309:             return '7';
+  5947                           ;MASTER_Proyecto.c: 277:             return '7';
   5948  0AEE  3037               	movlw	55
   5949  0AEF  2B1C               	goto	l106
   5950  0AF0                     l2020:	
   5951                           
-  5952                           ;MASTER_Proyecto.c: 312:             return '8';
+  5952                           ;MASTER_Proyecto.c: 280:             return '8';
   5953  0AF0  3038               	movlw	56
   5954  0AF1  2B1C               	goto	l106
   5955  0AF2                     l2024:	
   5956                           
-  5957                           ;MASTER_Proyecto.c: 315:             return '9';
+  5957                           ;MASTER_Proyecto.c: 283:             return '9';
   5958  0AF2  3039               	movlw	57
   5959  0AF3  2B1C               	goto	l106
   5960  0AF4                     l2030:	
@@ -6976,7 +6976,7 @@ DATA                 0      0      51      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Sun Mar 08 13:55:24 2020
+Symbol Table                                                                                   Sun Mar 08 18:23:54 2020
 
              ___fldiv@aexp 005E               ___fldiv@bexp 005D                          _i 0038  
                         pc 0002               ___fldiv@sign 0056                __CFG_CP$OFF 0000  

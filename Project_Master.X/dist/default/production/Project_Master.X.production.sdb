@@ -59,9 +59,9 @@
 [v _LCD_POINT LCD_POINT `(v  1 e 1 0 ]
 "74 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 [v _main main `(v  1 e 1 0 ]
-"272
+"240
 [v _init init `(v  1 e 1 0 ]
-"285
+"253
 [v _Val_STR Val_STR `(uc  1 e 1 0 ]
 "8 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\Oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -250,7 +250,7 @@
 "74
 [v _main main `(v  1 e 1 0 ]
 {
-"268
+"236
 } 0
 "58 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\LCD.c
 [v _lcd_msg lcd_msg `(v  1 e 1 0 ]
@@ -281,10 +281,10 @@
 [v initOsc@frec frec `uc  1 a 1 2 ]
 "58
 } 0
-"272 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
+"240 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 [v _init init `(v  1 e 1 0 ]
 {
-"280
+"248
 } 0
 "7 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\I2C.c
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
@@ -434,13 +434,13 @@
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"285 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
+"253 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 [v _Val_STR Val_STR `(uc  1 e 1 0 ]
 {
 [v Val_STR@num num `uc  1 a 1 wreg ]
 [v Val_STR@num num `uc  1 a 1 wreg ]
 [v Val_STR@num num `uc  1 a 1 2 ]
-"318
+"286
 } 0
 "79 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\LCD.c
 [v _LCD_POINT LCD_POINT `(v  1 e 1 0 ]
