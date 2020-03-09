@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Mon Mar 09 15:09:22 2020
+                                                                                               Mon Mar 09 16:05:49 2020
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	16F887
@@ -427,7 +427,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    413                           
    414  0014                     __end_of__initialization:	
    415  0014  0183               	clrf	3
-   416  0015  120A  118A  28D9   	ljmp	_main	;jump to C main() function
+   416  0015  120A  118A  28D7   	ljmp	_main	;jump to C main() function
    417                           
    418                           	psect	bssCOMMON
    419  0076                     __pbssCOMMON:	
@@ -500,7 +500,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    486  0076                     ??_main:	
    487                           
    488                           	psect	maintext
-   489  00D9                     __pmaintext:	
+   489  00D7                     __pmaintext:	
    490                           ; 1 bytes @ 0x6
    491 ;;
    492 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
@@ -540,77 +540,77 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    526                           
    527                           
    528                           ;psect for function _main
-   529  00D9                     _main:	
-   530  00D9                     l870:	
+   529  00D7                     _main:	
+   530  00D7                     l870:	
    531                           ;incstack = 0
    532                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    533                           
    534                           
    535                           ;Sensor_Interferencia.c: 93:     initOsc(3);
-   536  00D9  3003               	movlw	3
-   537  00DA  120A  118A  207D  120A  118A  	fcall	_initOsc
-   538  00DF                     l872:	
+   536  00D7  3003               	movlw	3
+   537  00D8  120A  118A  207B  120A  118A  	fcall	_initOsc
+   538  00DD                     l872:	
    539                           
    540                           ;Sensor_Interferencia.c: 94:     init();
-   541  00DF  120A  118A  2141  120A  118A  	fcall	_init
-   542  00E4                     l874:	
+   541  00DD  120A  118A  213F  120A  118A  	fcall	_init
+   542  00E2                     l874:	
    543                           
    544                           ;Sensor_Interferencia.c: 95:     PWM_setup();
-   545  00E4  120A  118A  2109  120A  118A  	fcall	_PWM_setup
-   546  00E9                     l876:	
+   545  00E2  120A  118A  2107  120A  118A  	fcall	_PWM_setup
+   546  00E7                     l876:	
    547                           
    548                           ;Sensor_Interferencia.c: 97:     PORTA = 0x00;
-   549  00E9  1283               	bcf	3,5	;RP0=0, select bank0
-   550  00EA  1303               	bcf	3,6	;RP1=0, select bank0
-   551  00EB  0185               	clrf	5	;volatile
-   552  00EC                     l878:	
+   549  00E7  1283               	bcf	3,5	;RP0=0, select bank0
+   550  00E8  1303               	bcf	3,6	;RP1=0, select bank0
+   551  00E9  0185               	clrf	5	;volatile
+   552  00EA                     l878:	
    553                           
    554                           ;Sensor_Interferencia.c: 98:     PORTB = 0x00;
-   555  00EC  0186               	clrf	6	;volatile
-   556  00ED                     l880:	
+   555  00EA  0186               	clrf	6	;volatile
+   556  00EB                     l880:	
    557                           
    558                           ;Sensor_Interferencia.c: 99:     PORTC = 0x00;
-   559  00ED  0187               	clrf	7	;volatile
-   560  00EE                     l882:	
+   559  00EB  0187               	clrf	7	;volatile
+   560  00EC                     l882:	
    561                           
    562                           ;Sensor_Interferencia.c: 100:     PORTD = 0x00;
-   563  00EE  0188               	clrf	8	;volatile
-   564  00EF                     l884:	
+   563  00EC  0188               	clrf	8	;volatile
+   564  00ED                     l884:	
    565                           
    566                           ;Sensor_Interferencia.c: 102:         estado = PORTDbits.RD0;
-   567  00EF  3000               	movlw	0
-   568  00F0  1283               	bcf	3,5	;RP0=0, select bank0
-   569  00F1  1303               	bcf	3,6	;RP1=0, select bank0
-   570  00F2  1808               	btfsc	8,0	;volatile
-   571  00F3  3001               	movlw	1
-   572  00F4  00F9               	movwf	_estado
-   573  00F5                     l886:	
+   567  00ED  3000               	movlw	0
+   568  00EE  1283               	bcf	3,5	;RP0=0, select bank0
+   569  00EF  1303               	bcf	3,6	;RP1=0, select bank0
+   570  00F0  1808               	btfsc	8,0	;volatile
+   571  00F1  3001               	movlw	1
+   572  00F2  00F9               	movwf	_estado
+   573  00F3                     l886:	
    574                           
    575                           ;Sensor_Interferencia.c: 104:         if (estado == 1) {
-   576  00F5  0379               	decf	_estado,w
-   577  00F6  1D03               	btfss	3,2
-   578  00F7  28F9               	goto	u131
-   579  00F8  28FA               	goto	u130
-   580  00F9                     u131:	
-   581  00F9  2900               	goto	l890
-   582  00FA                     u130:	
-   583  00FA                     l888:	
+   576  00F3  0379               	decf	_estado,w
+   577  00F4  1D03               	btfss	3,2
+   578  00F5  28F7               	goto	u131
+   579  00F6  28F8               	goto	u130
+   580  00F7                     u131:	
+   581  00F7  28FE               	goto	l890
+   582  00F8                     u130:	
+   583  00F8                     l888:	
    584                           
    585                           ;Sensor_Interferencia.c: 105:             zero_deg();
-   586  00FA  120A  118A  2153  120A  118A  	fcall	_zero_deg
+   586  00F8  120A  118A  2151  120A  118A  	fcall	_zero_deg
    587                           
    588                           ;Sensor_Interferencia.c: 106:         } else {
-   589  00FF  28EF               	goto	l884
-   590  0100                     l890:	
+   589  00FD  28ED               	goto	l884
+   590  00FE                     l890:	
    591                           
    592                           ;Sensor_Interferencia.c: 107:             final_deg();
-   593  0100  120A  118A  215A  120A  118A  	fcall	_final_deg
-   594  0105  28EF               	goto	l884
-   595  0106  120A  118A  280C   	ljmp	start
-   596  0109                     __end_of_main:	
+   593  00FE  120A  118A  2158  120A  118A  	fcall	_final_deg
+   594  0103  28ED               	goto	l884
+   595  0104  120A  118A  280C   	ljmp	start
+   596  0107                     __end_of_main:	
    597                           
    598                           	psect	text1
-   599  0153                     __ptext1:	
+   599  0151                     __ptext1:	
    600 ;; *************** function _zero_deg *****************
    601 ;; Defined at:
    602 ;;		line 148 in file "Sensor_Interferencia.c"
@@ -643,28 +643,28 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    629                           
    630                           
    631                           ;psect for function _zero_deg
-   632  0153                     _zero_deg:	
-   633  0153                     l820:	
+   632  0151                     _zero_deg:	
+   633  0151                     l820:	
    634                           ;incstack = 0
    635                           ; Regs used in _zero_deg: [wreg+status,2+status,0]
    636                           
    637                           
    638                           ;Sensor_Interferencia.c: 149:     CCP1CONbits.DC1B = 0b00;
-   639  0153  30CF               	movlw	-49
-   640  0154  1283               	bcf	3,5	;RP0=0, select bank0
-   641  0155  1303               	bcf	3,6	;RP1=0, select bank0
-   642  0156  0597               	andwf	23,f	;volatile
-   643  0157                     l822:	
+   639  0151  30CF               	movlw	-49
+   640  0152  1283               	bcf	3,5	;RP0=0, select bank0
+   641  0153  1303               	bcf	3,6	;RP1=0, select bank0
+   642  0154  0597               	andwf	23,f	;volatile
+   643  0155                     l822:	
    644                           
    645                           ;Sensor_Interferencia.c: 150:     CCPR1L = 3;
-   646  0157  3003               	movlw	3
-   647  0158  0095               	movwf	21	;volatile
-   648  0159                     l106:	
-   649  0159  0008               	return
-   650  015A                     __end_of_zero_deg:	
+   646  0155  3003               	movlw	3
+   647  0156  0095               	movwf	21	;volatile
+   648  0157                     l106:	
+   649  0157  0008               	return
+   650  0158                     __end_of_zero_deg:	
    651                           
    652                           	psect	text2
-   653  007D                     __ptext2:	
+   653  007B                     __ptext2:	
    654 ;; *************** function _initOsc *****************
    655 ;; Defined at:
    656 ;;		line 8 in file "Oscilador.c"
@@ -697,173 +697,173 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    683                           
    684                           
    685                           ;psect for function _initOsc
-   686  007D                     _initOsc:	
+   686  007B                     _initOsc:	
    687                           
    688                           ;incstack = 0
    689                           ; Regs used in _initOsc: [wreg-fsr0h+status,2+status,0]
    690                           ;initOsc@frec stored from wreg
-   691  007D  00F5               	movwf	initOsc@frec
-   692  007E                     l784:	
+   691  007B  00F5               	movwf	initOsc@frec
+   692  007C                     l784:	
    693                           
    694                           ;Oscilador.c: 9:     switch(frec){
-   695  007E  28B5               	goto	l788
-   696  007F                     l168:	
+   695  007C  28B3               	goto	l788
+   696  007D                     l168:	
    697                           ;Oscilador.c: 10:         case 0:
    698                           
    699                           
    700                           ;Oscilador.c: 11:             OSCCONbits.IRCF0 = 0;
-   701  007F  1683               	bsf	3,5	;RP0=1, select bank1
-   702  0080  1303               	bcf	3,6	;RP1=0, select bank1
-   703  0081  120F               	bcf	15,4	;volatile
+   701  007D  1683               	bsf	3,5	;RP0=1, select bank1
+   702  007E  1303               	bcf	3,6	;RP1=0, select bank1
+   703  007F  120F               	bcf	15,4	;volatile
    704                           
    705                           ;Oscilador.c: 12:             OSCCONbits.IRCF1 = 0;
-   706  0082  128F               	bcf	15,5	;volatile
+   706  0080  128F               	bcf	15,5	;volatile
    707                           
    708                           ;Oscilador.c: 13:             OSCCONbits.IRCF2 = 0;
-   709  0083  130F               	bcf	15,6	;volatile
+   709  0081  130F               	bcf	15,6	;volatile
    710                           
    711                           ;Oscilador.c: 14:             break;
-   712  0084  28D7               	goto	l169
-   713  0085                     l170:	
+   712  0082  28D5               	goto	l169
+   713  0083                     l170:	
    714                           ;Oscilador.c: 15:         case 1:
    715                           
    716                           
    717                           ;Oscilador.c: 16:             OSCCONbits.IRCF0 = 1;
-   718  0085  1683               	bsf	3,5	;RP0=1, select bank1
-   719  0086  1303               	bcf	3,6	;RP1=0, select bank1
-   720  0087  160F               	bsf	15,4	;volatile
+   718  0083  1683               	bsf	3,5	;RP0=1, select bank1
+   719  0084  1303               	bcf	3,6	;RP1=0, select bank1
+   720  0085  160F               	bsf	15,4	;volatile
    721                           
    722                           ;Oscilador.c: 17:             OSCCONbits.IRCF1 = 0;
-   723  0088  128F               	bcf	15,5	;volatile
+   723  0086  128F               	bcf	15,5	;volatile
    724                           
    725                           ;Oscilador.c: 18:             OSCCONbits.IRCF2 = 0;
-   726  0089  130F               	bcf	15,6	;volatile
+   726  0087  130F               	bcf	15,6	;volatile
    727                           
    728                           ;Oscilador.c: 19:             break;
-   729  008A  28D7               	goto	l169
-   730  008B                     l171:	
+   729  0088  28D5               	goto	l169
+   730  0089                     l171:	
    731                           ;Oscilador.c: 20:         case 2:
    732                           
    733                           
    734                           ;Oscilador.c: 21:             OSCCONbits.IRCF0 = 0;
-   735  008B  1683               	bsf	3,5	;RP0=1, select bank1
-   736  008C  1303               	bcf	3,6	;RP1=0, select bank1
-   737  008D  120F               	bcf	15,4	;volatile
+   735  0089  1683               	bsf	3,5	;RP0=1, select bank1
+   736  008A  1303               	bcf	3,6	;RP1=0, select bank1
+   737  008B  120F               	bcf	15,4	;volatile
    738                           
    739                           ;Oscilador.c: 22:             OSCCONbits.IRCF1 = 1;
-   740  008E  168F               	bsf	15,5	;volatile
+   740  008C  168F               	bsf	15,5	;volatile
    741                           
    742                           ;Oscilador.c: 23:             OSCCONbits.IRCF2 = 0;
-   743  008F  130F               	bcf	15,6	;volatile
+   743  008D  130F               	bcf	15,6	;volatile
    744                           
    745                           ;Oscilador.c: 24:             break;
-   746  0090  28D7               	goto	l169
-   747  0091                     l172:	
+   746  008E  28D5               	goto	l169
+   747  008F                     l172:	
    748                           ;Oscilador.c: 25:         case 3:
    749                           
    750                           
    751                           ;Oscilador.c: 26:             OSCCONbits.IRCF0 = 1;
-   752  0091  1683               	bsf	3,5	;RP0=1, select bank1
-   753  0092  1303               	bcf	3,6	;RP1=0, select bank1
-   754  0093  160F               	bsf	15,4	;volatile
+   752  008F  1683               	bsf	3,5	;RP0=1, select bank1
+   753  0090  1303               	bcf	3,6	;RP1=0, select bank1
+   754  0091  160F               	bsf	15,4	;volatile
    755                           
    756                           ;Oscilador.c: 27:             OSCCONbits.IRCF1 = 1;
-   757  0094  168F               	bsf	15,5	;volatile
+   757  0092  168F               	bsf	15,5	;volatile
    758                           
    759                           ;Oscilador.c: 28:             OSCCONbits.IRCF2 = 0;
-   760  0095  130F               	bcf	15,6	;volatile
+   760  0093  130F               	bcf	15,6	;volatile
    761                           
    762                           ;Oscilador.c: 29:             break;
-   763  0096  28D7               	goto	l169
-   764  0097                     l173:	
+   763  0094  28D5               	goto	l169
+   764  0095                     l173:	
    765                           ;Oscilador.c: 30:         case 4:
    766                           
    767                           
    768                           ;Oscilador.c: 31:             OSCCONbits.IRCF0 = 0;
-   769  0097  1683               	bsf	3,5	;RP0=1, select bank1
-   770  0098  1303               	bcf	3,6	;RP1=0, select bank1
-   771  0099  120F               	bcf	15,4	;volatile
+   769  0095  1683               	bsf	3,5	;RP0=1, select bank1
+   770  0096  1303               	bcf	3,6	;RP1=0, select bank1
+   771  0097  120F               	bcf	15,4	;volatile
    772                           
    773                           ;Oscilador.c: 32:             OSCCONbits.IRCF1 = 0;
-   774  009A  128F               	bcf	15,5	;volatile
+   774  0098  128F               	bcf	15,5	;volatile
    775                           
    776                           ;Oscilador.c: 33:             OSCCONbits.IRCF2 = 1;
-   777  009B  170F               	bsf	15,6	;volatile
+   777  0099  170F               	bsf	15,6	;volatile
    778                           
    779                           ;Oscilador.c: 34:             break;
-   780  009C  28D7               	goto	l169
-   781  009D                     l174:	
+   780  009A  28D5               	goto	l169
+   781  009B                     l174:	
    782                           ;Oscilador.c: 35:         case 5:
    783                           
    784                           
    785                           ;Oscilador.c: 36:             OSCCONbits.IRCF0 = 1;
-   786  009D  1683               	bsf	3,5	;RP0=1, select bank1
-   787  009E  1303               	bcf	3,6	;RP1=0, select bank1
-   788  009F  160F               	bsf	15,4	;volatile
+   786  009B  1683               	bsf	3,5	;RP0=1, select bank1
+   787  009C  1303               	bcf	3,6	;RP1=0, select bank1
+   788  009D  160F               	bsf	15,4	;volatile
    789                           
    790                           ;Oscilador.c: 37:             OSCCONbits.IRCF1 = 0;
-   791  00A0  128F               	bcf	15,5	;volatile
+   791  009E  128F               	bcf	15,5	;volatile
    792                           
    793                           ;Oscilador.c: 38:             OSCCONbits.IRCF2 = 1;
-   794  00A1  170F               	bsf	15,6	;volatile
+   794  009F  170F               	bsf	15,6	;volatile
    795                           
    796                           ;Oscilador.c: 39:             break;
-   797  00A2  28D7               	goto	l169
-   798  00A3                     l175:	
+   797  00A0  28D5               	goto	l169
+   798  00A1                     l175:	
    799                           ;Oscilador.c: 40:         case 6:
    800                           
    801                           
    802                           ;Oscilador.c: 41:             OSCCONbits.IRCF0 = 0;
-   803  00A3  1683               	bsf	3,5	;RP0=1, select bank1
-   804  00A4  1303               	bcf	3,6	;RP1=0, select bank1
-   805  00A5  120F               	bcf	15,4	;volatile
+   803  00A1  1683               	bsf	3,5	;RP0=1, select bank1
+   804  00A2  1303               	bcf	3,6	;RP1=0, select bank1
+   805  00A3  120F               	bcf	15,4	;volatile
    806                           
    807                           ;Oscilador.c: 42:             OSCCONbits.IRCF1 = 1;
-   808  00A6  168F               	bsf	15,5	;volatile
+   808  00A4  168F               	bsf	15,5	;volatile
    809                           
    810                           ;Oscilador.c: 43:             OSCCONbits.IRCF2 = 1;
-   811  00A7  170F               	bsf	15,6	;volatile
+   811  00A5  170F               	bsf	15,6	;volatile
    812                           
    813                           ;Oscilador.c: 44:             break;
-   814  00A8  28D7               	goto	l169
-   815  00A9                     l176:	
+   814  00A6  28D5               	goto	l169
+   815  00A7                     l176:	
    816                           ;Oscilador.c: 45:         case 7:
    817                           
    818                           
    819                           ;Oscilador.c: 46:             OSCCONbits.IRCF0 = 1;
-   820  00A9  1683               	bsf	3,5	;RP0=1, select bank1
-   821  00AA  1303               	bcf	3,6	;RP1=0, select bank1
-   822  00AB  160F               	bsf	15,4	;volatile
+   820  00A7  1683               	bsf	3,5	;RP0=1, select bank1
+   821  00A8  1303               	bcf	3,6	;RP1=0, select bank1
+   822  00A9  160F               	bsf	15,4	;volatile
    823                           
    824                           ;Oscilador.c: 47:             OSCCONbits.IRCF1 = 1;
-   825  00AC  168F               	bsf	15,5	;volatile
+   825  00AA  168F               	bsf	15,5	;volatile
    826                           
    827                           ;Oscilador.c: 48:             OSCCONbits.IRCF2 = 1;
-   828  00AD  170F               	bsf	15,6	;volatile
+   828  00AB  170F               	bsf	15,6	;volatile
    829                           
    830                           ;Oscilador.c: 49:             break;
-   831  00AE  28D7               	goto	l169
-   832  00AF                     l177:	
+   831  00AC  28D5               	goto	l169
+   832  00AD                     l177:	
    833                           ;Oscilador.c: 50:         default:
    834                           
    835                           
    836                           ;Oscilador.c: 51:             OSCCONbits.IRCF0 = 0;
-   837  00AF  1683               	bsf	3,5	;RP0=1, select bank1
-   838  00B0  1303               	bcf	3,6	;RP1=0, select bank1
-   839  00B1  120F               	bcf	15,4	;volatile
+   837  00AD  1683               	bsf	3,5	;RP0=1, select bank1
+   838  00AE  1303               	bcf	3,6	;RP1=0, select bank1
+   839  00AF  120F               	bcf	15,4	;volatile
    840                           
    841                           ;Oscilador.c: 52:             OSCCONbits.IRCF1 = 1;
-   842  00B2  168F               	bsf	15,5	;volatile
+   842  00B0  168F               	bsf	15,5	;volatile
    843                           
    844                           ;Oscilador.c: 53:             OSCCONbits.IRCF2 = 1;
-   845  00B3  170F               	bsf	15,6	;volatile
+   845  00B1  170F               	bsf	15,6	;volatile
    846                           
    847                           ;Oscilador.c: 54:             break;
-   848  00B4  28D7               	goto	l169
-   849  00B5                     l788:	
-   850  00B5  0875               	movf	initOsc@frec,w
-   851  00B6  00F3               	movwf	??_initOsc
-   852  00B7  01F4               	clrf	??_initOsc+1
+   848  00B2  28D5               	goto	l169
+   849  00B3                     l788:	
+   850  00B3  0875               	movf	initOsc@frec,w
+   851  00B4  00F3               	movwf	??_initOsc
+   852  00B5  01F4               	clrf	??_initOsc+1
    853                           
    854                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
@@ -875,12 +875,12 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    860                           ; direct_byte           11     8 (fixed)
    861                           ; jumptable            260     6 (fixed)
    862                           ;	Chosen strategy is simple_byte
-   863  00B8  0874               	movf	??_initOsc+1,w
-   864  00B9  3A00               	xorlw	0	; case 0
-   865  00BA  1903               	skipnz
-   866  00BB  28BD               	goto	l954
-   867  00BC  28AF               	goto	l177
-   868  00BD                     l954:	
+   863  00B6  0874               	movf	??_initOsc+1,w
+   864  00B7  3A00               	xorlw	0	; case 0
+   865  00B8  1903               	skipnz
+   866  00B9  28BB               	goto	l954
+   867  00BA  28AD               	goto	l177
+   868  00BB                     l954:	
    869                           
    870                           ; Switch size 1, requested type "simple"
    871                           ; Number of cases is 8, Range of values is 0 to 7
@@ -890,42 +890,42 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    875                           ; direct_byte           32     8 (fixed)
    876                           ; jumptable            260     6 (fixed)
    877                           ;	Chosen strategy is simple_byte
-   878  00BD  0873               	movf	??_initOsc,w
-   879  00BE  3A00               	xorlw	0	; case 0
-   880  00BF  1903               	skipnz
-   881  00C0  287F               	goto	l168
-   882  00C1  3A01               	xorlw	1	; case 1
-   883  00C2  1903               	skipnz
-   884  00C3  2885               	goto	l170
-   885  00C4  3A03               	xorlw	3	; case 2
-   886  00C5  1903               	skipnz
-   887  00C6  288B               	goto	l171
-   888  00C7  3A01               	xorlw	1	; case 3
-   889  00C8  1903               	skipnz
-   890  00C9  2891               	goto	l172
-   891  00CA  3A07               	xorlw	7	; case 4
-   892  00CB  1903               	skipnz
-   893  00CC  2897               	goto	l173
-   894  00CD  3A01               	xorlw	1	; case 5
-   895  00CE  1903               	skipnz
-   896  00CF  289D               	goto	l174
-   897  00D0  3A03               	xorlw	3	; case 6
-   898  00D1  1903               	skipnz
-   899  00D2  28A3               	goto	l175
-   900  00D3  3A01               	xorlw	1	; case 7
-   901  00D4  1903               	skipnz
-   902  00D5  28A9               	goto	l176
-   903  00D6  28AF               	goto	l177
-   904  00D7                     l169:	
+   878  00BB  0873               	movf	??_initOsc,w
+   879  00BC  3A00               	xorlw	0	; case 0
+   880  00BD  1903               	skipnz
+   881  00BE  287D               	goto	l168
+   882  00BF  3A01               	xorlw	1	; case 1
+   883  00C0  1903               	skipnz
+   884  00C1  2883               	goto	l170
+   885  00C2  3A03               	xorlw	3	; case 2
+   886  00C3  1903               	skipnz
+   887  00C4  2889               	goto	l171
+   888  00C5  3A01               	xorlw	1	; case 3
+   889  00C6  1903               	skipnz
+   890  00C7  288F               	goto	l172
+   891  00C8  3A07               	xorlw	7	; case 4
+   892  00C9  1903               	skipnz
+   893  00CA  2895               	goto	l173
+   894  00CB  3A01               	xorlw	1	; case 5
+   895  00CC  1903               	skipnz
+   896  00CD  289B               	goto	l174
+   897  00CE  3A03               	xorlw	3	; case 6
+   898  00CF  1903               	skipnz
+   899  00D0  28A1               	goto	l175
+   900  00D1  3A01               	xorlw	1	; case 7
+   901  00D2  1903               	skipnz
+   902  00D3  28A7               	goto	l176
+   903  00D4  28AD               	goto	l177
+   904  00D5                     l169:	
    905                           
    906                           ;Oscilador.c: 57:     OSCCONbits.SCS = 1;
-   907  00D7  140F               	bsf	15,0	;volatile
-   908  00D8                     l178:	
-   909  00D8  0008               	return
-   910  00D9                     __end_of_initOsc:	
+   907  00D5  140F               	bsf	15,0	;volatile
+   908  00D6                     l178:	
+   909  00D6  0008               	return
+   910  00D7                     __end_of_initOsc:	
    911                           
    912                           	psect	text3
-   913  0141                     __ptext3:	
+   913  013F                     __ptext3:	
    914 ;; *************** function _init *****************
    915 ;; Defined at:
    916 ;;		line 115 in file "Sensor_Interferencia.c"
@@ -958,48 +958,48 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    943                           
    944                           
    945                           ;psect for function _init
-   946  0141                     _init:	
-   947  0141                     l794:	
+   946  013F                     _init:	
+   947  013F                     l794:	
    948                           ;incstack = 0
    949                           ; Regs used in _init: [wreg+status,2+status,0+pclath+cstack]
    950                           
    951                           
    952                           ;Sensor_Interferencia.c: 116:     TRISA = 0;
-   953  0141  1683               	bsf	3,5	;RP0=1, select bank1
-   954  0142  1303               	bcf	3,6	;RP1=0, select bank1
-   955  0143  0185               	clrf	5	;volatile
+   953  013F  1683               	bsf	3,5	;RP0=1, select bank1
+   954  0140  1303               	bcf	3,6	;RP1=0, select bank1
+   955  0141  0185               	clrf	5	;volatile
    956                           
    957                           ;Sensor_Interferencia.c: 117:     TRISB = 0;
-   958  0144  0186               	clrf	6	;volatile
+   958  0142  0186               	clrf	6	;volatile
    959                           
    960                           ;Sensor_Interferencia.c: 118:     TRISC = 0;
-   961  0145  0187               	clrf	7	;volatile
-   962  0146                     l796:	
+   961  0143  0187               	clrf	7	;volatile
+   962  0144                     l796:	
    963                           
    964                           ;Sensor_Interferencia.c: 119:     TRISD = 0b00000001;
-   965  0146  3001               	movlw	1
-   966  0147  0088               	movwf	8	;volatile
-   967  0148                     l798:	
+   965  0144  3001               	movlw	1
+   966  0145  0088               	movwf	8	;volatile
+   967  0146                     l798:	
    968                           
    969                           ;Sensor_Interferencia.c: 120:     ANSEL = 0;
-   970  0148  1683               	bsf	3,5	;RP0=1, select bank3
-   971  0149  1703               	bsf	3,6	;RP1=1, select bank3
-   972  014A  0188               	clrf	8	;volatile
-   973  014B                     l800:	
+   970  0146  1683               	bsf	3,5	;RP0=1, select bank3
+   971  0147  1703               	bsf	3,6	;RP1=1, select bank3
+   972  0148  0188               	clrf	8	;volatile
+   973  0149                     l800:	
    974                           
    975                           ;Sensor_Interferencia.c: 121:     ANSELH = 0;
-   976  014B  0189               	clrf	9	;volatile
-   977  014C                     l802:	
+   976  0149  0189               	clrf	9	;volatile
+   977  014A                     l802:	
    978                           
    979                           ;Sensor_Interferencia.c: 122:     I2C_Slave_Init(0x30);
-   980  014C  3030               	movlw	48
-   981  014D  120A  118A  2127  120A  118A  	fcall	_I2C_Slave_Init
-   982  0152                     l97:	
-   983  0152  0008               	return
-   984  0153                     __end_of_init:	
+   980  014A  3030               	movlw	48
+   981  014B  120A  118A  2125  120A  118A  	fcall	_I2C_Slave_Init
+   982  0150                     l97:	
+   983  0150  0008               	return
+   984  0151                     __end_of_init:	
    985                           
    986                           	psect	text4
-   987  0127                     __ptext4:	
+   987  0125                     __ptext4:	
    988 ;; *************** function _I2C_Slave_Init *****************
    989 ;; Defined at:
    990 ;;		line 85 in file "I2C.c"
@@ -1032,70 +1032,70 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1017                           
   1018                           
   1019                           ;psect for function _I2C_Slave_Init
-  1020  0127                     _I2C_Slave_Init:	
+  1020  0125                     _I2C_Slave_Init:	
   1021                           
   1022                           ;incstack = 0
   1023                           ; Regs used in _I2C_Slave_Init: [wreg]
   1024                           ;I2C_Slave_Init@address stored from wreg
-  1025  0127  00F3               	movwf	I2C_Slave_Init@address
-  1026  0128                     l770:	
+  1025  0125  00F3               	movwf	I2C_Slave_Init@address
+  1026  0126                     l770:	
   1027                           
   1028                           ;I2C.c: 85: void I2C_Slave_Init(uint8_t address);I2C.c: 86: {;I2C.c: 87:     SSPADD = ad
       +                          dress;
-  1029  0128  0873               	movf	I2C_Slave_Init@address,w
-  1030  0129  1683               	bsf	3,5	;RP0=1, select bank1
-  1031  012A  1303               	bcf	3,6	;RP1=0, select bank1
-  1032  012B  0093               	movwf	19	;volatile
+  1029  0126  0873               	movf	I2C_Slave_Init@address,w
+  1030  0127  1683               	bsf	3,5	;RP0=1, select bank1
+  1031  0128  1303               	bcf	3,6	;RP1=0, select bank1
+  1032  0129  0093               	movwf	19	;volatile
   1033                           
   1034                           ;I2C.c: 88:     SSPCON = 0x36;
-  1035  012C  3036               	movlw	54
-  1036  012D  1283               	bcf	3,5	;RP0=0, select bank0
-  1037  012E  1303               	bcf	3,6	;RP1=0, select bank0
-  1038  012F  0094               	movwf	20	;volatile
+  1035  012A  3036               	movlw	54
+  1036  012B  1283               	bcf	3,5	;RP0=0, select bank0
+  1037  012C  1303               	bcf	3,6	;RP1=0, select bank0
+  1038  012D  0094               	movwf	20	;volatile
   1039                           
   1040                           ;I2C.c: 89:     SSPSTAT = 0x80;
-  1041  0130  3080               	movlw	128
-  1042  0131  1683               	bsf	3,5	;RP0=1, select bank1
-  1043  0132  1303               	bcf	3,6	;RP1=0, select bank1
-  1044  0133  0094               	movwf	20	;volatile
+  1041  012E  3080               	movlw	128
+  1042  012F  1683               	bsf	3,5	;RP0=1, select bank1
+  1043  0130  1303               	bcf	3,6	;RP1=0, select bank1
+  1044  0131  0094               	movwf	20	;volatile
   1045                           
   1046                           ;I2C.c: 90:     SSPCON2 = 0x01;
-  1047  0134  3001               	movlw	1
-  1048  0135  0091               	movwf	17	;volatile
-  1049  0136                     l772:	
+  1047  0132  3001               	movlw	1
+  1048  0133  0091               	movwf	17	;volatile
+  1049  0134                     l772:	
   1050                           
   1051                           ;I2C.c: 91:     TRISC3 = 1;
-  1052  0136  1587               	bsf	7,3	;volatile
-  1053  0137                     l774:	
+  1052  0134  1587               	bsf	7,3	;volatile
+  1053  0135                     l774:	
   1054                           
   1055                           ;I2C.c: 92:     TRISC4 = 1;
-  1056  0137  1607               	bsf	7,4	;volatile
-  1057  0138                     l776:	
+  1056  0135  1607               	bsf	7,4	;volatile
+  1057  0136                     l776:	
   1058                           
   1059                           ;I2C.c: 93:     GIE = 1;
-  1060  0138  178B               	bsf	11,7	;volatile
-  1061  0139                     l778:	
+  1060  0136  178B               	bsf	11,7	;volatile
+  1061  0137                     l778:	
   1062                           
   1063                           ;I2C.c: 94:     PEIE = 1;
-  1064  0139  170B               	bsf	11,6	;volatile
-  1065  013A                     l780:	
+  1064  0137  170B               	bsf	11,6	;volatile
+  1065  0138                     l780:	
   1066                           
   1067                           ;I2C.c: 95:     SSPIF = 0;
-  1068  013A  1283               	bcf	3,5	;RP0=0, select bank0
-  1069  013B  1303               	bcf	3,6	;RP1=0, select bank0
-  1070  013C  118C               	bcf	12,3	;volatile
-  1071  013D                     l782:	
+  1068  0138  1283               	bcf	3,5	;RP0=0, select bank0
+  1069  0139  1303               	bcf	3,6	;RP1=0, select bank0
+  1070  013A  118C               	bcf	12,3	;volatile
+  1071  013B                     l782:	
   1072                           
   1073                           ;I2C.c: 96:     SSPIE = 1;
-  1074  013D  1683               	bsf	3,5	;RP0=1, select bank1
-  1075  013E  1303               	bcf	3,6	;RP1=0, select bank1
-  1076  013F  158C               	bsf	12,3	;volatile
-  1077  0140                     l162:	
-  1078  0140  0008               	return
-  1079  0141                     __end_of_I2C_Slave_Init:	
+  1074  013B  1683               	bsf	3,5	;RP0=1, select bank1
+  1075  013C  1303               	bcf	3,6	;RP1=0, select bank1
+  1076  013D  158C               	bsf	12,3	;volatile
+  1077  013E                     l162:	
+  1078  013E  0008               	return
+  1079  013F                     __end_of_I2C_Slave_Init:	
   1080                           
   1081                           	psect	text5
-  1082  015A                     __ptext5:	
+  1082  0158                     __ptext5:	
   1083 ;; *************** function _final_deg *****************
   1084 ;; Defined at:
   1085 ;;		line 156 in file "Sensor_Interferencia.c"
@@ -1128,28 +1128,28 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1112                           
   1113                           
   1114                           ;psect for function _final_deg
-  1115  015A                     _final_deg:	
-  1116  015A                     l826:	
+  1115  0158                     _final_deg:	
+  1116  0158                     l826:	
   1117                           ;incstack = 0
   1118                           ; Regs used in _final_deg: [wreg+status,2+status,0]
   1119                           
   1120                           
   1121                           ;Sensor_Interferencia.c: 157:     CCP1CONbits.DC1B = 0b11;
-  1122  015A  3030               	movlw	48
-  1123  015B  1283               	bcf	3,5	;RP0=0, select bank0
-  1124  015C  1303               	bcf	3,6	;RP1=0, select bank0
-  1125  015D  0497               	iorwf	23,f	;volatile
-  1126  015E                     l828:	
+  1122  0158  3030               	movlw	48
+  1123  0159  1283               	bcf	3,5	;RP0=0, select bank0
+  1124  015A  1303               	bcf	3,6	;RP1=0, select bank0
+  1125  015B  0497               	iorwf	23,f	;volatile
+  1126  015C                     l828:	
   1127                           
   1128                           ;Sensor_Interferencia.c: 158:     CCPR1L = 13;
-  1129  015E  300D               	movlw	13
-  1130  015F  0095               	movwf	21	;volatile
-  1131  0160                     l109:	
-  1132  0160  0008               	return
-  1133  0161                     __end_of_final_deg:	
+  1129  015C  300D               	movlw	13
+  1130  015D  0095               	movwf	21	;volatile
+  1131  015E                     l109:	
+  1132  015E  0008               	return
+  1133  015F                     __end_of_final_deg:	
   1134                           
   1135                           	psect	text6
-  1136  0109                     __ptext6:	
+  1136  0107                     __ptext6:	
   1137 ;; *************** function _PWM_setup *****************
   1138 ;; Defined at:
   1139 ;;		line 128 in file "Sensor_Interferencia.c"
@@ -1182,82 +1182,82 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1166                           
   1167                           
   1168                           ;psect for function _PWM_setup
-  1169  0109                     _PWM_setup:	
-  1170  0109                     l804:	
+  1169  0107                     _PWM_setup:	
+  1170  0107                     l804:	
   1171                           ;incstack = 0
   1172                           ; Regs used in _PWM_setup: [wreg+status,2+status,0]
   1173                           
   1174                           
   1175                           ;Sensor_Interferencia.c: 129:     TRISCbits.TRISC2 = 1;
-  1176  0109  1683               	bsf	3,5	;RP0=1, select bank1
-  1177  010A  1303               	bcf	3,6	;RP1=0, select bank1
-  1178  010B  1507               	bsf	7,2	;volatile
-  1179  010C                     l806:	
+  1176  0107  1683               	bsf	3,5	;RP0=1, select bank1
+  1177  0108  1303               	bcf	3,6	;RP1=0, select bank1
+  1178  0109  1507               	bsf	7,2	;volatile
+  1179  010A                     l806:	
   1180                           
   1181                           ;Sensor_Interferencia.c: 130:     PR2 = 155;
-  1182  010C  309B               	movlw	155
-  1183  010D  0092               	movwf	18	;volatile
-  1184  010E                     l808:	
+  1182  010A  309B               	movlw	155
+  1183  010B  0092               	movwf	18	;volatile
+  1184  010C                     l808:	
   1185                           
   1186                           ;Sensor_Interferencia.c: 131:     CCP1CONbits.P1M = 0b00;
-  1187  010E  303F               	movlw	-193
-  1188  010F  1283               	bcf	3,5	;RP0=0, select bank0
-  1189  0110  1303               	bcf	3,6	;RP1=0, select bank0
-  1190  0111  0597               	andwf	23,f	;volatile
-  1191  0112                     l810:	
+  1187  010C  303F               	movlw	-193
+  1188  010D  1283               	bcf	3,5	;RP0=0, select bank0
+  1189  010E  1303               	bcf	3,6	;RP1=0, select bank0
+  1190  010F  0597               	andwf	23,f	;volatile
+  1191  0110                     l810:	
   1192                           
   1193                           ;Sensor_Interferencia.c: 132:     CCP1CONbits.CCP1M = 0b1100;
-  1194  0112  0817               	movf	23,w	;volatile
-  1195  0113  39F0               	andlw	-16
-  1196  0114  380C               	iorlw	12
-  1197  0115  0097               	movwf	23	;volatile
+  1194  0110  0817               	movf	23,w	;volatile
+  1195  0111  39F0               	andlw	-16
+  1196  0112  380C               	iorlw	12
+  1197  0113  0097               	movwf	23	;volatile
   1198                           
   1199                           ;Sensor_Interferencia.c: 133:     CCPR1L = 27;
-  1200  0116  301B               	movlw	27
-  1201  0117  0095               	movwf	21	;volatile
-  1202  0118                     l812:	
+  1200  0114  301B               	movlw	27
+  1201  0115  0095               	movwf	21	;volatile
+  1202  0116                     l812:	
   1203                           
   1204                           ;Sensor_Interferencia.c: 134:     CCP1CONbits.DC1B = 0b11;
-  1205  0118  3030               	movlw	48
-  1206  0119  0497               	iorwf	23,f	;volatile
-  1207  011A                     l814:	
+  1205  0116  3030               	movlw	48
+  1206  0117  0497               	iorwf	23,f	;volatile
+  1207  0118                     l814:	
   1208                           
   1209                           ;Sensor_Interferencia.c: 135:     PIR1bits.TMR2IF = 0;
-  1210  011A  108C               	bcf	12,1	;volatile
-  1211  011B                     l816:	
+  1210  0118  108C               	bcf	12,1	;volatile
+  1211  0119                     l816:	
   1212                           
   1213                           ;Sensor_Interferencia.c: 136:     T2CONbits.T2CKPS = 0b11;
-  1214  011B  3003               	movlw	3
-  1215  011C  0492               	iorwf	18,f	;volatile
-  1216  011D                     l818:	
+  1214  0119  3003               	movlw	3
+  1215  011A  0492               	iorwf	18,f	;volatile
+  1216  011B                     l818:	
   1217                           
   1218                           ;Sensor_Interferencia.c: 137:     T2CONbits.TMR2ON = 1;
-  1219  011D  1512               	bsf	18,2	;volatile
-  1220  011E                     l100:	
+  1219  011B  1512               	bsf	18,2	;volatile
+  1220  011C                     l100:	
   1221                           ;Sensor_Interferencia.c: 139:     }
   1222                           
   1223                           
   1224                           ;Sensor_Interferencia.c: 138:     while(!TMR2IF){
-  1225  011E  1C8C               	btfss	12,1	;volatile
-  1226  011F  2921               	goto	u11
-  1227  0120  2922               	goto	u10
-  1228  0121                     u11:	
-  1229  0121  291E               	goto	l100
-  1230  0122                     u10:	
-  1231  0122                     l102:	
+  1225  011C  1C8C               	btfss	12,1	;volatile
+  1226  011D  291F               	goto	u11
+  1227  011E  2920               	goto	u10
+  1228  011F                     u11:	
+  1229  011F  291C               	goto	l100
+  1230  0120                     u10:	
+  1231  0120                     l102:	
   1232                           
   1233                           ;Sensor_Interferencia.c: 140:     PIR1bits.TMR2IF = 0;
-  1234  0122  108C               	bcf	12,1	;volatile
+  1234  0120  108C               	bcf	12,1	;volatile
   1235                           
   1236                           ;Sensor_Interferencia.c: 141:     TRISCbits.TRISC2 = 0;
-  1237  0123  1683               	bsf	3,5	;RP0=1, select bank1
-  1238  0124  1303               	bcf	3,6	;RP1=0, select bank1
-  1239  0125  1107               	bcf	7,2	;volatile
-  1240  0126                     l103:	
+  1237  0121  1683               	bsf	3,5	;RP0=1, select bank1
+  1238  0122  1303               	bcf	3,6	;RP1=0, select bank1
+  1239  0123  1107               	bcf	7,2	;volatile
+  1240  0124                     l103:	
   1241                           ;Sensor_Interferencia.c: 143:     return;
   1242                           
-  1243  0126  0008               	return
-  1244  0127                     __end_of_PWM_setup:	
+  1243  0124  0008               	return
+  1244  0125                     __end_of_PWM_setup:	
   1245                           
   1246                           	psect	text7
   1247  0018                     __ptext7:	
@@ -1302,7 +1302,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1286  001B  281D               	goto	u4_21
   1287  001C  281E               	goto	u4_20
   1288  001D                     u4_21:	
-  1289  001D  2876               	goto	i1l84
+  1289  001D  2874               	goto	i1l84
   1290  001E                     u4_20:	
   1291  001E                     i1l838:	
   1292                           
@@ -1351,14 +1351,14 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1335  0031  2833               	goto	u7_21
   1336  0032  2834               	goto	u7_20
   1337  0033                     u7_21:	
-  1338  0033  2852               	goto	i1l75
+  1338  0033  2851               	goto	i1l75
   1339  0034                     u7_20:	
   1340  0034                     i1l852:	
   1341  0034  1914               	btfsc	20,2	;volatile
   1342  0035  2837               	goto	u8_21
   1343  0036  2838               	goto	u8_20
   1344  0037                     u8_21:	
-  1345  0037  2852               	goto	i1l75
+  1345  0037  2851               	goto	i1l75
   1346  0038                     u8_20:	
   1347  0038                     i1l854:	
   1348                           
@@ -1398,108 +1398,106 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1382  004A  0870               	movf	??_isr,w
   1383  004B  00F9               	movwf	_estado
   1384                           
-  1385                           ;Sensor_Interferencia.c: 75:                 _delay((unsigned long)((250)*(8000000/40000
-      +                          00.0)));
-  1386  004C  30A6               	movlw	166
+  1385                           ;Sensor_Interferencia.c: 75:                 _delay((unsigned long)((250)*(500000/400000
+      +                          0.0)));
+  1386  004C  300A               	movlw	10
   1387  004D  00F0               	movwf	??_isr
   1388  004E                     u17_27:	
   1389  004E  0BF0               	decfsz	??_isr,f
   1390  004F  284E               	goto	u17_27
-  1391  0050  0000               	nop
-  1392                           
-  1393                           ;Sensor_Interferencia.c: 77:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW)
+  1391                           
+  1392                           ;Sensor_Interferencia.c: 77:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW)
       +                          {
-  1394  0051  2873               	goto	i1l79
-  1395  0052                     i1l75:	
-  1396  0052  1A94               	btfsc	20,5	;volatile
-  1397  0053  2855               	goto	u10_21
-  1398  0054  2856               	goto	u10_20
-  1399  0055                     u10_21:	
-  1400  0055  2873               	goto	i1l79
-  1401  0056                     u10_20:	
-  1402  0056                     i1l862:	
-  1403  0056  1D14               	btfss	20,2	;volatile
-  1404  0057  2859               	goto	u11_21
-  1405  0058  285A               	goto	u11_20
-  1406  0059                     u11_21:	
-  1407  0059  2873               	goto	i1l79
-  1408  005A                     u11_20:	
-  1409  005A                     i1l864:	
-  1410                           
-  1411                           ;Sensor_Interferencia.c: 78:                 z = SSPBUF;
-  1412  005A  1283               	bcf	3,5	;RP0=0, select bank0
-  1413  005B  1303               	bcf	3,6	;RP1=0, select bank0
-  1414  005C  0813               	movf	19,w	;volatile
-  1415  005D  00F0               	movwf	??_isr
-  1416  005E  0870               	movf	??_isr,w
-  1417  005F  00FA               	movwf	_z
-  1418  0060                     i1l866:	
-  1419                           
-  1420                           ;Sensor_Interferencia.c: 79:                 BF = 0;
-  1421  0060  1683               	bsf	3,5	;RP0=1, select bank1
-  1422  0061  1303               	bcf	3,6	;RP1=0, select bank1
-  1423  0062  1014               	bcf	20,0	;volatile
-  1424                           
-  1425                           ;Sensor_Interferencia.c: 80:                 SSPBUF = estado;
-  1426  0063  0879               	movf	_estado,w
-  1427  0064  1283               	bcf	3,5	;RP0=0, select bank0
-  1428  0065  1303               	bcf	3,6	;RP1=0, select bank0
-  1429  0066  0093               	movwf	19	;volatile
-  1430  0067                     i1l868:	
-  1431                           
-  1432                           ;Sensor_Interferencia.c: 81:                 SSPCONbits.CKP = 1;
-  1433  0067  1614               	bsf	20,4	;volatile
-  1434                           
-  1435                           ;Sensor_Interferencia.c: 82:                 _delay((unsigned long)((250)*(8000000/40000
-      +                          00.0)));
-  1436  0068  30A6               	movlw	166
-  1437  0069  00F0               	movwf	??_isr
-  1438  006A                     u18_27:	
-  1439  006A  0BF0               	decfsz	??_isr,f
-  1440  006B  286A               	goto	u18_27
-  1441  006C  0000               	nop
-  1442  006D                     i1l81:	
-  1443                           ;Sensor_Interferencia.c: 83:                 while(SSPSTATbits.BF);
-  1444                           
-  1445  006D  1683               	bsf	3,5	;RP0=1, select bank1
-  1446  006E  1303               	bcf	3,6	;RP1=0, select bank1
-  1447  006F  1814               	btfsc	20,0	;volatile
-  1448  0070  2872               	goto	u12_21
-  1449  0071  2873               	goto	u12_20
-  1450  0072                     u12_21:	
-  1451  0072  286D               	goto	i1l81
-  1452  0073                     u12_20:	
-  1453  0073                     i1l79:	
-  1454                           
-  1455                           ;Sensor_Interferencia.c: 86:             PIR1bits.SSPIF = 0;
-  1456  0073  1283               	bcf	3,5	;RP0=0, select bank0
-  1457  0074  1303               	bcf	3,6	;RP1=0, select bank0
-  1458  0075  118C               	bcf	12,3	;volatile
-  1459  0076                     i1l84:	
-  1460  0076  0872               	movf	??_isr+2,w
-  1461  0077  008A               	movwf	10
-  1462  0078  0E71               	swapf	(??_isr+1)^(0+4294967168),w
-  1463  0079  0083               	movwf	3
-  1464  007A  0EFE               	swapf	btemp,f
-  1465  007B  0E7E               	swapf	btemp,w
-  1466  007C  0009               	retfie
-  1467  007D                     __end_of_isr:	
-  1468  007E                     btemp	set	126	;btemp
-  1469  007E                     wtemp0	set	126
-  1470                           
-  1471                           	psect	intentry
-  1472  0004                     __pintentry:	
-  1473                           ;incstack = 0
-  1474                           ; Regs used in _isr: [wreg]
-  1475                           
-  1476  0004                     interrupt_function:	
-  1477  007E                     saved_w	set	btemp
-  1478  0004  00FE               	movwf	btemp
-  1479  0005  0E03               	swapf	3,w
-  1480  0006  00F1               	movwf	??_isr+1
-  1481  0007  080A               	movf	10,w
-  1482  0008  00F2               	movwf	??_isr+2
-  1483  0009  120A  118A  2818   	ljmp	_isr
+  1393  0050  2871               	goto	i1l79
+  1394  0051                     i1l75:	
+  1395  0051  1A94               	btfsc	20,5	;volatile
+  1396  0052  2854               	goto	u10_21
+  1397  0053  2855               	goto	u10_20
+  1398  0054                     u10_21:	
+  1399  0054  2871               	goto	i1l79
+  1400  0055                     u10_20:	
+  1401  0055                     i1l862:	
+  1402  0055  1D14               	btfss	20,2	;volatile
+  1403  0056  2858               	goto	u11_21
+  1404  0057  2859               	goto	u11_20
+  1405  0058                     u11_21:	
+  1406  0058  2871               	goto	i1l79
+  1407  0059                     u11_20:	
+  1408  0059                     i1l864:	
+  1409                           
+  1410                           ;Sensor_Interferencia.c: 78:                 z = SSPBUF;
+  1411  0059  1283               	bcf	3,5	;RP0=0, select bank0
+  1412  005A  1303               	bcf	3,6	;RP1=0, select bank0
+  1413  005B  0813               	movf	19,w	;volatile
+  1414  005C  00F0               	movwf	??_isr
+  1415  005D  0870               	movf	??_isr,w
+  1416  005E  00FA               	movwf	_z
+  1417  005F                     i1l866:	
+  1418                           
+  1419                           ;Sensor_Interferencia.c: 79:                 BF = 0;
+  1420  005F  1683               	bsf	3,5	;RP0=1, select bank1
+  1421  0060  1303               	bcf	3,6	;RP1=0, select bank1
+  1422  0061  1014               	bcf	20,0	;volatile
+  1423                           
+  1424                           ;Sensor_Interferencia.c: 80:                 SSPBUF = estado;
+  1425  0062  0879               	movf	_estado,w
+  1426  0063  1283               	bcf	3,5	;RP0=0, select bank0
+  1427  0064  1303               	bcf	3,6	;RP1=0, select bank0
+  1428  0065  0093               	movwf	19	;volatile
+  1429  0066                     i1l868:	
+  1430                           
+  1431                           ;Sensor_Interferencia.c: 81:                 SSPCONbits.CKP = 1;
+  1432  0066  1614               	bsf	20,4	;volatile
+  1433                           
+  1434                           ;Sensor_Interferencia.c: 82:                 _delay((unsigned long)((250)*(500000/400000
+      +                          0.0)));
+  1435  0067  300A               	movlw	10
+  1436  0068  00F0               	movwf	??_isr
+  1437  0069                     u18_27:	
+  1438  0069  0BF0               	decfsz	??_isr,f
+  1439  006A  2869               	goto	u18_27
+  1440  006B                     i1l81:	
+  1441                           ;Sensor_Interferencia.c: 83:                 while(SSPSTATbits.BF);
+  1442                           
+  1443  006B  1683               	bsf	3,5	;RP0=1, select bank1
+  1444  006C  1303               	bcf	3,6	;RP1=0, select bank1
+  1445  006D  1814               	btfsc	20,0	;volatile
+  1446  006E  2870               	goto	u12_21
+  1447  006F  2871               	goto	u12_20
+  1448  0070                     u12_21:	
+  1449  0070  286B               	goto	i1l81
+  1450  0071                     u12_20:	
+  1451  0071                     i1l79:	
+  1452                           
+  1453                           ;Sensor_Interferencia.c: 86:             PIR1bits.SSPIF = 0;
+  1454  0071  1283               	bcf	3,5	;RP0=0, select bank0
+  1455  0072  1303               	bcf	3,6	;RP1=0, select bank0
+  1456  0073  118C               	bcf	12,3	;volatile
+  1457  0074                     i1l84:	
+  1458  0074  0872               	movf	??_isr+2,w
+  1459  0075  008A               	movwf	10
+  1460  0076  0E71               	swapf	(??_isr+1)^(0+4294967168),w
+  1461  0077  0083               	movwf	3
+  1462  0078  0EFE               	swapf	btemp,f
+  1463  0079  0E7E               	swapf	btemp,w
+  1464  007A  0009               	retfie
+  1465  007B                     __end_of_isr:	
+  1466  007E                     btemp	set	126	;btemp
+  1467  007E                     wtemp0	set	126
+  1468                           
+  1469                           	psect	intentry
+  1470  0004                     __pintentry:	
+  1471                           ;incstack = 0
+  1472                           ; Regs used in _isr: [wreg]
+  1473                           
+  1474  0004                     interrupt_function:	
+  1475  007E                     saved_w	set	btemp
+  1476  0004  00FE               	movwf	btemp
+  1477  0005  0E03               	swapf	3,w
+  1478  0006  00F1               	movwf	??_isr+1
+  1479  0007  080A               	movf	10,w
+  1480  0008  00F2               	movwf	??_isr+2
+  1481  0009  120A  118A  2818   	ljmp	_isr
 
 
 Data Sizes:
@@ -1641,78 +1639,78 @@ DATA                 0      0       B      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Mon Mar 09 15:09:22 2020
+Symbol Table                                                                                   Mon Mar 09 16:05:49 2020
 
                        _z 007A               __CFG_CP$OFF 0000               _SSPSTATbits 0094  
-                      _BF 04A0                        l97 0152                        u10 0122  
-                      u11 0121                       l100 011E                       l102 0122  
-                     l103 0126                       l106 0159                       l109 0160  
-                     l162 0140                       l170 0085                       l171 008B  
-                     l172 0091                       l173 0097                       l174 009D  
-                     l175 00A3                       l176 00A9                       l168 007F  
-                     l177 00AF                       l169 00D7                       l178 00D8  
-                     l800 014B                       l810 0112                       l802 014C  
-                     l812 0118                       l804 0109                       l820 0153  
-                     l814 011A                       l806 010C                       l822 0157  
-                     l816 011B                       l808 010E                       l818 011D  
-                     l826 015A                       l770 0128                       l828 015E  
-                     l780 013A                       l772 0136                       l782 013D  
-                     l774 0137                       l870 00D9                       l776 0138  
-                     l784 007E                       l880 00ED                       l872 00DF  
-                     l778 0139                       l794 0141                       l954 00BD  
-                     l890 0100                       l882 00EE                       l874 00E4  
-                     l796 0146                       l788 00B5                       l884 00EF  
-                     l876 00E9                       l798 0148                       l886 00F5  
-                     l878 00EC                       l888 00FA                       _GIE 005F  
-                     u130 00FA                       u131 00F9                       _PR2 0092  
+                      _BF 04A0                        l97 0150                        u10 0120  
+                      u11 011F                       l100 011C                       l102 0120  
+                     l103 0124                       l106 0157                       l109 015E  
+                     l162 013E                       l170 0083                       l171 0089  
+                     l172 008F                       l173 0095                       l174 009B  
+                     l175 00A1                       l176 00A7                       l168 007D  
+                     l177 00AD                       l169 00D5                       l178 00D6  
+                     l800 0149                       l810 0110                       l802 014A  
+                     l812 0116                       l804 0107                       l820 0151  
+                     l814 0118                       l806 010A                       l822 0155  
+                     l816 0119                       l808 010C                       l818 011B  
+                     l826 0158                       l770 0126                       l828 015C  
+                     l780 0138                       l772 0134                       l782 013B  
+                     l774 0135                       l870 00D7                       l776 0136  
+                     l784 007C                       l880 00EB                       l872 00DD  
+                     l778 0137                       l794 013F                       l954 00BB  
+                     l890 00FE                       l882 00EC                       l874 00E2  
+                     l796 0144                       l788 00B3                       l884 00ED  
+                     l876 00E7                       l798 0146                       l886 00F3  
+                     l878 00EA                       l888 00F8                       _GIE 005F  
+                     u130 00F8                       u131 00F7                       _PR2 0092  
             __CFG_CPD$OFF 0000                       _isr 0018              __CFG_LVP$OFF 0000  
-                    ?_isr 0070                      _PEIE 005E                      i1l81 006D  
-                    i1l75 0052                      i1l76 0040                      i1l84 0076  
-                    i1l79 0073                      u4_20 001E                      u4_21 001D  
+                    ?_isr 0070                      _PEIE 005E                      i1l81 006B  
+                    i1l75 0051                      i1l76 0040                      i1l84 0074  
+                    i1l79 0071                      u4_20 001E                      u4_21 001D  
                     u5_20 0023                      u5_21 0022                      u6_20 0027  
                     u6_21 0026                      u7_20 0034                      u7_21 0033  
                     u8_20 0038                      u8_21 0037                      u9_20 0046  
-                    u9_21 0045              __CFG_WRT$OFF 0000                      _main 00D9  
-                    _init 0141                      btemp 007E                      start 000C  
+                    u9_21 0045              __CFG_WRT$OFF 0000                      _main 00D7  
+                    _init 013F                      btemp 007E                      start 000C  
            __CFG_IESO$OFF 0000                     ??_isr 0070                     ?_main 0070  
                    ?_init 0070             __CFG_WDTE$OFF 0000                     _ANSEL 0188  
                    i1l840 0023                     i1l850 002E                     i1l842 0027  
                    i1l860 0046                     i1l852 0034                     i1l844 002B  
-                   i1l836 0018                     i1l862 0056                     i1l854 0038  
-                   i1l846 002C                     i1l838 001E                     i1l864 005A  
-                   i1l856 003E                     i1l848 002D                     i1l866 0060  
-                   i1l858 003F                     i1l868 0067                     u10_20 0056  
-                   u10_21 0055                     u11_20 005A                     u11_21 0059  
-                   u12_20 0073                     u12_21 0072                     u17_27 004E  
-                   u18_27 006A                     _PORTA 0005                     _PORTB 0006  
+                   i1l836 0018                     i1l862 0055                     i1l854 0038  
+                   i1l846 002C                     i1l838 001E                     i1l864 0059  
+                   i1l856 003E                     i1l848 002D                     i1l866 005F  
+                   i1l858 003F                     i1l868 0066                     u10_20 0055  
+                   u10_21 0054                     u11_20 0059                     u11_21 0058  
+                   u12_20 0071                     u12_21 0070                     u17_27 004E  
+                   u18_27 0069                     _PORTA 0005                     _PORTB 0006  
                    _PORTC 0007                     _PORTD 0008                     _TRISA 0085  
                    _TRISB 0086                     _TRISC 0087                     _TRISD 0088  
                    _SSPIE 0463                     _SSPIF 0063            __CFG_FCMEN$OFF 0000  
-         __end_of_initOsc 00D9            __CFG_BOREN$OFF 0000                     pclath 000A  
+         __end_of_initOsc 00D7            __CFG_BOREN$OFF 0000                     pclath 000A  
                    status 0003                     wtemp0 007E            __CFG_MCLRE$OFF 0000  
-         __initialization 000F        __size_of_PWM_setup 001E              __end_of_main 0109  
-            __end_of_init 0153                    ??_main 0076                    ??_init 0074  
+         __initialization 000F        __size_of_PWM_setup 001E              __end_of_main 0107  
+            __end_of_init 0151                    ??_main 0076                    ??_init 0074  
                   _CCPR1L 0015                    _ANSELH 0189               initOsc@frec 0075  
                   _TMR2IF 0061                    _SSPADD 0093                    _TRISC3 043B  
                   _TRISC4 043C                    _SSPBUF 0013                    _SSPCON 0014  
           __CFG_PWRTE$OFF 0000                    _estado 0079                 ??_initOsc 0073  
-                  saved_w 007E         __end_of_PWM_setup 0127          __end_of_zero_deg 015A  
+                  saved_w 007E         __end_of_PWM_setup 0125          __end_of_zero_deg 0158  
  __end_of__initialization 0014            __pcstackCOMMON 0070   __size_of_I2C_Slave_Init 001A  
-      __size_of_final_deg 0007     I2C_Slave_Init@address 0073                __pmaintext 00D9  
+      __size_of_final_deg 0007     I2C_Slave_Init@address 0073                __pmaintext 00D7  
               __pintentry 0004                   _SSPCON2 0091                   _SSPSTAT 0094  
-       __end_of_final_deg 0161                 ?_zero_deg 0070                   __ptext1 0153  
-                 __ptext2 007D                   __ptext3 0141                   __ptext4 0127  
-                 __ptext5 015A                   __ptext6 0109                   __ptext7 0018  
-                 _initOsc 007D                 _T2CONbits 0012              __size_of_isr 0065  
-    end_of_initialization 0014                _move_servo 0076            _I2C_Slave_Init 0127  
+       __end_of_final_deg 015F                 ?_zero_deg 0070                   __ptext1 0151  
+                 __ptext2 007B                   __ptext3 013F                   __ptext4 0125  
+                 __ptext5 0158                   __ptext6 0107                   __ptext7 0018  
+                 _initOsc 007B                 _T2CONbits 0012              __size_of_isr 0063  
+    end_of_initialization 0014                _move_servo 0076            _I2C_Slave_Init 0125  
               ??_zero_deg 0073                 _PORTDbits 0008                 _TRISCbits 0087  
-               _PWM_setup 0109               _CCP1CONbits 0017    __end_of_I2C_Slave_Init 0141  
-     start_initialization 000F               __end_of_isr 007D                ?_PWM_setup 0070  
+               _PWM_setup 0107               _CCP1CONbits 0017    __end_of_I2C_Slave_Init 013F  
+     start_initialization 000F               __end_of_isr 007B                ?_PWM_setup 0070  
 __CFG_FOSC$INTRC_NOCLKOUT 0000           ?_I2C_Slave_Init 0070               __pbssCOMMON 0076  
-               ___latbits 0002                 _final_deg 015A         __size_of_zero_deg 0007  
+               ___latbits 0002                 _final_deg 0158         __size_of_zero_deg 0007  
                 ?_initOsc 0070               ??_PWM_setup 0073         interrupt_function 0004  
                 _PIR1bits 000C                ?_final_deg 0070          __size_of_initOsc 005C  
            _sensor_signal 0078         __CFG_BOR4V$BOR40V 0000          ??_I2C_Slave_Init 0073  
            __size_of_main 0030             __size_of_init 0012               ??_final_deg 0073  
-                _zero_deg 0153                  intlevel1 0000                _OSCCONbits 008F  
+                _zero_deg 0151                  intlevel1 0000                _OSCCONbits 008F  
              _SSPCON2bits 0091                _SSPCONbits 0014  

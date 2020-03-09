@@ -27,7 +27,7 @@
 //******************************************************************************
 // Definición de librerías
 //******************************************************************************
-#define _XTAL_FREQ 8000000 //Se define la frecuencia del oscilador para el delay
+#define _XTAL_FREQ 500000 //Se define la frecuencia del oscilador para el delay
 
 #include <xc.h>
 #include <stdint.h>

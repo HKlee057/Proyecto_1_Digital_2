@@ -2716,6 +2716,9 @@ uint16_t move_servo;
 
 
 void init(void);
+void PWM_setup(void);
+void zero_deg(void);
+void final_deg(void);
 
 
 
@@ -2739,14 +2742,14 @@ void __attribute__((picinterrupt(("")))) isr(void){
                 SSPCONbits.CKP = 1;
                 while(!SSPSTATbits.BF);
                 pirValue = SSPBUF;
-                _delay((unsigned long)((250)*(8000000/4000000.0)));
+                _delay((unsigned long)((250)*(500000/4000000.0)));
 
             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
                 z = SSPBUF;
                 BF = 0;
                 SSPBUF = pirValue;
                 SSPCONbits.CKP = 1;
-                _delay((unsigned long)((250)*(8000000/4000000.0)));
+                _delay((unsigned long)((250)*(500000/4000000.0)));
                 while(SSPSTATbits.BF);
             }
 
@@ -2757,8 +2760,9 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 
 void main(void) {
-    initOsc(7);
+    initOsc(3);
     init();
+    PWM_setup();
 
     PORTA = 0x00;
     PORTB = 0x00;
@@ -2767,6 +2771,11 @@ void main(void) {
     while (1){
         pirValue = PORTDbits.RD0;
         PORTAbits.RA0 = pirValue;
+        if (pirValue == 1) {
+            final_deg();
+        } else {
+            zero_deg();
+        }
 
     }
     return;
@@ -2783,4 +2792,40 @@ void init(void){
     ANSELH = 0;
     I2C_Slave_Init(0x30);
 
+}
+
+
+
+void PWM_setup(void){
+    TRISCbits.TRISC2 = 1;
+    PR2 = 155;
+    CCP1CONbits.P1M = 0b00;
+    CCP1CONbits.CCP1M = 0b1100;
+    CCPR1L = 27;
+    CCP1CONbits.DC1B = 0b11;
+    PIR1bits.TMR2IF = 0;
+    T2CONbits.T2CKPS = 0b11;
+    T2CONbits.TMR2ON = 1;
+    while(!TMR2IF){
+    }
+    PIR1bits.TMR2IF = 0;
+    TRISCbits.TRISC2 = 0;
+
+    return;
+}
+
+
+
+void zero_deg(void){
+    CCP1CONbits.DC1B = 0b00;
+    CCPR1L = 3;
+    return;
+}
+
+
+
+void final_deg(void){
+    CCP1CONbits.DC1B = 0b11;
+    CCPR1L = 13;
+    return;
 }

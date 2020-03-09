@@ -2742,14 +2742,14 @@ void __attribute__((picinterrupt(("")))) isr(void){
                 SSPCONbits.CKP = 1;
                 while(!SSPSTATbits.BF);
                 estado = SSPBUF;
-                _delay((unsigned long)((250)*(8000000/4000000.0)));
+                _delay((unsigned long)((250)*(500000/4000000.0)));
 
             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
                 z = SSPBUF;
                 BF = 0;
                 SSPBUF = estado;
                 SSPCONbits.CKP = 1;
-                _delay((unsigned long)((250)*(8000000/4000000.0)));
+                _delay((unsigned long)((250)*(500000/4000000.0)));
                 while(SSPSTATbits.BF);
             }
 

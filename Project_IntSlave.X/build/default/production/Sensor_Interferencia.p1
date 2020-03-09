@@ -515,8 +515,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Sensor_Interferencia.c: 74:                 estado = SSPBUF;
 [e = _estado _SSPBUF ]
 "75
-[; ;Sensor_Interferencia.c: 75:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Sensor_Interferencia.c: 75:                 _delay((unsigned long)((250)*(500000/4000000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 500000 `l `d .4000000.0 `ul ]
 "77
 [; ;Sensor_Interferencia.c: 77:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
 }
@@ -537,8 +537,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Sensor_Interferencia.c: 81:                 SSPCONbits.CKP = 1;
 [e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
 "82
-[; ;Sensor_Interferencia.c: 82:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Sensor_Interferencia.c: 82:                 _delay((unsigned long)((250)*(500000/4000000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 500000 `l `d .4000000.0 `ul ]
 "83
 [; ;Sensor_Interferencia.c: 83:                 while(SSPSTATbits.BF);
 [e $U 147  ]
