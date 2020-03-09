@@ -2816,7 +2816,6 @@ void main(void) {
 
 
         ADC_POT_V = (float)((Val_POT)/((float)51));
-
         ADC_RES_V = (float)((Val_RES)/((float)51));
 
 

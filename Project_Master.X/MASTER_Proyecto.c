@@ -128,7 +128,6 @@ void main(void) {
         //Conversión de Datos Analógicos
         //**********************************************************************
         ADC_POT_V = (float)((Val_POT)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
-        //ADC_POT_V = (((float)(Val_POT)-((float)(710.417))))/((float)(-5.683));
         ADC_RES_V = (float)((Val_RES)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
         //******************************************************************************************
         // Proceso para obtener el entero, y dos decimales del dato del POT para mandarlos a la LCD 
