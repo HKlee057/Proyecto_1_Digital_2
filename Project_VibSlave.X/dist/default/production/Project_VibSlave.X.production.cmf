@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\hecto\AppData\Local\Temp\sho4.o
+$C:\Users\hecto\AppData\Local\Temp\sgm8.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 0 2007 2007 2 2
@@ -71,20 +71,20 @@ STRING 13F-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Project_VibSlave.X.production.o
-F cinit CODE >811:C:\Users\hecto\AppData\Local\Temp\sho4.s
-F cinit CODE >814:C:\Users\hecto\AppData\Local\Temp\sho4.s
-F cinit CODE >843:C:\Users\hecto\AppData\Local\Temp\sho4.s
-10 cinit CODE >844:C:\Users\hecto\AppData\Local\Temp\sho4.s
-11 cinit CODE >845:C:\Users\hecto\AppData\Local\Temp\sho4.s
-12 cinit CODE >846:C:\Users\hecto\AppData\Local\Temp\sho4.s
-13 cinit CODE >847:C:\Users\hecto\AppData\Local\Temp\sho4.s
-14 cinit CODE >850:C:\Users\hecto\AppData\Local\Temp\sho4.s
-15 cinit CODE >851:C:\Users\hecto\AppData\Local\Temp\sho4.s
-16 cinit CODE >852:C:\Users\hecto\AppData\Local\Temp\sho4.s
-17 cinit CODE >853:C:\Users\hecto\AppData\Local\Temp\sho4.s
-18 cinit CODE >859:C:\Users\hecto\AppData\Local\Temp\sho4.s
-18 cinit CODE >861:C:\Users\hecto\AppData\Local\Temp\sho4.s
-19 cinit CODE >862:C:\Users\hecto\AppData\Local\Temp\sho4.s
+F cinit CODE >811:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+F cinit CODE >814:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+F cinit CODE >843:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+10 cinit CODE >844:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+11 cinit CODE >845:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+12 cinit CODE >846:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+13 cinit CODE >847:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+14 cinit CODE >850:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+15 cinit CODE >851:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+16 cinit CODE >852:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+17 cinit CODE >853:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+18 cinit CODE >859:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+18 cinit CODE >861:C:\Users\hecto\AppData\Local\Temp\sgm8.s
+19 cinit CODE >862:C:\Users\hecto\AppData\Local\Temp\sgm8.s
 4 intentry CODE >55:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_VibSlave.X\Sensor_Vibracion.c
 1C text4 CODE >55:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_VibSlave.X\Sensor_Vibracion.c
 1C text4 CODE >57:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_VibSlave.X\Sensor_Vibracion.c
@@ -221,22 +221,22 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _BF 4A0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\sho4.o
+___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\sgm8.o
 _init 25A 0 CODE 0 text2 dist/default/production\Project_VibSlave.X.production.o
 _main 1BA 0 CODE 0 maintext dist/default/production\Project_VibSlave.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
-start 18 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\sho4.o
+start 18 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\sgm8.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __size_of_init 0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sho4.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sho4.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sho4.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sho4.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sho4.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sho4.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sgm8.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sgm8.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sgm8.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sgm8.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sgm8.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\sgm8.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
@@ -246,8 +246,8 @@ _ANSELH 189 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 _SSPCONbits 14 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __size_of_initOsc 0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\sho4.o
-___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\sho4.o
+___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\sgm8.o
+___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\sgm8.o
 _I2C_Slave_Init 226 0 CODE 0 text3 dist/default/production\Project_VibSlave.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
@@ -259,7 +259,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __end_of_initOsc 1BA 0 CODE 0 text1 dist/default/production\Project_VibSlave.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\sho4.o
+___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\sgm8.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -309,7 +309,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Project_VibSlave.X.production.o
 __end_of_isr 102 0 CODE 0 text4 dist/default/production\Project_VibSlave.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\sho4.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\sgm8.o
 initOsc@frec 75 0 COMMON 1 cstackCOMMON dist/default/production\Project_VibSlave.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __pmaintext 1BA 0 CODE 0 maintext dist/default/production\Project_VibSlave.X.production.o

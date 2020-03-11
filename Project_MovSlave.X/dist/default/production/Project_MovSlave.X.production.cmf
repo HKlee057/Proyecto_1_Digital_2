@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\hecto\AppData\Local\Temp\s548.o
+$C:\Users\hecto\AppData\Local\Temp\s6b4.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 0 2007 2007 2 2
@@ -74,16 +74,16 @@ STRING 164-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Project_MovSlave.X.production.o
-F cinit CODE >823:C:\Users\hecto\AppData\Local\Temp\s548.s
-F cinit CODE >826:C:\Users\hecto\AppData\Local\Temp\s548.s
-F cinit CODE >846:C:\Users\hecto\AppData\Local\Temp\s548.s
-10 cinit CODE >847:C:\Users\hecto\AppData\Local\Temp\s548.s
-11 cinit CODE >848:C:\Users\hecto\AppData\Local\Temp\s548.s
-12 cinit CODE >849:C:\Users\hecto\AppData\Local\Temp\s548.s
-13 cinit CODE >850:C:\Users\hecto\AppData\Local\Temp\s548.s
-14 cinit CODE >856:C:\Users\hecto\AppData\Local\Temp\s548.s
-14 cinit CODE >858:C:\Users\hecto\AppData\Local\Temp\s548.s
-15 cinit CODE >859:C:\Users\hecto\AppData\Local\Temp\s548.s
+F cinit CODE >823:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+F cinit CODE >826:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+F cinit CODE >846:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+10 cinit CODE >847:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+11 cinit CODE >848:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+12 cinit CODE >849:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+13 cinit CODE >850:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+14 cinit CODE >856:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+14 cinit CODE >858:C:\Users\hecto\AppData\Local\Temp\s6b4.s
+15 cinit CODE >859:C:\Users\hecto\AppData\Local\Temp\s6b4.s
 4 intentry CODE >56:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_MovSlave.X\Sensor_Movimiento.c
 18 text7 CODE >56:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_MovSlave.X\Sensor_Movimiento.c
 18 text7 CODE >58:C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_MovSlave.X\Sensor_Movimiento.c
@@ -242,23 +242,23 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _BF 4A0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s548.o
+___sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s6b4.o
 _init 288 0 CODE 0 text3 dist/default/production\Project_MovSlave.X.production.o
 _main 1AE 0 CODE 0 maintext dist/default/production\Project_MovSlave.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
-start 18 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\s548.o
+start 18 0 CODE 0 init C:\Users\hecto\AppData\Local\Temp\s6b4.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __size_of_init 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_zero_deg 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s548.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s548.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s548.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s548.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s548.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s548.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s6b4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s6b4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s6b4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s6b4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s6b4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\hecto\AppData\Local\Temp\s6b4.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
@@ -272,8 +272,8 @@ _CCPR1L 15 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __size_of_initOsc 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __end_of_zero_deg 2BA 0 CODE 0 text1 dist/default/production\Project_MovSlave.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s548.o
-___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s548.o
+___stackhi 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s6b4.o
+___stacklo 0 0 ABS 0 - C:\Users\hecto\AppData\Local\Temp\s6b4.o
 _I2C_Slave_Init 254 0 CODE 0 text4 dist/default/production\Project_MovSlave.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
@@ -287,7 +287,7 @@ _TRISC3 43B 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __end_of_PWM_setup 254 0 CODE 0 text6 dist/default/production\Project_MovSlave.X.production.o
 __end_of_initOsc 1AE 0 CODE 0 text2 dist/default/production\Project_MovSlave.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s548.o
+___int_sp 0 0 STACK 2 stack C:\Users\hecto\AppData\Local\Temp\s6b4.o
 __size_of_PWM_setup 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -339,7 +339,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Project_MovSlave.X.production.o
 __end_of_isr F6 0 CODE 0 text7 dist/default/production\Project_MovSlave.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\s548.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\hecto\AppData\Local\Temp\s6b4.o
 initOsc@frec 75 0 COMMON 1 cstackCOMMON dist/default/production\Project_MovSlave.X.production.o
 __pmaintext 1AE 0 CODE 0 maintext dist/default/production\Project_MovSlave.X.production.o
 __Lcommon 0 0 ABS 0 common -

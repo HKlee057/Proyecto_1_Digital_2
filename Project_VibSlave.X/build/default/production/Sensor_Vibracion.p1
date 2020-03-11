@@ -615,8 +615,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Sensor_Vibracion.c: 122:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
 "123
-[; ;Sensor_Vibracion.c: 123:     I2C_Slave_Init(0x30);
-[e ( _I2C_Slave_Init (1 -> -> 48 `i `uc ]
+[; ;Sensor_Vibracion.c: 123:     I2C_Slave_Init(0x90);
+[e ( _I2C_Slave_Init (1 -> -> 144 `i `uc ]
 "125
 [; ;Sensor_Vibracion.c: 125: }
 [e :UE 156 ]

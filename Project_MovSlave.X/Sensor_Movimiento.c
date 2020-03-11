@@ -120,7 +120,7 @@ void init(void){
     TRISD = 0b00000001;              // PORTD configurado como entrada en los bits RD0
     ANSEL = 0;                       // Pines connfigurados como entradas digitales
     ANSELH = 0;                      //Pines connfigurados como entradas digitales  
-    I2C_Slave_Init(0x30);
+    I2C_Slave_Init(0x60);
     //INTCON = 0b11100000;                      //Habilita GIE, PIE y T0IE 
 }
 //******************************************************************************

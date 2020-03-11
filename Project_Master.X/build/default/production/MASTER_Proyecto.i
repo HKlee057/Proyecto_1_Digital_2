@@ -2763,6 +2763,7 @@ void main(void) {
     initOsc(7);
     init();
     lcd_init();
+    UART_Init(9600);
 
     PORTA = 0;
     PORTB = 0;
@@ -2772,25 +2773,12 @@ void main(void) {
     while (1){
 
         LCD_POINT(1,2);
-        lcd_msg("S1");
-        LCD_POINT(1,7);
-        lcd_msg("S2");
-        LCD_POINT(1,12);
-        lcd_msg("S3");
-
-        LCD_POINT(2,1);
-        lcd_dwr('.');
-        LCD_POINT(2,4);
-        lcd_dwr('V');
-
-        LCD_POINT(2,11);
-        lcd_dwr('.');
-        LCD_POINT(2,14);
-        lcd_dwr('V');
-
-
-
-
+        lcd_msg("INT");
+        LCD_POINT(1,6);
+        lcd_msg("MOV");
+        LCD_POINT(1,10);
+        lcd_msg("VIB");
+# 101 "MASTER_Proyecto.c"
         I2C_Master_Start();
         I2C_Master_Write(0x31);
         Val_POT = I2C_Master_Read(0);
@@ -2815,6 +2803,20 @@ void main(void) {
 
 
 
+        I2C_Master_Start();
+        I2C_Master_Write(0xC1);
+        Val_RES = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0xF1);
+        Val_RES = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+# 146 "MASTER_Proyecto.c"
         ADC_POT_V = (float)((Val_POT)/((float)51));
         ADC_RES_V = (float)((Val_RES)/((float)51));
 
@@ -2882,15 +2884,21 @@ void main(void) {
 
 
 
+
+
         lcd_cmd(0x01);
 
         LCD_POINT(1,2);
-        lcd_msg("S4");
+        lcd_msg("TEMP");
+        LCD_POINT(1,8);
+        lcd_msg("PESO");
 
-        LCD_POINT(2,1);
-        lcd_dwr('.');
         LCD_POINT(2,4);
-        lcd_dwr('V');
+        lcd_dwr('°');
+        LCD_POINT(2,5);
+        lcd_dwr('C');
+        LCD_POINT(2,11);
+        lcd_dwr('g');
 
 
 
@@ -2918,6 +2926,29 @@ void main(void) {
         _delay((unsigned long)((4000)*(8000000/4000.0)));
 
         lcd_cmd(0x01);
+# 263 "MASTER_Proyecto.c"
+        UART_Write(Val_POT);
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_POT);
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_POT);
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_POT);
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_POT);
+        _delay((unsigned long)((10)*(8000000/4000.0)));
     }
     return;
 }
