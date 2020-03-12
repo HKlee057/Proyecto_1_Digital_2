@@ -2650,6 +2650,41 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 33 "MASTER_Proyecto.c" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\math.h" 1 3
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\__unsupported.h" 1 3
+# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\math.h" 2 3
+# 30 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\math.h" 3
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
+# 34 "MASTER_Proyecto.c" 2
+
 # 1 "./I2C.h" 1
 # 25 "./I2C.h"
 void I2C_Master_Init(const unsigned long c);
@@ -2688,7 +2723,7 @@ unsigned short I2C_Master_Read(unsigned short a);
 
 
 void I2C_Slave_Init(uint8_t address);
-# 34 "MASTER_Proyecto.c" 2
+# 35 "MASTER_Proyecto.c" 2
 
 # 1 "./LCD.h" 1
 # 36 "./LCD.h"
@@ -2699,7 +2734,7 @@ void lcd_ready(void);
 void lcd_lat(void);
 void lcd_init(void);
 void LCD_POINT (uint8_t lin, uint8_t col);
-# 35 "MASTER_Proyecto.c" 2
+# 36 "MASTER_Proyecto.c" 2
 
 # 1 "./Oscilador.h" 1
 # 11 "./Oscilador.h"
@@ -2712,7 +2747,7 @@ void LCD_POINT (uint8_t lin, uint8_t col);
 
 
 void initOsc(uint8_t frec);
-# 36 "MASTER_Proyecto.c" 2
+# 37 "MASTER_Proyecto.c" 2
 
 # 1 "./UART.h" 1
 # 25 "./UART.h"
@@ -2721,7 +2756,7 @@ uint8_t UART_Read(void);
 void UART_Read_Text(char *Output, unsigned int length);
 void UART_Write(char data);
 void UART_Write_Text(char *text);
-# 37 "MASTER_Proyecto.c" 2
+# 38 "MASTER_Proyecto.c" 2
 
 
 
@@ -2738,10 +2773,19 @@ uint8_t Val_VIB = 0;
 uint8_t Val_TEMP = 0;
 uint8_t Val_PESO = 0;
 
-float ADC_POT_V = 0;
-float ADC_RES_V;
+float ADC_TEMP_V = 0;
+float ADC_PESO_V;
 float POT_cien = 0;
 float RES_cien = 0;
+
+const float invBeta = 1.00/3380.00;
+const float adcMax = 1023.00;
+const float invT0 = 1.00/298.15;
+float K;
+float C;
+
+uint8_t TEMP_EN = 0;
+uint8_t TEMP_EN_1 = 0;
 
 uint8_t POT_EN = 0;
 uint8_t RES_EN = 0;
@@ -2829,11 +2873,6 @@ void main(void) {
 
 
 
-        ADC_POT_V = (float)((((float)710)-(Val_TEMP))/((float)6));
-        ADC_RES_V = (float)((Val_TEMP)/((float)51));
-
-
-
         if (Val_INT == 1){
             LCD_POINT(2,2);
             lcd_msg("OFF");
@@ -2861,7 +2900,7 @@ void main(void) {
             LCD_POINT(2,6);
             lcd_msg("OFF");
         }
-        _delay((unsigned long)((4000)*(8000000/4000.0)));
+        _delay((unsigned long)((2000)*(8000000/4000.0)));
 
 
 
@@ -2873,8 +2912,12 @@ void main(void) {
         LCD_POINT(1,8);
         lcd_msg("PESO");
 
+
+        LCD_POINT(2,2);
+        lcd_dwr('.');
+
         LCD_POINT(2,4);
-        lcd_dwr('°');
+        lcd_dwr(0b11011111);
         LCD_POINT(2,5);
         lcd_dwr('C');
         LCD_POINT(2,11);
@@ -2883,27 +2926,39 @@ void main(void) {
 
 
 
-        POT_cien = (float)((ADC_POT_V)*((float)100));
+
+
+
+        K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
+        C = K - 293.15;
+
+        ADC_PESO_V = (float)((Val_TEMP)/((float)51));
+
+
+
+        POT_cien = (float)((C)*((float)10));
         DECI_1_POT = (uint16_t)(POT_cien);
         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
 
         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
 
-        POT_EN = (uint16_t)(ADC_POT_V);
+        TEMP_EN_1 = (uint16_t)((DECI_2_POT)/((uint16_t)10));
+        TEMP_EN = (uint8_t)((TEMP_EN_1)%((uint8_t)10));
+
 
 
 
         LCD_POINT(2,0);
-        lcd_dwr(Val_STR(POT_EN));
+        lcd_dwr(Val_STR(TEMP_EN));
 
-        LCD_POINT(2,2);
+        LCD_POINT(2,1);
         lcd_dwr(Val_STR(POT_D1));
 
         LCD_POINT(2,3);
         lcd_dwr(Val_STR(POT_D2));
-
-        _delay((unsigned long)((4000)*(8000000/4000.0)));
+# 262 "MASTER_Proyecto.c"
+        _delay((unsigned long)((2000)*(8000000/4000.0)));
 
         lcd_cmd(0x01);
 
