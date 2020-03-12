@@ -2834,63 +2834,33 @@ void main(void) {
 
 
 
-        POT_cien = (float)((ADC_POT_V)*((float)100));
-        DECI_1_POT = (uint16_t)(POT_cien);
-        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
-
-        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
-        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
-
-        POT_EN = (uint16_t)(ADC_POT_V);
-
-
-
-        LCD_POINT(2,0);
-        lcd_dwr(Val_STR(POT_EN));
-
-        LCD_POINT(2,2);
-        lcd_dwr(Val_STR(POT_D1));
-
-        LCD_POINT(2,3);
-        lcd_dwr(Val_STR(POT_D2));
+        if (Val_INT == 1){
+            LCD_POINT(2,2);
+            lcd_msg("OFF");
+        }else{
+            LCD_POINT(2,2);
+            lcd_msg("ON");
+        }
 
 
 
-
-        CONT_U = (uint8_t)((Val_INT)%((uint8_t)10));
-
-        CONT_D = (uint8_t)((Val_INT)/((uint8_t)10));
-
-
-
-        LCD_POINT(2,7);
-        lcd_dwr(Val_STR(CONT_D));
-
-        LCD_POINT(2,8);
-        lcd_dwr(Val_STR(CONT_U));
+        if (Val_MOV == 1){
+            LCD_POINT(2,10);
+            lcd_msg("ON");
+        }else{
+            LCD_POINT(2,10);
+            lcd_msg("OFF");
+        }
 
 
 
-        RES_cien = (float)((ADC_RES_V)*((float)100));
-        DECI_1_RES = (uint16_t)(RES_cien);
-        RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
-
-        DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
-        RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
-
-        RES_EN = (uint16_t)(ADC_RES_V);
-
-
-
-        LCD_POINT(2,10);
-        lcd_dwr(Val_STR(RES_EN));
-
-        LCD_POINT(2,12);
-        lcd_dwr(Val_STR(RES_D1));
-
-        LCD_POINT(2,13);
-        lcd_dwr(Val_STR(RES_D2));
-
+        if (Val_VIB == 1){
+            LCD_POINT(2,6);
+            lcd_msg("ON");
+        }else{
+            LCD_POINT(2,6);
+            lcd_msg("OFF");
+        }
         _delay((unsigned long)((4000)*(8000000/4000.0)));
 
 
@@ -2936,7 +2906,12 @@ void main(void) {
         _delay((unsigned long)((4000)*(8000000/4000.0)));
 
         lcd_cmd(0x01);
-# 259 "MASTER_Proyecto.c"
+
+
+
+
+
+
         UART_Write(Val_INT);
         _delay((unsigned long)((10)*(8000000/4000.0)));
 

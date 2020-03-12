@@ -87,11 +87,11 @@ void main(void) {
     while (1){
        
         LCD_POINT(1,2);
-        lcd_msg("INT"); //Se envía el string S1 para indicar que los datos mostrados son del POT
+        lcd_msg("INT"); //Se envía el string INT para indicar que los datos mostrados son SENSOR DE INTERFERENCIA
         LCD_POINT(1,6);
-        lcd_msg("MOV"); //Se envía el string S2 para indicar que los datos mostrados son del CONTADO
+        lcd_msg("MOV"); //Se envía el string MOV para indicar que los datos mostrados son del SENSOR DE MOVIMIENTO
         LCD_POINT(1,10);
-        lcd_msg("VIB"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
+        lcd_msg("VIB"); //Se envía el string VIB para indicar que los datos mostrados son del SENSOR DE VIBRACION
         
         //**********************************************************************
         // LECTURA DE DATOS POR I2C
@@ -144,65 +144,35 @@ void main(void) {
         ADC_POT_V = (float)((((float)710)-(Val_TEMP))/((float)6));             //Realiza la conversión de binario a valor de voltaje correspondiente
         ADC_RES_V = (float)((Val_TEMP)/((float)51));                          //Realiza la conversión de binario a valor de voltaje correspondiente
         //******************************************************************************************
-        // Proceso para obtener el entero, y dos decimales del dato del POT para mandarlos a la LCD 
+        // Proceso para obtener el estado del sensor de interferencia
         //******************************************************************************************
-        POT_cien = (float)((ADC_POT_V)*((float)100));           //Se multiplica el valor de voltaje por cien -> 2.5456 => 254.6
-        DECI_1_POT = (uint16_t)(POT_cien);                      //El valor anterior se vuelve entero -> 254.6 => 254
-        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
-        
-        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
-        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el primer decimal -> 25 => 5
-        
-        POT_EN = (uint16_t)(ADC_POT_V);                         //Se convierte el valor float a entero -> 2.546 => 2
-        //**************************************************************************
-        // Se envían cada uno de los digitos a la columna correspondiente de la LCD 
-        //**************************************************************************
-        LCD_POINT(2,0);
-        lcd_dwr(Val_STR(POT_EN));                               //Se envía el caracter correspondiente al entero
-                
-        LCD_POINT(2,2);
-        lcd_dwr(Val_STR(POT_D1));                               //Se envía el caracter correspondiente al primer decimal
-        
-        LCD_POINT(2,3);
-        lcd_dwr(Val_STR(POT_D2));                               //Se envía el caracter correspondiente al segundo decimal
-        
+        if (Val_INT == 1){
+            LCD_POINT(2,2);
+            lcd_msg("OFF");
+        }else{
+            LCD_POINT(2,2);
+            lcd_msg("ON");
+        }
         //******************************************************************************************
-        // Proceso para obtener el número del dato del CONTADOR para mandarlos a la LCD 
+        // Proceso para obtener el estado del sensor de movimiento
         //******************************************************************************************
-        CONT_U = (uint8_t)((Val_INT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
-        
-        CONT_D = (uint8_t)((Val_INT)/((uint8_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
-        //************************************************************************
-        // Se envían los digitos a la columna correspondiente de la LCD (CONTADOR)
-        //************************************************************************  
-        LCD_POINT(2,7);
-        lcd_dwr(Val_STR(CONT_D));                               //Se envia el caracter correspondiente de las decenas del contador
-        
-        LCD_POINT(2,8);
-        lcd_dwr(Val_STR(CONT_U));                               //Se envia el caracter correspondiente de las unidades del contador
-        //********************************************************************************************************
-        // Proceso para obtener el entero, y dos decimales del dato de la FOTORRESISTENCIA para mandarlos a la LCD 
-        //********************************************************************************************************
-        RES_cien = (float)((ADC_RES_V)*((float)100));           //Se multiplica el valor de voltaje por cien -> 2.5456 => 254.6
-        DECI_1_RES = (uint16_t)(RES_cien);                      //El valor anterior se vuelve entero -> 254.6 => 254
-        RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
-        
-        DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
-        RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));         //Se realiza la división mod. obteniendo el primer decimal -> 25 => 5
-        
-        RES_EN = (uint16_t)(ADC_RES_V);                         //Se convierte el valor float a entero -> 2.546 => 2
-        //**************************************************************************
-        // Se envían cada uno de los digitos a la columna correspondiente de la LCD 
-        //**************************************************************************
-        LCD_POINT(2,10);
-        lcd_dwr(Val_STR(RES_EN));                               //Se envía el caracter correspondiente al entero
-                
-        LCD_POINT(2,12);
-        lcd_dwr(Val_STR(RES_D1));                               //Se envía el caracter correspondiente al primer decimal
-        
-        LCD_POINT(2,13);
-        lcd_dwr(Val_STR(RES_D2));                               //Se envía el caracter correspondiente al segundo decimal 
-        
+        if (Val_MOV == 1){
+            LCD_POINT(2,10);
+            lcd_msg("ON");
+        }else{
+            LCD_POINT(2,10);
+            lcd_msg("OFF");
+        }
+        //******************************************************************************************
+        // Proceso para obtener el estado del sensor de vibracion
+        //******************************************************************************************
+        if (Val_VIB == 1){
+            LCD_POINT(2,6);
+            lcd_msg("ON");
+        }else{
+            LCD_POINT(2,6);
+            lcd_msg("OFF");
+        } 
         __delay_ms(4000);
         
         //******************************************************************************************
@@ -250,9 +220,7 @@ void main(void) {
         lcd_cmd(0x01);
         
         //**********************************************************************
-        
         // COMUNICACIÓN UART - MANDA DATOS DE VARIABLES
-        
         //**********************************************************************
         // Mandar datos de Sensor de Intereferencia
         //**********************************************************************

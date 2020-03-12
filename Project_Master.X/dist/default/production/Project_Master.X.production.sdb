@@ -7,10 +7,6 @@
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
 "43 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
@@ -61,9 +57,9 @@
 [v _LCD_POINT LCD_POINT `(v  1 e 1 0 ]
 "76 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 [v _main main `(v  1 e 1 0 ]
-"287
+"255
 [v _init init `(v  1 e 1 0 ]
-"300
+"268
 [v _Val_STR Val_STR `(uc  1 e 1 0 ]
 "8 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\Oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -79,7 +75,7 @@
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S375 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S381 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -88,13 +84,13 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S383 . 1 `S375 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES383  1 e 1 @12 ]
+[u S389 . 1 `S381 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES389  1 e 1 @12 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S331 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S337 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -104,18 +100,18 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1068
-[s S340 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S346 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S344 . 1 `uc 1 . 1 0 :6:0 
+[s S350 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S347 . 1 `uc 1 . 1 0 :6:0 
+[s S353 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[u S350 . 1 `S331 1 . 1 0 `S340 1 . 1 0 `S344 1 . 1 0 `S347 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES350  1 e 1 @24 ]
+[u S356 . 1 `S337 1 . 1 0 `S346 1 . 1 0 `S350 1 . 1 0 `S353 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES356  1 e 1 @24 ]
 "1133
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1140
@@ -126,7 +122,7 @@
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1540
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-[s S150 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S156 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -136,27 +132,27 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S159 . 1 `S150 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES159  1 e 1 @135 ]
+[u S165 . 1 `S156 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES165  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S256 . 1 `uc 1 SCS 1 0 :1:0 
+[s S262 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S262 . 1 `uc 1 . 1 0 :4:0 
+[s S268 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S267 . 1 `S256 1 . 1 0 `S262 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES267  1 e 1 @143 ]
+[u S273 . 1 `S262 1 . 1 0 `S268 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES273  1 e 1 @143 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S171 . 1 `uc 1 SEN 1 0 :1:0 
+[s S177 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -166,13 +162,13 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1996
-[u S180 . 1 `S171 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES180  1 e 1 @145 ]
+[u S186 . 1 `S177 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES186  1 e 1 @145 ]
 "2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S294 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S300 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -182,15 +178,15 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2582
-[s S303 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S309 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S307 . 1 `uc 1 . 1 0 :6:0 
+[s S313 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S310 . 1 `S294 1 . 1 0 `S303 1 . 1 0 `S307 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES310  1 e 1 @152 ]
+[u S316 . 1 `S300 1 . 1 0 `S309 1 . 1 0 `S313 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES316  1 e 1 @152 ]
 "2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "3387
@@ -231,36 +227,20 @@
 [v _ADC_RES_V ADC_RES_V `f  1 e 4 0 ]
 "55
 [v _POT_cien POT_cien `f  1 e 4 0 ]
-"56
-[v _RES_cien RES_cien `f  1 e 4 0 ]
 "58
 [v _POT_EN POT_EN `uc  1 e 1 0 ]
-"59
-[v _RES_EN RES_EN `uc  1 e 1 0 ]
 "60
 [v _POT_D1 POT_D1 `uc  1 e 1 0 ]
 "61
 [v _POT_D2 POT_D2 `uc  1 e 1 0 ]
-"62
-[v _RES_D1 RES_D1 `uc  1 e 1 0 ]
-"63
-[v _RES_D2 RES_D2 `uc  1 e 1 0 ]
-"64
-[v _CONT_U CONT_U `uc  1 e 1 0 ]
-"65
-[v _CONT_D CONT_D `uc  1 e 1 0 ]
 "69
 [v _DECI_1_POT DECI_1_POT `ui  1 e 2 0 ]
 "70
 [v _DECI_2_POT DECI_2_POT `ui  1 e 2 0 ]
-"71
-[v _DECI_1_RES DECI_1_RES `ui  1 e 2 0 ]
-"72
-[v _DECI_2_RES DECI_2_RES `ui  1 e 2 0 ]
 "76
 [v _main main `(v  1 e 1 0 ]
 {
-"283
+"251
 } 0
 "58 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\LCD.c
 [v _lcd_msg lcd_msg `(v  1 e 1 0 ]
@@ -291,10 +271,10 @@
 [v initOsc@frec frec `uc  1 a 1 2 ]
 "58
 } 0
-"287 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
+"255 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 [v _init init `(v  1 e 1 0 ]
 {
-"295
+"263
 } 0
 "7 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\I2C.c
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
@@ -387,17 +367,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S718 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S724 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S723 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S726 . 4 `l 1 i 4 0 `d 1 f 4 0 `S718 1 fAsBytes 4 0 `S723 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S726  1 a 4 15 ]
+[s S729 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S732 . 4 `l 1 i 4 0 `d 1 f 4 0 `S724 1 fAsBytes 4 0 `S729 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S732  1 a 4 15 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 9 ]
-[s S795 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S801 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S798 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S795 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S798  1 a 2 19 ]
+[u S804 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S801 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S804  1 a 2 19 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 14 ]
 "11
@@ -443,37 +423,13 @@
 [v ___fldiv@b b `d  1 p 4 20 ]
 "185
 } 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-{
-"10
-[v ___awmod@sign sign `uc  1 a 1 6 ]
-[v ___awmod@counter counter `uc  1 a 1 5 ]
-"5
-[v ___awmod@divisor divisor `i  1 p 2 0 ]
-[v ___awmod@dividend dividend `i  1 p 2 2 ]
-"34
-} 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"10
-[v ___awdiv@quotient quotient `i  1 a 2 7 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 6 ]
-[v ___awdiv@counter counter `uc  1 a 1 5 ]
-"5
-[v ___awdiv@divisor divisor `i  1 p 2 0 ]
-[v ___awdiv@dividend dividend `i  1 p 2 2 ]
-"41
-} 0
-"300 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
+"268 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\MASTER_Proyecto.c
 [v _Val_STR Val_STR `(uc  1 e 1 0 ]
 {
 [v Val_STR@num num `uc  1 a 1 wreg ]
 [v Val_STR@num num `uc  1 a 1 wreg ]
 [v Val_STR@num num `uc  1 a 1 2 ]
-"333
+"301
 } 0
 "42 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_Master.X\UART.c
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
