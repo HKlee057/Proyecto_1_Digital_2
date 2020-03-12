@@ -44,9 +44,11 @@ uint8_t Val_STR(uint8_t num);
 //******************************************************************************
 // Variables
 //******************************************************************************
-uint8_t Val_POT = 0;
-uint8_t Val_CONT = 0;
-uint8_t Val_RES = 0;
+uint8_t Val_INT = 0;
+uint8_t Val_MOV = 0;
+uint8_t Val_VIB = 0;
+uint8_t Val_TEMP = 0;
+uint8_t Val_PESO = 0;
 
 float ADC_POT_V = 0;
 float ADC_RES_V;
@@ -92,15 +94,13 @@ void main(void) {
         lcd_msg("VIB"); //Se envía el string S3 para indicar que los datos mostrados son de la FOTORRESISTENCIA
         
         //**********************************************************************
-        
         // LECTURA DE DATOS POR I2C
-        
         //**********************************************************************
         //Lectura de Sensor de Interferencia
         //**********************************************************************
         I2C_Master_Start();
         I2C_Master_Write(0x31);
-        Val_POT = I2C_Master_Read(0);
+        Val_INT = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
         //**********************************************************************
@@ -108,7 +108,7 @@ void main(void) {
         //**********************************************************************
         I2C_Master_Start();
         I2C_Master_Write(0x61);
-        Val_CONT = I2C_Master_Read(0);
+        Val_MOV = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
         //**********************************************************************
@@ -116,7 +116,7 @@ void main(void) {
         //**********************************************************************
         I2C_Master_Start();
         I2C_Master_Write(0x91);
-        Val_RES = I2C_Master_Read(0);
+        Val_VIB = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
         //**********************************************************************
@@ -124,7 +124,7 @@ void main(void) {
         //**********************************************************************
         I2C_Master_Start();
         I2C_Master_Write(0xC1);
-        Val_RES = I2C_Master_Read(0);
+        Val_TEMP = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
         //**********************************************************************
@@ -132,19 +132,17 @@ void main(void) {
         //**********************************************************************
         I2C_Master_Start();
         I2C_Master_Write(0xF1);
-        Val_RES = I2C_Master_Read(0);
+        Val_PESO = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
         
         //**********************************************************************
-        
         // CONVERSIÓN DE DATOS LEÍDOS
-        
         //**********************************************************************
         //Conversión de Datos Analógicos
         //**********************************************************************
-        ADC_POT_V = (float)((Val_POT)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
-        ADC_RES_V = (float)((Val_RES)/((float)51));             //Realiza la conversión de binario a valor de voltaje correspondiente
+        ADC_POT_V = (float)((((float)710)-(Val_TEMP))/((float)6));             //Realiza la conversión de binario a valor de voltaje correspondiente
+        ADC_RES_V = (float)((Val_TEMP)/((float)51));                          //Realiza la conversión de binario a valor de voltaje correspondiente
         //******************************************************************************************
         // Proceso para obtener el entero, y dos decimales del dato del POT para mandarlos a la LCD 
         //******************************************************************************************
@@ -171,9 +169,9 @@ void main(void) {
         //******************************************************************************************
         // Proceso para obtener el número del dato del CONTADOR para mandarlos a la LCD 
         //******************************************************************************************
-        CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
+        CONT_U = (uint8_t)((Val_INT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
         
-        CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
+        CONT_D = (uint8_t)((Val_INT)/((uint8_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
         //************************************************************************
         // Se envían los digitos a la columna correspondiente de la LCD (CONTADOR)
         //************************************************************************  
@@ -208,9 +206,7 @@ void main(void) {
         __delay_ms(4000);
         
         //******************************************************************************************
-        
         // DESPLIEGUE DE SEGUNDO SET DE DATOS
-        
         //******************************************************************************************      
         lcd_cmd(0x01);
     
@@ -260,27 +256,27 @@ void main(void) {
         //**********************************************************************
         // Mandar datos de Sensor de Intereferencia
         //**********************************************************************
-        UART_Write(Val_POT);
+        UART_Write(Val_INT);
         __delay_ms(10);
         //**********************************************************************
         // Mandar datos de Sensor de Movimiento
         //**********************************************************************        
-        UART_Write(Val_POT);
+        UART_Write(Val_MOV);
         __delay_ms(10);
         //**********************************************************************
         // Mandar datos de Sensor de Vibración
         //**********************************************************************        
-        UART_Write(Val_POT);
+        UART_Write(Val_VIB);
         __delay_ms(10);
         //**********************************************************************
         // Mandar datos de Sensor de Temperatura
         //**********************************************************************        
-        UART_Write(Val_POT);
+        UART_Write(Val_TEMP);
         __delay_ms(10);
         //**********************************************************************
         // Mandar datos de Sensor de Peso
         //**********************************************************************        
-        UART_Write(Val_POT);
+        UART_Write(Val_PESO);
         __delay_ms(10);
     }   
     return;

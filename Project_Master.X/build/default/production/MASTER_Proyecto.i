@@ -2732,9 +2732,11 @@ uint8_t Val_STR(uint8_t num);
 
 
 
-uint8_t Val_POT = 0;
-uint8_t Val_CONT = 0;
-uint8_t Val_RES = 0;
+uint8_t Val_INT = 0;
+uint8_t Val_MOV = 0;
+uint8_t Val_VIB = 0;
+uint8_t Val_TEMP = 0;
+uint8_t Val_PESO = 0;
 
 float ADC_POT_V = 0;
 float ADC_RES_V;
@@ -2778,10 +2780,15 @@ void main(void) {
         lcd_msg("MOV");
         LCD_POINT(1,10);
         lcd_msg("VIB");
-# 101 "MASTER_Proyecto.c"
+
+
+
+
+
+
         I2C_Master_Start();
         I2C_Master_Write(0x31);
-        Val_POT = I2C_Master_Read(0);
+        Val_INT = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(8000000/4000.0)));
 
@@ -2789,7 +2796,7 @@ void main(void) {
 
         I2C_Master_Start();
         I2C_Master_Write(0x61);
-        Val_CONT = I2C_Master_Read(0);
+        Val_MOV = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(8000000/4000.0)));
 
@@ -2797,7 +2804,7 @@ void main(void) {
 
         I2C_Master_Start();
         I2C_Master_Write(0x91);
-        Val_RES = I2C_Master_Read(0);
+        Val_VIB = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(8000000/4000.0)));
 
@@ -2805,7 +2812,7 @@ void main(void) {
 
         I2C_Master_Start();
         I2C_Master_Write(0xC1);
-        Val_RES = I2C_Master_Read(0);
+        Val_TEMP = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(8000000/4000.0)));
 
@@ -2813,12 +2820,17 @@ void main(void) {
 
         I2C_Master_Start();
         I2C_Master_Write(0xF1);
-        Val_RES = I2C_Master_Read(0);
+        Val_PESO = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(8000000/4000.0)));
-# 146 "MASTER_Proyecto.c"
-        ADC_POT_V = (float)((Val_POT)/((float)51));
-        ADC_RES_V = (float)((Val_RES)/((float)51));
+
+
+
+
+
+
+        ADC_POT_V = (float)((((float)710)-(Val_TEMP))/((float)6));
+        ADC_RES_V = (float)((Val_TEMP)/((float)51));
 
 
 
@@ -2845,9 +2857,9 @@ void main(void) {
 
 
 
-        CONT_U = (uint8_t)((Val_CONT)%((uint8_t)10));
+        CONT_U = (uint8_t)((Val_INT)%((uint8_t)10));
 
-        CONT_D = (uint8_t)((Val_CONT)/((uint8_t)10));
+        CONT_D = (uint8_t)((Val_INT)/((uint8_t)10));
 
 
 
@@ -2880,8 +2892,6 @@ void main(void) {
         lcd_dwr(Val_STR(RES_D2));
 
         _delay((unsigned long)((4000)*(8000000/4000.0)));
-
-
 
 
 
@@ -2926,28 +2936,28 @@ void main(void) {
         _delay((unsigned long)((4000)*(8000000/4000.0)));
 
         lcd_cmd(0x01);
-# 263 "MASTER_Proyecto.c"
-        UART_Write(Val_POT);
+# 259 "MASTER_Proyecto.c"
+        UART_Write(Val_INT);
         _delay((unsigned long)((10)*(8000000/4000.0)));
 
 
 
-        UART_Write(Val_POT);
+        UART_Write(Val_MOV);
         _delay((unsigned long)((10)*(8000000/4000.0)));
 
 
 
-        UART_Write(Val_POT);
+        UART_Write(Val_VIB);
         _delay((unsigned long)((10)*(8000000/4000.0)));
 
 
 
-        UART_Write(Val_POT);
+        UART_Write(Val_TEMP);
         _delay((unsigned long)((10)*(8000000/4000.0)));
 
 
 
-        UART_Write(Val_POT);
+        UART_Write(Val_PESO);
         _delay((unsigned long)((10)*(8000000/4000.0)));
     }
     return;

@@ -181,7 +181,7 @@ config 400E 4011 CONFIG 400E 0
 cstackCOMMON 70 7A COMMON 70 1
 %locals
 dist/default/production\Project_IntSlave.X.production.o
-C:\Users\hecto\AppData\Local\Temp\scm0.s
+C:\Users\hecto\AppData\Local\Temp\shlk.s
 821 F 0 CODE 0
 824 F 0 CODE 0
 844 F 0 CODE 0
