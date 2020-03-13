@@ -429,548 +429,587 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "68
-[; ;MASTER_Proyecto.c: 68: uint8_t POT_EN = 0;
+[; ;MASTER_Proyecto.c: 68: uint8_t PESO_EN = 0;
+[v _PESO_EN `uc ~T0 @X0 1 e ]
+[i _PESO_EN
+-> -> 0 `i `uc
+]
+"69
+[; ;MASTER_Proyecto.c: 69: uint8_t PESO_EN_1 = 0;
+[v _PESO_EN_1 `uc ~T0 @X0 1 e ]
+[i _PESO_EN_1
+-> -> 0 `i `uc
+]
+"71
+[; ;MASTER_Proyecto.c: 71: uint8_t POT_EN = 0;
 [v _POT_EN `uc ~T0 @X0 1 e ]
 [i _POT_EN
 -> -> 0 `i `uc
 ]
-"69
-[; ;MASTER_Proyecto.c: 69: uint8_t RES_EN = 0;
+"72
+[; ;MASTER_Proyecto.c: 72: uint8_t RES_EN = 0;
 [v _RES_EN `uc ~T0 @X0 1 e ]
 [i _RES_EN
 -> -> 0 `i `uc
 ]
-"70
-[; ;MASTER_Proyecto.c: 70: uint8_t POT_D1 = 0;
+"73
+[; ;MASTER_Proyecto.c: 73: uint8_t POT_D1 = 0;
 [v _POT_D1 `uc ~T0 @X0 1 e ]
 [i _POT_D1
 -> -> 0 `i `uc
 ]
-"71
-[; ;MASTER_Proyecto.c: 71: uint8_t POT_D2 = 0;
+"74
+[; ;MASTER_Proyecto.c: 74: uint8_t POT_D2 = 0;
 [v _POT_D2 `uc ~T0 @X0 1 e ]
 [i _POT_D2
 -> -> 0 `i `uc
 ]
-"72
-[; ;MASTER_Proyecto.c: 72: uint8_t RES_D1 = 0;
+"75
+[; ;MASTER_Proyecto.c: 75: uint8_t RES_D1 = 0;
 [v _RES_D1 `uc ~T0 @X0 1 e ]
 [i _RES_D1
 -> -> 0 `i `uc
 ]
-"73
-[; ;MASTER_Proyecto.c: 73: uint8_t RES_D2 = 0;
+"76
+[; ;MASTER_Proyecto.c: 76: uint8_t RES_D2 = 0;
 [v _RES_D2 `uc ~T0 @X0 1 e ]
 [i _RES_D2
 -> -> 0 `i `uc
 ]
-"74
-[; ;MASTER_Proyecto.c: 74: uint8_t CONT_U = 0;
+"77
+[; ;MASTER_Proyecto.c: 77: uint8_t CONT_U = 0;
 [v _CONT_U `uc ~T0 @X0 1 e ]
 [i _CONT_U
 -> -> 0 `i `uc
 ]
-"75
-[; ;MASTER_Proyecto.c: 75: uint8_t CONT_D = 0;
+"78
+[; ;MASTER_Proyecto.c: 78: uint8_t CONT_D = 0;
 [v _CONT_D `uc ~T0 @X0 1 e ]
 [i _CONT_D
 -> -> 0 `i `uc
 ]
-"76
-[; ;MASTER_Proyecto.c: 76: uint8_t CONT_C = 0;
+"79
+[; ;MASTER_Proyecto.c: 79: uint8_t CONT_C = 0;
 [v _CONT_C `uc ~T0 @X0 1 e ]
 [i _CONT_C
 -> -> 0 `i `uc
 ]
-"77
-[; ;MASTER_Proyecto.c: 77: uint8_t i=0;
+"80
+[; ;MASTER_Proyecto.c: 80: uint8_t i=0;
 [v _i `uc ~T0 @X0 1 e ]
 [i _i
 -> -> 0 `i `uc
 ]
-"79
-[; ;MASTER_Proyecto.c: 79: uint16_t DECI_1_POT = 0;
+"82
+[; ;MASTER_Proyecto.c: 82: uint16_t DECI_1_POT = 0;
 [v _DECI_1_POT `ui ~T0 @X0 1 e ]
 [i _DECI_1_POT
 -> -> 0 `i `ui
 ]
-"80
-[; ;MASTER_Proyecto.c: 80: uint16_t DECI_2_POT = 0;
+"83
+[; ;MASTER_Proyecto.c: 83: uint16_t DECI_2_POT = 0;
 [v _DECI_2_POT `ui ~T0 @X0 1 e ]
 [i _DECI_2_POT
 -> -> 0 `i `ui
 ]
-"81
-[; ;MASTER_Proyecto.c: 81: uint16_t DECI_1_RES = 0;
+"84
+[; ;MASTER_Proyecto.c: 84: uint16_t DECI_1_RES = 0;
 [v _DECI_1_RES `ui ~T0 @X0 1 e ]
 [i _DECI_1_RES
 -> -> 0 `i `ui
 ]
-"82
-[; ;MASTER_Proyecto.c: 82: uint16_t DECI_2_RES = 0;
+"85
+[; ;MASTER_Proyecto.c: 85: uint16_t DECI_2_RES = 0;
 [v _DECI_2_RES `ui ~T0 @X0 1 e ]
 [i _DECI_2_RES
 -> -> 0 `i `ui
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"86
-[; ;MASTER_Proyecto.c: 86: void main(void) {
+"89
+[; ;MASTER_Proyecto.c: 89: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"87
-[; ;MASTER_Proyecto.c: 87:     initOsc(7);
-[e ( _initOsc (1 -> -> 7 `i `uc ]
-"88
-[; ;MASTER_Proyecto.c: 88:     init();
-[e ( _init ..  ]
-"89
-[; ;MASTER_Proyecto.c: 89:     lcd_init();
-[e ( _lcd_init ..  ]
 "90
-[; ;MASTER_Proyecto.c: 90:     UART_Init(9600);
-[e ( _UART_Init (1 -> -> 9600 `i `l ]
+[; ;MASTER_Proyecto.c: 90:     initOsc(7);
+[e ( _initOsc (1 -> -> 7 `i `uc ]
+"91
+[; ;MASTER_Proyecto.c: 91:     init();
+[e ( _init ..  ]
 "92
-[; ;MASTER_Proyecto.c: 92:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;MASTER_Proyecto.c: 92:     lcd_init();
+[e ( _lcd_init ..  ]
 "93
-[; ;MASTER_Proyecto.c: 93:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
-"94
-[; ;MASTER_Proyecto.c: 94:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;MASTER_Proyecto.c: 93:     UART_Init(9600);
+[e ( _UART_Init (1 -> -> 9600 `i `l ]
 "95
-[; ;MASTER_Proyecto.c: 95:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;MASTER_Proyecto.c: 95:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"96
+[; ;MASTER_Proyecto.c: 96:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "97
-[; ;MASTER_Proyecto.c: 97:     while (1){
+[; ;MASTER_Proyecto.c: 97:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"98
+[; ;MASTER_Proyecto.c: 98:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"100
+[; ;MASTER_Proyecto.c: 100:     while (1){
 [e :U 140 ]
 {
-"99
-[; ;MASTER_Proyecto.c: 99:         LCD_POINT(1,2);
-[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
-"100
-[; ;MASTER_Proyecto.c: 100:         lcd_msg("INT");
-[e ( _lcd_msg (1 :s 1C ]
-"101
-[; ;MASTER_Proyecto.c: 101:         LCD_POINT(1,6);
-[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 6 `i `uc ]
 "102
-[; ;MASTER_Proyecto.c: 102:         lcd_msg("MOV");
-[e ( _lcd_msg (1 :s 2C ]
+[; ;MASTER_Proyecto.c: 102:         LCD_POINT(1,2);
+[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
 "103
-[; ;MASTER_Proyecto.c: 103:         LCD_POINT(1,10);
-[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 10 `i `uc ]
+[; ;MASTER_Proyecto.c: 103:         lcd_msg("INT");
+[e ( _lcd_msg (1 :s 1C ]
 "104
-[; ;MASTER_Proyecto.c: 104:         lcd_msg("VIB");
+[; ;MASTER_Proyecto.c: 104:         LCD_POINT(1,6);
+[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 6 `i `uc ]
+"105
+[; ;MASTER_Proyecto.c: 105:         lcd_msg("MOV");
+[e ( _lcd_msg (1 :s 2C ]
+"106
+[; ;MASTER_Proyecto.c: 106:         LCD_POINT(1,10);
+[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 10 `i `uc ]
+"107
+[; ;MASTER_Proyecto.c: 107:         lcd_msg("VIB");
 [e ( _lcd_msg (1 :s 3C ]
-"111
-[; ;MASTER_Proyecto.c: 111:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"112
-[; ;MASTER_Proyecto.c: 112:         I2C_Master_Write(0x31);
-[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
-"113
-[; ;MASTER_Proyecto.c: 113:         Val_INT = I2C_Master_Read(0);
-[e = _Val_INT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "114
-[; ;MASTER_Proyecto.c: 114:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
+[; ;MASTER_Proyecto.c: 114:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
 "115
-[; ;MASTER_Proyecto.c: 115:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[; ;MASTER_Proyecto.c: 115:         I2C_Master_Write(0x31);
+[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
+"116
+[; ;MASTER_Proyecto.c: 116:         Val_INT = I2C_Master_Read(0);
+[e = _Val_INT -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"117
+[; ;MASTER_Proyecto.c: 117:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"118
+[; ;MASTER_Proyecto.c: 118:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"119
-[; ;MASTER_Proyecto.c: 119:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"120
-[; ;MASTER_Proyecto.c: 120:         I2C_Master_Write(0x61);
-[e ( _I2C_Master_Write (1 -> -> 97 `i `ui ]
-"121
-[; ;MASTER_Proyecto.c: 121:         Val_MOV = I2C_Master_Read(0);
-[e = _Val_MOV -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "122
-[; ;MASTER_Proyecto.c: 122:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
+[; ;MASTER_Proyecto.c: 122:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
 "123
-[; ;MASTER_Proyecto.c: 123:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[; ;MASTER_Proyecto.c: 123:         I2C_Master_Write(0x61);
+[e ( _I2C_Master_Write (1 -> -> 97 `i `ui ]
+"124
+[; ;MASTER_Proyecto.c: 124:         Val_MOV = I2C_Master_Read(0);
+[e = _Val_MOV -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"125
+[; ;MASTER_Proyecto.c: 125:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"126
+[; ;MASTER_Proyecto.c: 126:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"127
-[; ;MASTER_Proyecto.c: 127:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"128
-[; ;MASTER_Proyecto.c: 128:         I2C_Master_Write(0x91);
-[e ( _I2C_Master_Write (1 -> -> 145 `i `ui ]
-"129
-[; ;MASTER_Proyecto.c: 129:         Val_VIB = I2C_Master_Read(0);
-[e = _Val_VIB -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "130
-[; ;MASTER_Proyecto.c: 130:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
+[; ;MASTER_Proyecto.c: 130:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
 "131
-[; ;MASTER_Proyecto.c: 131:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[; ;MASTER_Proyecto.c: 131:         I2C_Master_Write(0x91);
+[e ( _I2C_Master_Write (1 -> -> 145 `i `ui ]
+"132
+[; ;MASTER_Proyecto.c: 132:         Val_VIB = I2C_Master_Read(0);
+[e = _Val_VIB -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"133
+[; ;MASTER_Proyecto.c: 133:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"134
+[; ;MASTER_Proyecto.c: 134:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"135
-[; ;MASTER_Proyecto.c: 135:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"136
-[; ;MASTER_Proyecto.c: 136:         I2C_Master_Write(0xC1);
-[e ( _I2C_Master_Write (1 -> -> 193 `i `ui ]
-"137
-[; ;MASTER_Proyecto.c: 137:         Val_TEMP = I2C_Master_Read(0);
-[e = _Val_TEMP -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "138
-[; ;MASTER_Proyecto.c: 138:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"139
-[; ;MASTER_Proyecto.c: 139:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"143
-[; ;MASTER_Proyecto.c: 143:         I2C_Master_Start();
+[; ;MASTER_Proyecto.c: 138:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"144
-[; ;MASTER_Proyecto.c: 144:         I2C_Master_Write(0xF1);
-[e ( _I2C_Master_Write (1 -> -> 241 `i `ui ]
-"145
-[; ;MASTER_Proyecto.c: 145:         Val_PESO = I2C_Master_Read(0);
-[e = _Val_PESO -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"146
-[; ;MASTER_Proyecto.c: 146:         I2C_Master_Stop();
+"139
+[; ;MASTER_Proyecto.c: 139:         I2C_Master_Write(0xC1);
+[e ( _I2C_Master_Write (1 -> -> 193 `i `ui ]
+"140
+[; ;MASTER_Proyecto.c: 140:         Val_TEMP = I2C_Master_Read(0);
+[e = _Val_TEMP -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"141
+[; ;MASTER_Proyecto.c: 141:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"147
-[; ;MASTER_Proyecto.c: 147:         _delay((unsigned long)((200)*(8000000/4000.0)));
+"142
+[; ;MASTER_Proyecto.c: 142:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"154
-[; ;MASTER_Proyecto.c: 154:         if (Val_INT == 1){
-[e $ ! == -> _Val_INT `i -> 1 `i 142  ]
-{
-"155
-[; ;MASTER_Proyecto.c: 155:             LCD_POINT(2,2);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"156
-[; ;MASTER_Proyecto.c: 156:             lcd_msg("OFF");
-[e ( _lcd_msg (1 :s 4C ]
+"146
+[; ;MASTER_Proyecto.c: 146:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"147
+[; ;MASTER_Proyecto.c: 147:         I2C_Master_Write(0xE1);
+[e ( _I2C_Master_Write (1 -> -> 225 `i `ui ]
+"148
+[; ;MASTER_Proyecto.c: 148:         Val_PESO = I2C_Master_Read(0);
+[e = _Val_PESO -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"149
+[; ;MASTER_Proyecto.c: 149:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"150
+[; ;MASTER_Proyecto.c: 150:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "157
-[; ;MASTER_Proyecto.c: 157:         }else{
-}
-[e $U 143  ]
-[e :U 142 ]
+[; ;MASTER_Proyecto.c: 157:         if (Val_INT == 1){
+[e $ ! == -> _Val_INT `i -> 1 `i 142  ]
 {
 "158
 [; ;MASTER_Proyecto.c: 158:             LCD_POINT(2,2);
 [e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
 "159
-[; ;MASTER_Proyecto.c: 159:             lcd_msg("ON");
-[e ( _lcd_msg (1 :s 5C ]
+[; ;MASTER_Proyecto.c: 159:             lcd_msg("OFF");
+[e ( _lcd_msg (1 :s 4C ]
 "160
-[; ;MASTER_Proyecto.c: 160:         }
+[; ;MASTER_Proyecto.c: 160:         }else{
+}
+[e $U 143  ]
+[e :U 142 ]
+{
+"161
+[; ;MASTER_Proyecto.c: 161:             LCD_POINT(2,2);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"162
+[; ;MASTER_Proyecto.c: 162:             lcd_msg("ON");
+[e ( _lcd_msg (1 :s 5C ]
+"163
+[; ;MASTER_Proyecto.c: 163:         }
 }
 [e :U 143 ]
-"164
-[; ;MASTER_Proyecto.c: 164:         if (Val_MOV == 1){
-[e $ ! == -> _Val_MOV `i -> 1 `i 144  ]
-{
-"165
-[; ;MASTER_Proyecto.c: 165:             LCD_POINT(2,10);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
-"166
-[; ;MASTER_Proyecto.c: 166:             lcd_msg("ON");
-[e ( _lcd_msg (1 :s 6C ]
 "167
-[; ;MASTER_Proyecto.c: 167:         }else{
+[; ;MASTER_Proyecto.c: 167:         if (Val_MOV == 0){
+[e $ ! == -> _Val_MOV `i -> 0 `i 144  ]
+{
+"168
+[; ;MASTER_Proyecto.c: 168:             LCD_POINT(2,6);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
+"169
+[; ;MASTER_Proyecto.c: 169:             lcd_msg("OFF");
+[e ( _lcd_msg (1 :s 6C ]
+"170
+[; ;MASTER_Proyecto.c: 170:         }else{
 }
 [e $U 145  ]
 [e :U 144 ]
 {
-"168
-[; ;MASTER_Proyecto.c: 168:             LCD_POINT(2,10);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
-"169
-[; ;MASTER_Proyecto.c: 169:             lcd_msg("OFF");
+"171
+[; ;MASTER_Proyecto.c: 171:             LCD_POINT(2,6);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
+"172
+[; ;MASTER_Proyecto.c: 172:             lcd_msg("ON");
 [e ( _lcd_msg (1 :s 7C ]
-"170
-[; ;MASTER_Proyecto.c: 170:         }
+"173
+[; ;MASTER_Proyecto.c: 173:         }
 }
 [e :U 145 ]
-"174
-[; ;MASTER_Proyecto.c: 174:         if (Val_VIB == 1){
+"177
+[; ;MASTER_Proyecto.c: 177:         if (Val_VIB == 1){
 [e $ ! == -> _Val_VIB `i -> 1 `i 146  ]
 {
-"175
-[; ;MASTER_Proyecto.c: 175:             LCD_POINT(2,6);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
-"176
-[; ;MASTER_Proyecto.c: 176:             lcd_msg("ON");
+"178
+[; ;MASTER_Proyecto.c: 178:             LCD_POINT(2,10);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+"179
+[; ;MASTER_Proyecto.c: 179:             lcd_msg("ON");
 [e ( _lcd_msg (1 :s 8C ]
-"177
-[; ;MASTER_Proyecto.c: 177:         }else{
+"180
+[; ;MASTER_Proyecto.c: 180:         }else{
 }
 [e $U 147  ]
 [e :U 146 ]
 {
-"178
-[; ;MASTER_Proyecto.c: 178:             LCD_POINT(2,6);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
-"179
-[; ;MASTER_Proyecto.c: 179:             lcd_msg("OFF");
+"181
+[; ;MASTER_Proyecto.c: 181:             LCD_POINT(2,10);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+"182
+[; ;MASTER_Proyecto.c: 182:             lcd_msg("OFF");
 [e ( _lcd_msg (1 :s 9C ]
-"180
-[; ;MASTER_Proyecto.c: 180:         }
+"183
+[; ;MASTER_Proyecto.c: 183:         }
 }
 [e :U 147 ]
-"181
-[; ;MASTER_Proyecto.c: 181:         _delay((unsigned long)((2000)*(8000000/4000.0)));
+"184
+[; ;MASTER_Proyecto.c: 184:         _delay((unsigned long)((2000)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"186
-[; ;MASTER_Proyecto.c: 186:         lcd_cmd(0x01);
-[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"188
-[; ;MASTER_Proyecto.c: 188:         LCD_POINT(1,2);
-[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
 "189
-[; ;MASTER_Proyecto.c: 189:         lcd_msg("TEMP");
-[e ( _lcd_msg (1 :s 10C ]
-"190
-[; ;MASTER_Proyecto.c: 190:         LCD_POINT(1,8);
-[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 8 `i `uc ]
-"191
-[; ;MASTER_Proyecto.c: 191:         lcd_msg("PESO");
-[e ( _lcd_msg (1 :s 11C ]
-"194
-[; ;MASTER_Proyecto.c: 194:         LCD_POINT(2,2);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"195
-[; ;MASTER_Proyecto.c: 195:         lcd_dwr('.');
-[e ( _lcd_dwr (1 -> -> 46 `ui `uc ]
-"197
-[; ;MASTER_Proyecto.c: 197:         LCD_POINT(2,4);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
-"198
-[; ;MASTER_Proyecto.c: 198:         lcd_dwr(0b11011111);
-[e ( _lcd_dwr (1 -> -> 223 `i `uc ]
-"199
-[; ;MASTER_Proyecto.c: 199:         LCD_POINT(2,5);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 5 `i `uc ]
-"200
-[; ;MASTER_Proyecto.c: 200:         lcd_dwr('C');
-[e ( _lcd_dwr (1 -> -> 67 `ui `uc ]
-"201
-[; ;MASTER_Proyecto.c: 201:         LCD_POINT(2,11);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 11 `i `uc ]
-"202
-[; ;MASTER_Proyecto.c: 202:         lcd_dwr('g');
-[e ( _lcd_dwr (1 -> -> 103 `ui `uc ]
-"210
-[; ;MASTER_Proyecto.c: 210:         K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
-[e = _K -> / .1.00 + -> _invT0 `d * -> _invBeta `d ( _log (1 - -> / _adcMax -> _Val_TEMP `f `d .1.00 `f ]
-"211
-[; ;MASTER_Proyecto.c: 211:         C = K - 293.15;
-[e = _C -> - -> _K `d .293.15 `f ]
-"213
-[; ;MASTER_Proyecto.c: 213:         ADC_PESO_V = (float)((Val_TEMP)/((float)51));
-[e = _ADC_PESO_V / -> -> _Val_TEMP `i `f -> -> 51 `i `f ]
-"217
-[; ;MASTER_Proyecto.c: 217:         POT_cien = (float)((C)*((float)10));
-[e = _POT_cien * _C -> -> 10 `i `f ]
-"218
-[; ;MASTER_Proyecto.c: 218:         DECI_1_POT = (uint16_t)(POT_cien);
-[e = _DECI_1_POT -> _POT_cien `ui ]
-"219
-[; ;MASTER_Proyecto.c: 219:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
-[e = _POT_D2 -> % _DECI_1_POT -> -> -> 10 `i `uc `ui `uc ]
-"221
-[; ;MASTER_Proyecto.c: 221:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
-[e = _DECI_2_POT / _DECI_1_POT -> -> 10 `i `ui ]
-"222
-[; ;MASTER_Proyecto.c: 222:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
-[e = _POT_D1 -> % _DECI_2_POT -> -> -> 10 `i `uc `ui `uc ]
-"224
-[; ;MASTER_Proyecto.c: 224:         TEMP_EN_1 = (uint16_t)((DECI_2_POT)/((uint16_t)10));
-[e = _TEMP_EN_1 -> / _DECI_2_POT -> -> 10 `i `ui `uc ]
-"225
-[; ;MASTER_Proyecto.c: 225:         TEMP_EN = (uint8_t)((TEMP_EN_1)%((uint8_t)10));
-[e = _TEMP_EN -> % -> _TEMP_EN_1 `i -> -> -> 10 `i `uc `i `uc ]
-"230
-[; ;MASTER_Proyecto.c: 230:         LCD_POINT(2,0);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-"231
-[; ;MASTER_Proyecto.c: 231:         lcd_dwr(Val_STR(TEMP_EN));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _TEMP_EN ]
-"233
-[; ;MASTER_Proyecto.c: 233:         LCD_POINT(2,1);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"234
-[; ;MASTER_Proyecto.c: 234:         lcd_dwr(Val_STR(POT_D1));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D1 ]
-"236
-[; ;MASTER_Proyecto.c: 236:         LCD_POINT(2,3);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
-"237
-[; ;MASTER_Proyecto.c: 237:         lcd_dwr(Val_STR(POT_D2));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D2 ]
-"262
-[; ;MASTER_Proyecto.c: 262:         _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"264
-[; ;MASTER_Proyecto.c: 264:         lcd_cmd(0x01);
+[; ;MASTER_Proyecto.c: 189:         lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"271
-[; ;MASTER_Proyecto.c: 271:         UART_Write(Val_INT);
+"191
+[; ;MASTER_Proyecto.c: 191:         LCD_POINT(1,2);
+[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
+"192
+[; ;MASTER_Proyecto.c: 192:         lcd_msg("TEMP");
+[e ( _lcd_msg (1 :s 10C ]
+"193
+[; ;MASTER_Proyecto.c: 193:         LCD_POINT(1,8);
+[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 8 `i `uc ]
+"194
+[; ;MASTER_Proyecto.c: 194:         lcd_msg("PESO");
+[e ( _lcd_msg (1 :s 11C ]
+"197
+[; ;MASTER_Proyecto.c: 197:         LCD_POINT(2,2);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"198
+[; ;MASTER_Proyecto.c: 198:         lcd_dwr('.');
+[e ( _lcd_dwr (1 -> -> 46 `ui `uc ]
+"200
+[; ;MASTER_Proyecto.c: 200:         LCD_POINT(2,4);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
+"201
+[; ;MASTER_Proyecto.c: 201:         lcd_dwr(0b11011111);
+[e ( _lcd_dwr (1 -> -> 223 `i `uc ]
+"202
+[; ;MASTER_Proyecto.c: 202:         LCD_POINT(2,5);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 5 `i `uc ]
+"203
+[; ;MASTER_Proyecto.c: 203:         lcd_dwr('C');
+[e ( _lcd_dwr (1 -> -> 67 `ui `uc ]
+"204
+[; ;MASTER_Proyecto.c: 204:         LCD_POINT(2,11);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 11 `i `uc ]
+"205
+[; ;MASTER_Proyecto.c: 205:         lcd_dwr('g');
+[e ( _lcd_dwr (1 -> -> 103 `ui `uc ]
+"213
+[; ;MASTER_Proyecto.c: 213:         K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
+[e = _K -> / .1.00 + -> _invT0 `d * -> _invBeta `d ( _log (1 - -> / _adcMax -> _Val_TEMP `f `d .1.00 `f ]
+"214
+[; ;MASTER_Proyecto.c: 214:         C = K - 273.15;
+[e = _C -> - -> _K `d .273.15 `f ]
+"216
+[; ;MASTER_Proyecto.c: 216:         ADC_PESO_V = (float)((Val_PESO)/((float)300));
+[e = _ADC_PESO_V / -> -> _Val_PESO `i `f -> -> 300 `i `f ]
+"220
+[; ;MASTER_Proyecto.c: 220:         POT_cien = (float)((C)*((float)10));
+[e = _POT_cien * _C -> -> 10 `i `f ]
+"221
+[; ;MASTER_Proyecto.c: 221:         DECI_1_POT = (uint16_t)(POT_cien);
+[e = _DECI_1_POT -> _POT_cien `ui ]
+"222
+[; ;MASTER_Proyecto.c: 222:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+[e = _POT_D2 -> % _DECI_1_POT -> -> -> 10 `i `uc `ui `uc ]
+"224
+[; ;MASTER_Proyecto.c: 224:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+[e = _DECI_2_POT / _DECI_1_POT -> -> 10 `i `ui ]
+"225
+[; ;MASTER_Proyecto.c: 225:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+[e = _POT_D1 -> % _DECI_2_POT -> -> -> 10 `i `uc `ui `uc ]
+"227
+[; ;MASTER_Proyecto.c: 227:         TEMP_EN_1 = (uint16_t)((DECI_2_POT)/((uint16_t)10));
+[e = _TEMP_EN_1 -> / _DECI_2_POT -> -> 10 `i `ui `uc ]
+"228
+[; ;MASTER_Proyecto.c: 228:         TEMP_EN = (uint8_t)((TEMP_EN_1)%((uint8_t)10));
+[e = _TEMP_EN -> % -> _TEMP_EN_1 `i -> -> -> 10 `i `uc `i `uc ]
+"232
+[; ;MASTER_Proyecto.c: 232:         LCD_POINT(2,0);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
+"233
+[; ;MASTER_Proyecto.c: 233:         lcd_dwr(Val_STR(TEMP_EN));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _TEMP_EN ]
+"235
+[; ;MASTER_Proyecto.c: 235:         LCD_POINT(2,1);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"236
+[; ;MASTER_Proyecto.c: 236:         lcd_dwr(Val_STR(POT_D1));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D1 ]
+"238
+[; ;MASTER_Proyecto.c: 238:         LCD_POINT(2,3);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"239
+[; ;MASTER_Proyecto.c: 239:         lcd_dwr(Val_STR(POT_D2));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D2 ]
+"244
+[; ;MASTER_Proyecto.c: 244:         RES_cien = (float)((ADC_PESO_V)*((float)100));
+[e = _RES_cien * _ADC_PESO_V -> -> 100 `i `f ]
+"245
+[; ;MASTER_Proyecto.c: 245:         DECI_1_RES = (uint16_t)(RES_cien);
+[e = _DECI_1_RES -> _RES_cien `ui ]
+"246
+[; ;MASTER_Proyecto.c: 246:         RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
+[e = _RES_D2 -> % _DECI_1_RES -> -> -> 10 `i `uc `ui `uc ]
+"248
+[; ;MASTER_Proyecto.c: 248:         DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
+[e = _DECI_2_RES / _DECI_1_RES -> -> 10 `i `ui ]
+"249
+[; ;MASTER_Proyecto.c: 249:         RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
+[e = _RES_D1 -> % _DECI_2_RES -> -> -> 10 `i `uc `ui `uc ]
+"255
+[; ;MASTER_Proyecto.c: 255:         LCD_POINT(2,9);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 9 `i `uc ]
+"256
+[; ;MASTER_Proyecto.c: 256:         lcd_dwr(Val_STR(RES_D1));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D1 ]
+"258
+[; ;MASTER_Proyecto.c: 258:         LCD_POINT(2,10);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+"259
+[; ;MASTER_Proyecto.c: 259:         lcd_dwr(Val_STR(RES_D2));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D2 ]
+"261
+[; ;MASTER_Proyecto.c: 261:         _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"263
+[; ;MASTER_Proyecto.c: 263:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"270
+[; ;MASTER_Proyecto.c: 270:         UART_Write(Val_INT);
 [e ( _UART_Write (1 -> _Val_INT `uc ]
-"272
-[; ;MASTER_Proyecto.c: 272:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"271
+[; ;MASTER_Proyecto.c: 271:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"276
-[; ;MASTER_Proyecto.c: 276:         UART_Write(Val_MOV);
+"275
+[; ;MASTER_Proyecto.c: 275:         UART_Write(Val_MOV);
 [e ( _UART_Write (1 -> _Val_MOV `uc ]
-"277
-[; ;MASTER_Proyecto.c: 277:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"276
+[; ;MASTER_Proyecto.c: 276:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"281
-[; ;MASTER_Proyecto.c: 281:         UART_Write(Val_VIB);
+"280
+[; ;MASTER_Proyecto.c: 280:         UART_Write(Val_VIB);
 [e ( _UART_Write (1 -> _Val_VIB `uc ]
-"282
-[; ;MASTER_Proyecto.c: 282:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"281
+[; ;MASTER_Proyecto.c: 281:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"286
-[; ;MASTER_Proyecto.c: 286:         UART_Write(Val_TEMP);
+"285
+[; ;MASTER_Proyecto.c: 285:         UART_Write(Val_TEMP);
 [e ( _UART_Write (1 -> _Val_TEMP `uc ]
-"287
-[; ;MASTER_Proyecto.c: 287:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"286
+[; ;MASTER_Proyecto.c: 286:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"291
-[; ;MASTER_Proyecto.c: 291:         UART_Write(Val_PESO);
+"290
+[; ;MASTER_Proyecto.c: 290:         UART_Write(Val_PESO);
 [e ( _UART_Write (1 -> _Val_PESO `uc ]
-"292
-[; ;MASTER_Proyecto.c: 292:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"291
+[; ;MASTER_Proyecto.c: 291:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"293
-[; ;MASTER_Proyecto.c: 293:     }
+"292
+[; ;MASTER_Proyecto.c: 292:     }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"294
-[; ;MASTER_Proyecto.c: 294:     return;
+"293
+[; ;MASTER_Proyecto.c: 293:     return;
 [e $UE 138  ]
-"295
-[; ;MASTER_Proyecto.c: 295: }
+"294
+[; ;MASTER_Proyecto.c: 294: }
 [e :UE 138 ]
 }
-"299
-[; ;MASTER_Proyecto.c: 299: void init(void){
+"298
+[; ;MASTER_Proyecto.c: 298: void init(void){
 [v _init `(v ~T0 @X0 1 ef ]
 {
 [e :U _init ]
 [f ]
-"300
-[; ;MASTER_Proyecto.c: 300:     TRISA = 0;
+"299
+[; ;MASTER_Proyecto.c: 299:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"301
-[; ;MASTER_Proyecto.c: 301:     TRISB = 0;
+"300
+[; ;MASTER_Proyecto.c: 300:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"302
-[; ;MASTER_Proyecto.c: 302:     TRISC = 0;
+"301
+[; ;MASTER_Proyecto.c: 301:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"303
-[; ;MASTER_Proyecto.c: 303:     TRISD = 0;
+"302
+[; ;MASTER_Proyecto.c: 302:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"304
-[; ;MASTER_Proyecto.c: 304:     ANSEL = 0;
+"303
+[; ;MASTER_Proyecto.c: 303:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"305
-[; ;MASTER_Proyecto.c: 305:     ANSELH = 0;
+"304
+[; ;MASTER_Proyecto.c: 304:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"306
-[; ;MASTER_Proyecto.c: 306:     I2C_Master_Init(100000);
+"305
+[; ;MASTER_Proyecto.c: 305:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"307
-[; ;MASTER_Proyecto.c: 307: }
+"306
+[; ;MASTER_Proyecto.c: 306: }
 [e :UE 148 ]
 }
-"312
-[; ;MASTER_Proyecto.c: 312: uint8_t Val_STR(uint8_t num){
+"311
+[; ;MASTER_Proyecto.c: 311: uint8_t Val_STR(uint8_t num){
 [v _Val_STR `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Val_STR ]
 [v _num `uc ~T0 @X0 1 r1 ]
 [f ]
-"313
-[; ;MASTER_Proyecto.c: 313:     switch(num){
+"312
+[; ;MASTER_Proyecto.c: 312:     switch(num){
 [e $U 151  ]
 {
-"314
-[; ;MASTER_Proyecto.c: 314:         case 0:
+"313
+[; ;MASTER_Proyecto.c: 313:         case 0:
 [e :U 152 ]
-"315
-[; ;MASTER_Proyecto.c: 315:             return '0';
+"314
+[; ;MASTER_Proyecto.c: 314:             return '0';
 [e ) -> -> 48 `ui `uc ]
 [e $UE 149  ]
-"317
-[; ;MASTER_Proyecto.c: 317:         case 1:
+"316
+[; ;MASTER_Proyecto.c: 316:         case 1:
 [e :U 153 ]
-"318
-[; ;MASTER_Proyecto.c: 318:             return '1';
+"317
+[; ;MASTER_Proyecto.c: 317:             return '1';
 [e ) -> -> 49 `ui `uc ]
 [e $UE 149  ]
-"320
-[; ;MASTER_Proyecto.c: 320:         case 2:
+"319
+[; ;MASTER_Proyecto.c: 319:         case 2:
 [e :U 154 ]
-"321
-[; ;MASTER_Proyecto.c: 321:             return '2';
+"320
+[; ;MASTER_Proyecto.c: 320:             return '2';
 [e ) -> -> 50 `ui `uc ]
 [e $UE 149  ]
-"323
-[; ;MASTER_Proyecto.c: 323:         case 3:
+"322
+[; ;MASTER_Proyecto.c: 322:         case 3:
 [e :U 155 ]
-"324
-[; ;MASTER_Proyecto.c: 324:             return '3';
+"323
+[; ;MASTER_Proyecto.c: 323:             return '3';
 [e ) -> -> 51 `ui `uc ]
 [e $UE 149  ]
-"326
-[; ;MASTER_Proyecto.c: 326:         case 4:
+"325
+[; ;MASTER_Proyecto.c: 325:         case 4:
 [e :U 156 ]
-"327
-[; ;MASTER_Proyecto.c: 327:             return '4';
+"326
+[; ;MASTER_Proyecto.c: 326:             return '4';
 [e ) -> -> 52 `ui `uc ]
 [e $UE 149  ]
-"329
-[; ;MASTER_Proyecto.c: 329:         case 5:
+"328
+[; ;MASTER_Proyecto.c: 328:         case 5:
 [e :U 157 ]
-"330
-[; ;MASTER_Proyecto.c: 330:             return '5';
+"329
+[; ;MASTER_Proyecto.c: 329:             return '5';
 [e ) -> -> 53 `ui `uc ]
 [e $UE 149  ]
-"332
-[; ;MASTER_Proyecto.c: 332:         case 6:
+"331
+[; ;MASTER_Proyecto.c: 331:         case 6:
 [e :U 158 ]
-"333
-[; ;MASTER_Proyecto.c: 333:             return '6';
+"332
+[; ;MASTER_Proyecto.c: 332:             return '6';
 [e ) -> -> 54 `ui `uc ]
 [e $UE 149  ]
-"335
-[; ;MASTER_Proyecto.c: 335:         case 7:
+"334
+[; ;MASTER_Proyecto.c: 334:         case 7:
 [e :U 159 ]
-"336
-[; ;MASTER_Proyecto.c: 336:             return '7';
+"335
+[; ;MASTER_Proyecto.c: 335:             return '7';
 [e ) -> -> 55 `ui `uc ]
 [e $UE 149  ]
-"338
-[; ;MASTER_Proyecto.c: 338:         case 8:
+"337
+[; ;MASTER_Proyecto.c: 337:         case 8:
 [e :U 160 ]
-"339
-[; ;MASTER_Proyecto.c: 339:             return '8';
+"338
+[; ;MASTER_Proyecto.c: 338:             return '8';
 [e ) -> -> 56 `ui `uc ]
 [e $UE 149  ]
-"341
-[; ;MASTER_Proyecto.c: 341:         case 9:
+"340
+[; ;MASTER_Proyecto.c: 340:         case 9:
 [e :U 161 ]
-"342
-[; ;MASTER_Proyecto.c: 342:             return '9';
+"341
+[; ;MASTER_Proyecto.c: 341:             return '9';
 [e ) -> -> 57 `ui `uc ]
 [e $UE 149  ]
-"344
-[; ;MASTER_Proyecto.c: 344:     }
+"343
+[; ;MASTER_Proyecto.c: 343:     }
 }
 [e $U 150  ]
 [e :U 151 ]
@@ -986,8 +1025,8 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 9 `i 161
  150 ]
 [e :U 150 ]
-"345
-[; ;MASTER_Proyecto.c: 345: }
+"344
+[; ;MASTER_Proyecto.c: 344: }
 [e :UE 149 ]
 }
 [a 2C 77 79 86 0 ]
@@ -995,9 +1034,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 10C 84 69 77 80 0 ]
 [a 11C 80 69 83 79 0 ]
 [a 5C 79 78 0 ]
-[a 6C 79 78 0 ]
+[a 7C 79 78 0 ]
 [a 8C 79 78 0 ]
 [a 4C 79 70 70 0 ]
-[a 7C 79 70 70 0 ]
+[a 6C 79 70 70 0 ]
 [a 9C 79 70 70 0 ]
 [a 3C 86 73 66 0 ]

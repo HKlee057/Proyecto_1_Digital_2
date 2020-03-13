@@ -65,6 +65,9 @@ float C;
 uint8_t TEMP_EN = 0;
 uint8_t TEMP_EN_1 = 0;
 
+uint8_t PESO_EN = 0;
+uint8_t PESO_EN_1 = 0;
+
 uint8_t POT_EN = 0;
 uint8_t RES_EN = 0;
 uint8_t POT_D1 = 0;
@@ -141,7 +144,7 @@ void main(void) {
         //Lectura de Sensor de Peso
         //**********************************************************************
         I2C_Master_Start();
-        I2C_Master_Write(0xF1);
+        I2C_Master_Write(0xE1);
         Val_PESO = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
@@ -161,21 +164,21 @@ void main(void) {
         //******************************************************************************************
         // Proceso para obtener el estado del sensor de movimiento
         //******************************************************************************************
-        if (Val_MOV == 1){
-            LCD_POINT(2,10);
-            lcd_msg("ON");
-        }else{
-            LCD_POINT(2,10);
+        if (Val_MOV == 0){
+            LCD_POINT(2,6);
             lcd_msg("OFF");
+        }else{
+            LCD_POINT(2,6);
+            lcd_msg("ON");
         }
         //******************************************************************************************
         // Proceso para obtener el estado del sensor de vibracion
         //******************************************************************************************
         if (Val_VIB == 1){
-            LCD_POINT(2,6);
+            LCD_POINT(2,10);
             lcd_msg("ON");
         }else{
-            LCD_POINT(2,6);
+            LCD_POINT(2,10);
             lcd_msg("OFF");
         } 
         __delay_ms(2000);
@@ -208,9 +211,9 @@ void main(void) {
         ADC_TEMP_V = (float)((((float)710)-(Val_TEMP))/((float)6));             //Realiza la conversión de binario a valor de voltaje correspondiente
         */
         K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
-        C = K - 293.15;
+        C = K - 273.15;
         
-        ADC_PESO_V = (float)((Val_TEMP)/((float)51));                           //Realiza la conversión de binario a valor de voltaje correspondiente
+        ADC_PESO_V = (float)((Val_PESO)/((float)300));                         //Realiza la conversión de binario a valor de voltaje correspondiente
         //******************************************************************************************
         // Proceso para obtener dos enteros, y un decimal del dato del SENSOR DE TEMPERATURA
         //******************************************************************************************
@@ -223,7 +226,6 @@ void main(void) {
         
         TEMP_EN_1 = (uint16_t)((DECI_2_POT)/((uint16_t)10));
         TEMP_EN = (uint8_t)((TEMP_EN_1)%((uint8_t)10));
-        //POT_EN = (uint16_t)(TEMP_EN_1);                         //Se convierte el valor float a entero -> 2.546 => 2
         //**************************************************************************
         // Se envían cada uno de los digitos a la columna correspondiente de la LCD 
         //**************************************************************************
@@ -235,30 +237,27 @@ void main(void) {
         
         LCD_POINT(2,3);
         lcd_dwr(Val_STR(POT_D2));                               //Se envía el caracter correspondiente al decimal
-        /*
+        
         //******************************************************************************************
         // Proceso para obtener el entero, y dos decimales del dato del SENSOR DE PESO
         //******************************************************************************************
-        POT_cien = (float)((ADC_PESO_V)*((float)100));           //Se multiplica el valor de voltaje por cien -> 2.5456 => 254.6
-        DECI_1_POT = (uint16_t)(POT_cien);                      //El valor anterior se vuelve entero -> 254.6 => 254
-        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el segundo decimal -> 254 => 4
+        RES_cien = (float)((ADC_PESO_V)*((float)100));           //Se multiplica el valor de voltaje por cien -> 2.5456 => 254.6
+        DECI_1_RES = (uint16_t)(RES_cien);                      //El valor anterior se vuelve entero -> 254.6 => 254
+        RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));         //Se realiza la división mod. obteniendo el decimal -> 254 => 4
         
-        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
-        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));         //Se realiza la división mod. obteniendo el primer decimal -> 25 => 5
-        
-        POT_EN = (uint16_t)(ADC_PESO_V);                         //Se convierte el valor float a entero -> 2.546 => 2
+        DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));   //Se divide dentro de 10 el valor en entero -> 254 => 25
+        RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));         //Se realiza la división mod. obteniendo el primer decimal -> 25 => 5
+
         //**************************************************************************
         // Se envían cada uno de los digitos a la columna correspondiente de la LCD 
         //**************************************************************************
-        LCD_POINT(2,8);
-        lcd_dwr(Val_STR(POT_EN));                               //Se envía el caracter correspondiente al entero
                 
         LCD_POINT(2,9);
-        lcd_dwr(Val_STR(POT_D1));                               //Se envía el caracter correspondiente al primer decimal
+        lcd_dwr(Val_STR(RES_D1));                               //Se envía el caracter correspondiente al primer decimal
         
         LCD_POINT(2,10);
-        lcd_dwr(Val_STR(POT_D2));                               //Se envía el caracter correspondiente al segundo decimal
-        */
+        lcd_dwr(Val_STR(RES_D2));                               //Se envía el caracter correspondiente al segundo decimal
+        
         __delay_ms(2000);
         
         lcd_cmd(0x01);

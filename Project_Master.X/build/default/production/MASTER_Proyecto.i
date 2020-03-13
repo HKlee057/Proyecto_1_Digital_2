@@ -2787,6 +2787,9 @@ float C;
 uint8_t TEMP_EN = 0;
 uint8_t TEMP_EN_1 = 0;
 
+uint8_t PESO_EN = 0;
+uint8_t PESO_EN_1 = 0;
+
 uint8_t POT_EN = 0;
 uint8_t RES_EN = 0;
 uint8_t POT_D1 = 0;
@@ -2863,7 +2866,7 @@ void main(void) {
 
 
         I2C_Master_Start();
-        I2C_Master_Write(0xF1);
+        I2C_Master_Write(0xE1);
         Val_PESO = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(8000000/4000.0)));
@@ -2883,21 +2886,21 @@ void main(void) {
 
 
 
-        if (Val_MOV == 1){
-            LCD_POINT(2,10);
-            lcd_msg("ON");
-        }else{
-            LCD_POINT(2,10);
+        if (Val_MOV == 0){
+            LCD_POINT(2,6);
             lcd_msg("OFF");
+        }else{
+            LCD_POINT(2,6);
+            lcd_msg("ON");
         }
 
 
 
         if (Val_VIB == 1){
-            LCD_POINT(2,6);
+            LCD_POINT(2,10);
             lcd_msg("ON");
         }else{
-            LCD_POINT(2,6);
+            LCD_POINT(2,10);
             lcd_msg("OFF");
         }
         _delay((unsigned long)((2000)*(8000000/4000.0)));
@@ -2930,9 +2933,9 @@ void main(void) {
 
 
         K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
-        C = K - 293.15;
+        C = K - 273.15;
 
-        ADC_PESO_V = (float)((Val_TEMP)/((float)51));
+        ADC_PESO_V = (float)((Val_PESO)/((float)300));
 
 
 
@@ -2948,7 +2951,6 @@ void main(void) {
 
 
 
-
         LCD_POINT(2,0);
         lcd_dwr(Val_STR(TEMP_EN));
 
@@ -2957,7 +2959,27 @@ void main(void) {
 
         LCD_POINT(2,3);
         lcd_dwr(Val_STR(POT_D2));
-# 262 "MASTER_Proyecto.c"
+
+
+
+
+        RES_cien = (float)((ADC_PESO_V)*((float)100));
+        DECI_1_RES = (uint16_t)(RES_cien);
+        RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
+
+        DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
+        RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
+
+
+
+
+
+        LCD_POINT(2,9);
+        lcd_dwr(Val_STR(RES_D1));
+
+        LCD_POINT(2,10);
+        lcd_dwr(Val_STR(RES_D2));
+
         _delay((unsigned long)((2000)*(8000000/4000.0)));
 
         lcd_cmd(0x01);
