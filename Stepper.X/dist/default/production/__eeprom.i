@@ -1,4 +1,4 @@
-# 1 "MASTER_Proyecto.c"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\sources\\c90\\pic\\__eeprom.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,29 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MASTER_Proyecto.c" 2
-# 12 "MASTER_Proyecto.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-
-
-
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2513,559 +2491,176 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 32 "MASTER_Proyecto.c" 2
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
 
 
 
+void
+__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
+{
+ volatile unsigned char *cp = to;
 
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)from;
+ while(size--) {
+  while (EECON1bits.WR) continue;
 
+  EECON1 &= 0x7F;
 
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 33 "MASTER_Proyecto.c" 2
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\math.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\__unsupported.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\math.h" 2 3
-# 30 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\math.h" 3
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double) ;
-extern double cos(double) ;
-extern double tan(double) ;
-extern double asin(double) ;
-extern double acos(double) ;
-extern double atan(double);
-extern double atan2(double, double) ;
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double) ;
-extern double exp(double) ;
-extern double sinh(double) ;
-extern double cosh(double) ;
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
-# 34 "MASTER_Proyecto.c" 2
-
-# 1 "./I2C.h" 1
-# 25 "./I2C.h"
-void I2C_Master_Init(const unsigned long c);
-
-
-
-
-
-
-
-void I2C_Master_Wait(void);
-
-
-
-void I2C_Master_Start(void);
-
-
-
-void I2C_Master_RepeatedStart(void);
-
-
-
-void I2C_Master_Stop(void);
-
-
-
-
-
-void I2C_Master_Write(unsigned d);
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a);
-
-
-
-void I2C_Slave_Init(uint8_t address);
-# 35 "MASTER_Proyecto.c" 2
-
-# 1 "./LCD.h" 1
-# 36 "./LCD.h"
-void lcd_cmd(unsigned char x);
-void lcd_dwr(unsigned char x);
-void lcd_msg(unsigned char *c);
-void lcd_ready(void);
-void lcd_lat(void);
-void lcd_init(void);
-void LCD_POINT (uint8_t lin, uint8_t col);
-# 36 "MASTER_Proyecto.c" 2
-
-# 1 "./Oscilador.h" 1
-# 11 "./Oscilador.h"
-#pragma config FOSC = INTRC_NOCLKOUT
-
-
-
-
-
-
-
-void initOsc(uint8_t frec);
-# 37 "MASTER_Proyecto.c" 2
-
-# 1 "./UART.h" 1
-# 25 "./UART.h"
-uint8_t UART_Init(const long int baudrate);
-uint8_t UART_Read(void);
-void UART_Read_Text(char *Output, unsigned int length);
-void UART_Write(char data);
-void UART_Write_Text(char *text);
-# 38 "MASTER_Proyecto.c" 2
-
-
-
-
-
-void init(void);
-uint8_t Val_STR(uint8_t num);
-
-
-
-uint8_t Val_INT = 0;
-uint8_t Val_MOV = 0;
-uint8_t Val_VIB = 0;
-uint8_t Val_TEMP = 0;
-uint8_t Val_PESO = 0;
-
-float ADC_TEMP_V = 0;
-float ADC_PESO_V;
-float POT_cien = 0;
-float RES_cien = 0;
-
-const float invBeta = 1.00/3380.00;
-const float adcMax = 1023.00;
-const float invT0 = 1.00/298.15;
-float K;
-float C;
-
-uint8_t TEMP_EN = 0;
-uint8_t TEMP_EN_1 = 0;
-
-uint8_t PESO_EN = 0;
-uint8_t PESO_EN_1 = 0;
-
-uint8_t POT_EN = 0;
-uint8_t RES_EN = 0;
-uint8_t POT_D1 = 0;
-uint8_t POT_D2 = 0;
-uint8_t RES_D1 = 0;
-uint8_t RES_D2 = 0;
-uint8_t CONT_U = 0;
-uint8_t CONT_D = 0;
-uint8_t CONT_C = 0;
-uint8_t i=0;
-uint8_t estado=1;
-
-uint16_t DECI_1_POT = 0;
-uint16_t DECI_2_POT = 0;
-uint16_t DECI_1_RES = 0;
-uint16_t DECI_2_RES = 0;
-
-
-
-void main(void) {
-    initOsc(7);
-    init();
-    lcd_init();
-    UART_Init(9600);
-
-    PORTA = 0;
-    PORTB = 0;
-    PORTC = 0;
-    PORTD = 0;
-    PORTE = 0;
-
-    while (1){
-
-        LCD_POINT(1,2);
-        lcd_msg("INT");
-        LCD_POINT(1,6);
-        lcd_msg("MOV");
-        LCD_POINT(1,10);
-        lcd_msg("VIB");
-
-
-
-
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x31);
-        Val_INT = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x61);
-        Val_MOV = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x91);
-        Val_VIB = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0xC1);
-        Val_TEMP = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-# 159 "MASTER_Proyecto.c"
-        if (Val_INT == 1){
-            LCD_POINT(2,2);
-            lcd_msg("OFF");
-        }else{
-            LCD_POINT(2,2);
-            lcd_msg("ON");
-        }
-
-
-
-        if (Val_MOV == 0){
-            LCD_POINT(2,6);
-            lcd_msg("OFF");
-        }else{
-            LCD_POINT(2,6);
-            lcd_msg("ON");
-        }
-
-
-
-        if (Val_VIB == 1){
-            LCD_POINT(2,10);
-            lcd_msg("ON");
-        }else{
-            LCD_POINT(2,10);
-            lcd_msg("OFF");
-        }
-        _delay((unsigned long)((2000)*(8000000/4000.0)));
-
-
-
-
-        lcd_cmd(0x01);
-
-        LCD_POINT(1,2);
-        lcd_msg("TEMP");
-        LCD_POINT(1,8);
-        lcd_msg("PESO");
-
-
-        LCD_POINT(2,2);
-        lcd_dwr('.');
-
-        LCD_POINT(2,4);
-        lcd_dwr(0b11011111);
-        LCD_POINT(2,5);
-        lcd_dwr('C');
-        LCD_POINT(2,11);
-        lcd_dwr('g');
-
-
-
-
-
-
-
-        K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
-        C = K - 273.15;
-
-        ADC_PESO_V = (float)((Val_PESO)/((float)300));
-
-
-
-        POT_cien = (float)((C)*((float)10));
-        DECI_1_POT = (uint16_t)(POT_cien);
-        POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
-
-        DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
-        POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
-
-        TEMP_EN_1 = (uint16_t)((DECI_2_POT)/((uint16_t)10));
-        TEMP_EN = (uint8_t)((TEMP_EN_1)%((uint8_t)10));
-
-
-
-        LCD_POINT(2,0);
-        lcd_dwr(Val_STR(TEMP_EN));
-
-        LCD_POINT(2,1);
-        lcd_dwr(Val_STR(POT_D1));
-
-        LCD_POINT(2,3);
-        lcd_dwr(Val_STR(POT_D2));
-
-
-
-
-        RES_cien = (float)((ADC_PESO_V)*((float)100));
-        DECI_1_RES = (uint16_t)(RES_cien);
-        RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
-
-        DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
-        RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
-
-
-
-
-
-        LCD_POINT(2,9);
-        lcd_dwr(Val_STR(RES_D1));
-
-        LCD_POINT(2,10);
-        lcd_dwr(Val_STR(RES_D2));
-
-        _delay((unsigned long)((2000)*(8000000/4000.0)));
-
-        lcd_cmd(0x01);
-
-
-
-
-        if (Val_INT == 0 || Val_MOV == 1 || Val_VIB == 1 ){
-            estado = 1;
-        }else{
-            estado = 0;
-        }
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x80);
-        I2C_Master_Write(estado);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-
-
-
-
-
-        UART_Write(Val_INT);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_MOV);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_VIB);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_TEMP);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_PESO);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-    }
-    return;
+  EECON1bits.RD = 1;
+  *cp++ = EEDATA;
+  ++EEADR;
+ }
+# 36 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\sources\\c90\\pic\\__eeprom.c"
 }
 
+void
+__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
+{
+ const unsigned char *ptr =from;
 
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)to - 1U;
 
-void init(void){
-    TRISA = 0;
-    TRISB = 0;
-    TRISC = 0;
-    TRISD = 0;
-    TRISE = 0b00000110;
-    ANSEL = 0;
-    ANSELH = 0;
-    I2C_Master_Init(100000);
+ EECON1 &= 0x7F;
+
+ while(size--) {
+  while (EECON1bits.WR) {
+   continue;
+  }
+  EEDATA = *ptr++;
+  ++EEADR;
+  STATUSbits.CARRY = 0;
+  if (INTCONbits.GIE) {
+   STATUSbits.CARRY = 1;
+  }
+  INTCONbits.GIE = 0;
+  EECON1bits.WREN = 1;
+  EECON2 = 0x55;
+  EECON2 = 0xAA;
+  EECON1bits.WR = 1;
+  EECON1bits.WREN = 0;
+  if (STATUSbits.CARRY) {
+   INTCONbits.GIE = 1;
+  }
+ }
+# 101 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\sources\\c90\\pic\\__eeprom.c"
 }
 
+unsigned char
+__eetoc(__eeprom void *addr)
+{
+ unsigned char data;
+ __eecpymem((unsigned char *) &data,addr,1);
+ return data;
+}
 
+unsigned int
+__eetoi(__eeprom void *addr)
+{
+ unsigned int data;
+ __eecpymem((unsigned char *) &data,addr,2);
+ return data;
+}
 
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__eetom(__eeprom void *addr)
+{
+ __uint24 data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+#pragma warning pop
 
-uint8_t Val_STR(uint8_t num){
-    switch(num){
-        case 0:
-            return '0';
+unsigned long
+__eetol(__eeprom void *addr)
+{
+ unsigned long data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
 
-        case 1:
-            return '1';
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__eetoo(__eeprom void *addr)
+{
+ unsigned long long data;
+ __eecpymem((unsigned char *) &data,addr,8);
+ return data;
+}
+#pragma warning pop
 
-        case 2:
-            return '2';
+unsigned char
+__ctoee(__eeprom void *addr, unsigned char data)
+{
+ __memcpyee(addr,(unsigned char *) &data,1);
+ return data;
+}
 
-        case 3:
-            return '3';
+unsigned int
+__itoee(__eeprom void *addr, unsigned int data)
+{
+ __memcpyee(addr,(unsigned char *) &data,2);
+ return data;
+}
 
-        case 4:
-            return '4';
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__mtoee(__eeprom void *addr, __uint24 data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+#pragma warning pop
 
-        case 5:
-            return '5';
+unsigned long
+__ltoee(__eeprom void *addr, unsigned long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
+}
 
-        case 6:
-            return '6';
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__otoee(__eeprom void *addr, unsigned long long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,8);
+ return data;
+}
+#pragma warning pop
 
-        case 7:
-            return '7';
+float
+__eetoft(__eeprom void *addr)
+{
+ float data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
 
-        case 8:
-            return '8';
+double
+__eetofl(__eeprom void *addr)
+{
+ double data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
 
-        case 9:
-            return '9';
+float
+__fttoee(__eeprom void *addr, float data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
 
-    }
+double
+__fltoee(__eeprom void *addr, double data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
 }

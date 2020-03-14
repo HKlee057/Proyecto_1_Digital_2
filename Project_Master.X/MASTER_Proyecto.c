@@ -78,6 +78,7 @@ uint8_t CONT_U = 0;
 uint8_t CONT_D = 0;
 uint8_t CONT_C = 0;
 uint8_t i=0;
+uint8_t estado=1;
 
 uint16_t DECI_1_POT = 0;
 uint16_t DECI_2_POT = 0;
@@ -95,10 +96,11 @@ void main(void) {
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
-    PORTD = 0; //Se inicializan todas los puertos en 0
+    PORTD = 0;
+    PORTE = 0; //Se inicializan todas los puertos en 0
     
     while (1){
-       
+        
         LCD_POINT(1,2);
         lcd_msg("INT"); //Se envía el string INT para indicar que los datos mostrados son SENSOR DE INTERFERENCIA
         LCD_POINT(1,6);
@@ -143,11 +145,11 @@ void main(void) {
         //**********************************************************************
         //Lectura de Sensor de Peso
         //**********************************************************************
-        I2C_Master_Start();
+        /*I2C_Master_Start();
         I2C_Master_Write(0xE1);
         Val_PESO = I2C_Master_Read(0);
         I2C_Master_Stop();
-        __delay_ms(200);
+        __delay_ms(200);*/
         
         //**********************************************************************
         // CONVERSIÓN DE DATOS LEÍDOS
@@ -263,6 +265,21 @@ void main(void) {
         lcd_cmd(0x01);
         
         //**********************************************************************
+        //CONTROL DE STEPPER
+        //**********************************************************************
+        if (Val_INT == 0 || Val_MOV == 1 || Val_VIB == 1 /*|| ADC_PESO_V > 80*/){
+            estado = 1; //0
+        }else{
+            estado = 0;  //1
+        }
+        //estado = 1;
+        I2C_Master_Start();
+        I2C_Master_Write(0x80);
+        I2C_Master_Write(estado);
+        I2C_Master_Stop();
+        __delay_ms(200);        
+               
+        //**********************************************************************
         // COMUNICACIÓN UART - MANDA DATOS DE VARIABLES
         //**********************************************************************
         // Mandar datos de Sensor de Intereferencia
@@ -296,12 +313,13 @@ void main(void) {
 //Función de Inicialización de Puertos
 //******************************************************************************
 void init(void){
-    TRISA = 0;                      // PORTA configurado como entrada en RA0
+    TRISA = 0;                      // PORTA configurado como salida
     TRISB = 0;                      // PORTB configurado como salida
     TRISC = 0;                      // PORTC configurado como salida
     TRISD = 0;                      // PORTD configurado como salida
-    ANSEL = 0;                      // Pines connfigurados A0 y A3 como entradas analógicas
-    ANSELH = 0;                     //Pines configurados como digitales 
+    TRISE = 0b00000110;             // PORTE configurado como entrada en RE1 y RE2
+    ANSEL = 0;                      // Pines connfigurados como digitales
+    ANSELH = 0;                     // Pines configurados como digitales 
     I2C_Master_Init(100000);        // Inicializar Comuncación I2C
 }
 
