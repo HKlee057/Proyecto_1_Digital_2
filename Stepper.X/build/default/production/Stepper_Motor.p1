@@ -78,8 +78,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
 "19 ./Oscilador.h
 [v _initOsc `(v ~T0 @X0 0 ef1`uc ]
-"50 Stepper_Motor.c
-[; ;Stepper_Motor.c: 50: void init(void);
+"52 Stepper_Motor.c
+[; ;Stepper_Motor.c: 52: void init(void);
 [v _init `(v ~T0 @X0 0 ef ]
 "166 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
@@ -409,345 +409,387 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Stepper_Motor.c: 44: uint16_t move_servo;
 [v _move_servo `ui ~T0 @X0 1 e ]
 "45
-[; ;Stepper_Motor.c: 45: char k=0;
+[; ;Stepper_Motor.c: 45: char n=0;
+[v _n `uc ~T0 @X0 1 e ]
+[i _n
+-> -> 0 `i `uc
+]
+"46
+[; ;Stepper_Motor.c: 46: char m=0;
+[v _m `uc ~T0 @X0 1 e ]
+[i _m
+-> -> 0 `i `uc
+]
+"47
+[; ;Stepper_Motor.c: 47: char k=0;
 [v _k `uc ~T0 @X0 1 e ]
 [i _k
 -> -> 0 `i `uc
 ]
-"46
-[; ;Stepper_Motor.c: 46: char j=0;
+"48
+[; ;Stepper_Motor.c: 48: char j=0;
 [v _j `uc ~T0 @X0 1 e ]
 [i _j
 -> -> 0 `i `uc
 ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"55
-[; ;Stepper_Motor.c: 55: void __attribute__((picinterrupt(("")))) isr(void){
+"57
+[; ;Stepper_Motor.c: 57: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"57
-[; ;Stepper_Motor.c: 57:     if(PIR1bits.SSPIF == 1){
+"59
+[; ;Stepper_Motor.c: 59:     if(PIR1bits.SSPIF == 1){
 [e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 139  ]
 {
-"59
-[; ;Stepper_Motor.c: 59:             SSPCONbits.CKP = 0;
-[e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
 "61
-[; ;Stepper_Motor.c: 61:             if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+[; ;Stepper_Motor.c: 61:             SSPCONbits.CKP = 0;
+[e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
+"63
+[; ;Stepper_Motor.c: 63:             if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
 [e $ ! || != -> . . _SSPCONbits 0 3 `i -> 0 `i != -> . . _SSPCONbits 0 4 `i -> 0 `i 140  ]
 {
-"62
-[; ;Stepper_Motor.c: 62:                 z = SSPBUF;
-[e = _z _SSPBUF ]
-"63
-[; ;Stepper_Motor.c: 63:                 SSPCONbits.SSPOV = 0;
-[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
 "64
-[; ;Stepper_Motor.c: 64:                 SSPCONbits.WCOL = 0;
-[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
+[; ;Stepper_Motor.c: 64:                 z = SSPBUF;
+[e = _z _SSPBUF ]
 "65
-[; ;Stepper_Motor.c: 65:                 SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;Stepper_Motor.c: 65:                 SSPCONbits.SSPOV = 0;
+[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
 "66
-[; ;Stepper_Motor.c: 66:             }
+[; ;Stepper_Motor.c: 66:                 SSPCONbits.WCOL = 0;
+[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
+"67
+[; ;Stepper_Motor.c: 67:                 SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"68
+[; ;Stepper_Motor.c: 68:             }
 }
 [e :U 140 ]
-"68
-[; ;Stepper_Motor.c: 68:             if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+"70
+[; ;Stepper_Motor.c: 70:             if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i ! != -> . . _SSPSTATbits 0 2 `i -> 0 `i 141  ]
 {
-"69
-[; ;Stepper_Motor.c: 69:                 z = SSPBUF;
-[e = _z _SSPBUF ]
-"70
-[; ;Stepper_Motor.c: 70:                 PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "71
-[; ;Stepper_Motor.c: 71:                 SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;Stepper_Motor.c: 71:                 z = SSPBUF;
+[e = _z _SSPBUF ]
 "72
-[; ;Stepper_Motor.c: 72:                 while(!SSPSTATbits.BF);
+[; ;Stepper_Motor.c: 72:                 PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"73
+[; ;Stepper_Motor.c: 73:                 SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"74
+[; ;Stepper_Motor.c: 74:                 while(!SSPSTATbits.BF);
 [e $U 142  ]
 [e :U 143 ]
 [e :U 142 ]
 [e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 143  ]
 [e :U 144 ]
-"73
-[; ;Stepper_Motor.c: 73:                 PORTD = SSPBUF;
+"75
+[; ;Stepper_Motor.c: 75:                 PORTD = SSPBUF;
 [e = _PORTD _SSPBUF ]
-"74
-[; ;Stepper_Motor.c: 74:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "76
-[; ;Stepper_Motor.c: 76:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+[; ;Stepper_Motor.c: 76:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"78
+[; ;Stepper_Motor.c: 78:             }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
 }
 [e $U 145  ]
 [e :U 141 ]
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i != -> . . _SSPSTATbits 0 2 `i -> 0 `i 146  ]
 {
-"77
-[; ;Stepper_Motor.c: 77:                 z = SSPBUF;
-[e = _z _SSPBUF ]
-"78
-[; ;Stepper_Motor.c: 78:                 BF = 0;
-[e = _BF -> -> 0 `i `b ]
 "79
-[; ;Stepper_Motor.c: 79:                 SSPBUF = estado;
-[e = _SSPBUF _estado ]
+[; ;Stepper_Motor.c: 79:                 z = SSPBUF;
+[e = _z _SSPBUF ]
 "80
-[; ;Stepper_Motor.c: 80:                 SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;Stepper_Motor.c: 80:                 BF = 0;
+[e = _BF -> -> 0 `i `b ]
 "81
-[; ;Stepper_Motor.c: 81:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Stepper_Motor.c: 81:                 SSPBUF = estado;
+[e = _SSPBUF _estado ]
 "82
-[; ;Stepper_Motor.c: 82:                 while(SSPSTATbits.BF);
+[; ;Stepper_Motor.c: 82:                 SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"83
+[; ;Stepper_Motor.c: 83:                 _delay((unsigned long)((250)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"84
+[; ;Stepper_Motor.c: 84:                 while(SSPSTATbits.BF);
 [e $U 147  ]
 [e :U 148 ]
 [e :U 147 ]
 [e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 148  ]
 [e :U 149 ]
-"83
-[; ;Stepper_Motor.c: 83:             }
+"85
+[; ;Stepper_Motor.c: 85:             }
 }
 [e :U 146 ]
 [e :U 145 ]
-"85
-[; ;Stepper_Motor.c: 85:             PIR1bits.SSPIF = 0;
+"87
+[; ;Stepper_Motor.c: 87:             PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"86
-[; ;Stepper_Motor.c: 86:         }
+"88
+[; ;Stepper_Motor.c: 88:         }
 }
 [e :U 139 ]
-"87
-[; ;Stepper_Motor.c: 87: }
+"89
+[; ;Stepper_Motor.c: 89: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"91
-[; ;Stepper_Motor.c: 91: void main(void) {
+"93
+[; ;Stepper_Motor.c: 93: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"92
-[; ;Stepper_Motor.c: 92:     initOsc(7);
+"94
+[; ;Stepper_Motor.c: 94:     initOsc(7);
 [e ( _initOsc (1 -> -> 7 `i `uc ]
-"93
-[; ;Stepper_Motor.c: 93:     init();
-[e ( _init ..  ]
 "95
-[; ;Stepper_Motor.c: 95:     PORTA = 0x00;
-[e = _PORTA -> -> 0 `i `uc ]
-"96
-[; ;Stepper_Motor.c: 96:     PORTB = 0x00;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;Stepper_Motor.c: 95:     init();
+[e ( _init ..  ]
 "97
-[; ;Stepper_Motor.c: 97:     PORTC = 0x00;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;Stepper_Motor.c: 97:     PORTA = 0x00;
+[e = _PORTA -> -> 0 `i `uc ]
 "98
-[; ;Stepper_Motor.c: 98:     PORTD = 0x00;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;Stepper_Motor.c: 98:     PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
 "99
-[; ;Stepper_Motor.c: 99:     while (1){
+[; ;Stepper_Motor.c: 99:     PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
+"100
+[; ;Stepper_Motor.c: 100:     PORTD = 0x00;
+[e = _PORTD -> -> 0 `i `uc ]
+"101
+[; ;Stepper_Motor.c: 101:     while (1){
 [e :U 152 ]
 {
-"100
-[; ;Stepper_Motor.c: 100:         if(PORTD == 1){
+"102
+[; ;Stepper_Motor.c: 102:         if(PORTD == 1){
 [e $ ! == -> _PORTD `i -> 1 `i 154  ]
 {
-"101
-[; ;Stepper_Motor.c: 101:             PORTBbits.RB0 = 1;
-[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-"102
-[; ;Stepper_Motor.c: 102:             if(PORTEbits.RE1 == 1){
-[e $ ! == -> . . _PORTEbits 0 1 `i -> 1 `i 155  ]
-{
 "103
-[; ;Stepper_Motor.c: 103:                 for(k=0;k<250;k++){
+[; ;Stepper_Motor.c: 103:             PORTBbits.RB0 = 1;
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+"104
+[; ;Stepper_Motor.c: 104:             if(PORTEbits.RE2 == 1){
+[e $ ! == -> . . _PORTEbits 0 2 `i -> 1 `i 155  ]
 {
-[e = _k -> -> 0 `i `uc ]
-[e $ < -> _k `i -> 250 `i 156  ]
+"105
+[; ;Stepper_Motor.c: 105:                 for (n=0;n<=20;n++){
+{
+[e = _n -> -> 0 `i `uc ]
+[e $ <= -> _n `i -> 20 `i 156  ]
 [e $U 157  ]
 [e :U 156 ]
 {
-"104
-[; ;Stepper_Motor.c: 104:                     PORTA = 0b00000001;
-[e = _PORTA -> -> 1 `i `uc ]
-"105
-[; ;Stepper_Motor.c: 105:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "106
-[; ;Stepper_Motor.c: 106:                     PORTA = 0b00000011;
-[e = _PORTA -> -> 3 `i `uc ]
+[; ;Stepper_Motor.c: 106:                     for(k=0;k<250;k++){
+{
+[e = _k -> -> 0 `i `uc ]
+[e $ < -> _k `i -> 250 `i 159  ]
+[e $U 160  ]
+[e :U 159 ]
+{
 "107
-[; ;Stepper_Motor.c: 107:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 107:                         PORTA = 0b00000001;
+[e = _PORTA -> -> 1 `i `uc ]
 "108
-[; ;Stepper_Motor.c: 108:                     PORTA = 0b00000010;
-[e = _PORTA -> -> 2 `i `uc ]
+[; ;Stepper_Motor.c: 108:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "109
-[; ;Stepper_Motor.c: 109:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 109:                         PORTA = 0b00000011;
+[e = _PORTA -> -> 3 `i `uc ]
 "110
-[; ;Stepper_Motor.c: 110:                     PORTA = 0b00000110;
-[e = _PORTA -> -> 6 `i `uc ]
+[; ;Stepper_Motor.c: 110:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "111
-[; ;Stepper_Motor.c: 111:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 111:                         PORTA = 0b00000010;
+[e = _PORTA -> -> 2 `i `uc ]
 "112
-[; ;Stepper_Motor.c: 112:                     PORTA = 0b00001000;
-[e = _PORTA -> -> 8 `i `uc ]
+[; ;Stepper_Motor.c: 112:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "113
-[; ;Stepper_Motor.c: 113:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 113:                         PORTA = 0b00000110;
+[e = _PORTA -> -> 6 `i `uc ]
 "114
-[; ;Stepper_Motor.c: 114:                     PORTA = 0B00001001;
-[e = _PORTA -> -> 9 `i `uc ]
-"115
-[; ;Stepper_Motor.c: 115:                     _delay((unsigned long)((3)*(8000000/4000.0)));
+[; ;Stepper_Motor.c: 114:                         _delay((unsigned long)((3)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"115
+[; ;Stepper_Motor.c: 115:                         PORTA = 0b00001000;
+[e = _PORTA -> -> 8 `i `uc ]
 "116
-[; ;Stepper_Motor.c: 116:                 }
+[; ;Stepper_Motor.c: 116:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"117
+[; ;Stepper_Motor.c: 117:                         PORTA = 0B00001001;
+[e = _PORTA -> -> 9 `i `uc ]
+"118
+[; ;Stepper_Motor.c: 118:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"119
+[; ;Stepper_Motor.c: 119:                     }
 }
 [e ++ _k -> -> 1 `i `uc ]
-[e $ < -> _k `i -> 250 `i 156  ]
+[e $ < -> _k `i -> 250 `i 159  ]
+[e :U 160 ]
+}
+"120
+[; ;Stepper_Motor.c: 120:                 }
+}
+[e ++ _n -> -> 1 `i `uc ]
+[e $ <= -> _n `i -> 20 `i 156  ]
 [e :U 157 ]
 }
-"117
-[; ;Stepper_Motor.c: 117:             }
+"121
+[; ;Stepper_Motor.c: 121:             }
 }
 [e :U 155 ]
-"118
-[; ;Stepper_Motor.c: 118:             if(PORTEbits.RE2 == 1){
-[e $ ! == -> . . _PORTEbits 0 2 `i -> 1 `i 159  ]
+"122
+[; ;Stepper_Motor.c: 122:             if(PORTEbits.RE1 == 1){
+[e $ ! == -> . . _PORTEbits 0 1 `i -> 1 `i 162  ]
 {
-"119
-[; ;Stepper_Motor.c: 119:                 for(j=0;j<250;j++){
+"123
+[; ;Stepper_Motor.c: 123:                 for(m=0;m<=18;m++){
+{
+[e = _m -> -> 0 `i `uc ]
+[e $ <= -> _m `i -> 18 `i 163  ]
+[e $U 164  ]
+[e :U 163 ]
+{
+"124
+[; ;Stepper_Motor.c: 124:                     for(j=0;j<250;j++){
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 250 `i 160  ]
-[e $U 161  ]
-[e :U 160 ]
+[e $ < -> _j `i -> 250 `i 166  ]
+[e $U 167  ]
+[e :U 166 ]
 {
-"120
-[; ;Stepper_Motor.c: 120:                     PORTA=0b00001001;
-[e = _PORTA -> -> 9 `i `uc ]
-"121
-[; ;Stepper_Motor.c: 121:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"122
-[; ;Stepper_Motor.c: 122:                     PORTA=0b00001000;
-[e = _PORTA -> -> 8 `i `uc ]
-"123
-[; ;Stepper_Motor.c: 123:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"124
-[; ;Stepper_Motor.c: 124:                     PORTA=0b00001100;
-[e = _PORTA -> -> 12 `i `uc ]
 "125
-[; ;Stepper_Motor.c: 125:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 125:                         PORTA=0b00001001;
+[e = _PORTA -> -> 9 `i `uc ]
 "126
-[; ;Stepper_Motor.c: 126:                     PORTA=0b00000100;
-[e = _PORTA -> -> 4 `i `uc ]
+[; ;Stepper_Motor.c: 126:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "127
-[; ;Stepper_Motor.c: 127:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 127:                         PORTA=0b00001000;
+[e = _PORTA -> -> 8 `i `uc ]
 "128
-[; ;Stepper_Motor.c: 128:                     PORTA=0b00000110;
-[e = _PORTA -> -> 6 `i `uc ]
+[; ;Stepper_Motor.c: 128:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "129
-[; ;Stepper_Motor.c: 129:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 129:                         PORTA=0b00001100;
+[e = _PORTA -> -> 12 `i `uc ]
 "130
-[; ;Stepper_Motor.c: 130:                     PORTA=0b00000010;
-[e = _PORTA -> -> 2 `i `uc ]
+[; ;Stepper_Motor.c: 130:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "131
-[; ;Stepper_Motor.c: 131:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 131:                         PORTA=0b00000100;
+[e = _PORTA -> -> 4 `i `uc ]
 "132
-[; ;Stepper_Motor.c: 132:                     PORTA=0b00000011;
-[e = _PORTA -> -> 3 `i `uc ]
+[; ;Stepper_Motor.c: 132:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "133
-[; ;Stepper_Motor.c: 133:                     _delay((unsigned long)((3)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Stepper_Motor.c: 133:                         PORTA=0b00000110;
+[e = _PORTA -> -> 6 `i `uc ]
 "134
-[; ;Stepper_Motor.c: 134:                     PORTA=0b00000001;
-[e = _PORTA -> -> 1 `i `uc ]
-"135
-[; ;Stepper_Motor.c: 135:                     _delay((unsigned long)((3)*(8000000/4000.0)));
+[; ;Stepper_Motor.c: 134:                         _delay((unsigned long)((3)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"135
+[; ;Stepper_Motor.c: 135:                         PORTA=0b00000010;
+[e = _PORTA -> -> 2 `i `uc ]
 "136
-[; ;Stepper_Motor.c: 136:                 }
+[; ;Stepper_Motor.c: 136:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"137
+[; ;Stepper_Motor.c: 137:                         PORTA=0b00000011;
+[e = _PORTA -> -> 3 `i `uc ]
+"138
+[; ;Stepper_Motor.c: 138:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"139
+[; ;Stepper_Motor.c: 139:                         PORTA=0b00000001;
+[e = _PORTA -> -> 1 `i `uc ]
+"140
+[; ;Stepper_Motor.c: 140:                         _delay((unsigned long)((3)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"141
+[; ;Stepper_Motor.c: 141:                     }
 }
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 250 `i 160  ]
-[e :U 161 ]
+[e $ < -> _j `i -> 250 `i 166  ]
+[e :U 167 ]
 }
-"137
-[; ;Stepper_Motor.c: 137:             }
+"142
+[; ;Stepper_Motor.c: 142:                 }
 }
-[e :U 159 ]
-"138
-[; ;Stepper_Motor.c: 138:         }else{
+[e ++ _m -> -> 1 `i `uc ]
+[e $ <= -> _m `i -> 18 `i 163  ]
+[e :U 164 ]
 }
-[e $U 163  ]
+"143
+[; ;Stepper_Motor.c: 143:             }
+}
+[e :U 162 ]
+"144
+[; ;Stepper_Motor.c: 144:         }else{
+}
+[e $U 169  ]
 [e :U 154 ]
 {
-"139
-[; ;Stepper_Motor.c: 139:            PORTBbits.RB1 = 1;
+"145
+[; ;Stepper_Motor.c: 145:            PORTBbits.RB1 = 1;
 [e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
-"140
-[; ;Stepper_Motor.c: 140:         }
+"146
+[; ;Stepper_Motor.c: 146:         }
 }
-[e :U 163 ]
-"141
-[; ;Stepper_Motor.c: 141:     }
+[e :U 169 ]
+"147
+[; ;Stepper_Motor.c: 147:     }
 }
 [e :U 151 ]
 [e $U 152  ]
 [e :U 153 ]
-"142
-[; ;Stepper_Motor.c: 142:     return;
+"148
+[; ;Stepper_Motor.c: 148:     return;
 [e $UE 150  ]
-"143
-[; ;Stepper_Motor.c: 143: }
+"149
+[; ;Stepper_Motor.c: 149: }
 [e :UE 150 ]
 }
-"147
-[; ;Stepper_Motor.c: 147: void init(void){
+"153
+[; ;Stepper_Motor.c: 153: void init(void){
 [v _init `(v ~T0 @X0 1 ef ]
 {
 [e :U _init ]
 [f ]
-"148
-[; ;Stepper_Motor.c: 148:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
-"149
-[; ;Stepper_Motor.c: 149:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
-"150
-[; ;Stepper_Motor.c: 150:     TRISC = 0;
-[e = _TRISC -> -> 0 `i `uc ]
-"151
-[; ;Stepper_Motor.c: 151:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
-"152
-[; ;Stepper_Motor.c: 152:     TRISE = 0b00000110;
-[e = _TRISE -> -> 6 `i `uc ]
-"153
-[; ;Stepper_Motor.c: 153:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
 "154
-[; ;Stepper_Motor.c: 154:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
+[; ;Stepper_Motor.c: 154:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "155
-[; ;Stepper_Motor.c: 155:     I2C_Slave_Init(0x80);
-[e ( _I2C_Slave_Init (1 -> -> 128 `i `uc ]
+[; ;Stepper_Motor.c: 155:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
+"156
+[; ;Stepper_Motor.c: 156:     TRISC = 0;
+[e = _TRISC -> -> 0 `i `uc ]
 "157
-[; ;Stepper_Motor.c: 157: }
-[e :UE 164 ]
+[; ;Stepper_Motor.c: 157:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"158
+[; ;Stepper_Motor.c: 158:     TRISE = 0b00000110;
+[e = _TRISE -> -> 6 `i `uc ]
+"159
+[; ;Stepper_Motor.c: 159:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"160
+[; ;Stepper_Motor.c: 160:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"161
+[; ;Stepper_Motor.c: 161:     I2C_Slave_Init(0x80);
+[e ( _I2C_Slave_Init (1 -> -> 128 `i `uc ]
+"163
+[; ;Stepper_Motor.c: 163: }
+[e :UE 170 ]
 }

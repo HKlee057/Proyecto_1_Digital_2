@@ -42,6 +42,8 @@ uint8_t z;
 uint8_t estado;
 uint8_t sensor_signal;
 uint16_t move_servo;
+char n=0;
+char m=0;
 char k=0;
 char j=0;
 //******************************************************************************
@@ -99,40 +101,44 @@ void main(void) {
     while (1){
         if(PORTD == 1){
             PORTBbits.RB0 = 1;
-            if(PORTEbits.RE1 == 1){
-                for(k=0;k<250;k++){
-                    PORTA = 0b00000001;
-                    __delay_ms(3);
-                    PORTA = 0b00000011;
-                    __delay_ms(3);
-                    PORTA = 0b00000010;
-                    __delay_ms(3);
-                    PORTA = 0b00000110;
-                    __delay_ms(3);
-                    PORTA = 0b00001000;
-                    __delay_ms(3);
-                    PORTA = 0B00001001;
-                    __delay_ms(3);  
+            if(PORTEbits.RE2 == 1){
+                for (n=0;n<=20;n++){
+                    for(k=0;k<250;k++){
+                        PORTA = 0b00000001;
+                        __delay_ms(3);
+                        PORTA = 0b00000011;
+                        __delay_ms(3);
+                        PORTA = 0b00000010;
+                        __delay_ms(3);
+                        PORTA = 0b00000110;
+                        __delay_ms(3);
+                        PORTA = 0b00001000;
+                        __delay_ms(3);
+                        PORTA = 0B00001001;
+                        __delay_ms(3); 
+                    }                   
                 }
             }    
-            if(PORTEbits.RE2 == 1){
-                for(j=0;j<250;j++){
-                    PORTA=0b00001001; //Step 7
-                    __delay_ms(3);
-                    PORTA=0b00001000; //Step 6
-                    __delay_ms(3);
-                    PORTA=0b00001100; //Step 5
-                    __delay_ms(3);
-                    PORTA=0b00000100; //Step 4
-                    __delay_ms(3);
-                    PORTA=0b00000110; //Step 3
-                    __delay_ms(3);
-                    PORTA=0b00000010; //Step 2
-                    __delay_ms(3);
-                    PORTA=0b00000011; //Step 1
-                    __delay_ms(3);
-                    PORTA=0b00000001; //Step 0
-                    __delay_ms(3);  
+            if(PORTEbits.RE1 == 1){
+                for(m=0;m<=18;m++){
+                    for(j=0;j<250;j++){
+                        PORTA=0b00001001; //Step 7
+                        __delay_ms(3);
+                        PORTA=0b00001000; //Step 6
+                        __delay_ms(3);
+                        PORTA=0b00001100; //Step 5
+                        __delay_ms(3);
+                        PORTA=0b00000100; //Step 4
+                        __delay_ms(3);
+                        PORTA=0b00000110; //Step 3
+                        __delay_ms(3);
+                        PORTA=0b00000010; //Step 2
+                        __delay_ms(3);
+                        PORTA=0b00000011; //Step 1
+                        __delay_ms(3);
+                        PORTA=0b00000001; //Step 0
+                        __delay_ms(3);  
+                    }                    
                 }
             }            
         }else{

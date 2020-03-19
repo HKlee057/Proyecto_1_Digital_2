@@ -48,6 +48,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
+"28 ./UART.h
+[; ;./UART.h: 28: void UART_Write(char data);
+[v _UART_Write `(v ~T0 @X0 0 ef1`uc ]
 "36 ./LCD.h
 [; ;./LCD.h: 36: void lcd_cmd(unsigned char x);
 [v _lcd_cmd `(v ~T0 @X0 0 ef1`uc ]
@@ -60,9 +63,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44 MASTER_Proyecto.c
 [; ;MASTER_Proyecto.c: 44: uint8_t Val_STR(uint8_t num);
 [v _Val_STR `(uc ~T0 @X0 0 ef1`uc ]
-"28 ./UART.h
-[; ;./UART.h: 28: void UART_Write(char data);
-[v _UART_Write `(v ~T0 @X0 0 ef1`uc ]
 "1416 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
@@ -652,272 +652,287 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144
 [; ;MASTER_Proyecto.c: 144:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"159
-[; ;MASTER_Proyecto.c: 159:         if (Val_INT == 1){
-[e $ ! == -> _Val_INT `i -> 1 `i 142  ]
+"148
+[; ;MASTER_Proyecto.c: 148:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"149
+[; ;MASTER_Proyecto.c: 149:         I2C_Master_Write(0xE1);
+[e ( _I2C_Master_Write (1 -> -> 225 `i `ui ]
+"150
+[; ;MASTER_Proyecto.c: 150:         Val_PESO = I2C_Master_Read(0);
+[e = _Val_PESO -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"151
+[; ;MASTER_Proyecto.c: 151:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"152
+[; ;MASTER_Proyecto.c: 152:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"157
+[; ;MASTER_Proyecto.c: 157:         if (Val_VIB == 1 ){
+[e $ ! == -> _Val_VIB `i -> 1 `i 142  ]
 {
-"160
-[; ;MASTER_Proyecto.c: 160:             LCD_POINT(2,2);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"161
-[; ;MASTER_Proyecto.c: 161:             lcd_msg("OFF");
-[e ( _lcd_msg (1 :s 4C ]
-"162
-[; ;MASTER_Proyecto.c: 162:         }else{
+"158
+[; ;MASTER_Proyecto.c: 158:             estado = 0;
+[e = _estado -> -> 0 `i `uc ]
+"159
+[; ;MASTER_Proyecto.c: 159:         }else{
 }
 [e $U 143  ]
 [e :U 142 ]
 {
-"163
-[; ;MASTER_Proyecto.c: 163:             LCD_POINT(2,2);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"164
-[; ;MASTER_Proyecto.c: 164:             lcd_msg("ON");
-[e ( _lcd_msg (1 :s 5C ]
-"165
-[; ;MASTER_Proyecto.c: 165:         }
+"160
+[; ;MASTER_Proyecto.c: 160:             estado = 1;
+[e = _estado -> -> 1 `i `uc ]
+"161
+[; ;MASTER_Proyecto.c: 161:         }
 }
 [e :U 143 ]
-"169
-[; ;MASTER_Proyecto.c: 169:         if (Val_MOV == 0){
-[e $ ! == -> _Val_MOV `i -> 0 `i 144  ]
+"163
+[; ;MASTER_Proyecto.c: 163:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"164
+[; ;MASTER_Proyecto.c: 164:         I2C_Master_Write(0x80);
+[e ( _I2C_Master_Write (1 -> -> 128 `i `ui ]
+"165
+[; ;MASTER_Proyecto.c: 165:         I2C_Master_Write(estado);
+[e ( _I2C_Master_Write (1 -> _estado `ui ]
+"166
+[; ;MASTER_Proyecto.c: 166:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"167
+[; ;MASTER_Proyecto.c: 167:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"174
+[; ;MASTER_Proyecto.c: 174:         UART_Write(Val_INT);
+[e ( _UART_Write (1 -> _Val_INT `uc ]
+"175
+[; ;MASTER_Proyecto.c: 175:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"179
+[; ;MASTER_Proyecto.c: 179:         UART_Write(Val_MOV);
+[e ( _UART_Write (1 -> _Val_MOV `uc ]
+"180
+[; ;MASTER_Proyecto.c: 180:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"184
+[; ;MASTER_Proyecto.c: 184:         UART_Write(Val_VIB);
+[e ( _UART_Write (1 -> _Val_VIB `uc ]
+"185
+[; ;MASTER_Proyecto.c: 185:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"189
+[; ;MASTER_Proyecto.c: 189:         UART_Write(Val_TEMP);
+[e ( _UART_Write (1 -> _Val_TEMP `uc ]
+"190
+[; ;MASTER_Proyecto.c: 190:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"194
+[; ;MASTER_Proyecto.c: 194:         UART_Write(Val_PESO);
+[e ( _UART_Write (1 -> _Val_PESO `uc ]
+"195
+[; ;MASTER_Proyecto.c: 195:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"202
+[; ;MASTER_Proyecto.c: 202:         if (Val_INT == 1){
+[e $ ! == -> _Val_INT `i -> 1 `i 144  ]
 {
-"170
-[; ;MASTER_Proyecto.c: 170:             LCD_POINT(2,6);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
-"171
-[; ;MASTER_Proyecto.c: 171:             lcd_msg("OFF");
-[e ( _lcd_msg (1 :s 6C ]
-"172
-[; ;MASTER_Proyecto.c: 172:         }else{
+"203
+[; ;MASTER_Proyecto.c: 203:             LCD_POINT(2,2);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"204
+[; ;MASTER_Proyecto.c: 204:             lcd_msg("OFF");
+[e ( _lcd_msg (1 :s 4C ]
+"205
+[; ;MASTER_Proyecto.c: 205:         }else{
 }
 [e $U 145  ]
 [e :U 144 ]
 {
-"173
-[; ;MASTER_Proyecto.c: 173:             LCD_POINT(2,6);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
-"174
-[; ;MASTER_Proyecto.c: 174:             lcd_msg("ON");
-[e ( _lcd_msg (1 :s 7C ]
-"175
-[; ;MASTER_Proyecto.c: 175:         }
+"206
+[; ;MASTER_Proyecto.c: 206:             LCD_POINT(2,2);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"207
+[; ;MASTER_Proyecto.c: 207:             lcd_msg("ON");
+[e ( _lcd_msg (1 :s 5C ]
+"208
+[; ;MASTER_Proyecto.c: 208:         }
 }
 [e :U 145 ]
-"179
-[; ;MASTER_Proyecto.c: 179:         if (Val_VIB == 1){
-[e $ ! == -> _Val_VIB `i -> 1 `i 146  ]
+"212
+[; ;MASTER_Proyecto.c: 212:         if (Val_MOV == 0){
+[e $ ! == -> _Val_MOV `i -> 0 `i 146  ]
 {
-"180
-[; ;MASTER_Proyecto.c: 180:             LCD_POINT(2,10);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
-"181
-[; ;MASTER_Proyecto.c: 181:             lcd_msg("ON");
-[e ( _lcd_msg (1 :s 8C ]
-"182
-[; ;MASTER_Proyecto.c: 182:         }else{
+"213
+[; ;MASTER_Proyecto.c: 213:             LCD_POINT(2,6);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
+"214
+[; ;MASTER_Proyecto.c: 214:             lcd_msg("OFF");
+[e ( _lcd_msg (1 :s 6C ]
+"215
+[; ;MASTER_Proyecto.c: 215:         }else{
 }
 [e $U 147  ]
 [e :U 146 ]
 {
-"183
-[; ;MASTER_Proyecto.c: 183:             LCD_POINT(2,10);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
-"184
-[; ;MASTER_Proyecto.c: 184:             lcd_msg("OFF");
-[e ( _lcd_msg (1 :s 9C ]
-"185
-[; ;MASTER_Proyecto.c: 185:         }
+"216
+[; ;MASTER_Proyecto.c: 216:             LCD_POINT(2,6);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
+"217
+[; ;MASTER_Proyecto.c: 217:             lcd_msg("ON");
+[e ( _lcd_msg (1 :s 7C ]
+"218
+[; ;MASTER_Proyecto.c: 218:         }
 }
 [e :U 147 ]
-"186
-[; ;MASTER_Proyecto.c: 186:         _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"191
-[; ;MASTER_Proyecto.c: 191:         lcd_cmd(0x01);
-[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"193
-[; ;MASTER_Proyecto.c: 193:         LCD_POINT(1,2);
-[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
-"194
-[; ;MASTER_Proyecto.c: 194:         lcd_msg("TEMP");
-[e ( _lcd_msg (1 :s 10C ]
-"195
-[; ;MASTER_Proyecto.c: 195:         LCD_POINT(1,8);
-[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 8 `i `uc ]
-"196
-[; ;MASTER_Proyecto.c: 196:         lcd_msg("PESO");
-[e ( _lcd_msg (1 :s 11C ]
-"199
-[; ;MASTER_Proyecto.c: 199:         LCD_POINT(2,2);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
-"200
-[; ;MASTER_Proyecto.c: 200:         lcd_dwr('.');
-[e ( _lcd_dwr (1 -> -> 46 `ui `uc ]
-"202
-[; ;MASTER_Proyecto.c: 202:         LCD_POINT(2,4);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
-"203
-[; ;MASTER_Proyecto.c: 203:         lcd_dwr(0b11011111);
-[e ( _lcd_dwr (1 -> -> 223 `i `uc ]
-"204
-[; ;MASTER_Proyecto.c: 204:         LCD_POINT(2,5);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 5 `i `uc ]
-"205
-[; ;MASTER_Proyecto.c: 205:         lcd_dwr('C');
-[e ( _lcd_dwr (1 -> -> 67 `ui `uc ]
-"206
-[; ;MASTER_Proyecto.c: 206:         LCD_POINT(2,11);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 11 `i `uc ]
-"207
-[; ;MASTER_Proyecto.c: 207:         lcd_dwr('g');
-[e ( _lcd_dwr (1 -> -> 103 `ui `uc ]
-"215
-[; ;MASTER_Proyecto.c: 215:         K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
-[e = _K -> / .1.00 + -> _invT0 `d * -> _invBeta `d ( _log (1 - -> / _adcMax -> _Val_TEMP `f `d .1.00 `f ]
-"216
-[; ;MASTER_Proyecto.c: 216:         C = K - 273.15;
-[e = _C -> - -> _K `d .273.15 `f ]
-"218
-[; ;MASTER_Proyecto.c: 218:         ADC_PESO_V = (float)((Val_PESO)/((float)300));
-[e = _ADC_PESO_V / -> -> _Val_PESO `i `f -> -> 300 `i `f ]
 "222
-[; ;MASTER_Proyecto.c: 222:         POT_cien = (float)((C)*((float)10));
-[e = _POT_cien * _C -> -> 10 `i `f ]
-"223
-[; ;MASTER_Proyecto.c: 223:         DECI_1_POT = (uint16_t)(POT_cien);
-[e = _DECI_1_POT -> _POT_cien `ui ]
-"224
-[; ;MASTER_Proyecto.c: 224:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
-[e = _POT_D2 -> % _DECI_1_POT -> -> -> 10 `i `uc `ui `uc ]
-"226
-[; ;MASTER_Proyecto.c: 226:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
-[e = _DECI_2_POT / _DECI_1_POT -> -> 10 `i `ui ]
-"227
-[; ;MASTER_Proyecto.c: 227:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
-[e = _POT_D1 -> % _DECI_2_POT -> -> -> 10 `i `uc `ui `uc ]
-"229
-[; ;MASTER_Proyecto.c: 229:         TEMP_EN_1 = (uint16_t)((DECI_2_POT)/((uint16_t)10));
-[e = _TEMP_EN_1 -> / _DECI_2_POT -> -> 10 `i `ui `uc ]
-"230
-[; ;MASTER_Proyecto.c: 230:         TEMP_EN = (uint8_t)((TEMP_EN_1)%((uint8_t)10));
-[e = _TEMP_EN -> % -> _TEMP_EN_1 `i -> -> -> 10 `i `uc `i `uc ]
-"234
-[; ;MASTER_Proyecto.c: 234:         LCD_POINT(2,0);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-"235
-[; ;MASTER_Proyecto.c: 235:         lcd_dwr(Val_STR(TEMP_EN));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _TEMP_EN ]
-"237
-[; ;MASTER_Proyecto.c: 237:         LCD_POINT(2,1);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"238
-[; ;MASTER_Proyecto.c: 238:         lcd_dwr(Val_STR(POT_D1));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D1 ]
-"240
-[; ;MASTER_Proyecto.c: 240:         LCD_POINT(2,3);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
-"241
-[; ;MASTER_Proyecto.c: 241:         lcd_dwr(Val_STR(POT_D2));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D2 ]
-"246
-[; ;MASTER_Proyecto.c: 246:         RES_cien = (float)((ADC_PESO_V)*((float)100));
-[e = _RES_cien * _ADC_PESO_V -> -> 100 `i `f ]
-"247
-[; ;MASTER_Proyecto.c: 247:         DECI_1_RES = (uint16_t)(RES_cien);
-[e = _DECI_1_RES -> _RES_cien `ui ]
-"248
-[; ;MASTER_Proyecto.c: 248:         RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
-[e = _RES_D2 -> % _DECI_1_RES -> -> -> 10 `i `uc `ui `uc ]
-"250
-[; ;MASTER_Proyecto.c: 250:         DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
-[e = _DECI_2_RES / _DECI_1_RES -> -> 10 `i `ui ]
-"251
-[; ;MASTER_Proyecto.c: 251:         RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
-[e = _RES_D1 -> % _DECI_2_RES -> -> -> 10 `i `uc `ui `uc ]
-"257
-[; ;MASTER_Proyecto.c: 257:         LCD_POINT(2,9);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 9 `i `uc ]
-"258
-[; ;MASTER_Proyecto.c: 258:         lcd_dwr(Val_STR(RES_D1));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D1 ]
-"260
-[; ;MASTER_Proyecto.c: 260:         LCD_POINT(2,10);
-[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
-"261
-[; ;MASTER_Proyecto.c: 261:         lcd_dwr(Val_STR(RES_D2));
-[e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D2 ]
-"263
-[; ;MASTER_Proyecto.c: 263:         _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"265
-[; ;MASTER_Proyecto.c: 265:         lcd_cmd(0x01);
-[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"270
-[; ;MASTER_Proyecto.c: 270:         if (Val_INT == 0 || Val_MOV == 1 || Val_VIB == 1 ){
-[e $ ! || || == -> _Val_INT `i -> 0 `i == -> _Val_MOV `i -> 1 `i == -> _Val_VIB `i -> 1 `i 148  ]
+[; ;MASTER_Proyecto.c: 222:         if (Val_VIB == 1){
+[e $ ! == -> _Val_VIB `i -> 1 `i 148  ]
 {
-"271
-[; ;MASTER_Proyecto.c: 271:             estado = 1;
-[e = _estado -> -> 1 `i `uc ]
-"272
-[; ;MASTER_Proyecto.c: 272:         }else{
+"223
+[; ;MASTER_Proyecto.c: 223:             LCD_POINT(2,10);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+"224
+[; ;MASTER_Proyecto.c: 224:             lcd_msg("ON");
+[e ( _lcd_msg (1 :s 8C ]
+"225
+[; ;MASTER_Proyecto.c: 225:         }else{
 }
 [e $U 149  ]
 [e :U 148 ]
 {
-"273
-[; ;MASTER_Proyecto.c: 273:             estado = 0;
-[e = _estado -> -> 0 `i `uc ]
-"274
-[; ;MASTER_Proyecto.c: 274:         }
+"226
+[; ;MASTER_Proyecto.c: 226:             LCD_POINT(2,10);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+"227
+[; ;MASTER_Proyecto.c: 227:             lcd_msg("OFF");
+[e ( _lcd_msg (1 :s 9C ]
+"228
+[; ;MASTER_Proyecto.c: 228:         }
 }
 [e :U 149 ]
-"276
-[; ;MASTER_Proyecto.c: 276:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
+"229
+[; ;MASTER_Proyecto.c: 229:         _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"234
+[; ;MASTER_Proyecto.c: 234:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"236
+[; ;MASTER_Proyecto.c: 236:         LCD_POINT(1,2);
+[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
+"237
+[; ;MASTER_Proyecto.c: 237:         lcd_msg("TEMP");
+[e ( _lcd_msg (1 :s 10C ]
+"238
+[; ;MASTER_Proyecto.c: 238:         LCD_POINT(1,8);
+[e ( _LCD_POINT (2 , -> -> 1 `i `uc -> -> 8 `i `uc ]
+"239
+[; ;MASTER_Proyecto.c: 239:         lcd_msg("PESO");
+[e ( _lcd_msg (1 :s 11C ]
+"242
+[; ;MASTER_Proyecto.c: 242:         LCD_POINT(2,2);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"243
+[; ;MASTER_Proyecto.c: 243:         lcd_dwr('.');
+[e ( _lcd_dwr (1 -> -> 46 `ui `uc ]
+"245
+[; ;MASTER_Proyecto.c: 245:         LCD_POINT(2,4);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
+"246
+[; ;MASTER_Proyecto.c: 246:         lcd_dwr(0b11011111);
+[e ( _lcd_dwr (1 -> -> 223 `i `uc ]
+"247
+[; ;MASTER_Proyecto.c: 247:         LCD_POINT(2,5);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 5 `i `uc ]
+"248
+[; ;MASTER_Proyecto.c: 248:         lcd_dwr('C');
+[e ( _lcd_dwr (1 -> -> 67 `ui `uc ]
+"249
+[; ;MASTER_Proyecto.c: 249:         LCD_POINT(2,11);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 11 `i `uc ]
+"250
+[; ;MASTER_Proyecto.c: 250:         lcd_dwr('g');
+[e ( _lcd_dwr (1 -> -> 103 `ui `uc ]
+"258
+[; ;MASTER_Proyecto.c: 258:         K = 1.00/(invT0 + invBeta*(log(adcMax/(float)Val_TEMP - 1.00)));
+[e = _K -> / .1.00 + -> _invT0 `d * -> _invBeta `d ( _log (1 - -> / _adcMax -> _Val_TEMP `f `d .1.00 `f ]
+"259
+[; ;MASTER_Proyecto.c: 259:         C = K - 273.15;
+[e = _C -> - -> _K `d .273.15 `f ]
+"261
+[; ;MASTER_Proyecto.c: 261:         ADC_PESO_V = (float)((Val_PESO)/((float)300));
+[e = _ADC_PESO_V / -> -> _Val_PESO `i `f -> -> 300 `i `f ]
+"265
+[; ;MASTER_Proyecto.c: 265:         POT_cien = (float)((C)*((float)10));
+[e = _POT_cien * _C -> -> 10 `i `f ]
+"266
+[; ;MASTER_Proyecto.c: 266:         DECI_1_POT = (uint16_t)(POT_cien);
+[e = _DECI_1_POT -> _POT_cien `ui ]
+"267
+[; ;MASTER_Proyecto.c: 267:         POT_D2 = (uint8_t)((DECI_1_POT)%((uint8_t)10));
+[e = _POT_D2 -> % _DECI_1_POT -> -> -> 10 `i `uc `ui `uc ]
+"269
+[; ;MASTER_Proyecto.c: 269:         DECI_2_POT = (uint16_t)((DECI_1_POT)/((uint16_t)10));
+[e = _DECI_2_POT / _DECI_1_POT -> -> 10 `i `ui ]
+"270
+[; ;MASTER_Proyecto.c: 270:         POT_D1 = (uint8_t)((DECI_2_POT)%((uint8_t)10));
+[e = _POT_D1 -> % _DECI_2_POT -> -> -> 10 `i `uc `ui `uc ]
+"272
+[; ;MASTER_Proyecto.c: 272:         TEMP_EN_1 = (uint16_t)((DECI_2_POT)/((uint16_t)10));
+[e = _TEMP_EN_1 -> / _DECI_2_POT -> -> 10 `i `ui `uc ]
+"273
+[; ;MASTER_Proyecto.c: 273:         TEMP_EN = (uint8_t)((TEMP_EN_1)%((uint8_t)10));
+[e = _TEMP_EN -> % -> _TEMP_EN_1 `i -> -> -> 10 `i `uc `i `uc ]
 "277
-[; ;MASTER_Proyecto.c: 277:         I2C_Master_Write(0x80);
-[e ( _I2C_Master_Write (1 -> -> 128 `i `ui ]
+[; ;MASTER_Proyecto.c: 277:         LCD_POINT(2,0);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
 "278
-[; ;MASTER_Proyecto.c: 278:         I2C_Master_Write(estado);
-[e ( _I2C_Master_Write (1 -> _estado `ui ]
-"279
-[; ;MASTER_Proyecto.c: 279:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
+[; ;MASTER_Proyecto.c: 278:         lcd_dwr(Val_STR(TEMP_EN));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _TEMP_EN ]
 "280
-[; ;MASTER_Proyecto.c: 280:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"287
-[; ;MASTER_Proyecto.c: 287:         UART_Write(Val_INT);
-[e ( _UART_Write (1 -> _Val_INT `uc ]
-"288
-[; ;MASTER_Proyecto.c: 288:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"292
-[; ;MASTER_Proyecto.c: 292:         UART_Write(Val_MOV);
-[e ( _UART_Write (1 -> _Val_MOV `uc ]
+[; ;MASTER_Proyecto.c: 280:         LCD_POINT(2,1);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"281
+[; ;MASTER_Proyecto.c: 281:         lcd_dwr(Val_STR(POT_D1));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D1 ]
+"283
+[; ;MASTER_Proyecto.c: 283:         LCD_POINT(2,3);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"284
+[; ;MASTER_Proyecto.c: 284:         lcd_dwr(Val_STR(POT_D2));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _POT_D2 ]
+"289
+[; ;MASTER_Proyecto.c: 289:         RES_cien = (float)((ADC_PESO_V)*((float)100));
+[e = _RES_cien * _ADC_PESO_V -> -> 100 `i `f ]
+"290
+[; ;MASTER_Proyecto.c: 290:         DECI_1_RES = (uint16_t)(RES_cien);
+[e = _DECI_1_RES -> _RES_cien `ui ]
+"291
+[; ;MASTER_Proyecto.c: 291:         RES_D2 = (uint8_t)((DECI_1_RES)%((uint8_t)10));
+[e = _RES_D2 -> % _DECI_1_RES -> -> -> 10 `i `uc `ui `uc ]
 "293
-[; ;MASTER_Proyecto.c: 293:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"297
-[; ;MASTER_Proyecto.c: 297:         UART_Write(Val_VIB);
-[e ( _UART_Write (1 -> _Val_VIB `uc ]
-"298
-[; ;MASTER_Proyecto.c: 298:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"302
-[; ;MASTER_Proyecto.c: 302:         UART_Write(Val_TEMP);
-[e ( _UART_Write (1 -> _Val_TEMP `uc ]
+[; ;MASTER_Proyecto.c: 293:         DECI_2_RES = (uint16_t)((DECI_1_RES)/((uint16_t)10));
+[e = _DECI_2_RES / _DECI_1_RES -> -> 10 `i `ui ]
+"294
+[; ;MASTER_Proyecto.c: 294:         RES_D1 = (uint8_t)((DECI_2_RES)%((uint8_t)10));
+[e = _RES_D1 -> % _DECI_2_RES -> -> -> 10 `i `uc `ui `uc ]
+"300
+[; ;MASTER_Proyecto.c: 300:         LCD_POINT(2,9);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 9 `i `uc ]
+"301
+[; ;MASTER_Proyecto.c: 301:         lcd_dwr(Val_STR(RES_D1));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D1 ]
 "303
-[; ;MASTER_Proyecto.c: 303:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"307
-[; ;MASTER_Proyecto.c: 307:         UART_Write(Val_PESO);
-[e ( _UART_Write (1 -> _Val_PESO `uc ]
+[; ;MASTER_Proyecto.c: 303:         LCD_POINT(2,10);
+[e ( _LCD_POINT (2 , -> -> 2 `i `uc -> -> 10 `i `uc ]
+"304
+[; ;MASTER_Proyecto.c: 304:         lcd_dwr(Val_STR(RES_D2));
+[e ( _lcd_dwr (1 ( _Val_STR (1 _RES_D2 ]
+"306
+[; ;MASTER_Proyecto.c: 306:         _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "308
-[; ;MASTER_Proyecto.c: 308:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;MASTER_Proyecto.c: 308:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
 "309
 [; ;MASTER_Proyecto.c: 309:     }
 }

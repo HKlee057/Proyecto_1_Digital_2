@@ -2864,7 +2864,63 @@ void main(void) {
         Val_TEMP = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(8000000/4000.0)));
-# 159 "MASTER_Proyecto.c"
+
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0xE1);
+        Val_PESO = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+
+
+
+        if (Val_VIB == 1 ){
+            estado = 0;
+        }else{
+            estado = 1;
+        }
+
+        I2C_Master_Start();
+        I2C_Master_Write(0x80);
+        I2C_Master_Write(estado);
+        I2C_Master_Stop();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+
+
+
+
+
+        UART_Write(Val_INT);
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_MOV);
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_VIB);
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_TEMP);
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_PESO);
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+
+
+
+
         if (Val_INT == 1){
             LCD_POINT(2,2);
             lcd_msg("OFF");
@@ -2972,49 +3028,6 @@ void main(void) {
         _delay((unsigned long)((2000)*(8000000/4000.0)));
 
         lcd_cmd(0x01);
-
-
-
-
-        if (Val_INT == 0 || Val_MOV == 1 || Val_VIB == 1 ){
-            estado = 1;
-        }else{
-            estado = 0;
-        }
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x80);
-        I2C_Master_Write(estado);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-
-
-
-
-
-        UART_Write(Val_INT);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_MOV);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_VIB);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_TEMP);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_PESO);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
     }
     return;
 }

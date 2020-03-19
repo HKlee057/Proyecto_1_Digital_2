@@ -235,6 +235,8 @@
 [v _Val_VIB Val_VIB `uc  1 e 1 0 ]
 "51
 [v _Val_TEMP Val_TEMP `uc  1 e 1 0 ]
+"52
+[v _Val_PESO Val_PESO `uc  1 e 1 0 ]
 "55
 [v _ADC_PESO_V ADC_PESO_V `f  1 e 4 0 ]
 "56

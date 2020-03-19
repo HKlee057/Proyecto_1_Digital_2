@@ -2712,6 +2712,8 @@ uint8_t z;
 uint8_t estado;
 uint8_t sensor_signal;
 uint16_t move_servo;
+char n=0;
+char m=0;
 char k=0;
 char j=0;
 
@@ -2769,40 +2771,44 @@ void main(void) {
     while (1){
         if(PORTD == 1){
             PORTBbits.RB0 = 1;
-            if(PORTEbits.RE1 == 1){
-                for(k=0;k<250;k++){
-                    PORTA = 0b00000001;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA = 0b00000011;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA = 0b00000010;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA = 0b00000110;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA = 0b00001000;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA = 0B00001001;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
+            if(PORTEbits.RE2 == 1){
+                for (n=0;n<=20;n++){
+                    for(k=0;k<250;k++){
+                        PORTA = 0b00000001;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA = 0b00000011;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA = 0b00000010;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA = 0b00000110;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA = 0b00001000;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA = 0B00001001;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                    }
                 }
             }
-            if(PORTEbits.RE2 == 1){
-                for(j=0;j<250;j++){
-                    PORTA=0b00001001;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA=0b00001000;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA=0b00001100;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA=0b00000100;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA=0b00000110;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA=0b00000010;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA=0b00000011;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
-                    PORTA=0b00000001;
-                    _delay((unsigned long)((3)*(8000000/4000.0)));
+            if(PORTEbits.RE1 == 1){
+                for(m=0;m<=18;m++){
+                    for(j=0;j<250;j++){
+                        PORTA=0b00001001;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA=0b00001000;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA=0b00001100;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA=0b00000100;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA=0b00000110;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA=0b00000010;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA=0b00000011;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                        PORTA=0b00000001;
+                        _delay((unsigned long)((3)*(8000000/4000.0)));
+                    }
                 }
             }
         }else{
