@@ -14,7 +14,7 @@ spi = spidev.SpiDev()
 #especificamos a qie slave nos vamos a comunicar
 spi.open(0,0)
 # especificamos velocidad de comunicacion
-spi.max_speed_hz = 500000
+spi.max_speed_hz = 976000
 #Definimos el modo del SPI
 #spi.mode = 0b00
 
@@ -22,11 +22,11 @@ spi.max_speed_hz = 500000
 # Set to your Adafruit IO key.
 # Remember, your key is a secret,
 # so make sure not to publish it when you publish this code!
-ADAFRUIT_IO_KEY = 'aio_PhrT058EkGgMuTz7BGxpuEFYoZ20'
+ADAFRUIT_IO_KEY = 'aio_mhCb28hw0s4uJXue0M9rkiHjLwpj'
 
 # Set to your Adafruit IO username.
 # (go to https://accounts.adafruit.com to find your username)
-ADAFRUIT_IO_USERNAME = 'JuanDiego979'
+ADAFRUIT_IO_USERNAME = 'hakleeg'
 
 
 # Define callback functions which will be called when certain events happen.
@@ -37,10 +37,11 @@ def connected(client):
     # calls against it easily.
     print('Connected to Adafruit IO!  Listening for DemoFeed changes...')
     # Subscribe to changes on a feed named DemoFeed.
-    #client.subscribe('Presión')
-    #client.subscribe('Temperatura')
-    #client.subscribe('Humedad')
-    client.subscribe('LUZ2')
+    client.subscribe('Project_S1_Interrupcion')
+    client.subscribe('Project_S2_Movimiento')
+    client.subscribe('Project_S3_Vibracion')
+    client.subscribe('Project_S4_Temperatura')
+    client.subscribe('Project_S5_Peso')
 
 def disconnected(client):
     # Disconnected function will be called when the client disconnects.
@@ -92,10 +93,31 @@ while True:
 
     #value = random.randint(0, 100)
     #print('Publishing {0} to DemoFeed.'.format(value))
+    #Sensor de Interrupcion
     value = spi.xfer([0x00])
     byte = bin(value[0])[2:].rjust(8,'0')
-    client.publish('LUZ2', value)
-    time.sleep(10)
+    client.publish('Project_S1_Interrupcion', byte)
+    time.sleep(2)
+    #Sensor de Movimiento
+    value = spi.xfer([0x00])
+    byte = bin(value[0])[2:].rjust(8,'0')
+    client.publish('Project_S2_Movimiento', byte)
+    time.sleep(2)
+    #Sensor de Movimiento
+    value = spi.xfer([0x00])
+    byte = bin(value[0])[2:].rjust(8,'0')
+    client.publish('Project_S3_Vibracion', byte)
+    time.sleep(2)
+    #Sensor de Movimiento
+    value = spi.xfer([0x00])
+    byte = bin(value[0])[2:].rjust(8,'0')
+    client.publish('Project_S4_Temperatura', byte)
+    time.sleep(2)
+    #Sensor de Movimiento
+    value = spi.xfer([0x00])
+    byte = bin(value[0])[2:].rjust(8,'0')
+    client.publish('Project_S5_Peso', byte)
+    time.sleep(2)
 
 # Another option is to pump the message loop yourself by periodically calling
 # the client loop function.  Notice how the loop below changes to call loop
