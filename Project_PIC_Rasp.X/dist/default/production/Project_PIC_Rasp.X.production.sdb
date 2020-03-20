@@ -1,0 +1,323 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 0 ]
+"10 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/SPI.c
+[e E1264 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1272 . `uc
+SPI_DATA_SAMPLE_MIDDLE 0
+SPI_DATA_SAMPLE_END 128
+]
+[e E1276 . `uc
+SPI_CLOCK_IDLE_HIGH 16
+SPI_CLOCK_IDLE_LOW 0
+]
+[e E1280 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
+"95 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+[e E1304 . `uc
+SPI_MASTER_OSC_DIV4 32
+SPI_MASTER_OSC_DIV16 33
+SPI_MASTER_OSC_DIV64 34
+SPI_MASTER_TMR2 35
+SPI_SLAVE_SS_EN 36
+SPI_SLAVE_SS_DIS 37
+]
+[e E1312 . `uc
+SPI_DATA_SAMPLE_MIDDLE 0
+SPI_DATA_SAMPLE_END 128
+]
+[e E1316 . `uc
+SPI_CLOCK_IDLE_HIGH 16
+SPI_CLOCK_IDLE_LOW 0
+]
+[e E1320 . `uc
+SPI_IDLE_2_ACTIVE 0
+SPI_ACTIVE_2_IDLE 64
+]
+"8 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/Oscilador.c
+[v _initOsc initOsc `(v  1 e 1 0 ]
+"10 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/SPI.c
+[v _spiInit spiInit `(v  1 e 1 0 ]
+"27
+[v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
+"32
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"52 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+[v _main main `(v  1 e 1 0 ]
+"84
+[v _init init `(v  1 e 1 0 ]
+"18 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\UART.c
+[v _UART_Init UART_Init `(uc  1 e 1 0 ]
+"34
+[v _UART_Read UART_Read `(uc  1 e 1 0 ]
+[s S379 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[s S388 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S393 . 1 `S379 1 . 1 0 `S388 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES393  1 e 1 @11 ]
+[s S270 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S278 . 1 `S270 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES278  1 e 1 @12 ]
+"843
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"850
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+[s S226 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1068
+[s S235 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S239 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S242 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S245 . 1 `S226 1 . 1 0 `S235 1 . 1 0 `S239 1 . 1 0 `S242 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES245  1 e 1 @24 ]
+"1133
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1140
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1416
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1540
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1602
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S337 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"1619
+[u S346 . 1 `S337 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES346  1 e 1 @136 ]
+[s S360 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S368 . 1 `S360 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES368  1 e 1 @140 ]
+[s S22 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1882
+[s S28 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S33 . 1 `S22 1 . 1 0 `S28 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES33  1 e 1 @143 ]
+"2177
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S79 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"2231
+[s S88 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S93 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S99 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S104 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S109 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S114 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S119 . 1 `S79 1 . 1 0 `S88 1 . 1 0 `S93 1 . 1 0 `S99 1 . 1 0 `S104 1 . 1 0 `S109 1 . 1 0 `S114 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES119  1 e 1 @148 ]
+[s S189 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2582
+[s S198 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S202 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S205 . 1 `S189 1 . 1 0 `S198 1 . 1 0 `S202 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES205  1 e 1 @152 ]
+"2642
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3449
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"4457
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"4463
+[v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
+"44 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+[v _Sens_INT Sens_INT `uc  1 e 1 0 ]
+"45
+[v _Sens_MOV Sens_MOV `uc  1 e 1 0 ]
+"46
+[v _Sens_VIB Sens_VIB `uc  1 e 1 0 ]
+"47
+[v _Sens_TEMP Sens_TEMP `uc  1 e 1 0 ]
+"48
+[v _Sens_PESO Sens_PESO `uc  1 e 1 0 ]
+"52
+[v _main main `(v  1 e 1 0 ]
+{
+"82
+} 0
+"32 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/SPI.c
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
+{
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+"34
+[v spiWrite@dat dat `uc  1 a 1 0 ]
+"35
+} 0
+"8 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/Oscilador.c
+[v _initOsc initOsc `(v  1 e 1 0 ]
+{
+[v initOsc@frec frec `uc  1 a 1 wreg ]
+[v initOsc@frec frec `uc  1 a 1 wreg ]
+[v initOsc@frec frec `uc  1 a 1 2 ]
+"58
+} 0
+"84 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+[v _init init `(v  1 e 1 0 ]
+{
+"96
+} 0
+"10 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/SPI.c
+[v _spiInit spiInit `(v  1 e 1 0 ]
+{
+[v spiInit@sType sType `E1264  1 a 1 wreg ]
+[v spiInit@sType sType `E1264  1 a 1 wreg ]
+[v spiInit@sDataSample sDataSample `E1272  1 p 1 0 ]
+[v spiInit@sClockIdle sClockIdle `E1276  1 p 1 1 ]
+[v spiInit@sTransmitEdge sTransmitEdge `E1280  1 p 1 2 ]
+"12
+[v spiInit@sType sType `E1264  1 a 1 3 ]
+"25
+} 0
+"34 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\UART.c
+[v _UART_Read UART_Read `(uc  1 e 1 0 ]
+{
+"38
+} 0
+"18
+[v _UART_Init UART_Init `(uc  1 e 1 0 ]
+{
+[v UART_Init@baudrate baudrate `DCl  1 p 4 6 ]
+"27
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"10
+[v ___aldiv@quotient quotient `l  1 a 4 2 ]
+"11
+[v ___aldiv@sign sign `uc  1 a 1 1 ]
+[v ___aldiv@counter counter `uc  1 a 1 0 ]
+"5
+[v ___aldiv@divisor divisor `l  1 p 4 0 ]
+[v ___aldiv@dividend dividend `l  1 p 4 4 ]
+"41
+} 0
