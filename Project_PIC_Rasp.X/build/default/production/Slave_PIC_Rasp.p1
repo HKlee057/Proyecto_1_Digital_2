@@ -1,23 +1,80 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"543 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 543:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 542: typedef union {
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"47 ./SPI.h
+[; ;./SPI.h: 47: char spiRead(void);
+[v _spiRead `(uc ~T0 @X0 0 ef ]
+"45
+[; ;./SPI.h: 45: void spiWrite(char);
+[v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
+"2183 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2183:     struct {
+[s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S82 . BF UA R_nW S P D_nA CKE SMP ]
+"2193
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2193:     struct {
+[s S83 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S83 . . R . D ]
+"2199
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2199:     struct {
+[s S84 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S84 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
+"2206
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2206:     struct {
+[s S85 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S85 . . nW . nA ]
+"2212
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2212:     struct {
+[s S86 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S86 . . nWRITE . nADDRESS ]
+"2218
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2218:     struct {
+[s S87 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S87 . . R_W . D_A ]
+"2224
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2224:     struct {
+[s S88 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S88 . . READ_WRITE . DATA_ADDRESS ]
+"2182
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2182: typedef union {
+[u S81 `S82 1 `S83 1 `S84 1 `S85 1 `S86 1 `S87 1 `S88 1 ]
+[n S81 . . . . . . . . ]
+"2231
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2231: extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0x094)));
+[v _SSPSTATbits `VS81 ~T0 @X0 0 e@148 ]
+"26 ./UART.h
+[; ;./UART.h: 26: uint8_t UART_Read(void);
+[v _UART_Read `(uc ~T0 @X0 0 ef ]
 [p mainexit ]
 "19 ./Oscilador.h
 [v _initOsc `(v ~T0 @X0 0 ef1`uc ]
-"40 Slave_PIC_Rasp.c
-[; ;Slave_PIC_Rasp.c: 40: void init(void);
+"50 Slave_PIC_Rasp.c
+[; ;Slave_PIC_Rasp.c: 50: void init(void);
 [v _init `(v ~T0 @X0 0 ef ]
 "25 ./UART.h
 [; ;./UART.h: 25: uint8_t UART_Init(const long int baudrate);
 [v _UART_Init `(uc ~T0 @X0 0 ef1`Cl ]
+"228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"28 ./UART.h
+[; ;./UART.h: 28: void UART_Write(char data);
+[v _UART_Write `(v ~T0 @X0 0 ef1`uc ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
-"26 ./UART.h
-[; ;./UART.h: 26: uint8_t UART_Read(void);
-[v _UART_Read `(uc ~T0 @X0 0 ef ]
-"45 ./SPI.h
-[; ;./SPI.h: 45: void spiWrite(char);
-[v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
 "1416 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
@@ -73,8 +130,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "482
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
 [v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
-"95 Slave_PIC_Rasp.c
-[; ;Slave_PIC_Rasp.c: 95:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"169 Slave_PIC_Rasp.c
+[; ;Slave_PIC_Rasp.c: 169:     spiInit(SPI_SLAVE_SS_DIS, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E1304 32 33 34 35 36 37 .. ]
 [n E1304 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1312 0 128 .. ]
@@ -346,142 +403,387 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" EECON2 equ 018Dh ;# ">
 "11 ./Oscilador.h
 [p x FOSC = INTRC_NOCLKOUT ]
-"44 Slave_PIC_Rasp.c
-[; ;Slave_PIC_Rasp.c: 44: uint8_t Sens_INT;
+"40 Slave_PIC_Rasp.c
+[; ;Slave_PIC_Rasp.c: 40: uint8_t Sens_INT;
 [v _Sens_INT `uc ~T0 @X0 1 e ]
-"45
-[; ;Slave_PIC_Rasp.c: 45: uint8_t Sens_MOV;
+"41
+[; ;Slave_PIC_Rasp.c: 41: uint8_t Sens_MOV;
 [v _Sens_MOV `uc ~T0 @X0 1 e ]
-"46
-[; ;Slave_PIC_Rasp.c: 46: uint8_t Sens_VIB;
+"42
+[; ;Slave_PIC_Rasp.c: 42: uint8_t Sens_VIB;
 [v _Sens_VIB `uc ~T0 @X0 1 e ]
-"47
-[; ;Slave_PIC_Rasp.c: 47: uint8_t Sens_TEMP;
+"43
+[; ;Slave_PIC_Rasp.c: 43: uint8_t Sens_TEMP;
 [v _Sens_TEMP `uc ~T0 @X0 1 e ]
-"48
-[; ;Slave_PIC_Rasp.c: 48: uint8_t Sens_PESO;
+"44
+[; ;Slave_PIC_Rasp.c: 44: uint8_t Sens_PESO;
 [v _Sens_PESO `uc ~T0 @X0 1 e ]
+"45
+[; ;Slave_PIC_Rasp.c: 45: char RASPBERRY;
+[v _RASPBERRY `uc ~T0 @X0 1 e ]
+"46
+[; ;Slave_PIC_Rasp.c: 46: char S0;
+[v _S0 `uc ~T0 @X0 1 e ]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"54
+[; ;Slave_PIC_Rasp.c: 54: void __attribute__((picinterrupt(("")))) isr(void){
+[v _isr `(v ~T1 @X0 1 ef ]
+{
+[e :U _isr ]
+[f ]
+"57
+[; ;Slave_PIC_Rasp.c: 57:     if(PIR1bits.SSPIF==1){
+[e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 139  ]
+{
+"58
+[; ;Slave_PIC_Rasp.c: 58:         RASPBERRY = spiRead();
+[e = _RASPBERRY ( _spiRead ..  ]
+"60
+[; ;Slave_PIC_Rasp.c: 60:         if(RASPBERRY == 0){
+[e $ ! == -> _RASPBERRY `i -> 0 `i 140  ]
+{
+"61
+[; ;Slave_PIC_Rasp.c: 61:             spiWrite(Sens_INT);
+[e ( _spiWrite (1 -> _Sens_INT `uc ]
+"62
+[; ;Slave_PIC_Rasp.c: 62:             SSPSTATbits.BF= 0;
+[e = . . _SSPSTATbits 0 0 -> -> 0 `i `uc ]
+"63
+[; ;Slave_PIC_Rasp.c: 63:             PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"64
+[; ;Slave_PIC_Rasp.c: 64:           return;
+[e $UE 138  ]
+"65
+[; ;Slave_PIC_Rasp.c: 65:         }
+}
+[e :U 140 ]
+"66
+[; ;Slave_PIC_Rasp.c: 66:         if(RASPBERRY == 1){
+[e $ ! == -> _RASPBERRY `i -> 1 `i 141  ]
+{
+"67
+[; ;Slave_PIC_Rasp.c: 67:             spiWrite(Sens_MOV);
+[e ( _spiWrite (1 -> _Sens_MOV `uc ]
+"68
+[; ;Slave_PIC_Rasp.c: 68:             SSPSTATbits.BF= 0;
+[e = . . _SSPSTATbits 0 0 -> -> 0 `i `uc ]
+"69
+[; ;Slave_PIC_Rasp.c: 69:             PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"70
+[; ;Slave_PIC_Rasp.c: 70:           return;
+[e $UE 138  ]
+"71
+[; ;Slave_PIC_Rasp.c: 71:         }
+}
+[e :U 141 ]
+"72
+[; ;Slave_PIC_Rasp.c: 72:         if(RASPBERRY == 2){
+[e $ ! == -> _RASPBERRY `i -> 2 `i 142  ]
+{
+"73
+[; ;Slave_PIC_Rasp.c: 73:             spiWrite(Sens_VIB);
+[e ( _spiWrite (1 -> _Sens_VIB `uc ]
+"74
+[; ;Slave_PIC_Rasp.c: 74:             SSPSTATbits.BF= 0;
+[e = . . _SSPSTATbits 0 0 -> -> 0 `i `uc ]
+"75
+[; ;Slave_PIC_Rasp.c: 75:             PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"76
+[; ;Slave_PIC_Rasp.c: 76:           return;
+[e $UE 138  ]
+"77
+[; ;Slave_PIC_Rasp.c: 77:         }
+}
+[e :U 142 ]
+"78
+[; ;Slave_PIC_Rasp.c: 78:         if(RASPBERRY == 3){
+[e $ ! == -> _RASPBERRY `i -> 3 `i 143  ]
+{
+"79
+[; ;Slave_PIC_Rasp.c: 79:             spiWrite(Sens_TEMP);
+[e ( _spiWrite (1 -> _Sens_TEMP `uc ]
+"80
+[; ;Slave_PIC_Rasp.c: 80:             SSPSTATbits.BF= 0;
+[e = . . _SSPSTATbits 0 0 -> -> 0 `i `uc ]
+"81
+[; ;Slave_PIC_Rasp.c: 81:             PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"82
+[; ;Slave_PIC_Rasp.c: 82:           return;
+[e $UE 138  ]
+"83
+[; ;Slave_PIC_Rasp.c: 83:         }
+}
+[e :U 143 ]
+"84
+[; ;Slave_PIC_Rasp.c: 84:         if(RASPBERRY == 4){
+[e $ ! == -> _RASPBERRY `i -> 4 `i 144  ]
+{
+"85
+[; ;Slave_PIC_Rasp.c: 85:             spiWrite(Sens_PESO);
+[e ( _spiWrite (1 -> _Sens_PESO `uc ]
+"86
+[; ;Slave_PIC_Rasp.c: 86:             SSPSTATbits.BF= 0;
+[e = . . _SSPSTATbits 0 0 -> -> 0 `i `uc ]
+"87
+[; ;Slave_PIC_Rasp.c: 87:             PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"88
+[; ;Slave_PIC_Rasp.c: 88:           return;
+[e $UE 138  ]
+"89
+[; ;Slave_PIC_Rasp.c: 89:         }
+}
+[e :U 144 ]
+"91
+[; ;Slave_PIC_Rasp.c: 91:           SSPSTATbits.BF= 0;
+[e = . . _SSPSTATbits 0 0 -> -> 0 `i `uc ]
+"92
+[; ;Slave_PIC_Rasp.c: 92:           PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"93
+[; ;Slave_PIC_Rasp.c: 93:         return;
+[e $UE 138  ]
+"94
+[; ;Slave_PIC_Rasp.c: 94:     }
+}
+[e :U 139 ]
+"95
+[; ;Slave_PIC_Rasp.c: 95:     if(PIR1bits.RCIF == 1){
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 145  ]
+{
+"96
+[; ;Slave_PIC_Rasp.c: 96:         if(S0 == 0){
+[e $ ! == -> _S0 `i -> 0 `i 146  ]
+{
+"97
+[; ;Slave_PIC_Rasp.c: 97:         Sens_INT= UART_Read();
+[e = _Sens_INT ( _UART_Read ..  ]
+"98
+[; ;Slave_PIC_Rasp.c: 98:         PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"99
+[; ;Slave_PIC_Rasp.c: 99:         S0=1;
+[e = _S0 -> -> 1 `i `uc ]
+"100
+[; ;Slave_PIC_Rasp.c: 100:         return;
+[e $UE 138  ]
+"101
+[; ;Slave_PIC_Rasp.c: 101:         }
+}
+[e :U 146 ]
+"102
+[; ;Slave_PIC_Rasp.c: 102:          if(S0 == 1){
+[e $ ! == -> _S0 `i -> 1 `i 147  ]
+{
+"103
+[; ;Slave_PIC_Rasp.c: 103:         Sens_MOV= UART_Read();
+[e = _Sens_MOV ( _UART_Read ..  ]
+"104
+[; ;Slave_PIC_Rasp.c: 104:         PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"105
+[; ;Slave_PIC_Rasp.c: 105:         S0=2;
+[e = _S0 -> -> 2 `i `uc ]
+"106
+[; ;Slave_PIC_Rasp.c: 106:         return;
+[e $UE 138  ]
+"107
+[; ;Slave_PIC_Rasp.c: 107:         }
+}
+[e :U 147 ]
+"108
+[; ;Slave_PIC_Rasp.c: 108:          if(S0 == 2){
+[e $ ! == -> _S0 `i -> 2 `i 148  ]
+{
+"109
+[; ;Slave_PIC_Rasp.c: 109:         Sens_VIB = UART_Read();
+[e = _Sens_VIB ( _UART_Read ..  ]
+"110
+[; ;Slave_PIC_Rasp.c: 110:         PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"111
+[; ;Slave_PIC_Rasp.c: 111:         S0=3;
+[e = _S0 -> -> 3 `i `uc ]
+"112
+[; ;Slave_PIC_Rasp.c: 112:         return;
+[e $UE 138  ]
+"113
+[; ;Slave_PIC_Rasp.c: 113:         }
+}
+[e :U 148 ]
+"114
+[; ;Slave_PIC_Rasp.c: 114:          if(S0 == 3){
+[e $ ! == -> _S0 `i -> 3 `i 149  ]
+{
+"115
+[; ;Slave_PIC_Rasp.c: 115:         Sens_TEMP = UART_Read();
+[e = _Sens_TEMP ( _UART_Read ..  ]
+"116
+[; ;Slave_PIC_Rasp.c: 116:         PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"117
+[; ;Slave_PIC_Rasp.c: 117:         S0=4;
+[e = _S0 -> -> 4 `i `uc ]
+"118
+[; ;Slave_PIC_Rasp.c: 118:         return;
+[e $UE 138  ]
+"119
+[; ;Slave_PIC_Rasp.c: 119:         }
+}
+[e :U 149 ]
+"120
+[; ;Slave_PIC_Rasp.c: 120:          if(S0 == 4){
+[e $ ! == -> _S0 `i -> 4 `i 150  ]
+{
+"121
+[; ;Slave_PIC_Rasp.c: 121:         Sens_PESO= UART_Read();
+[e = _Sens_PESO ( _UART_Read ..  ]
+"122
+[; ;Slave_PIC_Rasp.c: 122:         PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"123
+[; ;Slave_PIC_Rasp.c: 123:         S0 = 0;
+[e = _S0 -> -> 0 `i `uc ]
+"124
+[; ;Slave_PIC_Rasp.c: 124:         return;
+[e $UE 138  ]
+"125
+[; ;Slave_PIC_Rasp.c: 125:         }
+}
+[e :U 150 ]
+"126
+[; ;Slave_PIC_Rasp.c: 126:     }
+}
+[e :U 145 ]
+"127
+[; ;Slave_PIC_Rasp.c: 127:     PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"128
+[; ;Slave_PIC_Rasp.c: 128:     return;
+[e $UE 138  ]
+"130
+[; ;Slave_PIC_Rasp.c: 130: }
+[e :UE 138 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"52
-[; ;Slave_PIC_Rasp.c: 52: void main(void) {
+"134
+[; ;Slave_PIC_Rasp.c: 134: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"53
-[; ;Slave_PIC_Rasp.c: 53:     initOsc(7);
+"135
+[; ;Slave_PIC_Rasp.c: 135:     initOsc(7);
 [e ( _initOsc (1 -> -> 7 `i `uc ]
-"54
-[; ;Slave_PIC_Rasp.c: 54:     init();
+"136
+[; ;Slave_PIC_Rasp.c: 136:     init();
 [e ( _init ..  ]
-"55
-[; ;Slave_PIC_Rasp.c: 55:     UART_Init (9600);
+"137
+[; ;Slave_PIC_Rasp.c: 137:     UART_Init (9600);
 [e ( _UART_Init (1 -> -> 9600 `i `l ]
-"57
-[; ;Slave_PIC_Rasp.c: 57:     while(1){
-[e :U 140 ]
+"139
+[; ;Slave_PIC_Rasp.c: 139:     while(1){
+[e :U 153 ]
 {
-"59
-[; ;Slave_PIC_Rasp.c: 59:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"60
-[; ;Slave_PIC_Rasp.c: 60:         Sens_INT = UART_Read();
-[e = _Sens_INT ( _UART_Read ..  ]
-"61
-[; ;Slave_PIC_Rasp.c: 61:         spiWrite(Sens_INT);
-[e ( _spiWrite (1 -> _Sens_INT `uc ]
-"62
-[; ;Slave_PIC_Rasp.c: 62:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"64
-[; ;Slave_PIC_Rasp.c: 64:         Sens_MOV = UART_Read();
-[e = _Sens_MOV ( _UART_Read ..  ]
-"65
-[; ;Slave_PIC_Rasp.c: 65:         spiWrite(Sens_MOV);
-[e ( _spiWrite (1 -> _Sens_MOV `uc ]
-"66
-[; ;Slave_PIC_Rasp.c: 66:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"68
-[; ;Slave_PIC_Rasp.c: 68:         Sens_VIB = UART_Read;
-[e = _Sens_VIB -> &U _UART_Read `uc ]
-"69
-[; ;Slave_PIC_Rasp.c: 69:         spiWrite(Sens_VIB);
-[e ( _spiWrite (1 -> _Sens_VIB `uc ]
-"70
-[; ;Slave_PIC_Rasp.c: 70:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"72
-[; ;Slave_PIC_Rasp.c: 72:         Sens_TEMP = UART_Read();
-[e = _Sens_TEMP ( _UART_Read ..  ]
-"73
-[; ;Slave_PIC_Rasp.c: 73:         spiWrite(Sens_TEMP);
-[e ( _spiWrite (1 -> _Sens_TEMP `uc ]
-"74
-[; ;Slave_PIC_Rasp.c: 74:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"76
-[; ;Slave_PIC_Rasp.c: 76:         Sens_PESO = UART_Read();
-[e = _Sens_PESO ( _UART_Read ..  ]
-"77
-[; ;Slave_PIC_Rasp.c: 77:         spiWrite(Sens_PESO);
-[e ( _spiWrite (1 -> _Sens_PESO `uc ]
-"78
-[; ;Slave_PIC_Rasp.c: 78:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"80
-[; ;Slave_PIC_Rasp.c: 80:     }
+"140
+[; ;Slave_PIC_Rasp.c: 140:         PORTB = RASPBERRY;
+[e = _PORTB -> _RASPBERRY `uc ]
+"141
+[; ;Slave_PIC_Rasp.c: 141:         UART_Write(Sens_INT);
+[e ( _UART_Write (1 -> _Sens_INT `uc ]
+"142
+[; ;Slave_PIC_Rasp.c: 142:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"143
+[; ;Slave_PIC_Rasp.c: 143:         UART_Write(Sens_MOV);
+[e ( _UART_Write (1 -> _Sens_MOV `uc ]
+"144
+[; ;Slave_PIC_Rasp.c: 144:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"145
+[; ;Slave_PIC_Rasp.c: 145:         UART_Write(Sens_VIB);
+[e ( _UART_Write (1 -> _Sens_VIB `uc ]
+"146
+[; ;Slave_PIC_Rasp.c: 146:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"147
+[; ;Slave_PIC_Rasp.c: 147:         UART_Write(Sens_TEMP);
+[e ( _UART_Write (1 -> _Sens_TEMP `uc ]
+"148
+[; ;Slave_PIC_Rasp.c: 148:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"149
+[; ;Slave_PIC_Rasp.c: 149:         UART_Write(Sens_PESO);
+[e ( _UART_Write (1 -> _Sens_PESO `uc ]
+"150
+[; ;Slave_PIC_Rasp.c: 150:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"151
+[; ;Slave_PIC_Rasp.c: 151:     }
 }
-[e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
-"81
-[; ;Slave_PIC_Rasp.c: 81:     return;
-[e $UE 138  ]
-"82
-[; ;Slave_PIC_Rasp.c: 82: }
-[e :UE 138 ]
+[e :U 152 ]
+[e $U 153  ]
+[e :U 154 ]
+"152
+[; ;Slave_PIC_Rasp.c: 152:     return;
+[e $UE 151  ]
+"153
+[; ;Slave_PIC_Rasp.c: 153: }
+[e :UE 151 ]
 }
-"84
-[; ;Slave_PIC_Rasp.c: 84: void init (void){
+"155
+[; ;Slave_PIC_Rasp.c: 155: void init (void){
 [v _init `(v ~T0 @X0 1 ef ]
 {
 [e :U _init ]
 [f ]
-"85
-[; ;Slave_PIC_Rasp.c: 85:     TRISA = 0;
+"156
+[; ;Slave_PIC_Rasp.c: 156:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"86
-[; ;Slave_PIC_Rasp.c: 86:     TRISB = 0;
+"157
+[; ;Slave_PIC_Rasp.c: 157:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"87
-[; ;Slave_PIC_Rasp.c: 87:     TRISC = 0b11010000;
+"158
+[; ;Slave_PIC_Rasp.c: 158:     TRISC = 0b11010000;
 [e = _TRISC -> -> 208 `i `uc ]
-"88
-[; ;Slave_PIC_Rasp.c: 88:     TRISD = 0;
+"159
+[; ;Slave_PIC_Rasp.c: 159:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"89
-[; ;Slave_PIC_Rasp.c: 89:     TRISDbits.TRISD1 = 0;
+"160
+[; ;Slave_PIC_Rasp.c: 160:     TRISDbits.TRISD1 = 0;
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
-"90
-[; ;Slave_PIC_Rasp.c: 90:     ANSEL = 0;
+"161
+[; ;Slave_PIC_Rasp.c: 161:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"91
-[; ;Slave_PIC_Rasp.c: 91:     ANSELH = 0;
+"162
+[; ;Slave_PIC_Rasp.c: 162:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"92
-[; ;Slave_PIC_Rasp.c: 92:     PIE1bits.RCIE = 1;
+"163
+[; ;Slave_PIC_Rasp.c: 163:     PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"93
-[; ;Slave_PIC_Rasp.c: 93:     INTCONbits.PEIE = 1;
+"164
+[; ;Slave_PIC_Rasp.c: 164:     INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"94
-[; ;Slave_PIC_Rasp.c: 94:     INTCONbits.GIE = 1;
+"165
+[; ;Slave_PIC_Rasp.c: 165:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"95
-[; ;Slave_PIC_Rasp.c: 95:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[e ( _spiInit (4 , , , . `E1304 4 . `E1312 0 . `E1316 1 . `E1320 0 ]
-"96
-[; ;Slave_PIC_Rasp.c: 96: }
-[e :UE 142 ]
+"166
+[; ;Slave_PIC_Rasp.c: 166:     PIE1bits.SSPIE = 1;
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+"167
+[; ;Slave_PIC_Rasp.c: 167:     RASPBERRY = 0;
+[e = _RASPBERRY -> -> 0 `i `uc ]
+"168
+[; ;Slave_PIC_Rasp.c: 168:     S0 = 0;
+[e = _S0 -> -> 0 `i `uc ]
+"169
+[; ;Slave_PIC_Rasp.c: 169:     spiInit(SPI_SLAVE_SS_DIS, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[e ( _spiInit (4 , , , . `E1304 5 . `E1312 0 . `E1316 1 . `E1320 0 ]
+"170
+[; ;Slave_PIC_Rasp.c: 170: }
+[e :UE 155 ]
 }

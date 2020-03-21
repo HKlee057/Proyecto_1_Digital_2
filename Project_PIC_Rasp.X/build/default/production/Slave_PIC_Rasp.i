@@ -2650,6 +2650,7 @@ typedef uint16_t uintptr_t;
 # 31 "Slave_PIC_Rasp.c" 2
 
 
+
 # 1 "./Oscilador.h" 1
 # 11 "./Oscilador.h"
 #pragma config FOSC = INTRC_NOCLKOUT
@@ -2661,7 +2662,7 @@ typedef uint16_t uintptr_t;
 
 
 void initOsc(uint8_t frec);
-# 33 "Slave_PIC_Rasp.c" 2
+# 34 "Slave_PIC_Rasp.c" 2
 
 # 1 "./UART.h" 1
 # 25 "./UART.h"
@@ -2670,7 +2671,7 @@ uint8_t UART_Read(void);
 void UART_Read_Text(char *Output, unsigned int length);
 void UART_Write(char data);
 void UART_Write_Text(char *text);
-# 34 "Slave_PIC_Rasp.c" 2
+# 35 "Slave_PIC_Rasp.c" 2
 
 # 1 "./SPI.h" 1
 # 15 "./SPI.h"
@@ -2707,13 +2708,8 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady(void);
 char spiRead(void);
-# 35 "Slave_PIC_Rasp.c" 2
+# 36 "Slave_PIC_Rasp.c" 2
 
-
-
-
-
-void init(void);
 
 
 
@@ -2722,6 +2718,92 @@ uint8_t Sens_MOV;
 uint8_t Sens_VIB;
 uint8_t Sens_TEMP;
 uint8_t Sens_PESO;
+char RASPBERRY;
+char S0;
+
+
+
+void init(void);
+
+
+
+void __attribute__((picinterrupt(("")))) isr(void){
+
+
+    if(PIR1bits.SSPIF==1){
+        RASPBERRY = spiRead();
+
+        if(RASPBERRY == 0){
+            spiWrite(Sens_INT);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 1){
+            spiWrite(Sens_MOV);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 2){
+            spiWrite(Sens_VIB);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 3){
+            spiWrite(Sens_TEMP);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 4){
+            spiWrite(Sens_PESO);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+        return;
+    }
+    if(PIR1bits.RCIF == 1){
+        if(S0 == 0){
+        Sens_INT= UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=1;
+        return;
+        }
+         if(S0 == 1){
+        Sens_MOV= UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=2;
+        return;
+        }
+         if(S0 == 2){
+        Sens_VIB = UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=3;
+        return;
+        }
+         if(S0 == 3){
+        Sens_TEMP = UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=4;
+        return;
+        }
+         if(S0 == 4){
+        Sens_PESO= UART_Read();
+        PIR1bits.RCIF = 0;
+        S0 = 0;
+        return;
+        }
+    }
+    PIR1bits.RCIF = 0;
+    return;
+
+}
 
 
 
@@ -2731,28 +2813,17 @@ void main(void) {
     UART_Init (9600);
 
     while(1){
-
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-        Sens_INT = UART_Read();
-        spiWrite(Sens_INT);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-        Sens_MOV = UART_Read();
-        spiWrite(Sens_MOV);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-        Sens_VIB = UART_Read;
-        spiWrite(Sens_VIB);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-        Sens_TEMP = UART_Read();
-        spiWrite(Sens_TEMP);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-
-        Sens_PESO = UART_Read();
-        spiWrite(Sens_PESO);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
+        PORTB = RASPBERRY;
+        UART_Write(Sens_INT);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+        UART_Write(Sens_MOV);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+        UART_Write(Sens_VIB);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+        UART_Write(Sens_TEMP);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+        UART_Write(Sens_PESO);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
     }
     return;
 }
@@ -2768,5 +2839,8 @@ void init (void){
     PIE1bits.RCIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
-    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    PIE1bits.SSPIE = 1;
+    RASPBERRY = 0;
+    S0 = 0;
+    spiInit(SPI_SLAVE_SS_DIS, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 }

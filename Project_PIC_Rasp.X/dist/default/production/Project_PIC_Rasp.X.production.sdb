@@ -24,7 +24,7 @@ SPI_CLOCK_IDLE_LOW 0
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"95 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+"169 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
 [e E1304 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -53,6 +53,8 @@ SPI_ACTIVE_2_IDLE 64
 [v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
 "32
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
+"45
+[v _spiRead spiRead `(uc  1 e 1 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
@@ -63,15 +65,21 @@ SPI_ACTIVE_2_IDLE 64
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"52 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+"54 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+[v _isr isr `II(v  1 e 1 0 ]
+"134
 [v _main main `(v  1 e 1 0 ]
-"84
+"155
 [v _init init `(v  1 e 1 0 ]
 "18 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\UART.c
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
 "34
 [v _UART_Read UART_Read `(uc  1 e 1 0 ]
-[s S379 . 1 `uc 1 RBIF 1 0 :1:0 
+"42
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
+"228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S442 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -80,14 +88,14 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"482 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[s S388 . 1 `uc 1 . 1 0 :2:0 
+"482
+[s S451 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S393 . 1 `S379 1 . 1 0 `S388 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES393  1 e 1 @11 ]
+[u S456 . 1 `S442 1 . 1 0 `S451 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES456  1 e 1 @11 ]
 [s S270 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -137,7 +145,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S337 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S400 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -147,9 +155,9 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "1619
-[u S346 . 1 `S337 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES346  1 e 1 @136 ]
-[s S360 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S409 . 1 `S400 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES409  1 e 1 @136 ]
+[s S423 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -158,8 +166,8 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S368 . 1 `S360 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES368  1 e 1 @140 ]
+[u S431 . 1 `S423 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES431  1 e 1 @140 ]
 [s S22 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
@@ -248,42 +256,37 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
 "4463
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
-"44 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+"40 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
 [v _Sens_INT Sens_INT `uc  1 e 1 0 ]
-"45
+"41
 [v _Sens_MOV Sens_MOV `uc  1 e 1 0 ]
-"46
+"42
 [v _Sens_VIB Sens_VIB `uc  1 e 1 0 ]
-"47
+"43
 [v _Sens_TEMP Sens_TEMP `uc  1 e 1 0 ]
-"48
+"44
 [v _Sens_PESO Sens_PESO `uc  1 e 1 0 ]
-"52
+"45
+[v _RASPBERRY RASPBERRY `uc  1 e 1 0 ]
+"46
+[v _S0 S0 `uc  1 e 1 0 ]
+"134
 [v _main main `(v  1 e 1 0 ]
 {
-"82
-} 0
-"32 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/SPI.c
-[v _spiWrite spiWrite `(v  1 e 1 0 ]
-{
-[v spiWrite@dat dat `uc  1 a 1 wreg ]
-[v spiWrite@dat dat `uc  1 a 1 wreg ]
-"34
-[v spiWrite@dat dat `uc  1 a 1 0 ]
-"35
+"153
 } 0
 "8 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/Oscilador.c
 [v _initOsc initOsc `(v  1 e 1 0 ]
 {
 [v initOsc@frec frec `uc  1 a 1 wreg ]
 [v initOsc@frec frec `uc  1 a 1 wreg ]
-[v initOsc@frec frec `uc  1 a 1 2 ]
+[v initOsc@frec frec `uc  1 a 1 4 ]
 "58
 } 0
-"84 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+"155 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
 [v _init init `(v  1 e 1 0 ]
 {
-"96
+"170
 } 0
 "10 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/SPI.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
@@ -294,30 +297,62 @@ SPI_ACTIVE_2_IDLE 64
 [v spiInit@sClockIdle sClockIdle `E1276  1 p 1 1 ]
 [v spiInit@sTransmitEdge sTransmitEdge `E1280  1 p 1 2 ]
 "12
-[v spiInit@sType sType `E1264  1 a 1 3 ]
+[v spiInit@sType sType `E1264  1 a 1 4 ]
 "25
 } 0
-"34 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\UART.c
-[v _UART_Read UART_Read `(uc  1 e 1 0 ]
+"42 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\UART.c
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
 {
-"38
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 4 ]
+"45
 } 0
 "18
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
 {
-[v UART_Init@baudrate baudrate `DCl  1 p 4 6 ]
+[v UART_Init@baudrate baudrate `DCl  1 p 4 14 ]
 "27
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
 "10
-[v ___aldiv@quotient quotient `l  1 a 4 2 ]
+[v ___aldiv@quotient quotient `l  1 a 4 10 ]
 "11
-[v ___aldiv@sign sign `uc  1 a 1 1 ]
-[v ___aldiv@counter counter `uc  1 a 1 0 ]
+[v ___aldiv@sign sign `uc  1 a 1 9 ]
+[v ___aldiv@counter counter `uc  1 a 1 8 ]
 "5
 [v ___aldiv@divisor divisor `l  1 p 4 0 ]
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "41
+} 0
+"54 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\Slave_PIC_Rasp.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"130
+} 0
+"32 C:\Users\hecto\Documents\GitHub/Laboratorio_4/Laboratorio_4.X/SPI.c
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
+{
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+"34
+[v spiWrite@dat dat `uc  1 a 1 0 ]
+"35
+} 0
+"45
+[v _spiRead spiRead `(uc  1 e 1 0 ]
+{
+"49
+} 0
+"27
+[v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
+{
+"30
+} 0
+"34 C:\Users\hecto\Documents\GitHub\Proyecto_1_Digital_2\Project_PIC_Rasp.X\UART.c
+[v _UART_Read UART_Read `(uc  1 e 1 0 ]
+{
+"38
 } 0

@@ -29,15 +29,11 @@
 #define _XTAL_FREQ 8000000 //Se define la frecuencia del oscilador para el delay
 #include <xc.h>
 #include <stdint.h>
+#include <pic16f887.h>
 
 #include "Oscilador.h"
 #include "UART.h"
 #include "SPI.h"
-
-//******************************************************************************
-// Funciones prototipo
-//******************************************************************************
-void init(void);
 //******************************************************************************
 // Variables
 //******************************************************************************
@@ -46,6 +42,92 @@ uint8_t Sens_MOV;
 uint8_t Sens_VIB;
 uint8_t Sens_TEMP;
 uint8_t Sens_PESO;
+char RASPBERRY;
+char S0;
+//******************************************************************************
+// Funciones prototipo
+//******************************************************************************
+void init(void);
+//******************************************************************************
+// Interrupciones
+//******************************************************************************
+void __interrupt() isr(void){
+    //Interrupción del SSP
+           
+    if(PIR1bits.SSPIF==1){
+        RASPBERRY = spiRead();
+        
+        if(RASPBERRY == 0){
+            spiWrite(Sens_INT);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 1){
+            spiWrite(Sens_MOV);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 2){
+            spiWrite(Sens_VIB);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 3){
+            spiWrite(Sens_TEMP);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+        if(RASPBERRY == 4){
+            spiWrite(Sens_PESO);
+            SSPSTATbits.BF= 0;
+            PIR1bits.SSPIF = 0;
+          return;
+        }
+       
+          SSPSTATbits.BF= 0;
+          PIR1bits.SSPIF = 0;
+        return;
+    }
+    if(PIR1bits.RCIF == 1){
+        if(S0 == 0){
+        Sens_INT= UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=1;
+        return;
+        }
+         if(S0 == 1){
+        Sens_MOV= UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=2;
+        return;
+        }
+         if(S0 == 2){
+        Sens_VIB = UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=3;
+        return;
+        }
+         if(S0 == 3){
+        Sens_TEMP = UART_Read();
+        PIR1bits.RCIF = 0;
+        S0=4;
+        return;
+        }
+         if(S0 == 4){
+        Sens_PESO= UART_Read();
+        PIR1bits.RCIF = 0;
+        S0 = 0;
+        return;
+        }
+    }
+    PIR1bits.RCIF = 0;
+    return;
+   
+}
 //******************************************************************************
 //Void Principal
 //******************************************************************************
@@ -55,28 +137,17 @@ void main(void) {
     UART_Init (9600);
     
     while(1){
-        //-------------------SENSOR DE INTERRFERENCIA----------------------
-        __delay_ms(100);
-        Sens_INT = UART_Read();          //SE RECIVE EL VALOR POR UART
-        spiWrite(Sens_INT);              //SE ENVIA POR SPI 
-        __delay_ms(200);
-        //-----------------SENSOR MOVIMIENTO------------------------------
-        Sens_MOV = UART_Read();         // SE RECIVE EL VALOR POR UART
-        spiWrite(Sens_MOV);             //SE ENVIA POR SPI        
-        __delay_ms(200);
-        //----------------SENSOR DE VIBRACION------------------------------
-        Sens_VIB = UART_Read;           //SE RECIVE EL VALOR POR UART
-        spiWrite(Sens_VIB);             //SE ENVIA POR SPI
-        __delay_ms (200);
-        //------------------SENSOR DE TEMPERATURA--------------------------
-        Sens_TEMP = UART_Read();      //SE RECIVE EL VALOR POR UART
-        spiWrite(Sens_TEMP);          //SE ENVIA POR SPI
-        __delay_ms(200);
-        //------------------SENSOR DE PESO--------------------------------
-        Sens_PESO = UART_Read();        //SE RECIVE EL VALOR POR UART
-        spiWrite(Sens_PESO);            //SE ENVIA POR SPI
-        __delay_ms(100);
-        
+        PORTB = RASPBERRY;
+        UART_Write(Sens_INT);
+        __delay_ms(1);
+        UART_Write(Sens_MOV);
+        __delay_ms(1);
+        UART_Write(Sens_VIB);
+        __delay_ms(1);
+        UART_Write(Sens_TEMP);
+        __delay_ms(1);
+        UART_Write(Sens_PESO);
+        __delay_ms(1);
     }
     return;
 }
@@ -92,5 +163,8 @@ void init (void){
     PIE1bits.RCIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
-    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    PIE1bits.SSPIE = 1;
+    RASPBERRY = 0;
+    S0 = 0;
+    spiInit(SPI_SLAVE_SS_DIS, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 }
