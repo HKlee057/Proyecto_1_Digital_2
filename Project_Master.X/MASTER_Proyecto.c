@@ -167,34 +167,6 @@ void main(void) {
         __delay_ms(200);        
                
         //**********************************************************************
-        // COMUNICACIÓN UART - MANDA DATOS DE VARIABLES
-        //**********************************************************************
-        // Mandar datos de Sensor de Intereferencia
-        //**********************************************************************
-        UART_Write(Val_INT);
-        __delay_ms(100);
-        //**********************************************************************
-        // Mandar datos de Sensor de Movimiento
-        //**********************************************************************        
-        UART_Write(Val_MOV);
-        __delay_ms(100);
-        //**********************************************************************
-        // Mandar datos de Sensor de Vibración
-        //**********************************************************************        
-        UART_Write(Val_VIB);
-        __delay_ms(100);
-        //**********************************************************************
-        // Mandar datos de Sensor de Temperatura
-        //**********************************************************************        
-        UART_Write(Val_TEMP);
-        __delay_ms(100);
-        //**********************************************************************
-        // Mandar datos de Sensor de Peso
-        //**********************************************************************        
-        UART_Write(Val_PESO);
-        __delay_ms(100);
-        
-        //**********************************************************************
         // CONVERSIÓN DE DATOS LEÍDOS
         //******************************************************************************************
         // Proceso para obtener el estado del sensor de interferencia
@@ -306,6 +278,35 @@ void main(void) {
         __delay_ms(2000);
         
         lcd_cmd(0x01);
+        
+        //**********************************************************************
+        // COMUNICACIÓN UART - MANDA DATOS DE VARIABLES
+        //**********************************************************************
+        // Mandar datos de Sensor de Intereferencia
+        //**********************************************************************
+        UART_Write(Val_INT);
+        __delay_ms(1);
+        //**********************************************************************
+        // Mandar datos de Sensor de Movimiento
+        //**********************************************************************        
+        UART_Write(Val_MOV);
+        __delay_ms(1);
+        //**********************************************************************
+        // Mandar datos de Sensor de Vibración
+        //**********************************************************************        
+        UART_Write(Val_VIB);
+        __delay_ms(1);
+        //**********************************************************************
+        // Mandar datos de Sensor de Temperatura
+        //**********************************************************************        
+        UART_Write(C);
+        __delay_ms(1);
+        //**********************************************************************
+        // Mandar datos de Sensor de Peso
+        //**********************************************************************        
+        UART_Write(ADC_PESO_V);
+        __delay_ms(1);    
+        
     }   
     return;
 }
@@ -315,7 +316,7 @@ void main(void) {
 void init(void){
     TRISA = 0;                      // PORTA configurado como salida
     TRISB = 0;                      // PORTB configurado como salida
-    TRISC = 0;                      // PORTC configurado como salida
+    TRISC = 0b10000000;             // PORTC configurado como salida y RX como entrada
     TRISD = 0;                      // PORTD configurado como salida
     TRISE = 0b00000110;             // PORTE configurado como entrada en RE1 y RE2
     ANSEL = 0;                      // Pines connfigurados como digitales

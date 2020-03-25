@@ -2893,34 +2893,6 @@ void main(void) {
 
 
 
-        UART_Write(Val_INT);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_MOV);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_VIB);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_TEMP);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-        UART_Write(Val_PESO);
-        _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-
-
-
-
         if (Val_INT == 1){
             LCD_POINT(2,2);
             lcd_msg("OFF");
@@ -3028,6 +3000,35 @@ void main(void) {
         _delay((unsigned long)((2000)*(8000000/4000.0)));
 
         lcd_cmd(0x01);
+
+
+
+
+
+
+        UART_Write(Val_INT);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_MOV);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+
+
+
+        UART_Write(Val_VIB);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+
+
+
+        UART_Write(C);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+
+
+
+        UART_Write(ADC_PESO_V);
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+
     }
     return;
 }
@@ -3037,7 +3038,7 @@ void main(void) {
 void init(void){
     TRISA = 0;
     TRISB = 0;
-    TRISC = 0;
+    TRISC = 0b10000000;
     TRISD = 0;
     TRISE = 0b00000110;
     ANSEL = 0;
